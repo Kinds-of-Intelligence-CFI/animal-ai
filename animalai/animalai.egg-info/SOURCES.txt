@@ -1,0 +1,7 @@
+setup.py
+animalai.egg-info/PKG-INFO
+animalai.egg-info/SOURCES.txt
+animalai.egg-info/dependency_links.txt
+animalai.egg-info/not-zip-safe
+animalai.egg-info/requires.txt
+animalai.egg-info/top_level.txt
