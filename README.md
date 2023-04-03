@@ -17,7 +17,7 @@ The AnimalAI environment and packages are currently tested on **Windows 11**, **
 **The Unity Project** for the environment is available [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project).
 
 
-## Quick Install
+## Quick Install (please see Release for latest version of AAI-3)
 
 *see [here](docs/installationGuide.md) for a more detailed installation guide, including information on Python/pip/conda and using the command line during installation*
 
