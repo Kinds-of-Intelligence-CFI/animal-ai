@@ -4,7 +4,7 @@ Copyright © 2023 Konstantinos Voudouris (@kozzy97)
 Author: Konstantinos Voudouris
 Date: June 2023
 Python Version: 3.10.4
-Animal-AI Version: 3.0.1
+Animal-AI Version: 3.0.2
 
 """
 
