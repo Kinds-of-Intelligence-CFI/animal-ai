@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="animalai",
-    version="3.0.0",
+    version="3.0.1",
     description="Animal AI environment Python API",
     url="https://github.com/mdcrosby/animal-ai",
     author="Matt Crosby",
@@ -17,6 +17,6 @@ setup(
     ],
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     zip_safe=False,
-    install_requires=["mlagents==0.27.0"],
+    install_requires=["mlagents==0.30.0"],
     python_requires=">=3.6",
 )

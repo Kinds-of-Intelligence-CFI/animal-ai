@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: animalai
+Version: 3.0.1
+Summary: Animal AI environment Python API
+Home-page: https://github.com/mdcrosby/animal-ai
+Author: Matt Crosby
+Author-email: matt@mdcrosby.com
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6

@@ -1,6 +1,6 @@
 # AnimalAI 3
 
-AAI supports interdisciplinary research to help better understand human, animal, and artificial cognition. It aims to support AI research towards unlocking cognitive capabilities and better understanding the space of possible minds. It is designed to facilitate testing across animals, humans, and AI.
+Animal Artificial Intelligence (AAI) supports interdisciplinary research to help better understand human, animal, and artificial cognition. It aims to support AI research towards unlocking cognitive capabilities and better understanding the space of possible minds. It is designed to facilitate testing across animals, humans, and AI.
 
 | ![](docs/figs/animal-cyl-fail.gif) | ![](docs/figs/agent-cyl-fail.gif) |
 |---|---|
@@ -10,14 +10,14 @@ AAI supports interdisciplinary research to help better understand human, animal,
 
 This repo contains the AnimalAI environment, some introductory python scripts for interacting with it, as well as the [900 tasks](configs/competition) which were used in the original Animal-AI Olympics competition (and some others for demonstration purposes). Details of the tasks can be found on the [AAI website](http://animalai.org) where they can also be played and competition entries watched.
 
-The environment is built using [Unity ml-agents](https://github.com/Unity-Technologies/ml-agents/tree/master/docs) release 2.1.0-exp.1 (python version 0.27.0).
+The environment is built using [Unity ml-agents](https://github.com/Unity-Technologies/ml-agents/tree/master/docs) **Release 20-stable (Python version 0.30.0)**. **Unity** (game engine) is the engine used to develop the platform.
 
-The AnimalAI environment and packages are currently only tested on linux (Ubuntu 20.04.2 LTS) with python 3.8 but have been reported working with python 3.6+, other linux distros and Windows and Mac.
+The AnimalAI environment and packages are currently tested on **Windows 11**, **Linux**, and **Mac**, with minimum **Python 3.8.x**, but Python 3.6+ has reported to be working also. **Linux distros** are also working and stable.
 
 **The Unity Project** for the environment is available [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project).
 
 
-## Quick Install
+## Quick Install (please see Release for latest version of AAI-3)
 
 *see [here](docs/installationGuide.md) for a more detailed installation guide, including information on Python/pip/conda and using the command line during installation*
 
@@ -88,27 +88,29 @@ Further the documentation for [mlagents](https://github.com/Unity-Technologies/m
 
 ## Version History
 
+- v3.0.2
+  - Upgraded Mlagents to 2.3.0-exp3 (mlagents python version 0.30.0)
 - v3.0.1
   - Added Agent Freezing Parameter, enabling you to freeze the agent for no reward decrement at the start of an episode, while other objects continue to move around.
 - v3.0 **Note that due to the changes to controls and graphics agents trained on previous versions might not preform the same**
   - Updated agent handling. The agent now comes to a stop more quickly when not moving forwards or backwards and accelerates slightly faster.
-  - Added new objects, spawners, signs, goal types (see [doc](docs/definitionsOfObjects.md)) 
+  - Added new objects, spawners, signs, goal types (see [doc](docs/definitionsOfObjects.md)).
   - Added 3 animal skins to the player character.
   - Updated graphics for many objects. Default shading on many previously plain objects make it easier to determine location(s)/velocity.
   - Made the Unity Environment available (see link on main page).
   - Many improvements to documentation and examples.
-  - Upgraded to Mlagents 2.1.0-exp.1 (ml-agents python version 0.27.0)
+  - Upgraded to Mlagents 2.1.0-exp.1 (ml-agents python version 0.27.0).
   - Fixed various bugs.
 - v2.2.3
-  - Now you can specify multiple different arenas in a single yml config file ant the environment will cycle through them each time it resets
+  - Now you can specify multiple different arenas in a single yml config file ant the environment will cycle through them each time it resets.
 - v2.2.2 
-  - Low quality version with improved fps. (will work on further improvments to graphics & fps later)
+  - Low quality version with improved fps. (will work on further improvments to graphics & fps later).
 - v2.2.1
-  - Improve UI scaling wrt. screen size
-  - Fixed an issue with cardbox objects spawning at the wrong sizes
-  - Fixed an issue where the environment would time out after the time period even when health > 0 (no longer intended behaviour)
-  - Improved Death Zone shader for weird Zone sizes
-- v2.2.0 Health and Basic Scripts
+  - Improve UI scaling wrt. screen size.
+  - Fixed an issue with cardbox objects spawning at the wrong sizes.
+  - Fixed an issue where the environment would time out after the time period even when health > 0 (no longer intended behaviour).
+  - Improved Death Zone shader for weird Zone sizes.
+- v2.2.0 Health and Basic Scripts.
   - Switched to health-based system (rewards remain the same).
   - Updated overlay in play mode.
   - Allow 3D hot zones and death zones and make them 3D by default in old configs.
@@ -119,10 +121,10 @@ Further the documentation for [mlagents](https://github.com/Unity-Technologies/m
   - Fixed a reset environment bug when resetting during training.
   - Added the ability to set the DecisionPeriod (frameskip) when instantiating and environment.
 - v2.1.1 bugfix
-  - Fixed raycast length being less then diagonal length of standard arena
+  - Fixed raycast length being less then diagonal length of standard arena.
 - v2.1 beta release
-  - Upgraded to ML-Agents release 2 (0.26.0)
-  - New features
+  - Upgraded to ML-Agents release 2 (0.26.0).
+  - New features:
     - Added raycast observations
     - Added agent global position to observations
 
