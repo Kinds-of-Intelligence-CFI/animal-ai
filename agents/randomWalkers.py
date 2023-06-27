@@ -10,6 +10,7 @@ Animal-AI Version: 3.0.2
 
 
 import argparse
+import math
 import numpy as np
 import os
 import random
@@ -28,55 +29,111 @@ Random walker class for the animal-ai environment
 """
 
 class RandomWalker:
-    """Implements a random walker with many changeable parameters"""
+    """Implements a random walker with many changeable parameters.
+    The key idea is that a certain number of steps is selected (saccade length), the agent goes forwards for that many steps if positive and backwards if negative, and then
+    picks a number of steps (angle) to turn for. 
+    If the number of steps is negative, they turn left, if positive, they turn right.
+    """
 
-    def __init__(self, max_step_length = 10, step_length_distribution = 'fixed', norm_mu = 5, norm_sig = 1, beta_alpha = 2, beta_beta = 2, cauchy_mode = 5, gamma_kappa = 9, gamma_theta = 0.5, weibull_alpha = 2, poisson_lambda = 5, action_biases = [1,1,1,1,1,1,1,1,1], prev_step_bias = 0, remove_prev_step = False):
-        self.max_step_length = max_step_length 
-        self.step_length_distribution = step_length_distribution
-        self.norm_mu = norm_mu
-        self.norm_sig = norm_sig
-        self.beta_alpha = beta_alpha
-        self.beta_beta = beta_beta
-        self.cauchy_mode = cauchy_mode
-        self.gamma_kappa = gamma_kappa
-        self.gamma_theta = gamma_theta
-        self.weibull_alpha = weibull_alpha
-        self.poisson_lambda = poisson_lambda
-        self.action_biases = action_biases
-        self.prev_step_bias = prev_step_bias
-        self.remove_prev_step = remove_prev_step
+    def __init__(self, 
+                 max_saccade_length = 10, 
+                 max_angle_steps = 5,
+                 saccade_distribution = 'fixed', 
+                 angle_distribution = 'fixed',
+                 saccade_norm_mu = 5, 
+                 saccade_norm_sig = 1, 
+                 saccade_beta_alpha = 2, 
+                 saccade_beta_beta = 2, 
+                 saccade_cauchy_mode = 5, 
+                 saccade_gamma_kappa = 9, 
+                 saccade_gamma_theta = 0.5, 
+                 saccade_weibull_alpha = 2, 
+                 saccade_poisson_lambda = 5, 
+                 angle_fixed_randomise_turn = True,
+                 angle_norm_mu = 5,
+                 angle_norm_sig = 1,
+                 angle_beta_alpha = 2,
+                 angle_beta_beta = 2, 
+                 angle_cauchy_mode = 5,
+                 angle_gamma_kappa = 9,
+                 angle_gamma_theta = 0.5,
+                 angle_weibull_alpha = 2,
+                 angle_poisson_lambda = 5,
+                 angle_correlation = 0
+                 ):
+        self.max_saccade_length = max_saccade_length 
+        self.max_angle_steps = max_angle_steps
+        self.saccade_distribution = saccade_distribution
+        self.angle_distribution = angle_distribution
+        self.saccade_norm_mu = saccade_norm_mu
+        self.saccade_norm_sig = saccade_norm_sig
+        self.saccade_beta_alpha = saccade_beta_alpha
+        self.saccade_beta_beta = saccade_beta_beta
+        self.saccade_cauchy_mode = saccade_cauchy_mode
+        self.saccade_gamma_kappa = saccade_gamma_kappa
+        self.saccade_gamma_theta = saccade_gamma_theta
+        self.saccade_weibull_alpha = saccade_weibull_alpha
+        self.saccade_poisson_lambda = saccade_poisson_lambda
+        self.angle_fixed_randomise_turn  = angle_fixed_randomise_turn
+        self.angle_norm_mu = angle_norm_mu
+        self.angle_norm_sig = angle_norm_sig
+        self.angle_beta_alpha = angle_beta_alpha
+        self.angle_beta_beta = angle_beta_beta 
+        self.angle_cauchy_mode = angle_cauchy_mode
+        self.angle_gamma_kappa = angle_gamma_kappa
+        self.angle_gamma_theta = angle_gamma_theta
+        self.angle_weibull_alpha = angle_weibull_alpha
+        self.angle_poisson_lambda = angle_poisson_lambda
+        self.angle_correlation = angle_correlation
 
-    def get_num_steps(self, prev_step: int):
+    def get_num_steps_saccade(self):
         
-        if self.step_length_distribution == 'fixed':
-            num_steps = self.max_step_length
-        
-        elif self.step_length_distribution == 'uniform': 
-            num_steps = random.randint(0, self.max_step_length)
+        if self.saccade_distribution == 'fixed':
+            num_steps = int(self.max_saccade_length)
 
-        elif self.step_length_distribution == 'normal':
-            num_steps = -1
-            while num_steps <= 0: # to make sure that num_steps is always a natural number
-                num_steps = int(np.random.normal(self.norm_mu, self.norm_sig))
+        # The while statements remove the possibility of a 0, so that choices between negative and positive are not biased.
+           
+        elif self.saccade_distribution == 'uniform': 
+            num_steps = 0
 
-        elif self.step_length_distribution == 'beta':
-            num_steps = int(np.random.beta(self.beta_alpha, self.beta_beta) * self.max_step_length) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+            while num_steps == 0:
+                num_steps = random.randint(0, self.max_saccade_length)
 
-        elif self.step_length_distribution == 'cauchy':
-            num_steps = -1
-            while num_steps < 0:
-                num_steps = int(np.random.standard_cauchy() + self.cauchy_mode)
+        elif self.saccade_distribution == 'normal':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.normal(self.saccade_norm_mu, self.saccade_norm_sig))
+
+        elif self.saccade_distribution == 'beta':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.beta(self.saccade_beta_alpha, self.saccade_beta_beta) * self.max_saccade_length) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+
+        elif self.saccade_distribution == 'cauchy':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.standard_cauchy() + self.saccade_cauchy_mode)
         
-        elif self.step_length_distribution == 'gamma':
-            num_steps = -1
-            while num_steps < 0:
-                num_steps = int(np.random.gamma(self.gamma_kappa, self.gamma_theta))
+        elif self.saccade_distribution == 'gamma':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.gamma(self.saccade_gamma_kappa, self.saccade_gamma_theta))
         
-        elif self.step_length_distribution == 'weibull':
-            num_steps = int(np.random.weibull(self.weibull_alpha) * self.max_step_length) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+        elif self.saccade_distribution == 'weibull':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.weibull(self.saccade_weibull_alpha) * self.max_saccade_length) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
         
-        elif self.step_length_distribution == 'poisson':
-            num_steps = int(np.random.poisson(self.poisson_lambda))
+        elif self.saccade_distribution == 'poisson':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.poisson(self.saccade_poisson_lambda))
         
         else:
             raise ValueError("Distribution not recognised.")
@@ -85,41 +142,96 @@ class RandomWalker:
             warning_string = 'The number of steps chosen is: ' + str(num_steps) + '. Try toggling distribution parameters as your agent might get stuck.'
             warnings.warn(warning_string)
 
+        if num_steps > 0: #Move forwards
+            step_list = deque([3,0]*abs(num_steps)) # add in a stationary movement to reduce effect of momentum on next step.
+
+            if (num_steps % 2) == 1:
+                step_list.append(0)
         
-        step_list = deque([prev_step]*num_steps)
-        return step_list
+        elif num_steps < 0: #Move backwards
+            step_list = deque([6,0]*abs(num_steps))
+            if (num_steps % 2) == 1:
+                step_list.append(0)
 
-    def get_new_action(self, prev_step: int):
-
-        """
-        Provide a vector of 9 real values, one for each action, which is then softmaxed to provide the probability of selecting that action. Relative differences between the values is what is important. 
-
-        Provide an initial probability of selecting the previous step again. If that action is not selected, then the next step is picked according to the softmaxed action biases. The previous action can be removed
-        from the softmaxed biases (by continually sampling until an action is picked that is not the previous action), by changing `remove_prev_step` to `True`.
-        """
-
-        assert(len(self.action_biases) == 9), "You must provide biases for all nine (9) actions. A uniform distribution is [1,1,1,1,1,1,1,1,1]"
-
-        assert(self.prev_step_bias >= 0 and self.prev_step_bias <= 1), "The bias towards the previous action must be a scalar value between 0 and 1."
-
-        
-        action_is_prev_step = np.random.choice(a = [False,True], size = 1, p = [(1-self.prev_step_bias), self.prev_step_bias]) # should the action be the previous step?
-
-        if action_is_prev_step:
-            action = prev_step
         else:
-            if self.remove_prev_step:
-                action_biases_softmax = softmax(self.action_biases)
-                action = prev_step
-                while action == prev_step:
-                    action = np.random.choice(a = [0,1,2,3,4,5,6,7,8], size = 1, p = action_biases_softmax)
-            else:
-                action_biases_softmax = softmax(self.action_biases)
-                action = np.random.choice(a = [0,1,2,3,4,5,6,7,8], size = 1, p = action_biases_softmax)
+            raise ValueError("Saccade length is 0. Try increasing max_saccade_length.")
         
-        action = int(action)
+        return step_list
+    
+    def get_num_steps_turn(self, prev_angle_central_moment):
+        
+        if self.angle_distribution == 'fixed':
+            if self.angle_fixed_randomise_turn:
+                right = bool(random.getrandbits(1))
+                if right:
+                    num_steps = int(self.max_angle_steps)
+                else:
+                    num_steps = int(self.max_angle_steps * -1)
+            else:
+                num_steps = self.max_angle_steps
+        
+        elif self.angle_distribution == 'uniform': 
+            num_steps = 0
 
-        return action
+            while num_steps == 0:
+                num_steps = random.randint(0, self.max_angle_steps)
+
+        elif self.angle_distribution == 'normal':
+            central_moment_difference = prev_angle_central_moment - self.angle_norm_mu 
+            central_moment_shift = central_moment_difference * self.angle_correlation
+
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.normal(central_moment_shift, self.angle_norm_sig))
+
+        elif self.angle_distribution == 'beta':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.beta(self.angle_beta_alpha, self.angle_beta_beta) * self.max_angle_steps) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+
+        elif self.angle_distribution == 'cauchy':
+            central_moment_difference = prev_angle_central_moment - self.angle_cauchy_mode 
+            central_moment_shift = central_moment_difference * self.angle_correlation
+
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.standard_cauchy() + central_moment_shift) #affine transform of distribution
+        
+        elif self.angle_distribution == 'gamma':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.gamma(self.angle_gamma_kappa, self.angle_gamma_theta))
+        
+        elif self.angle_distribution == 'weibull':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.weibull(self.angle_weibull_alpha) * self.max_angle_steps) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+        
+        elif self.angle_distribution == 'poisson':
+            num_steps = 0
+
+            while num_steps == 0:
+                num_steps = int(np.random.poisson(self.angle_poisson_lambda))
+        
+        else:
+            raise ValueError("Distribution not recognised.")
+
+        if num_steps > 0: #Turn right
+            step_list = deque([1]*abs(num_steps))
+        
+        elif num_steps < 0: #Turn left
+            step_list = deque([2]*abs(num_steps))
+
+        else:
+            raise ValueError("Angle turn steps is 0. Try increasing max_angle_steps.")
+        
+        return step_list, num_steps
+
     
 def watch_random_walker_single_config(configuration_file: str, agent: RandomWalker):
     
@@ -148,23 +260,17 @@ def watch_random_walker_single_config(configuration_file: str, agent: RandomWalk
      
     done = False
     episodeReward = 0
-    initialActionAgent = agent
-    initialActionAgent.prev_step_bias = 0 #select a random action according to the biases. There is no previous step bias as there is no previous step at the start of an episode!
-
-    previous_action = initialActionAgent.get_new_action(prev_step=0) 
-
+    
     while not done:
 
-        step_list = agent.get_num_steps(prev_step = previous_action)
+        saccade_list = agent.get_num_steps_saccade()
         
-        for action in step_list:
+        for action in saccade_list:
             
             obs, reward, done, info = env.step(int(action))
 
             dec, term = aai_env.get_steps(behavior)
             env.render()
-            previous_action = action
-
 
             if len(dec.reward) > 0:
                 episodeReward += dec.reward
@@ -175,25 +281,34 @@ def watch_random_walker_single_config(configuration_file: str, agent: RandomWalk
                 done = True
                 obs=env.reset()
                 env.close()
-
-        ## get new action for one step before repeating while loop.
-
-        action = agent.get_new_action(prev_step = previous_action)
         
-        obs, reward, done, info = env.step(int(action))
+        if 'num_angle_steps' not in locals() and agent.angle_distribution == 'normal': #if no turns have been done yet and using normal distribution, then set the central moment to be the prespecified normal_mu
+            prev_angle_central_moment = agent.angle_norm_mu
+        elif 'num_angle_steps' not in locals() and agent.angle_distribution == 'cauchy': #as above
+            prev_angle_central_moment = agent.angle_cauchy_mode
+        elif 'num_angle_steps' in locals():
+            prev_angle_central_moment = num_angle_steps #if turns have been done, then the central moment is whatever number of steps was provided before.
+        else:
+            prev_angle_central_moment = 0
 
-        dec, term = aai_env.get_steps(behavior)
-        env.render()
-        previous_action = action
-        if len(dec.reward) > 0:
-            episodeReward += dec.reward
-        if len(term) > 0: #Episode is over
-            episodeReward += term.reward
-            print(F"Episode Reward: {episodeReward}")
+        angle_list, num_angle_steps = agent.get_num_steps_turn(prev_angle_central_moment)
         
-            done = True
-            obs=env.reset()
-            env.close()
+        for action in angle_list:
+            
+            obs, reward, done, info = env.step(int(action))
+
+            dec, term = aai_env.get_steps(behavior)
+            env.render()
+
+            if len(dec.reward) > 0:
+                episodeReward += dec.reward
+            if len(term) > 0: #Episode is over
+                episodeReward += term.reward
+                print(F"Episode Reward: {episodeReward}")
+                
+                done = True
+                obs=env.reset()
+                env.close()
 
         
     
@@ -208,82 +323,131 @@ if __name__ == "__main__":
 
     parser.add_argument("--config_file", 
                         type=str, 
-                        help="What config file should be run? Defaults to a random file from the competition folder.")
-    
-    parser.add_argument("--max_step_length", 
+                        help="What config file should be run? Defaults to a random file from the competition folder.")   
+    parser.add_argument("--max_saccade_length", 
                         type=int, 
-                        help="What is the maximum step length you want. This applies to fixed-step walkers (where the walker takes `max_step_length` steps before making another choice), and walkers that sample step length from uniform, beta, and weibull distributions. It provides the upper bound for these distributions, with 0 as the lower bound. Defaults to 10.",
+                        help="What is the maximum saccade length you want. This applies to fixed-step walkers (where the walker takes `max_saccade_length` steps before making turning), and walkers that sample saccade length from uniform, beta, and weibull distributions. It provides the upper bound for these distributions, with 0 as the lower bound. Defaults to 10. You can use negative numbers if you want the walker to go backwards rather than forwards.",
                         default = 10)
-    parser.add_argument("--step_length_distribution", 
+    parser.add_argument("--max_angle_steps", 
+                        type=int, 
+                        help="What is the maximum number of steps that the walker will turn for? This applies to fixed-step walkers (where the walker turns for `max_saccade_length` steps before moving forwards/backwards), and walkers that sample angle steps from uniform, beta, and weibull distributions. It provides the upper bound for these distributions, with 0 as the lower bound. Defaults to 5. You can use negative numbers if you want the walker to go backwards rather than forwards.",
+                        default = 5)
+    parser.add_argument("--saccade_distribution", 
                         type=str, 
-                        help = "What is the distribution you want to sample step length from? The options are 'fixed', 'uniform', 'normal', 'cauchy', 'gamma', 'weibull', and 'poisson'. Defaults to 'fixed'.",
+                        help = "What is the distribution you want to sample saccade length from? The options are 'fixed', 'uniform', 'normal', 'cauchy', 'gamma', 'weibull', and 'poisson'. Defaults to 'fixed'.",
                         default = 'fixed')
-    parser.add_argument("--norm_mu", 
+    parser.add_argument("--angle_distribution", 
+                        type=str, 
+                        help = "What is the distribution you want to sample number of steps to turn from? The options are 'fixed', 'uniform', 'normal', 'cauchy', 'gamma', 'weibull', and 'poisson'. Defaults to 'fixed'.",
+                        default = 'fixed')
+    parser.add_argument("--angle_fixed_randomise_turn",
+                        type=bool,
+                        help = "Should a random walker that turns for a fixed number of steps pick at random between left and right? If True, then there is a 0.5 probability of picking left and a 0.5 probability of picking right. This is ignored if `angle_distribution` is anything other than 'fixed'. Defaults to true.",
+                        default = True)
+    parser.add_argument("--saccade_norm_mu", 
                         type=float, 
-                        help = "What is the mean of the normal distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'normal'. Defaults to 5.",
+                        help = "What is the mean of the normal distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'normal'. Defaults to 5.",
                         default = 5)
-    parser.add_argument("--norm_sig", 
+    parser.add_argument("--saccade_norm_sig", 
                         type=float, 
-                        help = "What is the standard deviation of the normal distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'normal'. Defaults to 1.",
+                        help = "What is the standard deviation of the normal distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'normal'. Defaults to 1.",
                         default = 1)
-    parser.add_argument("--beta_alpha", 
+    parser.add_argument("--angle_norm_mu", 
                         type=float, 
-                        help = "What is the alpha parameter of the beta distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'beta'. Defaults to 2.",
-                        default = 2)
-    parser.add_argument("--beta_beta", 
-                        type=float, 
-                        help = "What is the beta parameter of the beta distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'beta'. Defaults to 2.",
-                        default = 2)
-    parser.add_argument("--cauchy_mode", 
-                        type=float, 
-                        help = "What is the mode of the standard cauchy distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'cauchy'. Defaults to 5.",
+                        help = "What is the mean of the normal distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'normal'. Defaults to 5.",
                         default = 5)
-    parser.add_argument("--gamma_kappa", 
+    parser.add_argument("--angle_norm_sig", 
                         type=float, 
-                        help = "What is the kappa parameter of the gamma distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'gamma'. Defaults to 9.",
+                        help = "What is the standard deviation of the normal distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'normal'. Defaults to 1.",
+                        default = 1)
+    parser.add_argument("--saccade_beta_alpha", 
+                        type=float, 
+                        help = "What is the alpha parameter of the beta distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'beta'. Defaults to 2.",
+                        default = 2)
+    parser.add_argument("--saccade_beta_beta", 
+                        type=float, 
+                        help = "What is the beta parameter of the beta distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'beta'. Defaults to 2.",
+                        default = 2)
+    parser.add_argument("--angle_beta_alpha", 
+                        type=float, 
+                        help = "What is the alpha parameter of the beta distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'beta'. Defaults to 2.",
+                        default = 2)
+    parser.add_argument("--angle_beta_beta", 
+                        type=float, 
+                        help = "What is the beta parameter of the beta distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'beta'. Defaults to 2.",
+                        default = 2)
+    parser.add_argument("--saccade_cauchy_mode", 
+                        type=float, 
+                        help = "What is the mode of the standard cauchy distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'cauchy'. Defaults to 5.",
+                        default = 5)
+    parser.add_argument("--angle_cauchy_mode", 
+                        type=float, 
+                        help = "What is the mode of the standard cauchy distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'cauchy'. Defaults to 5.",
+                        default = 5)
+    parser.add_argument("--saccade_gamma_kappa", 
+                        type=float, 
+                        help = "What is the kappa parameter of the gamma distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'gamma'. Defaults to 9.",
                         default = 9)
-    parser.add_argument("--gamma_theta", 
+    parser.add_argument("--saccade_gamma_theta", 
                         type=float, 
-                        help = "What is the theta parameter of the gamma distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'gamma'. Defaults to 0.5.",
+                        help = "What is the theta parameter of the gamma distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'gamma'. Defaults to 0.5.",
                         default = 0.5)
-    parser.add_argument("--weibull_alpha", 
+    parser.add_argument("--angle_gamma_kappa", 
                         type=float, 
-                        help = "What is the alpha parameter of the weibull distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'weibull'. Defaults to 2.",
+                        help = "What is the kappa parameter of the gamma distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'gamma'. Defaults to 9.",
+                        default = 9)
+    parser.add_argument("--angle_gamma_theta", 
+                        type=float, 
+                        help = "What is the theta parameter of the gamma distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'gamma'. Defaults to 0.5.",
+                        default = 0.5)
+    parser.add_argument("--saccade_weibull_alpha", 
+                        type=float, 
+                        help = "What is the alpha parameter of the weibull distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'weibull'. Defaults to 2.",
                         default = 2)
-    parser.add_argument("--poisson_lambda", 
+    parser.add_argument("--angle_weibull_alpha", 
                         type=float, 
-                        help = "What is the lambda parameter of the poisson distribution for step length sampling. This is ignored if `step_length_distribution` is anything other than 'poisson'. Defaults to 5.",
+                        help = "What is the alpha parameter of the weibull distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'weibull'. Defaults to 2.",
+                        default = 2)
+    parser.add_argument("--saccade_poisson_lambda", 
+                        type=float, 
+                        help = "What is the lambda parameter of the poisson distribution for saccade length sampling. This is ignored if `saccade_distribution` is anything other than 'poisson'. Defaults to 5.",
                         default = 5)
-    parser.add_argument("--action_biases", 
-                    nargs='+',
-                    type=float,
-                    help="Provide a series of 9 real values, one for each action, which is then softmaxed to provide the probability of selecting that action. Relative differences between the values is what is important. 0=stationary-action, 1=right-turn, 2=left-turn, 3=forwards, 4=forwards-right, 5=forwards-left, 6=backwards, 7=backwards-left, 8=backwards-right. Defaults to a value of 1 for all actions.",
-                    default=[1, 1, 1, 1, 1, 1, 1, 1, 1])
-    parser.add_argument("--prev_step_bias",
-                      type=float,
-                      help="Provide the initial probability that the previous action will be selected again at a choice point. Defaults to 0.",
-                      default=0)
-    parser.add_argument("--remove_prev_step",
-                       type=bool,
-                       help="Should the previous action be removed when selecting the next action. If True and `prev_step_bias` is 0, then a new action is selected that is not the old action. If True and there is some bias, then the bias is applied first, and if the previous step is not reselected, then the next action is guaranteed to not include the previous action. Defaults to False",
-                       default=False)
+    parser.add_argument("--angle_poisson_lambda", 
+                        type=float, 
+                        help = "What is the lambda parameter of the poisson distribution for angle step sampling. This is ignored if `angle_distribution` is anything other than 'poisson'. Defaults to 5.",
+                        default = 5)
+    parser.add_argument("--angle_correlation",
+                        type=float,
+                        help = "What correlation is there with selecting the turn angle on the current step with the previous turn angle? This only applies at the moment to normal and cauchy distributed angles. Add a value from 0 to 1 and this will push the mass of the distributions towards the value previously chosen. Defaults to 0.",
+                        default = 0)
     
     args = parser.parse_args()
 
-    max_step_length = args.max_step_length 
-    step_length_distribution = args.step_length_distribution
-    norm_mu = args.norm_mu
-    norm_sig = args.norm_sig
-    beta_alpha = args.beta_alpha
-    beta_beta = args.beta_beta
-    cauchy_mode = args.cauchy_mode
-    gamma_kappa = args.gamma_kappa
-    gamma_theta = args.gamma_theta
-    weibull_alpha = args.weibull_alpha
-    poisson_lambda = args.poisson_lambda
-    action_biases = np.array(args.action_biases)
-    prev_step_bias = args.prev_step_bias
-    remove_prev_step = args.remove_prev_step
+    max_saccade_length = args.max_saccade_length
+    max_angle_steps = args.max_angle_steps
+    saccade_distribution = args.saccade_distribution
+    angle_distribution = args.angle_distribution
+    saccade_norm_mu = args.saccade_norm_mu 
+    saccade_norm_sig = args.saccade_norm_sig 
+    saccade_beta_alpha = args.saccade_beta_alpha 
+    saccade_beta_beta = args.saccade_beta_beta 
+    saccade_cauchy_mode = args.saccade_cauchy_mode 
+    saccade_gamma_kappa = args.saccade_gamma_kappa
+    saccade_gamma_theta = args.saccade_gamma_theta 
+    saccade_weibull_alpha = args.saccade_weibull_alpha
+    saccade_poisson_lambda = args.saccade_poisson_lambda 
+    angle_fixed_randomise_turn = args.angle_fixed_randomise_turn
+    angle_norm_mu = args.angle_norm_mu
+    angle_norm_sig = args.angle_norm_sig
+    angle_beta_alpha = args.angle_beta_alpha
+    angle_beta_beta = args.angle_beta_beta
+    angle_cauchy_mode = args.angle_cauchy_mode
+    angle_gamma_kappa = args.angle_gamma_kappa
+    angle_gamma_theta = args.angle_gamma_theta
+    angle_weibull_alpha = args.angle_weibull_alpha
+    angle_poisson_lambda = args.angle_poisson_lambda
+    angle_correlation = args.angle_correlation 
+
 
     if args.config_file is not None:
         configuration_file = args.config_file
@@ -294,19 +458,29 @@ if __name__ == "__main__":
         configuration_file = competition_folder + configuration_files[configuration_random]
         print(F"Using configuration file {configuration_file}")
 
-    singleEpisodeRandomWalker = RandomWalker(max_step_length=max_step_length,
-                                             step_length_distribution=step_length_distribution,
-                                             norm_mu=norm_mu,
-                                             norm_sig=norm_sig,
-                                             beta_alpha=beta_alpha,
-                                             beta_beta=beta_beta,
-                                             cauchy_mode=cauchy_mode,
-                                             gamma_kappa=gamma_kappa,
-                                             gamma_theta=gamma_theta,
-                                             weibull_alpha = weibull_alpha,
-                                             poisson_lambda=poisson_lambda,
-                                             action_biases=action_biases,
-                                             prev_step_bias=prev_step_bias,
-                                             remove_prev_step=remove_prev_step)
+    singleEpisodeRandomWalker = RandomWalker(max_saccade_length = max_saccade_length, 
+                 max_angle_steps = max_angle_steps,
+                 saccade_distribution = saccade_distribution, 
+                 angle_distribution = angle_distribution,
+                 saccade_norm_mu = saccade_norm_mu, 
+                 saccade_norm_sig = saccade_norm_sig, 
+                 saccade_beta_alpha = saccade_beta_alpha, 
+                 saccade_beta_beta = saccade_beta_beta, 
+                 saccade_cauchy_mode = saccade_cauchy_mode, 
+                 saccade_gamma_kappa = saccade_gamma_kappa, 
+                 saccade_gamma_theta = saccade_gamma_theta, 
+                 saccade_weibull_alpha = saccade_weibull_alpha, 
+                 saccade_poisson_lambda = saccade_poisson_lambda, 
+                 angle_fixed_randomise_turn = angle_fixed_randomise_turn,
+                 angle_norm_mu = angle_norm_mu,
+                 angle_norm_sig = angle_norm_sig,
+                 angle_beta_alpha = angle_beta_alpha,
+                 angle_beta_beta = angle_beta_beta, 
+                 angle_cauchy_mode = angle_cauchy_mode,
+                 angle_gamma_kappa = angle_gamma_kappa,
+                 angle_gamma_theta = angle_gamma_theta,
+                 angle_weibull_alpha = angle_weibull_alpha,
+                 angle_poisson_lambda = angle_poisson_lambda,
+                 angle_correlation = angle_correlation)
     
     watch_random_walker_single_config(configuration_file=configuration_file, agent = singleEpisodeRandomWalker)
