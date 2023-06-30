@@ -10,17 +10,14 @@ Animal-AI Version: 3.0.2
 
 
 import argparse
-import math
 import numpy as np
 import os
 import random
-import sys
 import warnings
 
 from animalai.envs.environment import AnimalAIEnvironment
 from collections import deque
 from gym_unity.envs import UnityToGymWrapper
-from scipy.special import softmax
 
 ### Random Walker Agent + load config and watch.
 
@@ -425,7 +422,7 @@ if __name__ == "__main__":
                         type=float,
                         help = "What correlation is there with selecting the turn angle on the current step with the previous turn angle? This only applies at the moment to normal and cauchy distributed angles. Add a value from 0 to 1 and this will push the mass of the distributions towards the value previously chosen. Defaults to 0.",
                         default = 0)
-    parser.add_argument("--backwards_action:",
+    parser.add_argument("--backwards_action",
                         type=bool,
                         help = "Can the agent go backwards? If `True`, the agent will go symmetrically forwards and backwards. If `False`, the agent will only go forwards. Defaults to `False`.",
                         default = False)
