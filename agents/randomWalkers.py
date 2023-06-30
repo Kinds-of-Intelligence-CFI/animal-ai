@@ -59,7 +59,8 @@ class RandomWalker:
                  angle_gamma_theta = 0.5,
                  angle_weibull_alpha = 2,
                  angle_poisson_lambda = 5,
-                 angle_correlation = 0
+                 angle_correlation = 0,
+                 backwards_action = False
                  ):
         self.max_saccade_length = max_saccade_length 
         self.max_angle_steps = max_angle_steps
@@ -85,6 +86,7 @@ class RandomWalker:
         self.angle_weibull_alpha = angle_weibull_alpha
         self.angle_poisson_lambda = angle_poisson_lambda
         self.angle_correlation = angle_correlation
+        self.backwards_action = backwards_action
 
     def get_num_steps_saccade(self):
         
@@ -141,6 +143,9 @@ class RandomWalker:
         if num_steps > 100:
             warning_string = 'The number of steps chosen is: ' + str(num_steps) + '. Try toggling distribution parameters as your agent might get stuck.'
             warnings.warn(warning_string)
+
+        if self.backwards_action:
+            num_steps = abs(num_steps) #make num_steps a positive number so it only goes forwards.
 
         if num_steps > 0: #Move forwards
             step_list = deque([3,0]*abs(num_steps)) # add in a stationary movement to reduce effect of momentum on next step.
@@ -420,6 +425,10 @@ if __name__ == "__main__":
                         type=float,
                         help = "What correlation is there with selecting the turn angle on the current step with the previous turn angle? This only applies at the moment to normal and cauchy distributed angles. Add a value from 0 to 1 and this will push the mass of the distributions towards the value previously chosen. Defaults to 0.",
                         default = 0)
+    parser.add_argument("--backwards_action:",
+                        type=bool,
+                        help = "Can the agent go backwards? If `True`, the agent will go symmetrically forwards and backwards. If `False`, the agent will only go forwards. Defaults to `False`.",
+                        default = False)
     
     args = parser.parse_args()
 
@@ -446,7 +455,8 @@ if __name__ == "__main__":
     angle_gamma_theta = args.angle_gamma_theta
     angle_weibull_alpha = args.angle_weibull_alpha
     angle_poisson_lambda = args.angle_poisson_lambda
-    angle_correlation = args.angle_correlation 
+    angle_correlation = args.angle_correlation
+    backwards_action = args.backwards_action
 
 
     if args.config_file is not None:
@@ -481,6 +491,7 @@ if __name__ == "__main__":
                  angle_gamma_theta = angle_gamma_theta,
                  angle_weibull_alpha = angle_weibull_alpha,
                  angle_poisson_lambda = angle_poisson_lambda,
-                 angle_correlation = angle_correlation)
+                 angle_correlation = angle_correlation,
+                 backwards_action = backwards_action)
     
     watch_random_walker_single_config(configuration_file=configuration_file, agent = singleEpisodeRandomWalker)
