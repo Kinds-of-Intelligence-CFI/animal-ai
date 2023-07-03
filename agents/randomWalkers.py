@@ -284,9 +284,6 @@ def watch_random_walker_single_config(configuration_file: str, agent: RandomWalk
     env = UnityToGymWrapper(aai_env, uint8_visual=False, allow_multiple_obs=True, flatten_branched=True)
 
     obs = env.reset()
-
-    behavior = list(aai_env.behavior_specs.keys())[0] # by default should be AnimalAI?team=0
-
      
     done = False
     episodeReward = 0
@@ -298,48 +295,44 @@ def watch_random_walker_single_config(configuration_file: str, agent: RandomWalk
         for action in saccade_list:
             
             obs, reward, done, info = env.step(int(action))
-
-            dec, term = aai_env.get_steps(behavior)
+            episodeReward += reward
             env.render()
-
-            if len(dec.reward) > 0:
-                episodeReward += dec.reward
-            if len(term) > 0: #Episode is over
-                episodeReward += term.reward
-                print(F"Episode Reward: {episodeReward}")
-                
-                done = True
-                obs=env.reset()
-                env.close()
-        
-        if 'num_angle_steps' not in locals() and agent.angle_distribution == 'normal': #if no turns have been done yet and using normal distribution, then set the central moment to be the prespecified normal_mu
-            prev_angle_central_moment = agent.angle_norm_mu
-        elif 'num_angle_steps' not in locals() and agent.angle_distribution == 'cauchy': #as above
-            prev_angle_central_moment = agent.angle_cauchy_mode
-        elif 'num_angle_steps' in locals():
-            prev_angle_central_moment = num_angle_steps #if turns have been done, then the central moment is whatever number of steps was provided before.
-        else:
-            prev_angle_central_moment = 0
-
-        angle_list, num_angle_steps = agent.get_num_steps_turn(prev_angle_central_moment)
-        
-        for action in angle_list:
             
-            obs, reward, done, info = env.step(int(action))
-
-            dec, term = aai_env.get_steps(behavior)
-            env.render()
-
-            if len(dec.reward) > 0:
-                episodeReward += dec.reward
-            if len(term) > 0: #Episode is over
-                episodeReward += term.reward
+            if done:
                 print(F"Episode Reward: {episodeReward}")
-                
-                done = True
                 obs=env.reset()
                 env.close()
+                break
+        
+        if not done:
+            if 'num_angle_steps' not in locals() and agent.angle_distribution == 'normal': #if no turns have been done yet and using normal distribution, then set the central moment to be the prespecified normal_mu
+                prev_angle_central_moment = agent.angle_norm_mu
+            elif 'num_angle_steps' not in locals() and agent.angle_distribution == 'cauchy': #as above
+                prev_angle_central_moment = agent.angle_cauchy_mode
+            elif 'num_angle_steps' in locals():
+                prev_angle_central_moment = num_angle_steps #if turns have been done, then the central moment is whatever number of steps was provided before.
+            else:
+                prev_angle_central_moment = 0
 
+            angle_list, num_angle_steps = agent.get_num_steps_turn(prev_angle_central_moment)
+        
+            for action in angle_list:
+            
+                obs, reward, done, info = env.step(int(action))
+
+                episodeReward += reward
+
+                env.render()
+            
+                if done:
+                    print(F"Episode Reward: {episodeReward}")
+                    env.close()
+                    break
+        
+        if done:
+            print(F"Episode Reward: {episodeReward}")
+            env.close()
+            break #to be sure.
         
     
         
