@@ -142,9 +142,6 @@ def watch_random_action_agent_single_config(configuration_file: str, agent: Rand
     env = UnityToGymWrapper(aai_env, uint8_visual=False, allow_multiple_obs=True, flatten_branched=True)
 
     obs = env.reset()
-
-    behavior = list(aai_env.behavior_specs.keys())[0] # by default should be AnimalAI?team=0
-
      
     done = False
     episodeReward = 0
@@ -160,40 +157,33 @@ def watch_random_action_agent_single_config(configuration_file: str, agent: Rand
         for action in step_list:
             
             obs, reward, done, info = env.step(int(action))
-
-            dec, term = aai_env.get_steps(behavior)
+            episodeReward += reward
             env.render()
+
             previous_action = action
 
-
-            if len(dec.reward) > 0:
-                episodeReward += dec.reward
-            if len(term) > 0: #Episode is over
-                episodeReward += term.reward
+            if done:
                 print(F"Episode Reward: {episodeReward}")
-                
-                done = True
                 obs=env.reset()
                 env.close()
+                break
 
         ## get new action for one step before repeating while loop.
 
         action = agent.get_new_action(prev_step = previous_action)
         
         obs, reward, done, info = env.step(int(action))
-
-        dec, term = aai_env.get_steps(behavior)
-        env.render()
-        previous_action = action
-        if len(dec.reward) > 0:
-            episodeReward += dec.reward
-        if len(term) > 0: #Episode is over
-            episodeReward += term.reward
-            print(F"Episode Reward: {episodeReward}")
         
-            done = True
+        episodeReward += reward
+        env.render()
+
+        previous_action = action
+
+        if done:
+            print(F"Episode Reward: {episodeReward}")
             obs=env.reset()
             env.close()
+            break #to be sure.
 
         
     
@@ -294,7 +284,7 @@ if __name__ == "__main__":
         configuration_file = competition_folder + configuration_files[configuration_random]
         print(F"Using configuration file {configuration_file}")
 
-    singleEpisodeRandomWalker = RandomActionAgent(max_step_length=max_step_length,
+    singleEpisodeRandomaActionAgent = RandomActionAgent(max_step_length=max_step_length,
                                              step_length_distribution=step_length_distribution,
                                              norm_mu=norm_mu,
                                              norm_sig=norm_sig,
@@ -309,4 +299,4 @@ if __name__ == "__main__":
                                              prev_step_bias=prev_step_bias,
                                              remove_prev_step=remove_prev_step)
     
-    watch_random_action_agent_single_config(configuration_file=configuration_file, agent = singleEpisodeRandomWalker)
+    watch_random_action_agent_single_config(configuration_file=configuration_file, agent = singleEpisodeRandomaActionAgent)
