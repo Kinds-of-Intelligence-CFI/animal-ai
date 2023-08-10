@@ -87,7 +87,11 @@ Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:180
 Further the documentation for [mlagents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want to make any changes.
 
 ## Version History
-
+- V3.1.0
+  - Added a new feature - Interactive Button, where the player/agent can interact with a button to spawn a reward, with a probabilistic algorithm.
+  - Fixed various bugs.
+  - "Headless" mode is tested and supported unofficially - can be used for training agents (works with Raycasting).
+  - Further performance improvements to overall project.
 - v3.0.2
   - Upgraded Mlagents to 2.3.0-exp3 (mlagents python version 0.30.0)
 - v3.0.1
