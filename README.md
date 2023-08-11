@@ -28,9 +28,9 @@ To get started you will need to:
 
 | OS | Environment link |
 | --- | --- |
-| Linux |  [v3.0.1](https://kv301.user.srcf.net/wp-content/uploads/2022/04/AAI_v3.0.1_build_linux_090422.zip) |
-| Mac | [v3.0.1](https://kv301.user.srcf.net/wp-content/uploads/2022/04/AAI_v3.0.1_build_macOS_090422.zip) |
-| Windows | [v3.0.1](https://kv301.user.srcf.net/wp-content/uploads/2022/04/AAI_v3.0.1_build_windows_090422.zip) |
+| Linux |  [v3.1.0](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/download/v3.1.0/LINUX.zip) |
+| Mac | [v3.1.0](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/download/v3.1.0/MAC.app.zip) |
+| Windows | [v3.1.0](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/download/v3.1.0/WINDOWS.zip) |
 
 (Old v2.x versions can be found [here](docs/oldVersions.md))
 
