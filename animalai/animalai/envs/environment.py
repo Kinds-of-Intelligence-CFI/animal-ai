@@ -14,10 +14,12 @@ class PlayTrain(NamedTuple):
     train: int
 
 class AnimalAIEnvironment(UnityEnvironment):
-    """Extends UnityEnvironment with options specific for AnimalAI"""
+    """Extends UnityEnvironment with options specific for AnimalAI
+    see https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Python-API.md for documentation
+    and the animalai observations doc for explanation of the AnimalAI-specific parameters."""
 
     # Default values for configuration parameters of the environment, can be changed if needed
-    # Increasing the timescale value for training might speed up the process on powerfull machines
+    # Increasing the timescale value for training might speed up the process on powerful machines
     # but take care as the higher the timescale the more likely the physics might break
     WINDOW_WIDTH = PlayTrain(play=1200, train=32)
     WINDOW_HEIGHT = PlayTrain(play=800, train=32)
