@@ -21,6 +21,9 @@ def load_config_and_play(configuration_file: str) -> None:
         base_port=port,
         arenas_configurations=configuration_file,
         play=True,
+        timescale = 1,
+        targetFrameRate = 60,
+        captureFrameRate = 0
     )
 
     # Run the environment until signal to it is lost

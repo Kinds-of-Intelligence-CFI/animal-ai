@@ -14,9 +14,7 @@ class PlayTrain(NamedTuple):
     train: int
 
 class AnimalAIEnvironment(UnityEnvironment):
-    """Extends UnityEnvironment with options specific for AnimalAI
-    see https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Python-API.md for documentation
-    and the animalai observations doc for explanation of the AnimalAI-specific parameters."""
+    """Extends UnityEnvironment with options specific for AnimalAI"""
 
     # Default values for configuration parameters of the environment, can be changed if needed
     # Increasing the timescale value for training might speed up the process on powerfull machines
@@ -24,9 +22,9 @@ class AnimalAIEnvironment(UnityEnvironment):
     WINDOW_WIDTH = PlayTrain(play=1200, train=32)
     WINDOW_HEIGHT = PlayTrain(play=800, train=32)
     QUALITY_LEVEL = PlayTrain(play=1, train=1)
-    TIMESCALE = PlayTrain(play=1, train=300)
-    TARGET_FRAME_RATE = PlayTrain(play=60, train=-1)
-    CAPTURE_FRAME_RATE = PlayTrain(play=60, train=0)
+    #TIMESCALE = PlayTrain(play=1, train=300)
+    #TARGET_FRAME_RATE = PlayTrain(play=60, train=-1)
+    #CAPTURE_FRAME_RATE = PlayTrain(play=60, train=0)
     ARENA_CONFIG_SC_UUID = "9c36c837-cad5-498a-b675-bc19c9370072"
     YAML_SC_UUID = "20b62eb2-cde3-4f5f-a8e5-af8d9677971d"
 
@@ -51,8 +49,9 @@ class AnimalAIEnvironment(UnityEnvironment):
         side_channels: Optional[List[SideChannel]] = None,
         no_graphics: bool = False,
         use_YAML: bool = True,
-        # captureFrameRate: int = 0,
-        # targetFrameRate: int = 60,
+        timescale: int = 1,
+        targetFrameRate: int = 60,
+        captureFrameRate: int = 0,
         ):
 
         self.obsdict = {
@@ -79,8 +78,9 @@ class AnimalAIEnvironment(UnityEnvironment):
         self.side_channels = side_channels if side_channels else []
         self.arenas_parameters_side_channel = None
         self.use_YAML = use_YAML
-        # self.captureFrameRate = captureFrameRate
-        # self.targetFrameRate = targetFrameRate
+        self.timescale = timescale
+        self.captureFrameRate = captureFrameRate
+        self.targetFrameRate = targetFrameRate
 
         self.configure_side_channels(self.side_channels)
 
@@ -119,18 +119,24 @@ class AnimalAIEnvironment(UnityEnvironment):
                 width=self.WINDOW_WIDTH.play,
                 height=self.WINDOW_HEIGHT.play,
                 quality_level=self.QUALITY_LEVEL.play,
-                time_scale=self.TIMESCALE.play,
-                target_frame_rate=self.TARGET_FRAME_RATE.play,
-                capture_frame_rate=self.CAPTURE_FRAME_RATE.play,
+                # time_scale=self.TIMESCALE.play,
+                # target_frame_rate=self.TARGET_FRAME_RATE.play,
+                # capture_frame_rate=self.CAPTURE_FRAME_RATE.play,
+                time_scale = self.timescale,
+                target_frame_rate = self.targetFrameRate,
+                capture_frame_rate = self.captureFrameRate
             )
         else:
             engine_configuration = EngineConfig(
                 width=self.WINDOW_WIDTH.train,
                 height=self.WINDOW_HEIGHT.train,
                 quality_level=self.QUALITY_LEVEL.train,
-                time_scale=self.TIMESCALE.train,
-                target_frame_rate=self.TARGET_FRAME_RATE.train,
-                capture_frame_rate=self.CAPTURE_FRAME_RATE.train,
+                # time_scale=self.TIMESCALE.train,
+                # target_frame_rate=self.TARGET_FRAME_RATE.train,
+                # capture_frame_rate=self.CAPTURE_FRAME_RATE.train,
+                time_scale = self.timescale,
+                target_frame_rate = self.targetFrameRate,
+                capture_frame_rate = self.captureFrameRate
             )
         engine_configuration_channel = EngineConfigurationChannel()
         engine_configuration_channel.set_configuration(engine_configuration)
