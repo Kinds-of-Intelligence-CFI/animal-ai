@@ -18,15 +18,10 @@ class AnimalAIEnvironment(UnityEnvironment):
     see https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Python-API.md for documentation
     and the animalai observations doc for explanation of the AnimalAI-specific parameters."""
 
-    # Default values for configuration parameters of the environment, can be changed if needed
-    # Increasing the timescale value for training might speed up the process on powerfull machines
-    # but take care as the higher the timescale the more likely the physics might break
+    # Default values for configuration parameters of the environment, can be changed if needed.
     WINDOW_WIDTH = PlayTrain(play=1200, train=32)
     WINDOW_HEIGHT = PlayTrain(play=800, train=32)
     QUALITY_LEVEL = PlayTrain(play=1, train=1)
-    TIMESCALE = PlayTrain(play=1, train=300)
-    TARGET_FRAME_RATE = PlayTrain(play=60, train=-1)
-    CAPTURE_FRAME_RATE = PlayTrain(play=60, train=0)
     ARENA_CONFIG_SC_UUID = "9c36c837-cad5-498a-b675-bc19c9370072"
     YAML_SC_UUID = "20b62eb2-cde3-4f5f-a8e5-af8d9677971d"
 
@@ -51,9 +46,71 @@ class AnimalAIEnvironment(UnityEnvironment):
         side_channels: Optional[List[SideChannel]] = None,
         no_graphics: bool = False,
         use_YAML: bool = True,
-        # captureFrameRate: int = 0,
-        # targetFrameRate: int = 60,
+        timescale: int = 1,
+        targetFrameRate: int = 60,
+        captureFrameRate: int = 0,
         ):
+        """
+        Parameters
+        ----------
+        additional_args : List[str]
+            Currently not supported anymore. TODO.
+        log_folder : str
+            Optional folder to write the Unity Player log file into. Requires absolute path.
+        file_name : Optional[str]
+            Path to the Unity environment binary.
+        worker_id : int
+            Offset from base_port. Used for training multiple environments simultaneously.
+        base_port : int
+            Base port to connect to Unity environment over. worker_id increments over this.
+            If no environment is specified (i.e. file_name is None), the DEFAULT_EDITOR_PORT will be used.
+        seed : int
+            Random seed used for the environment.
+        play : bool
+            Whether to run the Unity simulator in play mode.
+        arenas_configurations : str
+            Path to the YAML file containing the arena configurations.
+        inference : bool
+            Sets the window size to the same as play mode to allow observing the agent.
+        useCamera : bool
+            Whether to use the camera observations.
+        resolution : int
+            Resolution of the camera observations.
+        grayscale : bool
+            Whether to use grayscale camera observations.
+        useRayCasts : bool
+            Whether to use the raycast observations.
+        raysPerSide : int
+            Number of rays per side.
+        rayMaxDegrees : int
+            Maximum degrees of the raycast observations.
+        decisionPeriod : int
+            [DEPRECATED] Number of steps to take before the agent gets a decision. TODO.
+        side_channels : Optional[List[SideChannel]]
+            Additional side channel for no-rl communication with Unity.
+        no_graphics : bool
+            Whether to run the Unity simulator in no-graphics mode. 
+            Not compatible with useCamera, as all observations will empty.
+        use_YAML :
+            [DEPRECATED]. TODO.
+        timescale : int
+            Defines the multiplier for the deltatime in the simulation. Default is 1.
+            If set to a higher value, time will pass faster in the simulation
+            and might speed of training but the physics might break.
+            A value of 1 is real time, 2 is double speed, 0.5 is half speed.
+            WARNING: Make sure that the observations your agent can receive 
+            per second is adequate for the set timescale.
+            For example, with an average observations per second 60, a timescale
+            of 60 will cause your agent to only observe 1 frame per in-simulation second.
+            Especially important with time-sensitive environments, 
+            e.g. decaying or growing goals, falling or rolling objects...
+        targetFrameRate : int
+            Instructs simulation to try to render at a specified frame rate. 
+            A value of -1 will attempt to render as fast as possible, recommended
+            when timescale is set to a value higher than 1.
+        captureFrameRate : int
+            Instructs the simulation to consider time between updates to always be constant, regardless of the actual frame rate.
+        """
 
         self.obsdict = {
             "camera": [],
@@ -79,8 +136,9 @@ class AnimalAIEnvironment(UnityEnvironment):
         self.side_channels = side_channels if side_channels else []
         self.arenas_parameters_side_channel = None
         self.use_YAML = use_YAML
-        # self.captureFrameRate = captureFrameRate
-        # self.targetFrameRate = targetFrameRate
+        self.timescale = timescale
+        self.captureFrameRate = captureFrameRate
+        self.targetFrameRate = targetFrameRate
 
         self.configure_side_channels(self.side_channels)
 
@@ -115,23 +173,25 @@ class AnimalAIEnvironment(UnityEnvironment):
 
     def create_engine_config_side_channel(self) -> EngineConfigurationChannel:
         if self.play or self.inference:
-            engine_configuration = EngineConfig(
-                width=self.WINDOW_WIDTH.play,
-                height=self.WINDOW_HEIGHT.play,
-                quality_level=self.QUALITY_LEVEL.play,
-                time_scale=self.TIMESCALE.play,
-                target_frame_rate=self.TARGET_FRAME_RATE.play,
-                capture_frame_rate=self.CAPTURE_FRAME_RATE.play,
+            width, height, quality_level = (
+                self.WINDOW_WIDTH.play,
+                self.WINDOW_HEIGHT.play,
+                self.QUALITY_LEVEL.play,
             )
         else:
-            engine_configuration = EngineConfig(
-                width=self.WINDOW_WIDTH.train,
-                height=self.WINDOW_HEIGHT.train,
-                quality_level=self.QUALITY_LEVEL.train,
-                time_scale=self.TIMESCALE.train,
-                target_frame_rate=self.TARGET_FRAME_RATE.train,
-                capture_frame_rate=self.CAPTURE_FRAME_RATE.train,
+            width, height, quality_level = (
+                self.WINDOW_WIDTH.train,
+                self.WINDOW_HEIGHT.train,
+                self.QUALITY_LEVEL.train,
             )
+        engine_configuration = EngineConfig(
+            width=width,
+            height=height,
+            quality_level=quality_level,
+            time_scale = self.timescale,
+            target_frame_rate = self.targetFrameRate,
+            capture_frame_rate = self.captureFrameRate
+        )
         engine_configuration_channel = EngineConfigurationChannel()
         engine_configuration_channel.set_configuration(engine_configuration)
         return engine_configuration_channel
