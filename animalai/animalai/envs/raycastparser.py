@@ -1,8 +1,18 @@
 import enum
 import numpy as np
 
+"""
+The script is designed to parse raycast observations from the AnimalAI environment. 
+It includes a class to interpret these observations and output a simplified version 
+of the data that only contains relevant objects. 
+"""
+
 
 class RayCastObjects(enum.Enum):
+    """
+    Enumeration of possible objects detected by the raycast. 
+    The values should correspond with how they are defined in the AnimalAI Unity environment.
+    """
     ARENA = 0
     IMMOVABLE = 1
     MOVABLE = 2
