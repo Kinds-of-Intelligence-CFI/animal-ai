@@ -7,18 +7,14 @@ arenas:
     - !Item
       name: Agent
       positions:
-      - !Vector3 {x: 2, y: 0, z: -1}
+      - !Vector3 {x: 15, y: 0, z: 20}
       rotations: [90]
     - !Item
-      name: Pillar-Button
+      name: GoodGoal
       positions:
       - !Vector3 {x: 20, y: 0, z: 20}
-      moveDurations: [0.1]
-      resetDurations: [1.0]
-      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
-      rewardWeights: [1, 0, 0]
-      spawnProbability: 1.0
-      rewardSpawnPos: !Vector3 {x: 30, y: 0, z: 35}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
   1: !Arena
     pass_mark: 0
     t: 500
@@ -26,18 +22,14 @@ arenas:
     - !Item
       name: Agent
       positions:
-      - !Vector3 {x: 2, y: 0, z: -1}
+      - !Vector3 {x: 2, y: 0, z: 20}
       rotations: [90]
     - !Item
-      name: Pillar-Button
+      name: GoodGoal
       positions:
-      - !Vector3 {x: 5, y: 0, z: 20}
-      moveDurations: [0.1]
-      resetDurations: [1.0]
-      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
-      rewardWeights: [1, 0, 0]
-      spawnProbability: 1.0
-      rewardSpawnPos: !Vector3 {x: 30, y: 0, z: 35}
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
   2: !Arena
     pass_mark: 0
     t: 500
@@ -50,4 +42,78 @@ arenas:
     - !Item
       name: GoodGoal
       positions:
-      - !Vector3 {x: 5, y: 0, z: -1}
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+  3: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 2, y: 0, z: -1}
+      rotations: [90]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: -1}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+  4: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 15, y: 0, z: 20}
+      rotations: [90]
+    - !Item
+      name: Pillar-Button
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      moveDurations: [0.1]
+      resetDurations: [1.0]
+      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
+      rewardWeights: [1, 0, 0]
+      spawnProbability: 1.0
+      rewardSpawnPos: !Vector3 {x: 20, y: 0, z: 35}
+  5: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 2, y: 0, z: 20}
+      rotations: [90]
+    - !Item
+      name: Pillar-Button
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      moveDurations: [0.1]
+      resetDurations: [1.0]
+      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
+      rewardWeights: [1, 0, 0]
+      spawnProbability: 1.0
+      rewardSpawnPos: !Vector3 {x: 20, y: 0, z: 35}
+  6: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 2, y: 0, z: -1}
+      rotations: [90]
+    - !Item
+      name: Pillar-Button
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      moveDurations: [0.1]
+      resetDurations: [1.0]
+      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
+      rewardWeights: [1, 0, 0]
+      spawnProbability: 1.0
+      rewardSpawnPos: !Vector3 {x: 20, y: 0, z: 35}
