@@ -17,10 +17,11 @@ class RayCastObjects(enum.Enum):
     DEATHZONE = 9
     HOTZONE = 10
     RAMP = 11
+    PILLAR_BUTTON = 12
 
 
 class RayCastParser():
-    numberDetectableObjects = 12  # This is defined in the Unity environment
+    numberDetectableObjects = 13  # This is defined in the Unity environment
     """Parses the raycast observations from AnimalAI and returns a shortened version with only relevant objects
     replaces the one-hot vector with the distance to the object (if any were hit) 
     listOfObjects is an array of all the objects that you care about (as RayCAstObjects enum)
@@ -123,3 +124,11 @@ if __name__ == "__main__":
     print(parsedRaycast)
     assert (np.array_equal(parsedRaycast, np.array([[0.4, 0.2, 0.1, 0.3, 0.5], [
             0.4, 0.2, 0.1, 0.3, 0.5], [0.4, 0.2, 0.1, 0.3, 0.5]])))
+    rayParser = RayCastParser(
+        [RayCastObjects.GOODGOAL, RayCastObjects.IMMOVABLE, RayCastObjects.PILLAR_BUTTON], 5)
+    parsedRaycast = rayParser.parse([1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.1,
+                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.2,
+                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.3,
+                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.4,
+                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.5])
+    print(parsedRaycast)
