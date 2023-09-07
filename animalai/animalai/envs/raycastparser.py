@@ -56,6 +56,9 @@ class RayCastParser():
         Returns:
         - np.ndarray: The parsed raycast, simplified to only include objects in listOfObjects.
         """
+        if isinstance(raycast, dict):
+            raycast = raycast['rays']
+
         self.numberDetectableObjects = int(
             len(raycast) / self.numberOfRays) - 2
         parsedRaycast = np.zeros((len(self.listOfObjects), self.numberOfRays))
@@ -105,6 +108,10 @@ class RayCastParser():
 
         Prints the parsed and simplified raycast in a human-readable format.
         """
+
+        if isinstance(raycast, dict):
+            raycast = raycast['rays']
+        
         parsedRaycast = self.parse(raycast)
         for i in range(parsedRaycast.shape[0]):
             print(self.listOfObjects[i].name, ":", parsedRaycast[i])
