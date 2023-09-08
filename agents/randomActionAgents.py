@@ -4,7 +4,7 @@ Copyright © 2023 Konstantinos Voudouris (@kozzy97)
 Author: Konstantinos Voudouris
 Date: June 2023
 Python Version: 3.10.4
-Animal-AI Version: 3.0.2
+Animal-AI Version: 3.1.1
 
 """
 
@@ -18,7 +18,7 @@ import warnings
 
 from animalai.envs.environment import AnimalAIEnvironment
 from collections import deque
-from gym_unity.envs import UnityToGymWrapper
+from mlagents_envs.envs.unity_gym_env import UnityToGymWrapper
 from scipy.special import softmax
 
 ### Random Action Agent + load config and watch.
@@ -136,7 +136,7 @@ def watch_random_action_agent_single_config(configuration_file: str, agent: Rand
     base_port=port,
     useCamera=False,
     resolution=36,
-    useRayCasts=False,
+    useRayCasts=True,
     )
 
     env = UnityToGymWrapper(aai_env, uint8_visual=False, allow_multiple_obs=True, flatten_branched=True)
@@ -167,23 +167,24 @@ def watch_random_action_agent_single_config(configuration_file: str, agent: Rand
                 obs=env.reset()
                 env.close()
                 break
+                
+        if not done:
+            ## get new action for one step before repeating while loop.
 
-        ## get new action for one step before repeating while loop.
+            action = agent.get_new_action(prev_step = previous_action)
+            
+            obs, reward, done, info = env.step(int(action))
+            
+            episodeReward += reward
+            env.render()
 
-        action = agent.get_new_action(prev_step = previous_action)
-        
-        obs, reward, done, info = env.step(int(action))
-        
-        episodeReward += reward
-        env.render()
+            previous_action = action
 
-        previous_action = action
-
-        if done:
-            print(F"Episode Reward: {episodeReward}")
-            obs=env.reset()
-            env.close()
-            break #to be sure.
+            if done:
+                print(F"Episode Reward: {episodeReward}")
+                obs=env.reset()
+                env.close()
+                break #to be sure.
 
         
     

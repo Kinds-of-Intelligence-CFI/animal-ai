@@ -56,6 +56,9 @@ class RayCastParser():
         Returns:
         - np.ndarray: The parsed raycast, simplified to only include objects in listOfObjects.
         """
+        if isinstance(raycast, dict):
+            raycast = raycast['rays']
+
         self.numberDetectableObjects = int(
             len(raycast) / self.numberOfRays) - 2
         parsedRaycast = np.zeros((len(self.listOfObjects), self.numberOfRays))
@@ -105,6 +108,10 @@ class RayCastParser():
 
         Prints the parsed and simplified raycast in a human-readable format.
         """
+
+        if isinstance(raycast, dict):
+            raycast = raycast['rays']
+        
         parsedRaycast = self.parse(raycast)
         for i in range(parsedRaycast.shape[0]):
             print(self.listOfObjects[i].name, ":", parsedRaycast[i])
@@ -153,7 +160,6 @@ if __name__ == "__main__":
     print("Parsed Raycast for Test 3:")
     print(parsedRaycast)
     rayParser.prettyPrint(test_raycast)
-
     # Test 6: Mix of objects detected and not detected, including PILLARBUTTON
     # Description: This test checks if the parser correctly identifies some objects including PILLARBUTTON while ignoring others.
     rayParser_6 = RayCastParser(
