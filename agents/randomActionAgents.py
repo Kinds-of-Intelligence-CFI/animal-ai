@@ -167,23 +167,24 @@ def watch_random_action_agent_single_config(configuration_file: str, agent: Rand
                 obs=env.reset()
                 env.close()
                 break
+                
+        if not done:
+            ## get new action for one step before repeating while loop.
 
-        ## get new action for one step before repeating while loop.
+            action = agent.get_new_action(prev_step = previous_action)
+            
+            obs, reward, done, info = env.step(int(action))
+            
+            episodeReward += reward
+            env.render()
 
-        action = agent.get_new_action(prev_step = previous_action)
-        
-        obs, reward, done, info = env.step(int(action))
-        
-        episodeReward += reward
-        env.render()
+            previous_action = action
 
-        previous_action = action
-
-        if done:
-            print(F"Episode Reward: {episodeReward}")
-            obs=env.reset()
-            env.close()
-            break #to be sure.
+            if done:
+                print(F"Episode Reward: {episodeReward}")
+                obs=env.reset()
+                env.close()
+                break #to be sure.
 
         
     
