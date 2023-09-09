@@ -111,7 +111,7 @@ class RayCastParser():
 
         if isinstance(raycast, dict):
             raycast = raycast['rays']
-        
+
         parsedRaycast = self.parse(raycast)
         for i in range(parsedRaycast.shape[0]):
             print(self.listOfObjects[i].name, ":", parsedRaycast[i])
@@ -158,5 +158,21 @@ if __name__ == "__main__":
                     0, 0, 0, 0, 0, 0, 0, 0]
     parsedRaycast = rayParser.parse(test_raycast)
     print("Parsed Raycast for Test 3:")
+    print(parsedRaycast)
+    rayParser.prettyPrint(test_raycast)
+
+    # Test 4: Mix of objects detected and not detected, including PILLARBUTTON
+    # Description: This test checks if the parser correctly identifies some objects including PILLARBUTTON while ignoring others.
+    rayParser = RayCastParser(
+        [RayCastObjects.ARENA, RayCastObjects.PILLARBUTTON, RayCastObjects.MOVABLE], 7)
+    test_raycast = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.1,
+                    0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.2,
+                    0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.3,
+                    0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0.4,
+                    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0.5,
+                    0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.6,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+    parsedRaycast = rayParser.parse(test_raycast)
+    print("Parsed Raycast for Test 4:")
     print(parsedRaycast)
     rayParser.prettyPrint(test_raycast)
