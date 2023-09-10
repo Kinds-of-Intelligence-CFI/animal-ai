@@ -17,7 +17,7 @@ import warnings
 
 from animalai.envs.environment import AnimalAIEnvironment
 from collections import deque
-from gym_unity.envs import UnityToGymWrapper
+from mlagents_envs.envs.unity_gym_env import UnityToGymWrapper
 
 ### Random Walker Agent + load config and watch.
 
@@ -145,15 +145,14 @@ class RandomWalker:
             num_steps = abs(num_steps) #make num_steps a positive number so it only goes forwards.
 
         if num_steps > 0: #Move forwards
-            step_list = deque([3,0]*abs(num_steps)) # add in a stationary movement to reduce effect of momentum on next step.
-
-            if (num_steps % 2) == 1:
-                step_list.append(0)
+            step_list = deque([3]*abs(num_steps)) 
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
         
         elif num_steps < 0: #Move backwards
-            step_list = deque([6,0]*abs(num_steps))
-            if (num_steps % 2) == 1:
-                step_list.append(0)
+            step_list = deque([6]*abs(num_steps))
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
 
         else:
             raise ValueError("Saccade length is 0. Try increasing max_saccade_length.")
@@ -181,7 +180,7 @@ class RandomWalker:
                     if right:
                         num_steps = random.randint(0, self.max_angle_steps)
                     else:
-                        num_steps = random.randint(0, (self.max_angle_steps * -1))
+                        num_steps = random.randint(0, (self.max_angle_steps)) * -1
 
         elif self.angle_distribution == 'normal':
             central_moment_difference = prev_angle_central_moment - self.angle_norm_mu 
@@ -328,11 +327,6 @@ def watch_random_walker_single_config(configuration_file: str, agent: RandomWalk
                     print(F"Episode Reward: {episodeReward}")
                     env.close()
                     break
-        
-        if done:
-            print(F"Episode Reward: {episodeReward}")
-            env.close()
-            break #to be sure.
         
     
         

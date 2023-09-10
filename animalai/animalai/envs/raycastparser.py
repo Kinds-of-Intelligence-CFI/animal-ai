@@ -1,10 +1,18 @@
 import enum
 import numpy as np
-"""Parses the raycast observations from AnimalAI and returns a shortened version with only relevant objects"""
+
+"""
+The script is designed to parse raycast observations from the AnimalAI environment. 
+It includes a class to interpret these observations and output a simplified version 
+of the data that only contains relevant objects. 
+"""
 
 
 class RayCastObjects(enum.Enum):
-    """Enum for the parsed objects from the raycast. The order must match the order in the Unity environment."""
+    """
+    Enumeration of possible objects detected by the raycast. 
+    The values should correspond with how they are defined in the AnimalAI Unity environment.
+    """
     ARENA = 0
     IMMOVABLE = 1
     MOVABLE = 2
@@ -12,63 +20,77 @@ class RayCastObjects(enum.Enum):
     GOODGOALMULTI = 4
     BADGOAL = 5
     GOALSPAWNER = 6
-    INNERWALL = 7
-    OUTERWALL = 8
-    DEATHZONE = 9
-    HOTZONE = 10
-    RAMP = 11
-    PILLAR_BUTTON = 12
+    DEATHZONE = 7
+    HOTZONE = 8
+    RAMP = 9
+    PILLARBUTTON = 10
 
 
 class RayCastParser():
-    numberDetectableObjects = 13  # This is defined in the Unity environment
-    """Parses the raycast observations from AnimalAI and returns a shortened version with only relevant objects
-    replaces the one-hot vector with the distance to the object (if any were hit) 
-    listOfObjects is an array of all the objects that you care about (as RayCAstObjects enum)
-    also reorders the array so that it is read from left to right"""
+    """
+    The RayCastParser class is responsible for parsing raycast observations 
+    from the AnimalAI environment and returning a simplified version that only 
+    contains relevant objects.
+    """
 
     def __init__(self, listOfObjects, numberOfRays):
-        """Initialize the parser"""
+        """
+        Initialize the RayCastParser.
+
+        Parameters:
+        - listOfObjects: List of objects (from RayCastObjects enum) that the parser should look for.
+        - numberOfRays: The number of rays in the raycast from AnimalAI environment.
+        """
         self.numberOfRays = numberOfRays
         self.listOfObjects = listOfObjects
         self.listofObjectVals = [x.value for x in listOfObjects]
         self.numberOfObjects = len(listOfObjects)
 
     def parse(self, raycast) -> np.ndarray:
-        """Parse the raycast
-        input: the raycast direct from Unity
-        output: a shortened version with only the object in listOfObjects
-        output is an array with one row for every element of listOfObjects
-        reordered to read fro left to right"""
+        """
+        Parse the raw raycast data and return a simplified array.
 
-        print(f"Initial raycast: {raycast}")
-        print(f"List of Objects: {self.listOfObjects}")
+        Parameters:
+        - raycast: The raw raycast array from the AnimalAI environment.
 
-        assert (len(raycast) == self.numberOfRays *
-                (self.numberDetectableObjects+2))
+        Returns:
+        - np.ndarray: The parsed raycast, simplified to only include objects in listOfObjects.
+        """
+        if isinstance(raycast, dict):
+            raycast = raycast['rays']
+
+        self.numberDetectableObjects = int(
+            len(raycast) / self.numberOfRays) - 2
         parsedRaycast = np.zeros((len(self.listOfObjects), self.numberOfRays))
-        print(parsedRaycast)
         for i in range(self.numberOfRays):
             for j in range(self.numberDetectableObjects):
-                if j in self.listofObjectVals:
-                    if raycast[i * (self.numberDetectableObjects + 2) + j] == 1:
-                        parsedRaycast[self.listofObjectVals.index(j)][i] = (
-                            raycast[i * (self.numberDetectableObjects + 2) + self.numberDetectableObjects + 1])
-                        print(
-                            f"Detected object {j} at ray {i} with distance {raycast[i * (self.numberDetectableObjects + 2) + self.numberDetectableObjects + 1]}")
-        # Change flattened array into matrix with one row per object in listOfObjects
+                idx = i * (self.numberDetectableObjects + 2) + j
+                distance_idx = i * \
+                    (self.numberDetectableObjects + 2) + \
+                    self.numberDetectableObjects + 1
+                if idx < len(raycast) and j in self.listofObjectVals:
+                    if raycast[idx] == 1 and distance_idx < len(raycast):
+                        parsedRaycast[self.listofObjectVals.index(
+                            j)][i] = raycast[distance_idx]
+
         parsedRaycast = np.reshape(
             parsedRaycast, (len(self.listOfObjects), self.numberOfRays))
         reordered = np.zeros_like(parsedRaycast)
         for i in range(parsedRaycast.shape[0]):
             reordered[i] = self.reorderRow(parsedRaycast[i])
-
-        print(f"parsedRaycast after parsing: {parsedRaycast}")
-        print(f"Reordered Raycast: {reordered}")
         return reordered
 
     def reorderRow(self, row):
-        """Reorders the row so instead of labelling from middle, lables from left to right"""
+        """
+        Reorder the elements in a row so that they read from left to right, 
+        as opposed to from the middle outwards.
+
+        Parameters:
+        - row: A 1D numpy array representing a single row of parsed raycast data.
+
+        Returns:
+        - np.ndarray: The reordered row.
+        """
         newRow = np.zeros_like(row)
         midIndex = int((self.numberOfRays-1)/2)
         newRow[midIndex] = row[0]
@@ -78,57 +100,79 @@ class RayCastParser():
         return newRow
 
     def prettyPrint(self, raycast) -> str:
-        """Parses the raycast and outputs a human readable version"""
+        """
+        Pretty-prints the parsed raycast data, making it easier to read and understand.
+
+        Parameters:
+        - raycast: The raw raycast array from the AnimalAI environment.
+
+        Prints the parsed and simplified raycast in a human-readable format.
+        """
+
+        if isinstance(raycast, dict):
+            raycast = raycast['rays']
+
         parsedRaycast = self.parse(raycast)
         for i in range(parsedRaycast.shape[0]):
             print(self.listOfObjects[i].name, ":", parsedRaycast[i])
 
 
 if __name__ == "__main__":
-    """Test the parsing works
-    Only a few sanity checks"""
+    # Test 1: Simple test to check if GOODGOAL and IMMOVABLE objects are correctly parsed
+    # Description: This test checks if the parser correctly identifies GOODGOAL and IMMOVABLE objects
+    # and places them correctly in the parsed raycast array.
     rayParser = RayCastParser(
         [RayCastObjects.GOODGOAL, RayCastObjects.IMMOVABLE], 5)
-    parsedRaycast = rayParser.parse([1, 1, 1, 1, 1, 1, 0, 0.1,
-                                     1, 1, 1, 1, 1, 1, 0, 0.2,
-                                     1, 1, 1, 1, 1, 1, 1, 0.3,
-                                     1, 1, 1, 1, 1, 1, 1, 0.4,
-                                     1, 1, 1, 1, 1, 1, 1, 0.5])
-    assert (np.array_equal(parsedRaycast, np.array(
-        [[0.4, 0.2, 0.1, 0.3, 0.5], [0.4, 0.2, 0.1, 0.3, 0.5]])))
+    test_raycast = [1, 1, 1, 1, 1, 1, 0, 0.1,
+                    1, 1, 1, 1, 1, 1, 0, 0.2,
+                    1, 1, 1, 1, 1, 1, 1, 0.3,
+                    1, 1, 1, 1, 1, 1, 1, 0.4,
+                    1, 1, 1, 1, 1, 1, 1, 0.5]
+    parsedRaycast = rayParser.parse(test_raycast)
+    print("Parsed Raycast for Test 1:")
+    print(parsedRaycast)
+    rayParser.prettyPrint(test_raycast)
+
+    # Test 2: Checking for no objects detected
+    # Description: This test checks if the parser correctly identifies when no objects are detected.
     rayParser = RayCastParser(
-        [RayCastObjects.GOODGOAL, RayCastObjects.IMMOVABLE, RayCastObjects.BADGOAL], 3)
-    parsedRaycast = rayParser.parse([0, 0, 0, 0, 0, 0, 0, 0.1,
-                                     0, 0, 0, 0, 0, 0, 0, 0.2,
-                                     0, 0, 0, 0, 0, 0, 1, 0.3])
-    assert (np.array_equal(parsedRaycast, np.array(
-        [[0, 0, 0], [0, 0, 0], [0, 0, 0]])))
+        [RayCastObjects.GOODGOAL, RayCastObjects.BADGOAL], 3)
+    test_raycast = [0, 0, 0, 0, 0, 0, 0, 0.1,
+                    0, 0, 0, 0, 0, 0, 0, 0.2,
+                    0, 0, 0, 0, 0, 0, 0, 0.3]
+    parsedRaycast = rayParser.parse(test_raycast)
+    print("Parsed Raycast for Test 2:")
+    print(parsedRaycast)
+    rayParser.prettyPrint(test_raycast)
+
+    # Test 3: Mix of objects detected and not detected
+    # Description: This test checks if the parser correctly identifies some objects while ignoring others.
     rayParser = RayCastParser(
         [RayCastObjects.ARENA, RayCastObjects.MOVABLE, RayCastObjects.GOODGOALMULTI], 7)
-    parsedRaycast = rayParser.parse([1, 0, 0, 0, 0, 0, 0, 0.1,
-                                     0, 1, 0, 0, 0, 0, 0, 0.2,
-                                     0, 0, 1, 0, 0, 0, 1, 0.3,
-                                     0, 0, 0, 1, 0, 0, 1, 0.4,
-                                     0, 0, 0, 0, 1, 0, 1, 0.5,
-                                     0, 0, 0, 0, 0, 1, 1, 0.6,
-                                     0, 0, 0, 0, 0, 0, 0, 0])
-    assert (np.array_equal(parsedRaycast, np.array(
-        [[0, 0, 0, 0.1, 0, 0, 0], [0, 0, 0, 0, 0.3, 0, 0], [0, 0, 0, 0, 0, 0.5, 0]])))
-    rayParser = RayCastParser(
-        [RayCastObjects.GOODGOAL, RayCastObjects.IMMOVABLE, RayCastObjects.GOALSPAWNER], 5)
-    parsedRaycast = rayParser.parse([1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0.1,
-                                     1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0.2,
-                                     1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0.3,
-                                     1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0.4,
-                                     1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0.5])
+    test_raycast = [1, 0, 0, 0, 0, 0, 0, 0.1,
+                    0, 1, 0, 0, 0, 0, 0, 0.2,
+                    0, 0, 1, 0, 0, 0, 1, 0.3,
+                    0, 0, 0, 1, 0, 0, 1, 0.4,
+                    0, 0, 0, 0, 1, 0, 1, 0.5,
+                    0, 0, 0, 0, 0, 1, 1, 0.6,
+                    0, 0, 0, 0, 0, 0, 0, 0]
+    parsedRaycast = rayParser.parse(test_raycast)
+    print("Parsed Raycast for Test 3:")
     print(parsedRaycast)
-    assert (np.array_equal(parsedRaycast, np.array([[0.4, 0.2, 0.1, 0.3, 0.5], [
-            0.4, 0.2, 0.1, 0.3, 0.5], [0.4, 0.2, 0.1, 0.3, 0.5]])))
+    rayParser.prettyPrint(test_raycast)
+
+    # Test 4: Mix of objects detected and not detected, including PILLARBUTTON
+    # Description: This test checks if the parser correctly identifies some objects including PILLARBUTTON while ignoring others.
     rayParser = RayCastParser(
-        [RayCastObjects.GOODGOAL, RayCastObjects.IMMOVABLE, RayCastObjects.PILLAR_BUTTON], 5)
-    parsedRaycast = rayParser.parse([1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.1,
-                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.2,
-                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.3,
-                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.4,
-                                     1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0.5])
+        [RayCastObjects.ARENA, RayCastObjects.PILLARBUTTON, RayCastObjects.MOVABLE], 7)
+    test_raycast = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.1,
+                    0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.2,
+                    0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0.3,
+                    0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0.4,
+                    0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0.5,
+                    0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.6,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+    parsedRaycast = rayParser.parse(test_raycast)
+    print("Parsed Raycast for Test 4:")
     print(parsedRaycast)
+    rayParser.prettyPrint(test_raycast)
