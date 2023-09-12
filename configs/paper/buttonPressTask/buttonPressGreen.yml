@@ -18,4 +18,4 @@ arenas:
       rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
       rewardWeights: [1, 0, 0]
       spawnProbability: 1.0
-      rewardSpawnPos: !Vector3 {x: 30, y: 0, z: 35}
+      rewardSpawnPos: !Vector3 {x: 20, y: 0, z: 35}
