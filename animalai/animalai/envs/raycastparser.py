@@ -24,6 +24,7 @@ class RayCastObjects(enum.Enum):
     HOTZONE = 8
     RAMP = 9
     PILLARBUTTON = 10
+    SIGNPOSTER = 11
 
 
 class RayCastParser():
@@ -108,7 +109,6 @@ class RayCastParser():
 
         Prints the parsed and simplified raycast in a human-readable format.
         """
-
         if isinstance(raycast, dict):
             raycast = raycast['rays']
 
