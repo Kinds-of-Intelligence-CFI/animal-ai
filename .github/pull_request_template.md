@@ -1,5 +1,3 @@
-_Introducing AAI v.3.X.X/[exp]erimental!_
-
 ### Summary
 _Overview_
 
