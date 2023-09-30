@@ -87,6 +87,17 @@ Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:180
 Further the documentation for [mlagents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want to make any changes.
 
 ## Version History
+- V3.1.3
+  - Fixed Spawner Tree Clock Discrepancy bug
+  - Fixed Multiple Arenas not Cycling properly bug
+     - Added the ability to properly randomize multiple arenas where arenas > 1 via randomizeArenas parameter on yaml
+  - Fixed unity native warning for Training Arena script
+  - Fixed the bug where the Sign Poster game object was not rendering (not visible in arena)
+  - Carried out unit testing on modified scripts, namely TrainingArena.cs and ArenaParameters.cs
+  - Reduced the end-of-episode notification to 2.5 seconds from 5 seconds 
+  - Minor script clean-up (unity)
+- V3.1.2
+  - Implemented hot fix for an undiscovered and new bug that affected the Spawner Tree
 - V3.1.1
   - Introduced a new feature: "End of Episode Notification." When activated, the episode concludes with a notification for the user/player if their cumulative reward meets or exceeds the threshold set in the config file.
   - Fixed bug that affected the Spawner Tree
