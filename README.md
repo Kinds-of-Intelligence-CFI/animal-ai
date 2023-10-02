@@ -87,7 +87,7 @@ Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:180
 Further the documentation for [mlagents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want to make any changes.
 
 ## Version History
-- V3.1.3
+- v3.1.3
   - Resolved Spawner Tree Clock and Multiple Arenas cycling issues
   - Enhanced multiple arenas randomization via the randomizeArenas parameter in YAML
     - Adjusted code to handle arenas with negative IDs by converting them to positive
@@ -97,12 +97,12 @@ Further the documentation for [mlagents](https://github.com/Unity-Technologies/m
   - Conducted unit tests on TrainingArena.cs and ArenaParameters.cs
   - Shortened end-of-episode notification to 2.5 seconds; also added visual elements of paired reinforcing cues such as colours and short GIFs for better visual understanding for the 'user'
   - Undertook minor Unity script optimizations
-- V3.1.2
+- v3.1.2
   - Implemented hot fix for an undiscovered and new bug that affected the Spawner Tree
-- V3.1.1
+- v3.1.1
   - Introduced a new feature: "End of Episode Notification." When activated, the episode concludes with a notification for the user/player if their cumulative reward meets or exceeds the threshold set in the config file.
   - Fixed bug that affected the Spawner Tree
-- V3.1.0
+- v3.1.0
   - Introduced the "Interactive Button" feature, allowing the player/agent to engage with a button that, through a probabilistic algorithm, may generate a reward.
   - Fixed various bugs.
   - "Headless" mode is tested and supported unofficially - can be used for training agents (works with Raycasting).
