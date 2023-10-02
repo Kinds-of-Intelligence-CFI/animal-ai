@@ -88,14 +88,15 @@ Further the documentation for [mlagents](https://github.com/Unity-Technologies/m
 
 ## Version History
 - V3.1.3
-  - Fixed Spawner Tree Clock Discrepancy bug
-  - Fixed Multiple Arenas not Cycling properly bug
-     - Added the ability to properly randomize multiple arenas where arenas > 1 via randomizeArenas parameter on yaml
-  - Fixed unity native warning for Training Arena script
-  - Fixed the bug where the Sign Poster game object was not rendering (not visible in arena)
-  - Carried out unit testing on modified scripts, namely TrainingArena.cs and ArenaParameters.cs
-  - Reduced the end-of-episode notification to 2.5 seconds from 5 seconds 
-  - Minor script clean-up (unity)
+  - Resolved Spawner Tree Clock and Multiple Arenas cycling issues
+  - Enhanced multiple arenas randomization via the randomizeArenas parameter in YAML
+    - Adjusted code to handle arenas with negative IDs by converting them to positive
+    - Added more robust error-checking for arena ID's and arena cycling
+  - Addressed Unity native warning in Training Arena script
+  - Rectified the invisibility issue of the Sign Poster game object
+  - Conducted unit tests on TrainingArena.cs and ArenaParameters.cs
+  - Shortened end-of-episode notification to 2.5 seconds; also added visual elements of paired reinforcing cues such as colours and short GIFs for better visual understanding for the 'user'
+  - Undertook minor Unity script optimizations
 - V3.1.2
   - Implemented hot fix for an undiscovered and new bug that affected the Spawner Tree
 - V3.1.1
