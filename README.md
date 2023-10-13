@@ -24,15 +24,9 @@ The AnimalAI environment and packages are currently tested on **Windows 11**, **
 To get started you will need to:
 1. Clone this repo.
 2. **Install the animalai python package** and requirements by running `pip install -e animalai` from the root folder.
-3. **Download the environment** for your system:
+3. **Download the latest release of the environment** for your system [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases):
 
-| OS | Environment link |
-| --- | --- |
-| Linux |  [v3.1.0](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/download/v3.1.0/LINUX.zip) |
-| Mac | [v3.1.0](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/download/v3.1.0/MAC.app.zip) |
-| Windows | [v3.1.0](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/download/v3.1.0/WINDOWS.zip) |
-
-(Old v2.x versions can be found [here](docs/oldVersions.md))
+(Old releases can be found [here](docs/oldVersions.md))
 
 Unzip the **entire content** of the archive to the (initially empty) `env` folder. On linux you may have to make the file executable by running `chmod +x env/AnimalAI.x86_64`. Note that the env folder should contain the AnimalAI.exe/.x86_84/.app depending on your system and *any other folders* in the same directory in the zip file.
 
@@ -149,7 +143,7 @@ Further the documentation for [mlagents](https://github.com/Unity-Technologies/m
 
 ### Notice
 
-   Copyright 2022 Matthew Crosby
+   Copyright 2023 Kinds of Intelligence, Centre for the Future of Intelligence, University of Cambridge
    
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
