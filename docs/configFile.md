@@ -29,6 +29,7 @@ Note that in Unity the **y** axis is the vertical axis. In the above picture wit
 For each arena you can provide the following parameters and a list of objects to spawn:
 - `t` an `int`, the length of an episode which can change from one episode to the other. A value of `0` means that the episode will 
 not terminate until a reward has been collected (setting `t=0` and having no reward will lead to an infinite episode). This value is converted into a decay rate for the health of the agent. A `t` of 100 means that the agent's health will decay to 0, and the episode will end, after 100 time steps.
+- 'pass_mark' an 'int', the reward threshold that should constitute a ‘pass’ in the enviroment. Leaving this parameter undefined leads to the default value of 0, whereby any reward value obtained by the Agent results in a pass. This parameter also determines the notifications that players receive at the end of an episode. If used, this parameter should be defined with consideration to the reward size that can feasibly be obtained by the Agent in each configuration file. 
 - `blackouts` [see below](#blackouts)
 
 ## Objects
