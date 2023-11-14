@@ -65,4 +65,5 @@ Sometimes `.zip` folders unzip themselves into their own sub-folder, so it can g
 
 In other words, the AnimalAI Unity `.exe` should be directly contained in the `env` folder along with everything else from the `.zip` contents.
 
-You can then start using AnimalAI v3! Any problems, please get in touch (jsh81@cam.ac.uk / [thanksphil](https://github.com/thanksphil/) GitHub) and we can try to help.
+You can then start using AnimalAI v3! Any problems, please get in touch (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/) and we can try to help.
+
