@@ -17,6 +17,7 @@ There are 9 types of object split amongst four categories:
 * Other/Unique
     * Spawners
     * Signs
+    * Pliiar Buttons
 
 For each object we describe the object name to be used in a configuration file or in Python directly, as well as their default characteristics and the range of values you can assign to them. **All objects can be rotated `360` degrees.**
 
@@ -262,3 +263,18 @@ Posterboard communicating visual information to the agent. Features a 'symbol' t
 * color change overrides the color of the *symbol*, not the posterboard itself - leave empty for the symbol's default color to be used
 * symbol is specified using the `symbolNames` parameter
 &nbsp;
+
+#### Pillar Button
+
+Pillar that spawns new goals into the enviroment. The probability with which different goals are spawned into the environment by the pillar can be defined by the user.
+
+* name: `Pillar-Button`
+* fixed size: dimensions `insert here` 
+* spawned goal size range: `insert here`
+* #spawns range: `0-inf` (leave blank or set to `-1` to spawn infinitely)
+* moveDurations: A value which defines the delay period between the pillar button being activated and the reward object being spawned.
+* resetDurations: A value which defines the delay between period betweeen the pillar button spawning a reward and when it is next able to spawn another.
+* rewardNames: A list object which specifices the reward(s) that a pliiar button will spawn. For example, ["GoodGoal"] would only spawn green reward objects, whilst ["GoodGoal", "BadGoal", "GoodGoalMulti"] would spawn each of these three rewards with varuing probabilities. 
+* rewardWeights: A list of values which specifices the likelihood with which each reward object is likely to be spawned by the pillar button. For example, [1, 0, 0] would always spawn a "GoodGoal" from the rewardNames example, whilst [0.5,0.5,0] whould spawn a "GoodGoal" or a "BadGoal" with equal probability. 
+* spawnProbability: A value between `0.0-1.0` which defines the likelihood that the pillar button will spawn a reward on a given occassion
+* rewardSpawnPos: The location that the reward objects will be spawned.
