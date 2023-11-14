@@ -128,10 +128,10 @@ configuration file does not behave as you expect make sure you're not breaking o
     - The `Agent` does not have to be provided in the configuration file, in which case it will spawn randomly.
     - If an `Agent` position is provided, be aware that the **agent spawns last** therefore it might cause problems if other objects randomly spawn where the agent should be.
     - In case an object is present where the `Agent` should spawn the arena resets and the process starts all over.
-    - You can **spawn some objects on top of each others**, however be aware there is a `0.1` buffer automatically added to any height you provide (to make sure things fall on each other nicely). 
+    - You can **spawn some objects on top of each other**, however be aware there is a `0.1` buffer automatically added to any height you provide (to make sure things fall on each other nicely). 
 
 - Configuration file values:
-    - Objects' `name` have to match one of the names provided in [the definitions](definitionsOfObjects.md), if the name provided is not found in this list, the object is ignored.
+    - An objects' `name` must match one of the names provided in [the definitions](definitionsOfObjects.md), if the name provided is not found in this list, the object is ignored.
     - Any component of `positions`, `sizes` and `rotations` can be randomized by providing a value of `-1`.
     - Note that setting `positions.y = -1` will spawn the object at ground level.
     - Goals (except for the red zone) can only be scaled equally on all axes, therefore they will always remain spheres. If a `Vector3` is provided for the scale of a sphere goal only the `x` component is used to scale all axes equally.
