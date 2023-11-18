@@ -2,6 +2,7 @@
 
 ![steampunkFOURcrop](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/assets/65875290/df798f4a-cb2c-416f-a150-093b9382a621)
 
+![PyPI Downloads](https://img.shields.io/pypi/dm/animalai) | ![PyPI Downloads](https://img.shields.io/pypi/dw/animalai) | ![PyPI Downloads](https://img.shields.io/pypi/dd/animalai)
 
 Animal Artificial Intelligence (AAI) supports interdisciplinary research to help better understand human, animal, and artificial cognition. It aims to support AI research towards unlocking cognitive capabilities and better understanding the space of possible minds. It is designed to facilitate testing across animals, humans, and AI. AAI is an active, open-source software engineering and research project.
 
