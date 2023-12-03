@@ -18,7 +18,7 @@ The environment is built using [Unity ml-agents](https://github.com/Unity-Techno
 
 The AnimalAI environment and packages are currently tested on **Windows 11**, **Linux**, and **Mac**, with minimum **Python 3.8.x**, but Python 3.6+ has reported to be working also. **Linux distros** are also working and stable.
 
-**The Unity Project** for the environment is available [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project).
+**The Unity Project** for the environment is available [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project), which contains the core developmental code that Animal-AI is built on. It's sister repository is [her](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package), where the Python API as well as the maintenance of the PyPI Package is located. Please refer to the specific documentation which details how Animal-AI as an open-source project is maintained and built, as well as to understand the project repository structure.
 
 
 ## Quick Install (please see Release for latest version of AAI-3)
