@@ -114,7 +114,7 @@ These are objects that are light enough to be easily moved by the agent (or othe
     
 ## Rewards
 
-Objects that give a reward and may terminate the event if the agents collides with one. **Important note:** for sphere goals the `y` and `z` components of the provided sizes are ignored and only `x` is used.
+Objects that give a reward and may terminate the 'episode' if the agent/participant collides with one. **Important note:** for sphere goals the `y` and `z` components of the provided sizes are ignored and only `x` is used.
 
 #### Stationary Positive Goal
 <img align="right" height="100" src="PrefabsPictures/Rewards/GoodGoal.png">
@@ -164,7 +164,7 @@ Moving food with positive reward (non-terminating). Starts by moving in the dire
 * size range: `0.5-5`
 * cannot change color
 
-#### DeathZone: 
+#### Death-Zone: 
 <img align="right" height="100" src="PrefabsPictures/Rewards/DeathZone.png">
 A red zone with reward -1 that terminates the episode on contact.
 
@@ -173,7 +173,7 @@ A red zone with reward -1 that terminates the episode on contact.
 * terminates an episode
 * cannot change color
 
-#### HotZone: 
+#### Hot-Zone: 
 <img align="right" height="100" src="PrefabsPictures/Rewards/HotZone.png">
 An orange zone with reward `min(-10/T,-1e-5)` (or `-1e-5` if `T=0`) that **does not** end an episode.
         
@@ -183,7 +183,7 @@ An orange zone with reward `min(-10/T,-1e-5)` (or `-1e-5` if `T=0`) that **does 
 * cannot change color
 * if a `DeathZone` and a `HotZone` overlap the `DeathZone` prevails
 
-#### Decay Goal: 
+#### Decay-Goal: 
 <img align="right" height="100" src="PrefabsPictures/Rewards/DecayGoal.png">
 Variable-reward spheres whose reward 'decays' over time, following a (configurable) delay time. Colour changes (from purple to grey) and a radial-timer depletes over time during decay process. **Does not** end an episode except if all goals collected.
 
@@ -201,17 +201,17 @@ Variable-reward spheres whose reward 'ripens' over time, following a (configurab
 * size automatically sets to final reward value
 * fixed frame delay value range: `0-inf` (default is `150` frames)
 
-#### Grow Goal: 
+#### Ripen-Goal (formerly GrowGoal): 
 <img align="right" height="100" src="PrefabsPictures/Rewards/GrowGoal.png">
 Variable-reward spheres whose physical size grows over time, following a (configurable) delay time. Reward tracks size change. **Does not** end an episode except if all goals collected.
 
-* name: `GrowGoal`
+* name: `RipenGoal/GrowGoal`
 * initial/final reward value range: `0-5`
 * reward increases along with size value
 * fixed frame delay value range: `0-inf` (default is `0` frames)
 * growth halts when `GrowGoal` is trapped between/underneath other objects
 
-#### Shrink Goal: 
+#### Shrink-Goal: 
 <img align="right" height="100" src="PrefabsPictures/Rewards/ShrinkGoal.png">
 Variable-reward spheres whose physical size shrinks over time, following a (configurable) delay time. Reward tracks size change. **Does not** end an episode except if all goals collected.
 
@@ -225,7 +225,7 @@ Variable-reward spheres whose physical size shrinks over time, following a (conf
 
 Special objects with unique functionality. *Spawners* create and deposit new food into the arena, whilst *Signs* communicate visual information to the agent. These objects tend to have fixed dimensions (that may still be *scaled* by the `size` parameter).
 
-#### Tree Spawner
+#### Spawner-Tree
 <img align="right" height="110" src="PrefabsPictures/Other-Unique/SpawnerTree.PNG">
 Tree that grows new food over time. Food objects spawn and grow in the tree branches, then fall to the ground after a configurable 'ripening' time.
 
@@ -235,7 +235,7 @@ Tree that grows new food over time. Food objects spawn and grow in the tree bran
 * #spawns range: `0-inf` (leave blank or set to `-1` to spawn infinitely)
 * cannot change color of spawner; can change color of spawned goals
 
-#### Goal Dispenser
+#### Goal-Dispenser
 <img align="right" height="110" src="PrefabsPictures/Other-Unique/SpawnerDispenser.PNG">
 Spawns new goal objects (finitely or otherwise) like a vending machine. After an optional, configurable time delay, the dispenser door can open and close at a regular specified interval. Food rolls out of the machine whenever the door is open.
 
@@ -245,7 +245,7 @@ Spawns new goal objects (finitely or otherwise) like a vending machine. After an
 * #spawns range: `0-inf` (leave blank or set to `-1` to spawn infinitely)
 * can change color of spawner/goals
 
-#### Goal Container
+#### Goal-Container
 <img align="right" height="110" src="PrefabsPictures/Other-Unique/SpawnerContainer.PNG">
 Spawns new goal objects (finitely or otherwise) in a small transparent container. After an optional, configurable time delay, the container door can open and close at a regular specified interval. Food stays within the container and can only be accessed by the agent when the door is open.
 
@@ -255,11 +255,11 @@ Spawns new goal objects (finitely or otherwise) in a small transparent container
 * #spawns range: `0-inf` (leave blank or set to `-1` to spawn infinitely)
 * can change color of spawner/goals
 
-#### Sign Posterboard
+#### SignBoard (formerly SignPosterboard)
 <img align="right" height="90" src="PrefabsPictures/Other-Unique/SignPosterboard.PNG">
 Posterboard communicating visual information to the agent. Features a 'symbol' that can be chosen from a list of presets, or generated as a matrix of pixels from a special code (see [configFile.md](configFile.md)).
 
-* name: `SignPosterboard`
+* name: `SignBoard/SignPosterboard`
 * size range: `0.5-2.5` (**note:** `x` is posterboard thickness, `y` is height, `z` is width - size values for posterboards are a *scale factor*, not the actual size)
 * color change overrides the color of the *symbol*, not the posterboard itself - leave empty for the symbol's default color to be used
 * symbol is specified using the `symbolNames` parameter
