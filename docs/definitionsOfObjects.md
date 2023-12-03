@@ -1,33 +1,31 @@
+## The Environment/Arena Objects
 
-
-
-## The Objects
-
-There are 9 types of object split amongst four categories:
-* Immovable
-    * Walls
-    * Ramps
-    * Tunnels
-* Movable
-    * Cardboard Boxes
-    * Shapes
-* Rewards
-    * Food
-    * Zones
-* Other/Unique
-    * Spawners
-    * Signs
-* Interactable
-     * Spawner Buttons
-  
 For each object we describe the object name to be used in a configuration file or in Python directly, as well as their default characteristics and the range of values you can assign to them. **All objects can be rotated `360` degrees.**
 
 The axis below corresponds to that shown in the images for each individual object.
 
-<img height="200" src="PrefabsPictures/Referential.png">
-
 **Note:** the **Y axis** is the vertical axis and **Z** is the forward axis (following conventions used in Unity). 
 
+<img height="200" src="PrefabsPictures/Referential.png">
+
+There are 10 types of object split amongst four categories, and only 3 of these objects are immovable, with the rest applicable to the environment physics, meaning they can't be moved by any physics applied to them (i.e, via the agent):
+## Immovable
+- Walls
+- Ramps
+- Tunnels
+   
+## Movable
+- Cardboard Boxes
+- Shapes
+- Rewards
+  * Food
+  * Zones
+- Other/Unique
+  * Spawners
+  * Signs
+- Interactable
+  * Spawner Buttons
+  
 ## Immovable
 
 These objects are fixed and cannot be moved:
