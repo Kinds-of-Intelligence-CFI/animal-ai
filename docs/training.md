@@ -4,7 +4,7 @@ We expect everyone will have a different setup for training agents. Here you can
 
 ## gymwrapper.py
 
-The example script `gymwrapper.py` shows a simple way to run an AnimalAI task using stable baselines 3. To run this you will also need to install stable-baselines3 (this version was tested with stable-baselines3==1.2.0).
+The example script `gymwrapper.py` shows a simple way to run an AnimalAI task using stable baselines 3. To run this you will also need to install stable-baselines3.
 
 ## trainaai.py
 
