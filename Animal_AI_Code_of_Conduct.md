@@ -27,6 +27,6 @@ Report unacceptable behavior to [INSERT CONTACT]. Complaints will be reviewed an
 ## Diversity Statement
 We welcome and encourage participation by everyone regardless of their background, identity, and experience.
 
-## Endnotes
+# Endnotes
 We are thankful to the groups behind the following document(s), from which we drew content and inspiration:
 - [Open-Source-Guide](https://opensource.guide/code-of-conduct/)
