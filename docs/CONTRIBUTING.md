@@ -1,7 +1,7 @@
 # How to Contribute to Animal-AI
 
 ## 1.Fork the repository
-Fork the ML-Agents repository by clicking on the "Fork" button in the top right corner of Animal-AI GitHub page.
+Fork the Animal-AI repository by clicking on the "Fork" button in the top right corner of Animal-AI GitHub page.
 
 ## 2. Set up your development environment
 Clone the forked repository to your local machine using Git. Install the necessary dependencies (pip install animalai) and follow the instructions provided in the project's documentation to set up your development environment properly. Create a new branch for your changes and start working on your contribution.
