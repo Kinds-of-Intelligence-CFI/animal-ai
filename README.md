@@ -78,7 +78,7 @@ If you use the Animal-AI environment in your work you can cite the environment p
 
 ## Unity ML-Agents
 
-The Animal-AI Olympics was built using [Unity's ML-Agents Toolkit.](https://github.com/Unity-Technologies/ml-agents)
+Animal-AI as well as The Animal-AI Olympics is built using [Unity's ML-Agents Toolkit.](https://github.com/Unity-Technologies/ml-agents)
 
 Juliani, A., Berges, V., Vckay, E., Gao, Y., Henry, H., Mattar, M., Lange, D. (2018). [Unity: A General Platform for 
 Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:1809.02627*
