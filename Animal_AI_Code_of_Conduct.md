@@ -29,4 +29,4 @@ We welcome and encourage participation by everyone regardless of their backgroun
 
 ## Endnotes
 We are thankful to the groups behind the following document(s), from which we drew content and inspiration:
-[https://opensource.guide/code-of-conduct/]
+- [Open-Source-Guide](https://opensource.guide/code-of-conduct/)
