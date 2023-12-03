@@ -1,6 +1,6 @@
 # How to Contribute to Animal-AI
 
-## 1.Fork the repository
+## 1. Fork the repository
 Fork the Animal-AI repository by clicking on the "Fork" button in the top right corner of Animal-AI GitHub page.
 
 ## 2. Set up your development environment
