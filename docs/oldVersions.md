@@ -1,4 +1,4 @@
-Old versions can be found here as long as they continue to be hosted.
+Older versions of Animal-AI can be found here as long as they continue to be hosted locally within our databases.
 
 | OS | Environment link | Old Versions |
 | --- | --- | --- |
