@@ -17,7 +17,9 @@ There are 9 types of object split amongst four categories:
 * Other/Unique
     * Spawners
     * Signs
-
+* Interactable
+     * Spawner Buttons
+  
 For each object we describe the object name to be used in a configuration file or in Python directly, as well as their default characteristics and the range of values you can assign to them. **All objects can be rotated `360` degrees.**
 
 The axis below corresponds to that shown in the images for each individual object.
