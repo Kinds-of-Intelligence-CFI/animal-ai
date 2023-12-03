@@ -55,6 +55,7 @@ If you launch the environment directly from the executable or through the `play.
 | D   | turn agent right    |
 | C   | switch camera       |
 | R   | reset environment   |
+| Q   | quit aplication   |
 
 ## Citing
 If you use the Animal-AI environment in your work you can cite the environment paper:
