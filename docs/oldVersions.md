@@ -1,5 +1,7 @@
 Older versions of Animal-AI can be found here as long as they continue to be hosted locally within our databases.
 
+Please note that we may not be able to respond to a problem related to the older versions below. Please use the latest version of Animal-AI to expect full support and improvements.
+
 | OS | Environment link | Old Versions |
 | --- | --- | --- |
 | Linux | [v3.0.1](https://kv301.user.srcf.net/wp-content/uploads/2022/04/AAI_v3.0.1_build_linux_090422.zip)  | [v2.2.3](https://www.doc.ic.ac.uk/~mcrosby/aai_builds/AnimalAI_LINUX_2.2.3.zip), [v2.2.2](https://www.doc.ic.ac.uk/~mcrosby/aai_builds/AnimalAI_LINUX_2.2.2.zip), [v2.2.1](https://www.doc.ic.ac.uk/~mcrosby/aai_builds/AnimalAI_LINUX_2.2.1.zip), [v2.2.0](https://www.doc.ic.ac.uk/~mcrosby/aai_builds/AnimalAI_LINUX_2.2.0.zip), [v2.1.1](https://www.doc.ic.ac.uk/~mcrosby/aai_builds/AnimalAI_LINUX_2.1.1.zip), [v2.1](https://www.doc.ic.ac.uk/~mcrosby/aai_builds/AnimalAI_LINUX_2.1.zip) |
