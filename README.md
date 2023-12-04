@@ -26,8 +26,8 @@ The AnimalAI environment and packages are currently tested on **Windows 11**, **
 *see [here](docs/installationGuide.md) for a more detailed installation guide, including information on Python/pip/conda and using the command line during installation*
 
 To get started you will need to:
-1. Clone this repo.
-2. **Install the animalai python package** and requirements by running `pip install animalai` from the root folder.
+1. Clone this repo (optional if you are going to contribute to code).
+2. **Install the animalai python package** and requirements by running `pip install animalai` in your terminal from the root folder.
 3. **Download the latest release of the environment** for your system [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases):
 
 (Old releases can be found [here](docs/oldVersions.md))
