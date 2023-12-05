@@ -22,7 +22,7 @@ Maintainers are responsible for clarifying these standards and addressing non-co
 This Code of Conduct applies to all project-related spaces.
 
 ## Enforcement
-Report unacceptable behavior to [INSERT CONTACT]. Complaints will be reviewed and investigated.
+Report unacceptable behavior to [kindsofintelligence.cfi@gmail.com]. Complaints will be reviewed and investigated.
 
 ## Diversity Statement
 We welcome and encourage participation by everyone regardless of their background, identity, and experience.
