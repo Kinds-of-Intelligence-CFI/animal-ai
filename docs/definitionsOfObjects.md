@@ -17,7 +17,7 @@ There are 9 types of object split amongst four categories:
 * Other/Unique
     * Spawners
     * Signs
-    * Pliiar Buttons
+    * Spawner Buttons
 
 For each object we describe the object name to be used in a configuration file or in Python directly, as well as their default characteristics and the range of values you can assign to them. **All objects can be rotated `360` degrees.**
 
@@ -264,7 +264,7 @@ Posterboard communicating visual information to the agent. Features a 'symbol' t
 * symbol is specified using the `symbolNames` parameter
 &nbsp;
 
-#### Pillar Button
+#### Spawner Button
 
 Pillar that spawns new goals into the enviroment. The probability with which different goals are spawned into the environment by the pillar can be defined by the user.
 
