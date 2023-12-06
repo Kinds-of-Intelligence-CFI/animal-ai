@@ -31,4 +31,4 @@ The Animal-AI project requires Code Reviews to review your code before merging t
 ## 9. Merge your changes
 Once your pull request has been approved and meets all the project's requirements, a project maintainer will merge your changes into the main repository. Congratulations! We are grateful for your contribution to the Animal-AI project.
 
-**Remember to always adhere to the project's code of conduct, be respectful, and follow any specific contribution guidelines provided by the ML-Agents project. Happy contributing!**
+**Remember to always adhere to the project's code of conduct, be respectful, and follow any specific contribution guidelines provided by the Animal-AI project. Happy contributing!**
