@@ -2,7 +2,7 @@
 
 This is a more detailed installation guide for AnimalAI v3, written for users who don't have lots of experience with python dependencies, Github repositories, and/or Unity -- or in case you run into trouble with the installation *(it's custom software installation... when **isn't** there a bug or two?)*
 
-This guide is *currently* designed predominantly for Windows users; a more detailed Mac installation guide is a work-in-progress, but most of the guide will still be useful nonetheless. Linux users tend to have stronger command-line-interface/installation experience (this coming from a Windows user!) so the quick install guide on `README.md` should be sufficient -- but please get in touch (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/) GitHub) should you run into trouble.
+This guide is *currently* designed predominantly for Windows users; a more detailed Mac installation guide is a work-in-progress, but most of the guide will still be useful nonetheless. Linux users tend to have stronger command-line-interface/installation experience (this coming from a Windows user!) so the quick install guide on `README.md` should be sufficient -- but please get in touch with (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/) GitHub) should you run into trouble.
 
 ### Installing Python
 
