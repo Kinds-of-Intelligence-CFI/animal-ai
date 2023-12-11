@@ -4,7 +4,7 @@
 
 ![PyPI Downloads](https://img.shields.io/pypi/dm/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dw/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dd/animalai)
 
-Animal Artificial Intelligence (a.k.a. Animal-AI or AAI) supports interdisciplinary research to help better understand human, animal, and artificial cognition. It aims to support AI research towards unlocking cognitive capabilities and better understanding the space of possible minds. It is designed to facilitate testing across animals, humans, and AI. AAI is an active, open-source software engineering and research project.
+Animal Artificial Intelligence, commonly known as Animal-AI or AAI, serves as a nexus for multi-disciplinary inquiry, aiming to deepen our understanding of cognition in humans, animals, and artificial entities. Its objective is to advance AI research by exploring cognitive abilities and broadening our comprehension of the spectrum of potential minds. AAI is uniquely structured to enable comparative assessments among animals, humans, and artificial intelligences. As an active endeavor, it encompasses both software engineering and research, maintained as an open-source project to foster collaborative progress.
 
 | ![](docs/figs/animal-cyl-fail.gif) | ![](docs/figs/agent-cyl-fail.gif) |
 |---|---|
