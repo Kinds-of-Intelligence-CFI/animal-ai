@@ -23,6 +23,43 @@ The AnimalAI environment and packages are currently tested on **Windows 11**, **
 
 **The Unity Project** for the environment is available [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project), which contains the core developmental code that Animal-AI is built on. It's sister repository is [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package), where the Python API as well as the maintenance of the PyPI Package is located. Please refer to the specific documentation which details how Animal-AI is maintained and developed, as well as to understand the project repository structure.
 
+## Features
+
+Interdisciplinary Research Platform:
+- Facilitates research in human, animal, and artificial cognition.
+- Supports cross-disciplinary studies.
+
+Comprehensive AI Environment:
+- Includes a versatile environment for AI experiments, from basic to advanced configurations.
+- Wrap Unity learning environments as a gym environment
+- Wrap Unity learning environments as a PettingZoo environment
+- Support for several Deep Reinforcement Learning algorithms (PPO, SAC, MA-POCA, self-play).
+
+Extensive Task Library:
+- Multiple example tasks.
+- Over 900 tasks from the Animal-AI Olympics.
+- Procedural Generation functionality
+- Additional tasks for demonstration and experimentation.
+
+Unity Game Engine:
+- Utilizes Unity ml-agents.
+- Leverages Unity game engine for advanced simulation capabilities.
+- Fast and robust project.
+
+Cross-Platform Compatibility:
+- Compatible with Windows 10/11, Linux, and MacOS.
+- Supports Python 3.6.x and above.
+
+Control Modes:
+- Player mode for interactive environment control, for manual testing.
+- Training mode for Reinforcement Learning, with support for tensorflow analysis.
+- Supports AI model training across different systems.
+
+Interactive and Dynamic Environment:
+- Offers interactive elements for complex AI training.
+
+Community and Support:
+- Active open-source community for collaboration and contributions.
 
 ## Quick Install (please see Release for latest version of Animal-AI)
 
