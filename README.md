@@ -2,8 +2,6 @@
 
 ![steampunkFOURcrop](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/assets/65875290/df798f4a-cb2c-416f-a150-093b9382a621)
 
-![PyPI Downloads](https://img.shields.io/pypi/dm/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dw/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dd/animalai)
-
 Animal Artificial Intelligence, commonly known as Animal-AI or AAI, serves as a nexus for multi-disciplinary inquiry, aiming to deepen our understanding of cognition in humans, animals, and artificial entities. Its objective is to advance AI research by exploring cognitive abilities and broadening our comprehension of the spectrum of potential minds. AAI is uniquely structured to enable comparative assessments among animals, humans, and artificial intelligences. As an active endeavor, it encompasses both software engineering and research, maintained as an open-source project to foster collaborative progress.
 
 | ![](docs/figs/animal-cyl-fail.gif) | ![](docs/figs/agent-cyl-fail.gif) |
@@ -11,6 +9,11 @@ Animal Artificial Intelligence, commonly known as Animal-AI or AAI, serves as a 
 | ![](docs/figs/animal-cyl-pass.gif) | ![](docs/figs/agent-cyl-pass.gif) |
 
 ## This Repo
+
+![PyPI Downloads](https://img.shields.io/pypi/dm/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dw/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dd/animalai)
+- **Website:** [https://www.animalai.org](https://animalai.org/)
+- **Unity Source code:** [https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
+- **Python Source code:** [https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
 
 This repo contains the AnimalAI environment, some introductory python scripts for interacting with it, as well as the [900 tasks](configs/competition) which were used in the original Animal-AI Olympics competition (and some others for demonstration purposes). Details of the tasks can be found on the [AAI website](http://animalai.org) where they can also be played and competition entries watched.
 
