@@ -15,7 +15,7 @@ def load_config_and_play(configuration_file: str) -> None:
         0, 1000
     )  # use a random port to avoid problems if a previous version exits slowly
 
-    print("initializaing AAI environment")
+    print("Initializing AAI environment")
     environment = AnimalAIEnvironment(
         file_name=env_path,
         base_port=port,
