@@ -10,7 +10,6 @@ Animal Artificial Intelligence, commonly known as Animal-AI or AAI, serves as a 
 
 ## This Repo
 
-![PyPI Downloads](https://img.shields.io/pypi/dm/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dw/animalai) ![PyPI Downloads](https://img.shields.io/pypi/dd/animalai)
 - **Website:** [https://www.animalai.org](https://animalai.org/)
 - **Unity Source code:** [https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source code:** [https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
