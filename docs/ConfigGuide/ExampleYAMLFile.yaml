@@ -1,4 +1,3 @@
-#Example 1 showing basic usage.
 !ArenaConfig
 arenas:
   0: !Arena
@@ -23,7 +22,7 @@ arenas:
       - !Vector3 {x: 1, y: 1, z: 1}
       - !Vector3 {x: 3, y: 3, z: 3}
     - !Item
-      name: Agent
+      name: Agent # Note that the agent will always be spawned first regardless of its position in the configuration.
       positions: 
       - !Vector3 {x: 20, y: 0, z: 15}
       rotations: [0]

@@ -1,111 +1,90 @@
-# Animal-AI
-
 ![steampunkFOURcrop](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/assets/65875290/df798f4a-cb2c-416f-a150-093b9382a621)
 
-Animal Artificial Intelligence, commonly known as Animal-AI or AAI, serves as a nexus for multi-disciplinary inquiry, aiming to deepen our understanding of cognition in humans, animals, and artificial entities. Its objective is to advance AI research by exploring cognitive abilities and broadening our comprehension of the spectrum of potential minds. AAI is uniquely structured to enable comparative assessments among animals, humans, and artificial intelligences. As an active endeavor, it encompasses both software engineering and research, maintained as an open-source project to foster collaborative progress.
+# Animal-AI
 
-| ![](projectOverview/media/animal-cyl-fail.gif) | ![](projectOverview/media/agent-cyl-fail.gif) |
+*Animal-Artificial Intelligence*, commonly known as Animal-AI or AAI, serves as a nexus for multi-disciplinary inquiry, aiming to deepen our understanding of cognition in humans, animals, and artificial entities. Its objective is to advance AI research by exploring cognitive abilities and broadening our comprehension of the spectrum of potential minds. AAI is uniquely structured to enable comparative assessments among animals, humans, and artificial intelligences. It encompasses both software engineering and research, maintained as an open-source project to foster collaborative progress.
+
+| ![](project\figs\agent-cyl-fail.gif) | ![](project\figs\agent-cyl-pass.gif) |
 |---|---|
-| ![](projectOverview/media/animal-cyl-pass.gif) | ![](projectOverview/media/agent-cyl-pass.gif) |
+| ![](project\figs\animal-cyl-fail.gif) | ![](project\figs\animal-cyl-pass.gif) |
 
 
-## About This Repository
+### Table of Contents
+1. [Features](#features)
+2. [Quick Install](#quick-install)
+3. [Tutorials and Examples](#tutorials-and-examples)
+4. [Citing Animal-AI](#citing-animal-ai)
+5. [Unity ML-Agents](#unity-ml-agents)
+6. [Animal-AI and the community](#animal-ai-and-the-community)
+7. [License Notice](#license-notice)
 
-- **Website:** [https://www.animalai.org](https://animalai.org/)
-- **Unity Source Code:** [https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
-- **Python Source Code:** [https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
+- **Website:** [here](https://animalai.org/)
+- **Unity Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
+- **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
 
+This repository serves as the primary hub for essential information and activities related to the AnimalAI environment. It is the exclusive source for all past and forthcoming releases of Animal-AI. To facilitate your initiation, the repository includes a collection of introductory Python scripts for engagement with the environment, alongside an extensive library of over 900 tasks featured in the inaugural Animal-AI Olympics competition. The repository also contains a comprehensive documentation of the environment, including a detailed description of the environment's objects and their properties, as well as a guide to designing experiments with the environment.
 
-<!-- TODO: Tdd a section on the structure of the repository, and how to navigate it. -->
-This is the central repository housing key information and activity about the AnimalAI environment. All previous and future releases of Animal-AI will also be distributed from this repository only. For you to get started, some introductory python scripts for interacting with it, as well as the over 900 tasks which were used in the original Animal-AI Olympics competition, are housed here.
-
-If you wish to contribute to the project, please refer to the [Contributing Guide](contributing.md) for more information, and to the [Code of Conduct](codeOfConduct.md) for guidelines on how to interact with the community. The code to which Animal-AI is built on is also open-source, and can be found on the sister repositories below.
-
-<!-- TODO: This is to be moved to another section, likely a technical guide file to the inner workings of AAI, under docs/guides. -->
-The AnimalAI environment and packages are currently tested on **Windows 11**, **Linux**, and **Mac**, with minimum **Python 3.8.x**, but Python 3.6+ has been reported to be working also. **Linux distros** are also working and stable.
-
-**The Unity Project** for the environment is available [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project), which contains the core developmental code that Animal-AI is built on. It's sister repository is [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package), where the Python API as well as the maintenance of the PyPI Package is located. Please refer to the specific documentation which details how Animal-AI is maintained and developed, as well as to understand the project repository structure.
+The Animal-AI environment and packages are currently tested on **Windows 11**, **Linux**, and **MacOS**, with minimum **Python 3.9.x**, but Python 3.6+ has been reported to be working also. **Linux distros** are also working and stable.
 
 
 ## Features
 
-Interdisciplinary Research Platform:
+**Interdisciplinary Research Platform:**
 - Facilitates research in human, animal, and artificial cognition.
 - Supports cross-disciplinary studies.
 
-Comprehensive AI Environment:
+**Comprehensive AI Environment:**
 - Includes a versatile environment for AI experiments, from basic to advanced configurations.
 - Wrap Unity learning environments as a gym environment
 - Wrap Unity learning environments as a PettingZoo environment
 - Support for several Deep Reinforcement Learning algorithms (PPO, SAC, MA-POCA, self-play).
 
-Extensive Task Library:
+**Extensive Task Library:**
 - Multiple example tasks.
 - Over 900 tasks from the Animal-AI Olympics.
 - Procedural Generation functionality
 - Additional tasks for demonstration and experimentation.
 
-Unity Game Engine:
+**Unity Game Engine:**
 - Utilizes Unity ml-agents.
 - Leverages Unity game engine for advanced simulation capabilities.
-- Fast and robust project.
+- Fast and robust wrapper.
 
-Cross-Platform Compatibility:
-- Compatible with Windows 10/11, Linux, and MacOS.
+**Cross-Platform Compatibility:**
+- Compatible with Windows 11, Linux, and MacOS.
 - Supports Python 3.6.x and above.
 
-Control Modes:
+**Control Modes:**
 - Player mode for interactive environment control, for manual testing.
 - Training mode for Reinforcement Learning, with support for tensorflow analysis.
 - Supports AI model training across different systems.
 
-Interactive and Dynamic Environment:
+**Interactive and Dynamic Environment:**
 - Offers interactive elements for complex AI training.
-
-Community and Support:
-- Active open-source community for collaboration and contributions.
+- Supports dynamic environment generation.
 
 
-## Quick Install (please see Release for latest version of Animal-AI)
+## Quick Install
 
-*see [here](docs/installationGuide.md) for a more detailed installation guide, including information on Python/pip/conda and using the command line during installation*
+*See [here](docs\installation\InstallationGuide.md) for a more detailed installation guide.*
 
-To get started you will need to:
-1. Clone this repo (optional if you are going to contribute to code).
-2. **Install the animalai python package** and requirements by running `pip install animalai` in your terminal from the root folder.
-3. **Download the latest release of the environment** for your system [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases):
+([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
 
-(Old releases can be found [here](docs/oldVersions.md))
-
-Unzip the **entire content** of the archive to the (initially empty) `env` folder. On linux you may have to make the file executable by running `chmod +x env/AnimalAI.x86_64`. Note that the env folder should contain the AnimalAI.exe/.x86_84/.app depending on your system and *any other folders* in the same directory in the zip file.
+For legacy versions of Animal-AI, please see ([legacy releases](project\AAIVersionsArchive.md))
 
 
 ## Tutorials and Examples
 
-Some example scripts to get started can be found in the `examples` folder. The following docs provide information for some common uses of the environment.
+Some example scripts to get started can be found in the `docs/configGuide` folder. The following docs provide information for some common uses of the environment.
 
-- [Getting started with the environment](docs/quickStart.md)
+- [Getting started with the environment](docs\installation\QuickStart.md)
 - [Using the ML-Agents Low-Level API: A hand-coded Braitenberg Vehicle baseline](docs/lowLevelAPI.md)
 - [Designing Experiments](docs/configFile.md)
 - [Training examples](docs/training.md)
 
 
-## Manual Control
-
-If you launch the environment directly from the executable or through the `play.py` script it will launch in player mode. Here you can control the agent with the following:
-
-| Keyboard Key  | Action    |
-| --- | --- |
-| W   | move agent forwards |
-| S   | move agent backwards|
-| A   | turn agent left     |
-| D   | turn agent right    |
-| C   | switch camera       |
-| R   | reset environment   |
-| Q   | quit aplication   |
-
-
 ## Citing
+
 If you use the Animal-AI environment in your work you can cite the environment paper:
 
  Crosby, M., Beyret, B., Shanahan, M., Hernández-Orallo, J., Cheke, L. & Halina, M.. (2020). The Animal-AI Testbed and Competition. Proceedings of the NeurIPS 2019 Competition and Demonstration Track, in Proceedings of Machine Learning Research 123:164-176 Available [here](http://proceedings.mlr.press/v123/crosby20a.html).
@@ -129,13 +108,16 @@ If you use the Animal-AI environment in your work you can cite the environment p
 
 Animal-AI as well as The Animal-AI Olympics is built using [Unity's ML-Agents Toolkit.](https://github.com/Unity-Technologies/ml-agents)
 
-Juliani, A., Berges, V., Vckay, E., Gao, Y., Henry, H., Mattar, M., Lange, D. (2018). [Unity: A General Platform for 
-Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:1809.02627*
+Juliani, A., Berges, V., Vckay, E., Gao, Y., Henry, H., Mattar, M., Lange, D. (2018). [Unity: A General Platform for Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:1809.02627*
 
 Further the documentation for [mlagents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want to make any changes.
 
 
-## Version History
+## Animal-AI and the community
+
+Animal-AI has been an open-source research project from the beginning. If you wish to contribute to the project, please refer to the [Contributing Guide](contributing.md) for more information, and to the [Code of Conduct](codeOfConduct.md) for guidelines on how to interact with the community. 
+
+---
 - v3.1.3
   - Resolved Spawner Tree Clock and Multiple Arenas cycling issues
   - Enhanced multiple arenas randomization via the randomizeArenas parameter in YAML

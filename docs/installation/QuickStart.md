@@ -14,6 +14,7 @@ In play mode you can toggle the camera between first person, third person and Bi
 | D   | turn agent right    |
 | C   | switch camera       |
 | R   | reset environment   |
+| Q   | quit application    |
 
 ## Running and designing specific configurations
 

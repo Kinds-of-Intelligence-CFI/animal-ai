@@ -1,7 +1,7 @@
 
-# Detailed examples
+# Detailed Arena Examples
 
-Let's take a look at some examples:
+Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas.
 
 ### EXAMPLE 1 - Standard Parameters & Randomisation
 ```
@@ -29,15 +29,18 @@ arenas:
     - !Item
       name: GoodGoal
 ```
+**Observations:** 
+- The number of parameters for `positions`, `rotations`, and `sizes` do not need to match.
+- The environment will spawn `max(len(positions), len(rotations), len(sizes))` objects.
+- Missing parameters are assigned randomly.
 
-First of all, we can see that the number of parameters for `positions`, `rotations` and `sizes` do not need to match. The environment will spawn `max( len(positions), len(rotations), len(sizes) )` objects, where `len()` is the length of the list. Except in special-parameter cases, any missing parameter will be assigned a randomly generated value.
+In this scenario, the objects will spawn in the following order:
 
-In this case this will lead to (in order that they will spawn):
-- a pink `Cube` spawned at `[10,10]` on the ground with rotation `45` and a size randomized on both `x` and `z` and of `y=5`.
-- a `Cube` spawned on the ground, with a random `x` and `z=30`. Its rotation, size  and color will be random.
-- three pink `CylinderTunnel` objects, completely randomized.
-- a `GoodGoal` randomized.
-- the agent with position and rotation randomized.
+- A pink Cube will appear at coordinates [10, 10] on the ground. It will have a rotation of 45 degrees and its size will be random along the x and z axes, with a fixed size of y=5.
+Another Cube will be placed on the ground at a random x coordinate and z=30. This cube's rotation, size, and color will all be randomly determined.
+- Three CylinderTunnel objects will spawn next, and each of these will be entirely random in terms of position, size, color, and rotation.
+- A GoodGoal object will then appear, with all its attributes randomized.
+- Finally, the agent will spawn in a random position and orientation if it is unspecified in the arena instance. This is an important point to note, as if the agent was specified, it would have priority over all other objects and would be spawned first, before any other object(s).
 
 &nbsp;
 
@@ -95,12 +98,17 @@ arenas:
       delays: [100]
       changeRates: [0.01]
 ```
+**Observations:**
 
-This example features goals that decay, grow, shrink and 'ripen' (anti-decay). Each `Item` also has some invalid *red-herring* parameters that are used incorrectly but will not affect the outcome, nor crash the AAI environment.
+This example showcases various goals that undergo changes such as `decay`, `growth`, `shrinkage`, and `ripening` (anti-decay). Each Item in this setup includes certain parameters that are either irrelevant or used incorrectly. These 'red herring' parameters, while not utilized properly, do not impact the overall outcome or cause issues with the AAI environment.
 
-The `ShrinkGoal` and `GrowGoal` does not actually use the `sizes` parameter that has been declared, but changes size according to the `initialValues` and `finalValues`.  Similarly, the size of the `DecayGoal` and `AntiDecayGoal` are given by `max(initialValue, finalValue)`, and the reward changes from `initial` to `final` over time. The `ShrinkGoal` even has an incorrectly-used `symbolNames` parameter, which are for `SignPosterboard` objects only - this is ignored.
+In the above scenario:
 
-An *animal skin* has also been used - in this case, the Agent will always spawn as a hedgehog.
+- The `ShrinkGoal` and `GrowGoal` ignore the declared `sizes` parameter. Instead, their sizes change based on the initialValues and finalValues.
+- For both `DecayGoal` and `AntiDecayGoal`, the size is determined by the larger of the `initialValue` or `finalValue`. 
+- Additionally, the reward for these goals transitions from the initial value to the final value over time.
+Interestingly, the ShrinkGoal includes a `symbolNames` parameter, which is typically reserved for `SignBoard` objects. This parameter is not applicable here and is therefore disregarded.
+- Furthermore, an 'animal skin' feature is utilized in this example. Specifically, the Agent is configured to always appear with a 'hedgehog' skin.
 
 <p align="center">
   <img width="700" src="ExampleGallery/decay-sizechange-goal-test.PNG">
@@ -114,7 +122,7 @@ After a few seconds, the changed goals will look as follows:
 
 &nbsp;
 
-### EXAMPLE 3 - SignPosterboard (Preset Symbols)
+### EXAMPLE 3 - SignBoard (Preset Symbols)
 ```
 !ArenaConfig
 arenas:
@@ -128,7 +136,7 @@ arenas:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
     - !Item
-      name: SignPosterboard
+      name: SignBoard
       positions:
       - !Vector3 {x: 20, y: 0, z: 8}
       - !Vector3 {x: 20, y: 0, z: 14}
@@ -149,8 +157,9 @@ arenas:
       - "u-turn-arrow"    
       - "tick"
 ```
+**Observations:**
 
-This example demonstrates the use of preset symbols declared as the list `symbolNames`, a unique parameter for SignPosterboard objects. Each symbol has a default colour that can be overridden using the `colors` list (but in this example, default colours are used).
+This example illustrates how to employ predefined symbols using the `symbolNames` parameter, which is exclusive to `SignBoard` objects. Each symbol in this list comes with a default color. However, these colors can be customized by specifying different values in the colors list. In this particular instance, the default colors for each symbol are retained without any modifications.
 
 <p align="center">
   <img height="300" src="ExampleGallery/SignPosterboard-preset-symbols.PNG">
@@ -158,7 +167,7 @@ This example demonstrates the use of preset symbols declared as the list `symbol
 
 &nbsp;
 
-### EXAMPLE 4 - SignPosterboard (Special Symbols)
+### EXAMPLE 4 - SignBoard (Special Symbols)
 ```
 !ArenaConfig
 arenas:
@@ -172,7 +181,7 @@ arenas:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
     - !Item
-      name: SignPosterboard
+      name: SignBoard
       positions:
       - !Vector3 {x: 20, y: 0, z: 8}
       - !Vector3 {x: 20, y: 0, z: 14}
@@ -193,27 +202,10 @@ arenas:
       - "0101/**10/0010/0***"
       - "13x11"
 ```
+**Observations:**
 
 This example demonstrates the use of *special codes* to generate black-and-white pixel grids to use as symbols. `0` -> black, `1` -> white, and `*` is a 'joker' character that chooses to output black or white at random. The dimensions of the grid are given by the `/` character - each row between `/`s must be of the same size for the code to be valid.
 
-Fully-random grids can be generated using the code `"MxN"`, where `M` and `N` are the grid width and height dimensions respectively.
+Fully-random grids can be generated using the code `"MxN"`, where `M` and `N` are the grid width and height dimensions respectively. For example, `"5x3"` will generate a 5x3 grid.
 
-<p align="center">
-  <img height="300" src="ExampleGallery/SignPosterboard-special-symbols-annotated.png">
-</p>
-
-&nbsp;
-
-### EXAMPLE GALLERY
-
-Below are some more creative examples of test environments created by config files.
-
-<p align="center">
-  <img width="750" src="ExampleGallery/TestCompetition02-28-02.PNG">
-</p>
-
-<p align="center">
-  <img width="750" src="ExampleGallery/TestCompetition10-13-01.PNG">
-</p>
-
-&nbsp;
+For more information on how YAML works, please refer to the [YAML documentation](https://yaml.org/spec/1.2/spec.html).

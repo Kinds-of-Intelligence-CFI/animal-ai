@@ -1,7 +1,5 @@
 ## Older Versions of Animal-AI 
 
-...can be found here as long as they continue to be hosted locally within our databases.
-
 Please note that we may not be able to respond to a problem related to the older versions below. Please use the latest version of Animal-AI to expect full support and improvements.
 
 | OS | Environment link | Old Versions |
