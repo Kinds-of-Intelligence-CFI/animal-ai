@@ -1,3 +1,17 @@
+### Table of Contents
+- [Introduction to Cognitive Science](#Introduction-to-Cognitive-Science)
+  - [What is Cognitive Science?](#What-is-Cognitive-Science?)
+  - [Key Areas in Cognitive Science](#Key-Areas-in-Cognitive-Science)
+    - [Perception and Sensation](#Perception-and-Sensation)
+    - [Memory and Learning](#Memory-and-Learning)
+    - [Language and Cognition](#Language-and-Cognition)
+    - [Decision Making and Problem Solving](#Decision-Making-and-Problem-Solving)
+    - [Computational Models](#Computational-Models)
+    - [Neuroscience](#Neuroscience)
+  - [Cognitive Science in Practice](#Cognitive-Science-in-Practice)
+  - [Conclusion](#Conclusion)
+
+
 # Introduction to Cognitive Science
 
 Cognitive Science is an interdisciplinary field that explores the nature of cognition, encompassing a wide range of topics from the workings of the brain to the processes of thinking and learning. This document aims to provide a foundational overview of cognitive science and its various research areas.
