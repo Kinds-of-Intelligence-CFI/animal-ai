@@ -2,7 +2,7 @@
 
 Describe the changes made in this PR.
 
-### Useful links (Github issues, JIRA tickets, ML-Agents forum threads etc.)
+### Useful links (Github issues, ML-Agents forum threads etc.)
 
 
 ### Types of change(s)
