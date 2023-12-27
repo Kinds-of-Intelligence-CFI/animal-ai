@@ -1,5 +1,14 @@
 # Arena Configuration Files
 
+### Table of Contents
+1. [TL;DR](#tldr)
+2. [Introductions](#introductions)
+3. [The Arena](#the-arena)
+4. [Objects](#objects)
+5. [Unique/Special Object Parameters](#uniquespecial-object-parameters)
+6. [Blackouts](#blackouts)
+7. [Rules and Notes for Arena Configuration](#rules-and-notes-for-arena-configuration)
+
 ## TL;DR
 
 From the `examples` folder, run `python play.py ../configs/competition/10-26-01.yaml` to get an understanding of how the `YAML` files configure the arenas for training. You will find a list of all usable objects you can add to an arena as well as the default and optional values for their parameters in [the definitions](ArenaObjectDefinitions.md). You will find below all the technical details to create more complex training configurations.
@@ -191,3 +200,4 @@ When configuring an arena, follow these rules and be aware of certain behaviors:
 - **Ground Level Spawning**: Setting `positions.y = -1` spawns objects at ground level.
 - **Goal Scaling**: Goals (except red zone) scale equally on all axes. For sphere goals, only the `x` component of `Vector3` scales all axes.
 
+---

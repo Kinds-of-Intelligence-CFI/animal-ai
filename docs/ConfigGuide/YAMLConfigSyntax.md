@@ -1,5 +1,12 @@
-
 # Detailed Arena Examples
+
+### Table of Contents
+1. [Example 1 - Standard Parameters & Randomisation](#example-1---standard-parameters--randomisation)
+2. [Example 2 - Decay Goals / Size-Changing Goals](#example-2---decay-goals--size-changing-goals)
+3. [Example 3 - SignBoard (Preset Symbols)](#example-3---signboard-preset-symbols)
+4. [Example 4 - SignBoard (Special Symbols)](#example-4---signboard-special-symbols)
+5. [YAML Documentation](#yaml-documentation)
+
 
 Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas.
 
@@ -208,4 +215,8 @@ This example demonstrates the use of *special codes* to generate black-and-white
 
 Fully-random grids can be generated using the code `"MxN"`, where `M` and `N` are the grid width and height dimensions respectively. For example, `"5x3"` will generate a 5x3 grid.
 
-For more information on how YAML works, please refer to the [YAML documentation](https://yaml.org/spec/1.2/spec.html).
+## YAML Documentation
+
+For more information on how YAML works, please refer to the [YAML documentation](https://yaml.org/spec/1.2/spec.html). Also, please note that the YAML parser used in Animal-AI is [PyYAML](https://pyyaml.org/wiki/PyYAMLDocumentation). We have our own background documentation on YAML, which can be found [here](docs\Background-YAML.md) for reference.
+
+---
