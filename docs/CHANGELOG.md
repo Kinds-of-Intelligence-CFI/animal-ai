@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Resolved Spawner Tree Clock desync issue.
 - Resolved Multiple Arenas improper cycling issue.
 - Addressed Unity native warning in Training Arena script.
-- Rectified the invisibility issue of the Sign Poster game object.
+- Rectified the invisibility issue of the SignBoard  prefab.
 
 ### Added
 - Enhanced arenas randomization via the `randomizeArenas` parameter in YAML.

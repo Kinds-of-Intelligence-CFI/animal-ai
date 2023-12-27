@@ -1,264 +1,180 @@
-## The Environment/Arena Objects
+# Animal-AI Environment Objects
 
-For each object we describe the object name to be used in a configuration file or in Python directly, as well as their default characteristics and the range of values you can assign to them. **All objects can be rotated `360` degrees.**
+### Table of Contents
+1. [Introduction](#introduction)
+2. [Unity Objects - What are they?](#unity-objects---what-are-they)
+3. [Immovable Objects](#immovable-objects)
+4. [Movable Objects](#movable-objects)
+5. [Rewards](#rewards)
+6. [Reward Spawners](#reward-spawners)
+7. [Other/Unique Objects](#otherunique-objects)
 
-The axis below corresponds to that shown in the images for each individual object.
+## Introduction
+The Animal-AI environment comprises various objects categorized into immovable, movable, rewards, and other/unique types. These objects can be configured in numerous ways to create diverse tasks. Each object's name, default characteristics, and configurable ranges are detailed below. All objects can rotate 360 degrees. Unity uses a left-handed coordinate system with `y` as the vertical axis, and `x` and `z` axes representing horizontal and depth dimensions, respectively.
 
-**Note:** the **Y axis** is the vertical axis and **Z** is the forward axis (following conventions used in Unity). 
 
-<img height="200" src="PrefabsPictures/Referential.png">
+## Unity Objects - What are they?
+Unity game engine objects, commonly referred to as *GameObjects*, are the fundamental components in the Unity Engine, serving as containers for all other components or functionalities within a Unity scene. These objects can represent characters, props, scenery, cameras, lights, and more. Each GameObject can be equipped with various components such as scripts, renderers, colliders, or custom components, defining their behavior and interaction within the game world. *Prefabs* in Unity are essentially templates created from GameObjects; they allow developers to create, configure, and store a GameObject complete with its components and properties. Once a Prefab is created, it can be reused multiple times across the scene or even across different projects, ensuring consistency and efficiency in game development by allowing changes to be made to multiple instances simultaneously.
 
-There are 10 types of object split amongst four categories, and only 3 of these objects are immovable, with the rest applicable to the environment physics, meaning they can't be moved by any physics applied to them (i.e, via the agent):
-## Immovable
-- Walls
-- Ramps
-- Tunnels
-   
-## Movable
-- Cardboard Boxes
-- Shapes
-- Rewards
-  * Food
-  * Zones
-- Other/Unique
-  * Spawners
-  * Signs
-- Interactable
-  * Spawner Buttons
-  
-## Immovable
+## Immovable Objects
+Immovable objects are fixed in place and cannot be moved. The outer walls of the arena are also immovable and are permanently fixed in place to prevent the player/agent from escaping the arena.
 
-These objects are fixed and cannot be moved:
+| ![](immovable\CylinderTunnel.png) | ![](project\figs\agent-cyl-pass.gif) |
+|---|---|
+| ![](project\figs\animal-cyl-fail.gif) | ![](project\figs\animal-cyl-pass.gif) |
 
-#### Wall
-<img align="right" height="100" src="PrefabsPictures/Immovable/Wall.png">
+### Wall
+- **Name**: `Wall`
+- **Size Range**: `(0.1,0.1,0.1)-(40,10,40)`
+- **Color**: Changeable (Default: Grey, RGB: 153, 153, 153)
 
-* name: `Wall`
-* size range: `(0.1,0.1,0.1)-(40,10,40)`
-* can change color. 
+### Transparent Wall
+- **Name**: `WallTransparent`
+- **Size Range**: `(0.1,0.1,0.1)-(40,10,40)`
+- **Color**: Not changeable
 
-For simplicity, walls in most test problems will be grey and set to RGB (r: 153, g: 153, b: 153). If a wall is used as a platform it will be blue and set to RGB (r: 0, g: 0, b: 255).
+### Ramp
+- **Name**: `Ramp`
+- **Size Range**: `(0.5,0.1,0.5)-(40,10,40)`
+- **Color**: Changeable (Default: Pink, RGB: 255, 0, 255)
 
-#### Transparent Wall
-<img align="right" height="100" src="PrefabsPictures/Immovable/WallTransparent.png">
+### Tunnel
+- **Name**: `CylinderTunnel`
+- **Size Range**: `(2.5,2.5,2.5)-(10,10,10)`
+- **Color**: Changeable (Default: Grey, RGB: 153, 153, 153)
 
-* name: `WallTransparent`
-* size range: `(0.1,0.1,0.1)-(40,10,40)`
-* cannot change color
+### Transparent Tunnel
+- **Name**: `CylinderTunnelTransparent`
+- **Size Range**: `(2.5,2.5,2.5)-(10,10,10)`
+- **Color**: Not changeable
 
-#### Ramp
-<img align="right" height="100" src="PrefabsPictures/Immovable/Ramp.png">
+## Movable Objects
+Movable objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects directly.
 
-* name: `Ramp`
-* size range: `(0.5,0.1,0.5)-(40,10,40)`
-* can change color. 
+### Light Cardboard Box
+- **Name**: `Cardbox1`
+- **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
+- **Color**: Not changeable
 
-For simplicity, ramps in most test problems will be pink and set to RGB (r: 255, g: 0, b: 255).
+### Heavy Cardboard Box
+- **Name**: `Cardbox2`
+- **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
+- **Color**: Not changeable
 
-#### Tunnel
-<img align="right" height="100" src="PrefabsPictures/Immovable/CylinderTunnel.png">
+### U-shaped Object
+- **Name**: `UObject`
+- **Size Range**: `(1,0.3,3)-(5,2,20)`
+- **Color**: Not changeable
 
-* name: `CylinderTunnel`
-* size range: `(2.5,2.5,2.5)-(10,10,10)`
-* can change color
+### L-shaped Object
+- **Name**: `LObject`
+- **Size Range**: `(1,0.3,3)-(5,2,20)`
+- **Color**: Not changeable
 
-For simplicity, tunnels in most test problems will be grey and set to RGB (r: 153, g: 153, b: 153).
+### L-shaped Object Variation
+- **Name**: `LObject2`
+- **Size Range**: `(1,0.3,3)-(5,2,20)`
+- **Color**: Not changeable
 
-#### Transparent Tunnel
-<img align="right" height="100" src="PrefabsPictures/Immovable/CylinderTunnelTransparent.png">
-
-* name: `CylinderTunnelTransparent`
-* size range: `(2.5,2.5,2.5)-(10,10,10)`
-* cannot change color
-    
-## Movable
-
-These are objects that are light enough to be easily moved by the agent (or other objects). Note that different object types weigh different amounts. Also note that since v0.6, all movable object have a fixed texture in order to make them easier to differentiate from non movable objects.     
-
-#### Light Cardboard Box
-<img align="right" height="100" src="PrefabsPictures/Movable/Cardbox1.png">
-
-* name: `Cardbox1`
-* size range: `(0.5,0.5,0.5)-(10,10,10)`
-* cannot change color
-
-#### Heavy Cardboard Box
-<img align="right" height="100" src="PrefabsPictures/Movable/Cardbox2.png">
-
-* name: `Cardbox2`
-* size range: `(0.5,0.5,0.5)-(10,10,10)`
-* cannot change color
-
-#### U-shaped Object
-<img align="right" height="100" src="PrefabsPictures/Movable/UObject.png">
-
-* name: `UObject`
-* size range: `(1,0.3,3)-(5,2,20)`
-* cannot change color
-
-#### L-shaped Object
-<img align="right" height="100" src="PrefabsPictures/Movable/LObject.png">a L-shaped object with a wooden texture
-
-* name: `LObject`
-* size range: `(1,0.3,3)-(5,2,20)`
-* cannot change color
-
-#### L-shaped Object Variation
-<img align="right" height="100" src="PrefabsPictures/Movable/LObject2.png">symmetric of the L-shaped object
- 
-* name: `LObject2`
-* size range: `(1,0.3,3)-(5,2,20)`
-* cannot change color
-    
 ## Rewards
+Rewards are objects that provide positive or negative feedback to the agent. These objects are stationary or moving, and can be configured to provide positive or negative rewards to the agent. The agent collides with these objects to receive feedback. 
 
-Objects that give a reward and may terminate the 'episode' if the agent/participant collides with one. **Important note:** for sphere goals the `y` and `z` components of the provided sizes are ignored and only `x` is used.
+### Stationary Positive Goal
+- **Name**: `GoodGoal`
+- **Reward Range**: `1`
+- **Color**: Not changeable
 
-#### Stationary Positive Goal
-<img align="right" height="100" src="PrefabsPictures/Rewards/GoodGoal.png">
-Green spheres with a positive reward equal to their size. Ends the episode on collection.
+### Moving Positive Goal
+- **Name**: `GoodGoalBounce`
+- **Reward Range**: `1`
+- **Color**: Not changeable
 
-* name: `GoodGoal`
-* size range: `0.5-5`
-* cannot change color
+### Stationary Negative Goal
+- **Name**: `BadGoal`
+- **Reward Range**: `-1`
+- **Color**: Not changeable
 
-#### Moving Positive Goal
-<img align="right" height="100" src="PrefabsPictures/Rewards/GoodGoal.png">
-Moving food with positive reward. Starts by moving in the direction provided by the rotation parameter.
+### Moving Negative Goal
+- **Name**: `BadGoalBounce`
+- **Reward Range**: `-1`
+- **Color**: Not changeable
 
-* name: `GoodGoalBounce`
-* size range: `0.5-5`
-* cannot change color
+### Stationary Positive Reward
+- **Name**: `GoodGoalMulti`
+- **Size Range**: `0.5-5`
+- **Color**: Not changeable
 
-#### Stationary Negative Goal
-<img align="right" height="100" src="PrefabsPictures/Rewards/BadGoal.png">
-Red spheres with a negative reward equal to their size. Ends the episode on collection.
-       
-* name: `BadGoal`
-* size range: `0.5-5`
-* cannot change color
+### Moving Positive Reward
+- **Name**: `GoodGoalMultiBounce`
+- **Reward Range**: `0.5-5`
+- **Color**: Not changeable
 
-#### Moving Negative Goal
-<img align="right" height="100" src="PrefabsPictures/Rewards/BadGoal.png">
-Moving food with negative reward. Starts by moving in the direction provided by the rotation parameter.
+### Decay Reward
+- **Name**: `DecayGoal`
+- **Reward Range**: `1 - (-0.005)`
+- **Color**: Not changeable
+Notes: The Decay Reward is a reward that physically gets smaller (decays) over time. The reward is set to a default value of 1, and decays by 0.005 every time step.
 
-* name: `BadGoalBounce`
-* size range: `0.5-5`
-* cannot change color
+## Grow Reward
+- **Name**: `GrowGoal`
+- **Reward Range**: `0.5 + 0.01, with a max of 5`
+- **Color**: Not changeable
+Notes: The Grow Reward is a reward that phyisically grows over time. The reward is set to a default value of 0.5, and grows by 0.01 every time step. The reward has a maximum value of 5.
 
-#### Stationary Positive Reward
-<img align="right" height="100" src="PrefabsPictures/Rewards/GoodGoalMulti.png">
-Golden spheres with a positive reward equal to their size. Does **not** terminate the episode. The episode **is** terminated if all goals are collected. So, in an episode with only these rewards the episode will terminate when the last one is obtained.
+## Ripen Reward
+- **Name**: `RipenGoal`
+- **Reward Range**: `0 + 0.01, with a max of 3`
+- **Color**: Not changeable
+Notes: The Ripen Reward is a reward that 'ripens' (increases in reward value) over time. The reward is set to a default value of 0, and ripens by 0.01 every time step. The reward has a maximum value of 3 after which the value does not increase further.
 
-* name: `GoodGoalMulti`
-* size range: `0.5-5`
-* cannot change color
+## DeathZone
+- **Name**: `DeathZone`
+- **Reward Range**: `-1`
+- **Color**: Not changeable
+Notes: The DeathZone is a reward that has a default value of -1. The DeathZone is meant to be used as a fatal punishment mechanisim for the player/agent. If the player/agent collides with the DeathZone (i.e. steps on it), the episode is terminated and the player/agent is reset to the starting position.
 
-#### Moving Positive Reward
-<img align="right" height="100" src="PrefabsPictures/Rewards/GoodGoalMulti.png">
-Moving food with positive reward (non-terminating). Starts by moving in the direction provided by the rotation parameter.
-   
-* name: `GoodGoalMultiBounce`
-* size range: `0.5-5`
-* cannot change color
+## HotZone
+- **Name**: `HotZone`
+- **Reward Range**: `-10`
+- **Color**: Not changeable
+Notes: The HotZone is a reward that has a default value of -10. The HotZone is meant to be used as a steady punishment mechanisim for the player/agent. If the player/agent collides with the HotZone (i.e. steps on it and continues to do so) they will be inflicted with a -10 health penalty at every second they are in the zone. The episode is terminated and the player/agent is reset to the starting position if the player/agent's health reaches 0. Finally, the HotZone is a 3D stationary object that is meant to be placed on the ground.
 
-#### Death-Zone: 
-<img align="right" height="100" src="PrefabsPictures/Rewards/DeathZone.png">
-A red zone with reward -1 that terminates the episode on contact.
+## Reward Spawners
+These objects have unique functionalities and characteristics and their primary function is to spawn rewards in the environment. They are immoveable (once they are spawned, they can't be moved).
 
-* name: `DeathZone`
-* size range: `(1,0.5,1)-(40,10,40)`
-* terminates an episode
-* cannot change color
+### SpawnerTree
+- **Name**: `SpawnerTree`
+- **Size**: Fixed (scalable in future versions)
+- **Spawned Goal Size Range**: `0.2-3`
+- **Color**: Spawner color not changeable; spawned goals color changeable
+- **Functionality**: Spawns rewards at a fixed rate (can be set via a parameter) at a fixed location (the rewards spawn on top of the tree, simulating a tree with ripening rewards that then fall off the tree). Currently, only the positive reward is spawned (yellow rewards).
 
-#### Hot-Zone: 
-<img align="right" height="100" src="PrefabsPictures/Rewards/HotZone.png">
-An orange zone with reward `min(-10/T,-1e-5)` (or `-1e-5` if `T=0`) that **does not** end an episode.
-        
-* name: `HotZone`
-* size range: `(1,0.5,1)-(40,10,40)`
-* does not terminate an episode
-* cannot change color
-* if a `DeathZone` and a `HotZone` overlap the `DeathZone` prevails
+### SpawnerDispenserTall
+- **Name**: `SpawnerDispenserTall`, formerly `SpawnerDispenser`
+- **Size**: Fixed (scalable in future versions)
+- **Spawned Goal Size Range**: `0.2-1`
+- **Color**: Spawner and goals color changeable
+- **Functionality**: Dispenses rewards at a fixed rate (can be set via a parameter) at a fixed location (the rewards spawn inside the container, at the top of the prefab). Currently, only the positive reward is spawned (yellow rewards). The object has a door that can be animated to open and closes respectively via the boolean. The rewards can be *stockpiled* inside the dispenser, gradually increasing the number of rewards contained inside the dispenser.
 
-#### Decay-Goal: 
-<img align="right" height="100" src="PrefabsPictures/Rewards/DecayGoal.png">
-Variable-reward spheres whose reward 'decays' over time, following a (configurable) delay time. Colour changes (from purple to grey) and a radial-timer depletes over time during decay process. **Does not** end an episode except if all goals collected.
+### SpawnerContainerShort
+- **Name**: `SpawnerContainerShort`, formerly `SpawnerContainer`
+- **Size**: Fixed (scalable in future versions)
+- **Spawned Goal Size Range**: `0.2-1`
+- **Color**: Spawner and goals color changeable
+- **Functionality**: Spawns rewards at a fixed rate (can be set via a parameter) at a fixed location (the rewards spawn inside the container). Currently, only the positive reward is spawned (yellow rewards). The object has a door that can be animated to open and closes respectively via the boolean. 
 
-* name: `DecayGoal`
-* initial/final reward value range: `0-5`
-* size automatically sets to initial reward value
-* fixed frame delay value range: `0-inf` (default is `150` frames)
+### SpawnerButton
+- **Name**: `SpawnerButton`
+- **Size**: Fixed (scalable in future versions)
+- **Spawned Goal Size Range**: `1`
+- **Color**: Spawner color not changeable; spawned goals color changeable
+- **Functionality**: Spawns a reward when the player/agent *interacts* with it by colliding with the phyisical object. The rewards can be set via a simple probability distribution between the three types of rewards (positive, negative, and neutral). The rewards are spawned at any location within the arena via a parameter. Lastly, the SpawnerButton can be interacted with multiple times to spawn multiple rewards (this can also be set via a parameter, where you have complete control over how many times a reward type spawns and it's spawn rate).
 
-#### Anti-Decay Goal: 
-<img align="right" height="100" src="PrefabsPictures/Rewards/AntiDecayGoal.png">
-Variable-reward spheres whose reward 'ripens' over time, following a (configurable) delay time. Colour changes (from grey to purple) and a radial-timer fills up over time during anti-decay process. **Does not** end an episode except if all goals collected.
+## Other/Unique Objects
+These objects have specific and limited functionalities, with their primary function is to provide a unique experience for the player or specific cues for the agent.
 
-* name: `AntiDecayGoal`
-* initial/final reward value range: `0-5`
-* size automatically sets to final reward value
-* fixed frame delay value range: `0-inf` (default is `150` frames)
-
-#### Ripen-Goal (formerly GrowGoal): 
-<img align="right" height="100" src="PrefabsPictures/Rewards/GrowGoal.png">
-Variable-reward spheres whose physical size grows over time, following a (configurable) delay time. Reward tracks size change. **Does not** end an episode except if all goals collected.
-
-* name: `RipenGoal/GrowGoal`
-* initial/final reward value range: `0-5`
-* reward increases along with size value
-* fixed frame delay value range: `0-inf` (default is `0` frames)
-* growth halts when `GrowGoal` is trapped between/underneath other objects
-
-#### Shrink-Goal: 
-<img align="right" height="100" src="PrefabsPictures/Rewards/ShrinkGoal.png">
-Variable-reward spheres whose physical size shrinks over time, following a (configurable) delay time. Reward tracks size change. **Does not** end an episode except if all goals collected.
-
-* name: `ShrinkGoal`
-* initial/final reward value range: `0-5`
-* reward decreases along with size value
-* fixed frame delay value range: `0-inf` (default is `0` frames)
-
-
-## Other/Unique
-
-Special objects with unique functionality. *Spawners* create and deposit new food into the arena, whilst *Signs* communicate visual information to the agent. These objects tend to have fixed dimensions (that may still be *scaled* by the `size` parameter).
-
-#### Spawner-Tree
-<img align="right" height="110" src="PrefabsPictures/Other-Unique/SpawnerTree.PNG">
-Tree that grows new food over time. Food objects spawn and grow in the tree branches, then fall to the ground after a configurable 'ripening' time.
-
-* name: `SpawnerTree`
-* fixed size: dimensions `5.19 x 5.95 x 5.02` *(may be scalable in future version)*
-* spawned goal size range: `0.2-3`
-* #spawns range: `0-inf` (leave blank or set to `-1` to spawn infinitely)
-* cannot change color of spawner; can change color of spawned goals
-
-#### Goal-Dispenser
-<img align="right" height="110" src="PrefabsPictures/Other-Unique/SpawnerDispenser.PNG">
-Spawns new goal objects (finitely or otherwise) like a vending machine. After an optional, configurable time delay, the dispenser door can open and close at a regular specified interval. Food rolls out of the machine whenever the door is open.
-
-* name: `SpawnerDispenser`
-* fixed size: dimensions `1.67 x 4.46 x 1.67` *(may be scalable in future version)*
-* spawned goal size range: `0.2-1`
-* #spawns range: `0-inf` (leave blank or set to `-1` to spawn infinitely)
-* can change color of spawner/goals
-
-#### Goal-Container
-<img align="right" height="110" src="PrefabsPictures/Other-Unique/SpawnerContainer.PNG">
-Spawns new goal objects (finitely or otherwise) in a small transparent container. After an optional, configurable time delay, the container door can open and close at a regular specified interval. Food stays within the container and can only be accessed by the agent when the door is open.
-
-* name: `SpawnerContainer`
-* fixed size: dimensions `1.67 x 1.67 x 1.67` *(may be scalable in future version)*
-* spawned goal size range: `0.2-1`
-* #spawns range: `0-inf` (leave blank or set to `-1` to spawn infinitely)
-* can change color of spawner/goals
-
-#### SignBoard (formerly SignPosterboard)
-<img align="right" height="90" src="PrefabsPictures/Other-Unique/SignPosterboard.PNG">
-Posterboard communicating visual information to the agent. Features a 'symbol' that can be chosen from a list of presets, or generated as a matrix of pixels from a special code (see [configFile.md](configFile.md)).
-
-* name: `SignBoard/SignPosterboard`
-* size range: `0.5-2.5` (**note:** `x` is posterboard thickness, `y` is height, `z` is width - size values for posterboards are a *scale factor*, not the actual size)
-* color change overrides the color of the *symbol*, not the posterboard itself - leave empty for the symbol's default color to be used
-* symbol is specified using the `symbolNames` parameter
-&nbsp;
+### SignBoard
+- **Name**: `SignBoard`, formerly `SignPosterboard`
+- **Color**: Symbol color changeable; SignBoard color fixed
+- **Symbol**: Specified using `symbolNames` parameter
+- **Functionality**: The SignBoard is a 3D object that can be placed in the environment to provide a visual cue to the player/agent. The SignBoard has a fixed color (grey) and a symbol that can be changed via the `symbolNames` parameter. The SignBoard can be placed on the ground or on a wall.

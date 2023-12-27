@@ -15,14 +15,14 @@
 3. [Tutorials and Examples](#tutorials-and-examples)
 4. [Citing Animal-AI](#citing-animal-ai)
 5. [Unity ML-Agents](#unity-ml-agents)
-6. [Animal-AI and the community](#animal-ai-and-the-community)
+6. [The Animal-AI Community](#the-animal-ai-community)
 7. [License Notice](#license-notice)
 
 - **Website:** [here](https://animalai.org/)
 - **Unity Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
 
-This repository serves as the primary hub for essential information and activities related to the AnimalAI environment. It is the exclusive source for all past and forthcoming releases of Animal-AI. To facilitate your initiation, the repository includes a collection of introductory Python scripts for engagement with the environment, alongside an extensive library of over 900 tasks featured in the inaugural Animal-AI Olympics competition. The repository also contains a comprehensive documentation of the environment, including a detailed description of the environment's objects and their properties, as well as a guide to designing experiments with the environment.
+This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It is the exclusive source for all past and forthcoming releases of Animal-AI. To facilitate your initiation, the repository includes a collection of introductory Python scripts for engagement with the environment, alongside an extensive library of over 900 tasks featured in the inaugural Animal-AI Olympics competition. The repository also contains a comprehensive documentation of the environment and backend, including a detailed description of the environment's objects and their properties, as well as a guide to designing experiments with the environment. If you wish to contribute to the project, please familiarize yourself with the [Contributing Guide](contributing.md) and the [Code of Conduct](codeOfConduct.md) first.
 
 The Animal-AI environment and packages are currently tested on **Windows 11**, **Linux**, and **MacOS**, with minimum **Python 3.9.x**, but Python 3.6+ has been reported to be working also. **Linux distros** are also working and stable.
 
@@ -32,6 +32,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 **Interdisciplinary Research Platform:**
 - Facilitates research in human, animal, and artificial cognition.
 - Supports cross-disciplinary studies.
+- Enables comparative assessments among humans, animals, and artificial intelligences.
 
 **Comprehensive AI Environment:**
 - Includes a versatile environment for AI experiments, from basic to advanced configurations.
@@ -113,7 +114,7 @@ Juliani, A., Berges, V., Vckay, E., Gao, Y., Henry, H., Mattar, M., Lange, D. (2
 Further the documentation for [mlagents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want to make any changes.
 
 
-## Animal-AI and the community
+## The Animal-AI Community 
 
 Animal-AI has been an open-source research project from the beginning. If you wish to contribute to the project, please refer to the [Contributing Guide](contributing.md) for more information, and to the [Code of Conduct](codeOfConduct.md) for guidelines on how to interact with the community. 
 
