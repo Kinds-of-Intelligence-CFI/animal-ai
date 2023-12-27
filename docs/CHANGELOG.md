@@ -89,7 +89,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Fixed a reset environment bug during training.
 - Added the ability to set the DecisionPeriod (frameskip) when instantiating an environment.
 
-## [2.1.1]
+## [2.1.1] - 01.07.2021
+### Added
+- RayCast Observations
 ### Fixed
 - Fixed raycast length being less than diagonal length of standard arena.
 
