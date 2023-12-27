@@ -1,5 +1,19 @@
-## Detailed Installation Guide
+# Detailed Installation Guide
 
+### Table of Contents
+1. [Introduction](#introduction)
+2. [Steps](#steps)
+    1. [Installing Python](#1-installing-python)
+    2. [Cloning the Animal-AI Repository](#2-cloning-the-animal-ai-repository)
+    3. [Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
+    4. [Installing Dependencies](#4-installing-dependencies)
+    5. [Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
+    6. [Starting Animal-AI](#6-starting-animal-ai)
+3. [Additional Resources](#additional-resources)
+4. [General Notes](#general-notes)
+5. [Troubleshooting](#troubleshooting)
+
+## Introduction
 Welcome to the comprehensive installation guide for Animal-AI. This guide is tailored for users who may not be familiar with Python dependencies, navigating GitHub repositories, or working with Unity. It's also here to help you smoothly navigate through any installation hiccups – because let's face it, *it's custom software installation... when **isn't** there a hiccup or two?*.
 
 For **Windows** Users:
@@ -10,7 +24,7 @@ Similarly for Mac, most of the instructions for Windows users should still apply
 
 If you're a Linux user, you're likely more comfortable with command-line interfaces and installations. The quick install guide in the README.md file should suffice for your needs. Please **note** that if you are using Linux, you may need to make the .exe file executable: Simply run this command in your terminal: `chmod +x env/AnimalAI.x86_64`. Please also make sure that when you extract the folder, you move the files inside the sub-directory to its parent folder.
 
-
+## Steps:
 ### 1. Installing Python
 - **Download Python**: Obtain Python 3.9.x from [Python's official website](https://www.python.org/downloads/).
 - **Run the Installer**: Follow the installation instructions. Ensure to add Python to your PATH. Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
@@ -40,13 +54,15 @@ For more information on virtual environments, refer to the [Python Documentation
 - **Extract**: Unzip into the `env` folder in the main repository.
 - **Check**: The `env` folder should contain the `.exe` file and other files from the `.zip` download.
 
-### 6. Starting AnimalAI
+### 6. Starting Animal-AI
 - You can now start using Animal-AI. Contact the team for any issues you may encounter.
 - **Note**: If you're using a virtual environment, make sure to activate it before running Animal-AI.
 
 ### Additional Resources
-- [Installation Guide](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/main/docs/installationGuide.md)
-- [Quick Start Guide](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/main/docs/quickStart.md)
+- [Quick Start Guide](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/main/docs/quickStart.md) - for a quick overview of how to get started with Animal-AI, including running the standalone arena and learning controls for manual play.
+- [Configuration Guide](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/overhaul_docs/docs/configGuide/ConfigFileGuide.md) - for a detailed guide on how to design and run configuration files in Animal-AI.
+- [Training Agents](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/b596c6a8a9d36d2a504db7a06dc814d0a8b76c4a/docs/Training.md) - for a detailed guide on how to train agents in Animal-AI.
+
 
 Please submit an issue or get in touch with (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/) GitHub) should you run into trouble.
 
