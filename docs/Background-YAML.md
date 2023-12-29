@@ -17,7 +17,7 @@
 
 ## Configuration of Training Environments and Agents
 
-YAML files are used to configure training environments and agents in ML-Agents. These files are used to define the parameters of the training process, such as the neural network architecture, the reward signals, and the hyperparameters. They are also used to define the parameters of the agents, such as the observation types, the action spaces, and the reward signals. 
+YAML files are used to configure training environments and agents in Animal-AI. These files are used to define the parameters of the training process, such as the neural network architecture, the reward signals, and the hyperparameters. They are also used to define the parameters of the agents, such as the observation types, the action spaces, and the reward signals. 
 
 ### Defining Agent Behaviors
 
