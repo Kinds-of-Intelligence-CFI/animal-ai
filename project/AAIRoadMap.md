@@ -1,6 +1,10 @@
-# AnimalAI RoadMap to 3.0 (last updated 23/08/2021)
+# Animal-AI RoadMap
 
-A (tentative) roadmap for AnimalAI (AAI) to get from where it is now to a tool for supporting and tracking AI progress towards currently unsolved cognitive capabilities. We want AAI to support interdisciplinary research to help better understand human, animal, and artificial cognition. We also want it to be a useful resource for making AI progress on these unsolved problems and also act as a way of tracking such progress so that we can stay on top of any AI breakthroughs that may have important societal implications.
+### Table of Contents
+- [Project Overview](#overview)
+
+## Project Overview
+We wish to enable the possibility of interdisciplinary research to better understand human, animal, and artificial cognition. We also want it to be a useful resource for making AI progress on these unsolved problems and also act as a way of tracking such progress so that we can stay on top of any AI breakthroughs that may have important societal implications. 
 
 ## 2.1 Initial Port + RayCasts (Released 01/07/2021)
 

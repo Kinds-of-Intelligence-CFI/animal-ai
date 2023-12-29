@@ -22,7 +22,9 @@
 - **Unity Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
 
-This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It is the exclusive source for all past and forthcoming releases of Animal-AI. To facilitate your initiation, the repository includes a collection of introductory Python scripts for engagement with the environment, alongside an extensive library of over 900 tasks featured in the inaugural Animal-AI Olympics competition. The repository also contains a comprehensive documentation of the environment and backend, including a detailed description of the environment's objects and their properties, as well as a guide to designing experiments with the environment. If you wish to contribute to the project, please familiarize yourself with the [Contributing Guide](contributing.md) and the [Code of Conduct](codeOfConduct.md) first.
+This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It is the exclusive source for all past and forthcoming releases of Animal-AI. To facilitate your initiation, the repository includes a collection of introductory Python scripts for engagement with the environment, alongside an extensive library of over 900 tasks featured in the inaugural Animal-AI Olympics competition. The repository also contains a comprehensive documentation of the environment, including a detailed description of the environment's objects and their properties, as well as a guide to designing experiments with the environment from scratch. More advanced tutorials are also found, such as how to train agents in Animal-AI environments. 
+
+_If you wish to contribute to the project, please familiarize yourself with the [Contributing Guide](contributing.md) and the [Code of Conduct](codeOfConduct.md) first._
 
 The Animal-AI environment and packages are currently tested on **Windows 11**, **Linux**, and **MacOS**, with minimum **Python 3.9.x**, but Python 3.6+ has been reported to be working also. **Linux distros** are also working and stable.
 
@@ -56,7 +58,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 - Supports Python 3.6.x and above.
 
 **Control Modes:**
-- Player mode for interactive environment control, for manual testing.
+- Player mode for interactive environment control, for human testing.
 - Training mode for Reinforcement Learning, with support for tensorflow analysis.
 - Supports AI model training across different systems.
 
@@ -76,12 +78,12 @@ For legacy versions of Animal-AI, please see ([legacy releases](project\AAIVersi
 
 ## Tutorials and Examples
 
-Some example scripts to get started can be found in the `docs/configGuide` folder. The following docs provide information for some common uses of the environment.
+Some example scripts to get started can be found in the `docs/configGuide` folder. The following docs provide information for some common uses of the environment. Please read these before trying to use the environment.
 
-- [Getting started with the environment](docs\installation\QuickStart.md)
-- [Using the ML-Agents Low-Level API: A hand-coded Braitenberg Vehicle baseline](docs/lowLevelAPI.md)
-- [Designing Experiments](docs/configFile.md)
-- [Training examples](docs/training.md)
+- [Getting Started](docs\installation\QuickStart.md)
+- [Using the ML-Agents Low-Level API](docs/lowLevelAPI.md)
+- [Designing Experiments](docs\configGuide\ConfigFileGuide.md)
+- [Training Examples](docs/training.md)
 
 
 ## Citing
@@ -118,10 +120,11 @@ Further the documentation for [mlagents](https://github.com/Unity-Technologies/m
 
 Animal-AI has been an open-source research project from the beginning. If you wish to contribute to the project, please refer to the [Contributing Guide](contributing.md) for more information, and to the [Code of Conduct](codeOfConduct.md) for guidelines on how to interact with the community. 
 
+
 ---
 ### Notice
 
-   Copyright 2023 Kinds of Intelligence, Centre for the Future of Intelligence, University of Cambridge
+   _Copyright 2024 Kinds of Intelligence, Centre for the Future of Intelligence, University of Cambridge._
    
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
