@@ -1,4 +1,4 @@
-# Animal-AI Detailed Overview
+# Animal-AI Technical Overview
 
 This guide will walk you through the process of running the Animal-AI Environment. It will also provide an overview of the environment and its components. If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and documentation before posting an issue on GitHub. If you are unable to find an answer to your question, please post an issue on GitHub.
 
