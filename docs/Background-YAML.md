@@ -1,10 +1,6 @@
-# Using YAML in Animal-AI
-
-This document explains how YAML is used in Animal-AI as well as in Unity's ML-Agents Toolkit for configuring training environments and agents. It also describes the advantages of using YAML in the context of ML-Agents. 
-
 ### Table of Contents
 
-- [Overview](#overview)
+- [YAML? What is it](#yaml-what-is-it)
 - [Configuration of Training Environments and Agents in ML-Agents](#configuration-of-training-environments-and-agents-in-ml-agents)
   - [Defining Agent Behaviors in ML-Agents](#defining-agent-behaviors-in-ml-agents)
   - [Setting Hyperparameters for Training in ML-Agents](#setting-hyperparameters-for-training-in-ml-agents)
@@ -14,9 +10,10 @@ This document explains how YAML is used in Animal-AI as well as in Unity's ML-Ag
   - [Easy to Read and Modify](#easy-to-read-and-modify)
   - [Facilitating Complex Configurations](#facilitating-complex-configurations)
 
-## Overview
 
-*YAML* (YAML Ain't Markup Language) is a data serialization format widely used in Unity's ML-Agents for its readability and ease of use. It allows developers to define and adjust the behavior and training parameters of AI agents within Unity simulations. 
+## YAML? What is it?
+
+*YAML* (YAML Ain't Markup Language) is a data serialization format widely used in Unity and other setups (as well as in ML-Agents) for its readability and ease of use. It allows developers and researchers to define and adjust the behavior and training parameters of AI agents within Unity simulations. Due to it's human-readable format, YAML is also useful for researchers who have little experience with programming. 
 
 ## Configuration of Training Environments and Agents
 
