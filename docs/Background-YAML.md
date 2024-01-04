@@ -48,7 +48,7 @@ behaviors:
     time_horizon: 64
     summary_freq: 10000
 ```
-The above example shows a YAML configuration file for a soccer player agent in ML-Agents. The agent's behavior is defined by the `SoccerPlayer` behavior name. The `trainer_type` parameter specifies the type of training algorithm used to train the agent. The `hyperparameters` section defines the hyperparameters for the training process. The `network_settings` section defines the neural network architecture for the agent. The `reward_signals` section defines the reward signals used to train the agent. The `max_steps` parameter defines the maximum number of steps the agent can take in the environment. The `time_horizon` parameter defines the number of steps the agent can take before the environment is reset. The `summary_freq` parameter defines the frequency at which the agent's training progress is logged. 
+The above example shows a YAML configuration file for a soccer player agent in ML-Agents, for agent training. The agent's behavior is defined by the `SoccerPlayer` behavior name. The `trainer_type` parameter specifies the type of training algorithm used to train the agent. The `hyperparameters` section defines the hyperparameters for the training process. The `network_settings` section defines the neural network architecture for the agent. The `reward_signals` section defines the reward signals used to train the agent. The `max_steps` parameter defines the maximum number of steps the agent can take in the environment. The `time_horizon` parameter defines the number of steps the agent can take before the environment is reset. The `summary_freq` parameter defines the frequency at which the agent's training progress is logged. 
 
 ## Example of a YAML Configuration in Animal-AI
 

@@ -4,7 +4,10 @@
 - [Project Overview](#overview)
 
 ## Project Overview
-We wish to enable the possibility of interdisciplinary research to better understand human, animal, and artificial cognition. We also want it to be a useful resource for making AI progress on these unsolved problems and also act as a way of tracking such progress so that we can stay on top of any AI breakthroughs that may have important societal implications. 
+We wish to enable the possibility of interdisciplinary research to better understand human, animal, and artificial cognition. We also want it to be a useful resource for making AI progress on these unsolved problems and also act as a way of tracking such progress so that we can stay on top of any AI breakthroughs that may have important societal implications.
+
+---
+
 
 ## 2.1 Initial Port + RayCasts (Released 01/07/2021)
 
