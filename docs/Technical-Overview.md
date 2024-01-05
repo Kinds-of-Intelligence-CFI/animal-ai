@@ -6,7 +6,6 @@ If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and doc
 
 ### Table of Contents
 
-- [Installation](#installation)
 - [Running the Environment](#running-the-environment)
   - [Play Mode](#play-mode)
       - [Controls in Play Mode](#controls-in-play-mode)
@@ -32,15 +31,10 @@ If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and doc
 - [Citation](#citation)
 - [License](#license)
 
-## Installation
-
-If you have not already done so, please follow the [installation instructions](docs\installation\InstallationGuide.md) to install the Animal-AI Environment before reading this guide. If you have done so and are ready to get started, please continue reading.
-
-
 
 ## Running the Environment
 
-The Animal-AI Environment can be run in one of two modes: `Play` and `Train`. In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent controlling the agent. The environment can be run in either mode using the `animalai` command line tool and by launching the environment directly from the Unity Editor or application.
+The Animal-AI Environment can be run in one of two modes: `Play` and `Train`. In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent controlling the agent.
 
 ### Play Mode
 
