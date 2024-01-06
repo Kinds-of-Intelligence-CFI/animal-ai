@@ -10,14 +10,14 @@
 7. [Other/Unique Objects](#otherunique-objects)
 
 ## Introduction
-The Animal-AI environment comprises various objects categorized into immovable, movable, rewards, and other/unique types. These objects can be configured in numerous ways to create diverse tasks. Each object's name, default characteristics, and configurable ranges are detailed below. All objects can rotate 360 degrees. Unity uses a left-handed coordinate system with `y` as the vertical axis, and `x` and `z` axes representing horizontal and depth dimensions, respectively.
+The Animal-AI environment comprises various objects categorized into _immovable_, _movable_, _rewards_, and _other/unique_ types. These objects can be configured in numerous ways to create diverse tasks. Each object's name, default characteristics, and configurable ranges are detailed below. All objects can rotate 360 degrees. Unity uses a left-handed coordinate system with `y` as the vertical axis, and `x` and `z` axes representing horizontal and depth dimensions, respectively.
 
 
 ## Unity Objects - What are they?
-Unity game engine objects, commonly referred to as *GameObjects*, are the fundamental components in the Unity Engine, serving as containers for all other components or functionalities within a Unity scene. These objects can represent characters, props, scenery, cameras, lights, and more. Each GameObject can be equipped with various components such as scripts, renderers, colliders, or custom components, defining their behavior and interaction within the game world. *Prefabs* in Unity are essentially templates created from GameObjects; they allow developers to create, configure, and store a GameObject complete with its components and properties. Once a Prefab is created, it can be reused multiple times across the scene or even across different projects, ensuring consistency and efficiency in game development by allowing changes to be made to multiple instances simultaneously.
+Briefly, Unity game objects, commonly referred to as *GameObjects*, are the fundamental components in the Unity Engine, serving as containers for all other components or functionalities within a Unity scene. These objects can represent characters, props, scenery, cameras, lights, and more. Each GameObject can be equipped with various components such as scripts, renderers, colliders, or custom components, defining their behavior and interaction within the game world. *Prefabs* in Unity are essentially templates created from GameObjects; they allow developers to create, configure, and store a GameObject complete with its components and properties. Once a Prefab is created, it can be reused multiple times across the scene or even across different projects, ensuring consistency and efficiency in game development by allowing changes to be made to multiple instances simultaneously.
 
 ## Immovable Objects
-Immovable objects are fixed in place and cannot be moved. The outer walls of the arena are also immovable and are permanently fixed in place to prevent the player/agent from escaping the arena.
+_Immovable_ objects are fixed in place and cannot be moved. The outer walls of the arena are also immovable and are permanently fixed in place to prevent the player/agent from escaping the arena.
 
 | ![](immovable\CylinderTunnel.png) | ![](project\figs\agent-cyl-pass.gif) |
 |---|---|
@@ -49,7 +49,7 @@ Immovable objects are fixed in place and cannot be moved. The outer walls of the
 - **Color**: Not changeable
 
 ## Movable Objects
-Movable objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects directly.
+_Movable_ objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects directly.
 
 ### Light Cardboard Box
 - **Name**: `Cardbox1`

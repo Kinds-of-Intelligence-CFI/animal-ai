@@ -2,7 +2,7 @@
 
 This guide will walk you through the engineering aspects of the Animal-AI Environment. It will provide an overview of the environment and its components. If you are intending on contributing, then this guide will be a good place to start.
 
-If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and documentation before posting an issue on GitHub. If you are looking for a quick start guide, please see the [Quick Start Guide](docs/QuickStartGuide.md), which will get you rolling with the basics of the environment.
+If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and documentation before posting an issue on GitHub.
 
 ### Table of Contents
 
@@ -34,11 +34,12 @@ If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and doc
 
 ## Running the Environment
 
-The Animal-AI Environment can be run in one of two modes: `Play` and `Train`. In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent controlling the agent.
+The Animal-AI Environment can be run in one of two modes: `Play` and `Train`. In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent controlling the agent (see [Training Agents](#training-agents) for more details). 
+
 
 ### Play Mode
 
-To run the environment in `Play` mode, use the `animalai play` command. This will launch the environment with a human player controlling the agent. The `animalai play` command takes a single argument, the path to the configuration file to use. For example, to run the environment in `Play` mode using the `configs/curriculum/0.yaml` configuration file, use the following command:
+To run the environment in `Play` mode, simply run the Animal-AI application for your OS, specifiying the configuration file location in full. This will launch the environment in play mode with the specified configuration file. The `play.py` command takes a single argument - the path to the configuration file to use. For example, to run the environment in `Play` mode using the `configs/curriculum/0.yaml` configuration file, use the following command:
 
 ```bash
 animalai play configs/curriculum/0.yaml
@@ -57,9 +58,26 @@ In play mode, you can switch the camera view and control the agent using the fol
 | R             | Reset environment    |
 | Q             | Quit application     |
 
-Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W`, `A`, `S`, `D`. Hitting `R` or collecting certain rewards (green or red) will reset the arena. 
+Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W`, `A`, `S`, `D`. Hitting `R` or collecting certain rewards (green or red) will reset the arena. Note that the camera and agent controls are not available in `Train` mode, with only third-person perspective implemented currently (we plan to add multiple camera observations during training at some point). Furthermore, you can toggle on/off the ability to restrict the player's camera angles via the `canChangePerspective` parameter in the configuration file. If this is set to false, then the player will not be able to change the camera angle. In addition, you can toggle on/off the ability to reset the arena via the `canResetArena` parameter in the configuration file. If this is set to false, then the player will not be able to reset the arena manually. A new feature added is that users can now toggle on/off Lastly, if you have multiple arenas specified in youur configuration file, you can randomize via the `randomizeArenas` parameter. This is false by default. See below for an example of a configuration file with these parameters:
 
- 
+```yaml
+!ArenaConfig
+randomizeArenas: false # whether to randomize arenas from the beginning. Default is false.
+showNotification: false # show/hide the notification box. Default is false.
+canResetEpisode: false # allow the user to change the perspective. Default is true.
+canChangePerspective: true # allow the user to change the perspective. Default is true.
+arenas:
+  0: !Arena
+    pass_mark: 0
+    t: 250
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+ ```
+In the above example, the user will not be able to reset the arena or change the camera angle during play. Furthermore, the arena will not be randomized as there is only one arena specified. The `showNotification` parameter is not currently implemented, meaning there will be no notification box in the environment immediately after the arena has been called to reset (the next arena is spawned).
 
 ### Train Mode
 
@@ -68,3 +86,9 @@ To run the environment in `Train` mode, use the `animalai train` command. This w
 ```bash
 animalai train configs/curriculum/0.yaml
 ```
+
+## Environment Overview
+
+Regardless on what mode you are using, the arena you specify in the configuration file will be loaded. The agent will be placed in the arena and the environment will run until the agent reaches the goal or the episode time limit is reached. The environment will then reset and the process will repeat. The order of the arenas in the configuration file will be used to determine the order in which the arenas are loaded. Take a look at the [Configuration Files](#configuration-files) section for more details on how to create your own configuration files.
+
+
