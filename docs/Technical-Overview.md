@@ -1,6 +1,6 @@
 # Animal-AI Technical Guide
 
-This guide will walk you through the engineering aspects of the Animal-AI Environment. It will provide an overview of the environment and its components. If you are intending on contributing, then this guide will be a good place to start.
+This guide will walk you through the engineering aspects of the Animal-AI Environment. It provides an overview of the environment and its components. If you are intending on contributing, then this guide will be a good place to start.
 
 If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and documentation before posting an issue on GitHub.
 
