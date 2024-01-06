@@ -1,55 +1,55 @@
+
 # Frequently Asked Questions
-We have compiled a list of frequently asked questions and troubleshooting tips for Animal-AI. 
+This document provides a comprehensive list of frequently asked questions and troubleshooting tips for the Animal-AI environment.
 
-### Table of Contents
-- [Troubleshooting Installation Issues](#troubleshooting-installation-issues)
-  - [Resolving Environment Permission Errors](#resolving-environment-permission-errors)
-    - [For macOS and Linux Users](#for-macos-and-linux-users)
-    - [For Windows Users](#for-windows-users)
-  - [Addressing Environment Connection Timeouts](#addressing-environment-connection-timeouts)
-  - [Communication Port Conflict](#communication-port-conflict)
-  - [Mean Reward Displaying NaN](#mean-reward-displaying-nan)
-  - [Developer Verification Error on macOS](#developer-verification-error-on-macos)
+## Table of Contents
+1. [Troubleshooting Installation Issues](#1-troubleshooting-installation-issues)
+   1. [Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
+      1. [For macOS and Linux Users](#111-for-macos-and-linux-users)
+      2. [For Windows Users](#112-for-windows-users)
+   2. [Addressing Environment Connection Timeouts](#12-addressing-environment-connection-timeouts)
+   3. [Communication Port Conflict](#13-communication-port-conflict)
+   4. [Mean Reward Displaying NaN](#14-mean-reward-displaying-nan)
+   5. [Developer Verification Error on macOS](#15-developer-verification-error-on-macos)
 
-## Troubleshooting Installation Issues
-If you encounter issues installing the Animal-AI environment, consider the following solutions:
+## 1. Troubleshooting Installation Issues
+Encountering issues while installing the Animal-AI environment? Here are some solutions to common problems:
 
-### Resolving Environment Permission Errors
+### 1.1 Resolving Environment Permission Errors
+#### 1.1.1 For macOS and Linux Users
+Permission errors after importing a Unity environment? Adjust file permissions with these commands:
 
-#### For macOS and Linux Users
-If you encounter a permission error after importing a Unity environment without building it in the editor, you may need to adjust file permissions. 
-
-**On macOS**, execute the following command in the terminal:
+**macOS:**
 ```sh
 chmod -R 755 *.app
 ```
 
-**For Linux**, use:
+**Linux:**
 ```sh
 chmod -R 755 *.x86_64
 ```
 
-#### For Windows Users
-Windows users can refer to the [Microsoft Documentation](https://docs.microsoft.com/) for adjusting permissions.
+#### 1.1.2 For Windows Users
+Windows users generally don't need additional permissions. If needed, refer to [Microsoft Documentation](https://docs.microsoft.com/).
 
-### Addressing Environment Connection Timeouts
-If launching the environment through `UnityEnvironment` leads to a timeout error stating, "UnityAgentsException: The Communicator was unable to connect," consider these potential causes and solutions:
+### 1.2 Addressing Environment Connection Timeouts
+Timeout errors when launching through `UnityEnvironment`? Consider these fixes:
 
-- **No Agent in Scene:** Ensure that your scene contains an agent.
-- **Firewall Issues on macOS:** The firewall might block communication. Add the environment binary to the exceptions list following [Apple's instructions](https://support.apple.com/).
-- **Errors in Unity Environment:** Check the [Unity log files](https://docs.unity3d.com/Manual/LogFiles.html) for potential errors that might hinder communication.
-- **Proxy Environment Variables:** If `HTTP_PROXY` and `HTTPS_PROXY` are set in your environment variables, remove or unset them and retry.
-- **Running in a Headless Environment:** When using a server or remote setup, include `--no-graphics` in the `mlagents-learn` command, or set `no_graphics=True` in `RemoteRegistryEntry.make()` or the `UnityEnvironment` initializer. For visual observations, consider setting up `xvfb` or an equivalent service.
+- **No Agent in Scene:** Ensure an agent is in the scene.
+- **Firewall Issues on macOS:** Follow [Apple's instructions](https://support.apple.com/) to add exceptions.
+- **Errors in Unity Environment:** Refer to [Unity log files](https://docs.unity3d.com/Manual/LogFiles.html).
+- **Running in a Headless Environment:** Use `--no-graphics` or `no_graphics=True` if you intend on using this feature (not fully supported).
 
-### Communication Port Conflict
-If you encounter the error, "Couldn't launch new environment because communication port {} is still in use," change the worker number in your Python script:
+### 1.3 Communication Port Conflict
+Encountering port conflicts? Try changing the worker number or port:
 
 ```python
 UnityEnvironment(file_name=filename, worker_id=X)
 ```
+Or find an available port dynamically:
+```python
+port = 5005 + random.randint(0, 1000)
+```
 
-### Mean Reward Displaying NaN
-Receiving a `Mean reward : nan` message during PPO model training indicates non-terminating episodes. To resolve this, set the `Max Steps` parameter for Agents in the Scene Inspector to a non-zero value. Alternatively, script custom episode-termination conditions by manually setting `done` conditions.
-
-### Developer Verification Error on macOS
-Users who downloaded the repository via GitHub on macOS 10.15 (Catalina) or later might encounter a developer verification error when playing scenes. Solutions include installing the package via the Unity Package Manager (the recommended approach detailed [here](https://docs.unity3d.com/Manual/upm-ui-install.html)), or manually verifying files as described in [Apple's support guide](https://support.apple.com/).
+### 1.4 Mean Reward Displaying NaN
+Seeing `Mean reward : nan`? Set the `Max Steps` to a non-zero value or script custom termination conditions.
