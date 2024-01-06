@@ -1,15 +1,17 @@
 # Guide to Using Virtual Environments in Python
 
 ## Introduction to Virtual Environments
-A Virtual Environment in Python is a self-contained directory that includes a specific version of Python and various packages. This isolated environment helps in managing project dependencies effectively. For more details, visit the [Python venv documentation](https://docs.python.org/3/library/venv.html).
+A _Virtual Environment_ in Python is a self-contained directory that includes a specific version of Python and various packages. This isolated environment helps in managing project dependencies effectively. For more details, visit the [Python venv documentation](https://docs.python.org/3/library/venv.html).
 
 ## Benefits of Using a Virtual Environment
 Using a Virtual Environment offers several advantages:
 1. Simplifies dependency management for individual projects.
 2. Facilitates testing with different versions of libraries, ensuring code compatibility.
+3. Prevents conflicts between different versions of libraries.
+4. Allows for easy sharing of project requirements with collaborators.
 
 ## Python Version Compatibility
-- This guide is compatible with Python 3.9.12.
+- This guide is compatible with Python 3.9.9.
 - Using newer Python versions might lead to compatibility issues with some libraries.
 
 ## Setting Up Virtual Environments
