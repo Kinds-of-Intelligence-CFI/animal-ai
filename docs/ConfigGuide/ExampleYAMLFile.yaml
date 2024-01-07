@@ -1,23 +1,23 @@
 !ArenaConfig
 arenas:
-  0: !Arena
-    t: 250
-    items:
+  0: !Arena # The number here is the arena ID. It must be unique.
+    t: 250 # The time limit for the arena in seconds.
+    items: # The items that will be spawned in the arena.
+    - !Item # The item type. This can be any item type defined in the items section of the config file.
+      name: Wall # The name of the item type. This must match the name of an item type defined in the items section of the config file.
+      positions:  # The positions of the items. The number of positions must match the number of rotations and sizes.
+      - !Vector3 {x: 21, y: 0, z: 10} # The position of the item. This is a Vector3 object with x, y, and z coordinates.
+      rotations: [0] # The rotations of the items. It can be in any angle but default is 0 degrees.
+      sizes: # The sizes of the items. You can scale the items by changing the sizes in each dimension.
+      - !Vector3 {x: 5, y: 3, z: 1} 
+      colors:  # The colors of the items. This is a RGB object with r, g, and b values.
+      - !RGB {r: 255, g: 0, b: 255} 
     - !Item
-      name: Wall
+      name: GoodGoalBounce 
       positions: 
-      - !Vector3 {x: 21, y: 0, z: 10}
-      rotations: [0]
-      sizes: 
-      - !Vector3 {x: 5, y: 3, z: 1}
-      colors: 
-      - !RGB {r: 255, g: 0, b: 255}
-    - !Item
-      name: GoodGoalBounce
-      positions: 
-      - !Vector3 {x: 18, y: 0, z: 22}
-      - !Vector3 {x: 26, y: 0, z: 15}
-      rotations: [90, 60]
+      - !Vector3 {x: 18, y: 0, z: 22} # Note that this item will be spawned multiple times at different positions.
+      - !Vector3 {x: 26, y: 0, z: 15} # ... by specifying multiple positions (-!Vector3 syntax).
+      rotations: [90, 60] # N.B: The rotations parameter is a list, taking in multiple rotations for each object defined. It is in order of the order of the positions. 
       sizes: 
       - !Vector3 {x: 1, y: 1, z: 1}
       - !Vector3 {x: 3, y: 3, z: 3}
