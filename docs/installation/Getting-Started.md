@@ -6,7 +6,7 @@ For this guide, we'll use a few simple congifuration files of the environment, e
 
 Finally, please note that Animal-AI is built upon _ML-Agents_ by Unity. For more information on ML-Agents, visit their GitHub repository [here](https://github.com/Unity-Technologies/ml-agents).
 
-**Let's get started!**
+Let's get started!
 
 
 ## Understanding the Environment
