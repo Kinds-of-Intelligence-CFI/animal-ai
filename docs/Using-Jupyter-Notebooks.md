@@ -1,44 +1,78 @@
 
-# Using Jupyter Notebooks with Animal-AI
+# Using Jupyter Notebooks for Animal-AI
+
+This guide combines instructions on creating a custom kernel for Jupyter Notebooks and specific steps for using Jupyter Notebooks with the Animal-AI package.
 
 ## Table of Contents
-
-- [Introduction to Jupyter Notebooks](#introduction-to-jupyter-notebooks)
-- [Setting Up Jupyter Notebooks](#setting-up-jupyter-notebooks)
+- [Creating a Kernel for Jupyter Notebooks](#creating-a-kernel-for-jupyter-notebooks)
 - [Using Jupyter Notebooks with Animal-AI](#using-jupyter-notebooks-with-animal-ai)
-  - [Creating a New Notebook](#creating-a-new-notebook)
-  - [Importing Animal-AI Package](#importing-animal-ai-package)
-  - [Writing Interactive Scripts](#writing-interactive-scripts)
 - [Advantages of Using Jupyter Notebooks](#advantages-of-using-jupyter-notebooks)
-- [Tips for Using Jupyter with Animal-AI](#tips-for-using-jupyter-with-animal-ai)
+- [Tips for Effective Jupyter Notebook Use](#tips-for-effective-jupyter-notebook-use)
 
-## Introduction to Jupyter Notebooks
+## Creating a Kernel for Jupyter Notebooks
 
-_Jupyter Notebooks_ are interactive documents combining live code, output, explanatory text, and visualizations, widely used in data science and machine learning.
+### Step-by-Step Guide
+1. **Install the IPython Kernel**: 
+   ```bash
+   pip install ipykernel
+   ```
+2. **Create a New Python Environment**:
+   - Using venv: 
+     ```bash
+     python -m venv /path/to/new/virtual/environment
+     ```
+   - Using Conda:
+     ```bash
+     conda create -n myenv python=3.x
+     ```
+3. **Activate the Environment**:
+   - Using venv:
+     ```bash
+     source /path/to/new/virtual/environment/bin/activate
+     ```
+   - Using Conda:
+     ```bash
+     conda activate myenv
+     ```
+4. **Install Necessary Packages**:
+   ```bash
+   pip install numpy pandas matplotlib
+   ```
+5. **Add Your Kernel to Jupyter**:
+   ```bash
+   ipython kernel install --name "myenv" --user
+   ```
+6. **Launch Jupyter Notebook**:
+   ```bash
+   jupyter notebook
+   ```
+7. **Select Your Kernel**:
+   Choose "myenv" from the kernel list in Jupyter.
 
-## Setting Up Jupyter Notebooks
+### Notes
+- Replace placeholders with your desired directory and environment name.
+- Adjust Python version as needed.
 
+## Using Jupyter Notebooks with Animal-AI
+
+### Introduction
+_Jupyter Notebooks_ are interactive documents that combine live code, output, text, and visualizations.
+
+### Setup
 1. **Install Jupyter**:
-   Use pip to install Jupyter:
    ```bash
    pip install notebook
    ```
 2. **Start Jupyter Notebook**:
-   - Run `jupyter notebook` in the terminal.
-   - Or use JupyterLab (`pip install jupyterlab` and `jupyter lab`).
-3. **Navigate to Animal-AI (Root) Folder**:
-   - Open the folder where your Animal-AI project is located in the Jupyter interface.
+   - Use `jupyter notebook` or JupyterLab (`jupyter lab`).
 
-## Using Jupyter Notebooks with Animal-AI
-
-### Creating a New Notebook
-In the Jupyter interface, create a new Python notebook in your project directory.
-
-### Importing Animal-AI Package
-```python
-from animalai.envs.environment import AnimalAIEnvironment
-# Other necessary imports for your script
-```
+### Using with Animal-AI
+- **Create a New Notebook**: In your project directory.
+- **Import Animal-AI Package**:
+  ```python
+  from animalai.envs.environment import AnimalAIEnvironment
+  # Other necessary imports for your script
+  ```
 
 ### Writing Interactive Scripts
 - **Initialize Environment**: Set up the Animal-AI environment.
@@ -50,7 +84,7 @@ from animalai.envs.environment import AnimalAIEnvironment
 - **Documentation**: Combine code with rich text and visualizations.
 - **Experimentation**: Ideal for testing new ideas and visualizing data.
 
-## Tips for Using Jupyter with Animal-AI
+## Tips for Effective Jupyter Notebook Use
 - **Manage Resources**: Be aware of resource usage, especially when running complex simulations.
 - **Kernel Management**: Restart the Jupyter kernel to clear memory and state if needed.
 - **Version Control**: Export code to Python scripts for version control in larger projects.
