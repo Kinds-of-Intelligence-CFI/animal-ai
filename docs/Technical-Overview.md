@@ -34,7 +34,7 @@ If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and doc
 
 ## Running the Environment
 
-The Animal-AI Environment can be run in one of two modes: `Play` and `Train`. In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent controlling the agent (see [Training Agents](#training-agents) for more details). 
+The Animal-AI Environment can be run in one of two modes: `Play` and `Train`. In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent (see [Training Agents](#training-agents)). 
 
 
 ### Play Mode
