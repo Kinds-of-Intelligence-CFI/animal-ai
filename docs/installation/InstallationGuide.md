@@ -27,7 +27,7 @@ If you're a Linux user, you're likely more comfortable with command-line interfa
 ## Steps:
 ### 1. Installing Python
 - **Download Python**: Obtain Python 3.9.x from [Python's official website](https://www.python.org/downloads/).
-- **Run the Installer**: Follow the installation instructions. Ensure to add Python to your PATH. Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
+- **Run the Installer**: Follow the installation instructions. Ensure to add Python to your PATH (via the checkbox). Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
 - **Check Installation**: Open a Command Prompt terminal and run `python --version`. You should see the version you installed. Make sure it's Python 3.9.x.
 
 ### 2. Cloning the Animal-AI Repository
