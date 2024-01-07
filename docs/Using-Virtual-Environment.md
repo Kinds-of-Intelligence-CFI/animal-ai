@@ -1,7 +1,25 @@
-# Guide to Using Virtual Environments in Python
+
+# Using Virtual Environments for Animal-AI
+
+### Table of Contents
+- [Introduction to Virtual Environments](#introduction-to-virtual-environments)
+- [Benefits of Using a Virtual Environment](#benefits-of-using-a-virtual-environment)
+- [Python Version Compatibility](#python-version-compatibility)
+- [Setting Up Virtual Environments](#setting-up-virtual-environments)
+  - [Common Steps](#common-steps)
+  - [Mac OS X](#mac-os-x)
+  - [Ubuntu](#ubuntu)
+  - [Windows](#windows)
+- [Introduction to Conda Environments](#introduction-to-conda-environments)
+- [Setting Up Conda Environments](#setting-up-conda-environments)
+  - [Installing Conda](#installing-conda)
+  - [Creating a Conda Environment](#creating-a-conda-environment)
+  - [Managing Packages](#managing-packages)
+  - [Deactivating an Environment](#deactivating-an-environment)
+- [Conclusion](#conclusion)
 
 ## Introduction to Virtual Environments
-A _Virtual Environment_ in Python is a self-contained directory that includes a specific version of Python and various packages. This isolated environment helps in managing project dependencies effectively. For more details, visit the [Python venv documentation](https://docs.python.org/3/library/venv.html).
+A _Virtual Environment_ in Python is a self-contained directory that includes a specific version of Python and various packages. This isolated environment helps in managing project dependencies effectively. For more details, visit the [Python venv documentation](https://docs.python.org/3/library/venv.html) and [Anaconda documentation](https://docs.anaconda.com/).
 
 ## Benefits of Using a Virtual Environment
 Using a Virtual Environment offers several advantages:
@@ -11,13 +29,13 @@ Using a Virtual Environment offers several advantages:
 4. Allows for easy sharing of project requirements with collaborators.
 
 ## Python Version Compatibility
-- This guide is compatible with Python 3.9.9.
+- This guide is compatible with Python version `3.9.9`.
 - Using newer Python versions might lead to compatibility issues with some libraries.
 
 ## Setting Up Virtual Environments
 
 ### Common Steps
-1. **Install Python 3.9.12**: Ensure this version is installed on your system. If not, download it from [Python's official website](https://www.python.org/downloads/).
+1. **Install Python 3.9.9**: Ensure this version is installed on your system. If not, download it from [Python's official website](https://www.python.org/downloads/).
 2. **Install Pip**:
    - Download Pip: `curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
    - Install Pip: `python3 get-pip.py`
@@ -40,7 +58,7 @@ Using a Virtual Environment offers several advantages:
 ### Windows
 1. Create a directory for environments: `md python-envs`.
 2. Create a new environment: `python -m venv python-envs\sample-env`.
-3. Activate the environment: `python-envs\sample-env\Scripts\activate`.
+3. Activate the environment: `python-envs\sample-env\Scriptsctivate`.
 4. Update Pip: `pip install --upgrade pip`.
 5. Deactivate with `deactivate` (reactivate using the same command).
 
@@ -49,7 +67,26 @@ Using a Virtual Environment offers several advantages:
 - Admin privileges may be required for Python installation.
 - This guide is specific to Windows 10 with a 64-bit architecture.
 
-## Conclusion
-Virtual Environments are essential for effective Python project management, especially when working with different versions and sets of dependencies. This guide should by now have helped you get started with creating and managing your own Virtual Environments, which you can use to run Animal-AI and other Python projects.
+## Introduction to Conda Environments
+Conda is an open-source package management and environment management system that runs on Windows, macOS, and Linux. Conda environments are similar to Python virtual environments but they are managed with the Conda package manager.
 
-For any issues, please submit an issue or get in touch with one of the maintainers.
+## Setting Up Conda Environments
+
+### Installing Conda
+1. Download and install Anaconda or Miniconda from [Conda's official website](https://www.anaconda.com/distribution/).
+2. Open a terminal (or Anaconda Prompt on Windows) and check the Conda version: `conda --version`.
+
+### Creating a Conda Environment
+1. Create a new environment: `conda create --name myenv` (replace `myenv` with your desired environment name).
+2. Activate the environment: `conda activate myenv`.
+
+### Managing Packages
+- Install a package: `conda install numpy` (replace `numpy` with your desired package).
+- Update a package: `conda update numpy`.
+- List installed packages: `conda list`.
+
+### Deactivating an Environment
+- Deactivate with `conda deactivate`.
+
+## Conclusion
+Conda environments offer a robust solution for managing complex dependencies and are particularly useful for projects requiring a combination of Python and non-Python packages. This guide should help you get started with Conda for managing your Python environments alongside traditional virtual environments.
