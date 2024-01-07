@@ -64,13 +64,11 @@ For more information on virtual environments, refer to the [Python Documentation
 - [Training Agents](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/b596c6a8a9d36d2a504db7a06dc814d0a8b76c4a/docs/Training.md) - for a detailed guide on how to train agents in Animal-AI.
 
 
-Please submit an issue or get in touch with (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/) GitHub) should you run into trouble.
-
 ### General Notes
 Folder navigation in Windows is performed using the `cd` command, e.g. if the current directory is shown as `:C\Users\Name` and you want to go to your new Animal-AI root folder called "AAI", you would type `cd AAI` and it will now show you are at `:C\Users\Name\AAI`. To go to the *parent* directory (e.g. in this case `:C\Users`), you would type `cd..` and if your directory name contains spaces, use speech marks e.g. `cd "AAI Folder"`. You can also use the `dir` command to list the contents of the current directory, and `dir /b` to list the contents without any additional information.
 
 Everything you need to run scripts in Animal-AI (including the correct version of Unity's `ml-agents` package) is found in the Python Index Package `animalai`. This is installed using `pip` or `conda` as described above. The `animalai` package is a Python wrapper for the Unity environment, and is the only dependency you need to install. The `animalai` package is also the only dependency you need to import in your scripts, and it will import everything else you need from the `animalai` package itself.
 
 ### Troubleshooting
-You can then start using Animal-AI! Any problems, please get in touch (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/).
+You can then start using Animal-AI! Any problems, please get in touch (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/) or post an issue on the GitHub repository.
 
