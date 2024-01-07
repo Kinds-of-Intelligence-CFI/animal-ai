@@ -1,8 +1,8 @@
 # Getting Started Guide
 
-This guide walks through the process of running Animal-AI in `Play` and `Training` modes. It also covers how to train your own model using various wrappers such as Gym and Stable_Baselines 3. Please visit the Technical Guide [here](docs\Technical-Overview.md) for detailed information on the environment and how Animal-AI works behind-the-scenes.
+This guide should be your introduction to Animal-AI, which walks through the process of running Animal-AI in `Play` and `Training` modes, with detailed examples. In the near future, it will also cover how to train your own model using various wrappers such as Gym and Stable_Baselines 3. Please visit the Technical Guide [here](docs\Technical-Overview.md) for detailed information on the environment and how Animal-AI works behind-the-scenes.
 
-For this guide, we'll use a few simple congifuration files of the environment, with a few variations such as the number of Arenas defined, the objects used, and ulitisation of advanced features such as randomisation and probabilistic spawning of rewards upon interaction. We will populate the arena(s) with various objects such as walls, ramps, and food (rewards). If you'd like to find out more about the objects that can be used in the environment, please refer to the [Arena Objects Definitions](Objects.md) guide.
+For this guide, we'll use a few simple congifuration files of the environment, eac with a few variations such as the number of Arenas defined, the objects used, and ulitisation of advanced features such as arena randomisation and probabilistic spawning of rewards upon interaction with spawned gameobjects. If you'd like to find out more about the objects that can be used in the environment, please refer to the [Arena Objects Definitions](Objects.md) guide.
 
 Finally, please note that Animal-AI is built upon _ML-Agents_ by Unity. For more information on ML-Agents, visit their GitHub repository [here](https://github.com/Unity-Technologies/ml-agents).
 
