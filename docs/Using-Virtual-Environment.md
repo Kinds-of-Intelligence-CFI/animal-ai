@@ -68,7 +68,7 @@ Using a Virtual Environment offers several advantages:
 - This guide is specific to Windows 10 with a 64-bit architecture.
 
 ## Introduction to Conda Environments
-Conda is an open-source package management and environment management system that runs on Windows, macOS, and Linux. Conda environments are similar to Python virtual environments but they are managed with the Conda package manager.
+_Anaconda_ (or simply Conda) is an open-source package management and environment management system that runs on Windows, macOS, and Linux. Conda environments are similar to Python virtual environments but they are managed with the Conda package manager.
 
 ## Setting Up Conda Environments
 
