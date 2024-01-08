@@ -75,7 +75,9 @@ arenas:
 
 ## The Agent
 
-The agent is the main character in the arena, for playing and training. It is a spherical animal with a set of controls that can be used to move it around the arena. The agent can be configured to have a set of different skins, which can be specified in the configuration file, under it's parameters. The agent has a set of controls that can be used to move it around the arena. The controls are as follows:
+The agent is the main character in the arena, for playing and training. It is a spherical animal with a set of controls that can be used to move it around the arena. The agent can be configured to have a set of different skins, which can be specified in the configuration file, under it's parameters. The agent has a set of controls that can be used to move it around the arena. 
+
+The controls are as follows:
 
 - `W` - move forward
 - `A` - move left
@@ -85,33 +87,73 @@ The agent is the main character in the arena, for playing and training. It is a 
 - `R` - reset the arena (cycles to the next episode if `canResetEpisode` is `true`)
 - `Q` - quit (exits the application upon press)
 
-
 <table>
   <tr>
-    <td><img src="../../project/figs/arena/arena-2DView.png" width="500"/>
-    <p>2D view of the Arena</p></td>
-  </tr>
-  <tr>
-    <td><img src="../../project/figs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
-  </tr>
-  <tr>
-    <td><img src="../../project/figs/arena-skins/agent-hedgehog.png" width="500"/><p>Close-up of arena ground</p></td>
-  </tr>
+    <td><img src="../../project/figs/agent-skins/agent-hedgehog.png" width="500"/>
+    <p>Hedgehog</p></td>
+    <td><img src="../../project/figs/agent-skins/agent-panda.png" width="500"/><p>Panda</p></td>
+    <td><img src="../../project/figs/agent-skins/agent-pig.png" width="500"/><p>Pig</p></td>
 </table>
+
+### Arena Limitations
 
 The arena has a few limitations, which are as follows:
 
-- Only a single agent _per_ arena is supported, both for play and training.
-- The agent can only move on the ground, and cannot move on the walls.
-- The agent cannot move through objects (except for the hot/death zones).
-- The agent cannot jump or fly. 
+1. Only a single agent _per_ arena is supported, both for play and training.
+2. The agent can only move on the ground, and cannot move on the walls.
+3. The agent cannot move through objects (except for the hot/death zones).
+4. The agent cannot jump or fly. 
 
 ### Agent Properties
 
-The agent has a set of 
+The agent has a Phydics component attached to it, which allows it to interact with other objects in the arena. Please read our [Background - Unity](docs\Background-Unity.md) guide for more information. 
+
+_Essentially, you can expect that the Physics of Unity game engine are modelled to mimic our three-dimensional reality as much as possible_. The agent has the following properties:
+
+- **Scale**: The scale of the agent, which is set to `1x1x1` by default.
+- **Mass**: The mass of the agent, which is set to `100` by default.
+- **Drag**: The drag of the agent, which is set to `1.2` by default.
+- **Angular Drag**: The angular drag of the agent, which is set to `0.05` by default.
+- **Gravity**: Enabled for the agent (and for all other objects for that matter), which means that it will fall to the ground when spawned if it's `y` coordinate `> 0`.
+- **Speed**: The speed of the agent, which is set to `30` by code. This is the speed at which the agent moves when the `W`, `A`, `S`, and `D` keys are pressed. Note that the speed of the agent is affected by the `drag` and `angular drag` properties, which means that the agent will slow down over time if the keys are not pressed.
+- **Rotation Speed**: The rotation speed of the agent, which is set to `100` by code. This is the speed at which the agent rotates when the `A` and `D` keys are pressed. Rotation speed is unaffected by the `drag` and `angular drag` properties.
+- **Rotation Angle**: The angle of rotation of the agent, which is `0.25` by code. This property is used to dictate the angle of rotating the agent when the `A` and `D` keys are pressed. Rotation angle is unaffected by the `drag` and `angular drag` properties.
+
+### Complex Agent Properties (ML-Agents / Training)
+
+Please refer to ML-Agents for documentation for a full breakdown of the Agent's Properties: [ML-Agent's Documentation](https://github.com/Unity-Technologies/ml-agents/blob/f442194297f878a84eb60c04eccf7662cbc9ff60/docs/Learning-Environment-Design-Agents.md#L467). Here is a brief overview of the properties:
+
+- **Behavior Parameters**
+This component dictates the policy the agent will follow and includes several sub-settings:
+
+- **Behavior Name**
+A unique identifier for the agent's behavior. Agents with the same name share the same policy.
+
+- **Vector Observation**
+  - **Space Size**: Defines the length of the vector observation for the agent.
+  - **Stacked Vectors**: Number of previous vector observations to be stacked together.
+
+- **Actions**
+  - **Continuous Actions**: Number of concurrent continuous actions the agent can take.
+  - **Discrete Branches**: An array defining multiple concurrent discrete actions.
+
+- **Model**
+Refers to the neural network model used for decision-making.
+
+- **Inference Device**
+Determines whether to use CPU or GPU during inference.
+
+- **Behavior Type**
+Sets the mode of operation for the agent:
+  - **Default**: Trains if connected to a Python trainer; otherwise, performs inference.
+  - **Heuristic Only**: Uses a heuristic method for decision-making.
+  - **Inference Only**: Always uses its trained model for decision-making.
+
+- **Max Step**
+Defines the maximum number of steps an agent can take in an episode. Currently, this is not implemented as we have the Health of the agent as the episode termination condition, which is custom to our environment.
 
 
-## Objects
+## GameObjects
 
 All objects can be configured in the same manner, using a set of parameters for each `item` Unity gameobject:
 
@@ -217,22 +259,22 @@ Blackouts define when the lights are on or off during an episode in each arena.
 
 When configuring an arena, follow these rules and be aware of certain behaviors:
 
-### Spawning Objects
+### Spawning GameObjects
 
 - **Non-Overlapping**: Objects can only spawn if they don't overlap with others. Overlapping attempts discard the latter object.
 - **Spawn Order**: Objects are spawned in the order listed. Randomized components try to spawn up to 20 times; if unsuccessful, the object is discarded.
-- **Spawn Likelihood**: Early list objects are more likely to spawn than later ones.
+- **Spawn Likelihood**: Early list objects are more likely to spawn than later ones. This is because the arena is scanned from top to bottom, and objects are spawned in the order they are found.
 - **Agent Spawning**:
-  - The Agent spawns randomly if not specified.
-  - Specified Agent positions are processed last, which might conflict with randomly spawned objects.
-  - If an object occupies the Agent's spot, the arena resets and spawning restarts.
-  - Some objects can spawn on top of each other, with a `0.1` height buffer added automatically.
+  - The Agent spawns randomly if it's spawn position is not specified.
+  - Specified Agent positions are processed _first_, which might conflict with randomly spawned objects.
+  - If an object occupies the Agent's spot, the environment will try to spawn the Agent up to 20 times randomly within the bounds of the arena.
+  - Some objects can spawn on top of each other (a `0.1` height buffer added to accomodate this).
 
 ### Configuration File Values
 
-- **Object Names**: Must match names from [definitions](definitionsOfObjects.md). Unmatched names are ignored.
-- **Randomization**: Use `-1` in `positions`, `sizes`, and `rotations` for random values.
-- **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level.
+- **Object Names**: Must match names from [Arena Object Definitions](docs\Arena-Object-Definitions.md). Unmatched names are ignored and may result in unexpected behavior.
+- **Randomization**: Use `-1` or blank in `positions`, `sizes`, and `rotations` for random values.
+- **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level (with a `0.1` height buffer to prevent gameobject clipping).
 - **Goal Scaling**: Goals (except red zone) scale equally on all axes. For sphere goals, only the `x` component of `Vector3` scales all axes.
 
 ---
