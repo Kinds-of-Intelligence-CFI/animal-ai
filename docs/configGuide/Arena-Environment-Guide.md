@@ -1,4 +1,4 @@
-# Arena Configuration Files
+# Arena Environment Guide
 
 ### Table of Contents
 1. [TL;DR](#tldr)
@@ -11,7 +11,7 @@
 
 ## TL;DR
 
-From the `examples` folder, run `python play.py ../configs/competition/10-26-01.yaml` to get an understanding of how the `YAML` files configure the arenas for training. You will find a list of all usable objects you can add to an arena as well as the default and optional values for their parameters in [the definitions](ArenaObjectDefinitions.md). You will find below all the technical details to create more complex training configurations.
+From the `examples` folder, run `python play.py ../configs/competition/10-26-01.yaml` to get an understanding of how the `YAML` files configure the arenas for training. You will find a list of all usable objects you can add to an arena as well as the default and optional values for their parameters in the [Arena Object Definitions](ArenaObjectDefinitions.md) guide. You will find below all the technical details to create more complex configurations. A background guide to using YAML is available [here](docs\Background-YAML.md).
 
 ## Introductions
 
@@ -40,7 +40,7 @@ Note that in Unity the **y** axis is the vertical axis. In the above picture wit
 
 For each arena you can provide the following parameters (below configuration is an example of how each are used and their placement in the config file):
 
-```
+```YAML
 !ArenaConfig
 randomizeArenas: false # whether to randomize arenas from the beginning. Default is false.
 showNotification: false # show/hide the notification box. Default is false.
@@ -75,7 +75,7 @@ All objects can be configured in the same manner, using a set of parameters for 
 - `positions`: a list of `Vector3` positions within the arena where you want to spawn items, if the list is empty the position will be sampled randomly in the arena. Any position vector set to -1 will spawn randomly. Also note that Animal-AI enforces a constraint where objects cannot spawn within 0.1 units of each other, so if you try to spawn objects too close together there will be object collision clashes and the objects will not spawn.
 - `sizes`: a list of `Vector3` sizes, if the list is empty the size will be sampled randomly (within preset bounds for that particular object). You can set any size to -1 to spawn randomly along that vector only.
 - `rotations`: a list of `float` in the range `[0,360]`, if the list is empty the rotation is sampled randomly. Default is 0 degrees.
-- `colors`: a list of `RGB` values (integers in the range `[0,255]`), if the list is empty the color is sampled randomly. Note that not all objects can have their colour changed and for those (e.g. transparent objects) this value will be ignored. See [object definitions](definitionsOfObjects.md) for which objects can have their colour changed.
+- `colors`: a list of `RGB` values (integers in the range `[0,255]`), if the list is empty the color is sampled randomly. Note that not all objects can have their colour changed and for those (e.g. transparent objects) this value will be ignored.
 
 **N.B.** Any of these parameters can be omitted in the configuration files per object, in which case the omitted fields are automatically randomized. However, we advise that you specify these parameters as this will allow you to have a more controlled environment in your arena(s). Any Vector3 that contains a -1 for any of its dimensions will spawn that dimension randomly `(e.g. x: -1, y: 10, z: 2 --> will spawn the object randomly along the x axis)`. Finally, some objects have specific parameters applicable only to them, which are described in the [unique/special objects](#uniquespecial-object-parameters).
 
