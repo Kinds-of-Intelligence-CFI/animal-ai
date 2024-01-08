@@ -1,9 +1,29 @@
 # Detailed Arena Config Guide
 
+#### Table of Contents
+1. [Introduction](#introduction)
+2. [Understanding YAML Syntax](#understanding-yaml-syntax)
+   2.1 [YAML Hierarchical Syntax](#yaml-hierarchical-syntax)
+   2.2 [Syntax: Global Parameters](#yaml-hierarchical-syntax-global-parameters)
+   2.3 [Syntax: Local Parameters](#yaml-hierarchical-syntax-local-parameters)
+3. [EXAMPLES of YAML Configurations](#examples-of-yaml-configurations)
+   3.1 [Example 1 - Standard Parameters & Randomisation](#example-1---standard-parameters--randomisation)
+   3.2 [Example 2 - Decay Goals / Size-Changing Goals](#example-2---decay-goals--size-changing-goals)
+   3.3 [Example 3 - SignBoard Objects (Preset Symbols)](#example-3---signboard-objects-preset-symbols)
+   3.4 [Example 4 - SignBoard Objects (Special Symbols)](#example-4---signboard-objects-special-symbols)
+   3.5 [Example 5 - SpawnerButton (Interactive Objects)](#example-5---spawnerbutton-interactive-objects)
+   3.6 [Example 6 - Multiple Arenas (Randomization)](#example-6---multiple-arenas-randomization)
+4. [Conclusion](#conclusion)
+5. [Further Reading and Documentation](#further-reading-and-documentation)
+
+
 ### Introduction
 Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. Let's take a closer look into the YAML syntax used in Animal-AI itself.
 
-### YAML Hierarchical Syntax
+
+### Understanding YAML Syntax
+
+#### YAML Hierarchical Syntax
 ```YAML
 # note that the arena has a fixed size of 40x40, meaning the size of the arena does not change.
 !ArenaConfig
@@ -24,7 +44,7 @@ We can observe the following structure:
 
 The `!ArenaConfig` tag is used to indicate that the following YAML file is an ArenaConfig file. The `arenas` tag is used to indicate that the following YAML file contains one or more arenas. The `0` tag indicates that the following arena is the first arena in the file, upto `n arenas`. The `!Arena` tag indicates that the following YAML file contains an arena. The `!` tag is used to indicate that the following YAML file is a custom class. In this case, the `!Arena` tag indicates that the following YAML file is an Arena file. The `!Arena` tag is followed by a list of parameters that are used to define the arena, with the objects to spawn for that particular arena only. Some arena parameters are applied locally, such as `t` (time limit) and `pass_mark` (more on this later), while others are applied globally (see below for an example). 
 
-### YAML Hierarchical Syntax (Global Parameters)
+#### YAML Hierarchical Syntax (Global Parameters)
 ```YAML
 !ArenaConfig
 # Global Parameters that are optional to put here.
@@ -48,7 +68,7 @@ Bear in mind that the global parameters are optional to define. If we do not def
 
 In the example above, the global parameters are defined before the arenas. These parameters are applied to all arenas in the file. Please note that these parameters are only applicable during `Play` mode, not agent `Training` mode.
 
-### YAML Hierarchical Syntax (Local Parameters)
+#### YAML Hierarchical Syntax (Local Parameters)
 ```YAML
 !ArenaConfig
 arenas:
@@ -74,9 +94,11 @@ In the above example, the local parameters are defined within the individual are
 
 Let's now take a look at more complex examples to understand how to use the YAML syntax in Animal-AI to create custom arenas.
 
-&nbsp;
+### Examples of YAML Configurations
 
-### EXAMPLE 1 - Standard Parameters & Randomisation
+Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas.
+
+#### EXAMPLE 1 - Standard Parameters & Randomisation
 ```YAML
 !ArenaConfig
 arenas:
@@ -90,9 +112,10 @@ arenas:
       - !Vector3 {x: -1, y: 0, z: 30}
       colors:
       - !RGB {r: 204, g: 0, b: 204 }
-      rotations: [45]
+      rotations: [45, 45]
       sizes:
       - !Vector3 {x: -1, y: 5, z: -1}
+      # note that the second wall gameobject has no positions defined, meaning it will be randomly spawned in the arena. 
     - !Item
       name: CylinderTunnel
       colors:
@@ -117,7 +140,7 @@ Another Cube will be placed on the ground at a random x coordinate and z=30. Thi
 
 &nbsp;
 
-### EXAMPLE 2 - Decay Goals / Size-Changing Goals
+#### EXAMPLE 2 - Decay Goals / Size-Changing Goals
 ```YAML
 !ArenaConfig
 arenas:
@@ -185,7 +208,7 @@ Interestingly, the ShrinkGoal includes a `symbolNames` parameter, which is typic
 
 &nbsp;
 
-### EXAMPLE 3 - SignBoard (Preset Symbols)
+#### EXAMPLE 3 - SignBoard (Preset Symbols)
 ```YAML
 !ArenaConfig
 arenas:
@@ -228,7 +251,7 @@ This example illustrates how to employ predefined symbols using the `symbolNames
 
 &nbsp;
 
-### EXAMPLE 4 - SignBoard (Special Symbols)
+#### EXAMPLE 4 - SignBoard (Special Symbols)
 ```YAML
 !ArenaConfig
 arenas:
@@ -271,7 +294,7 @@ Fully-random grids can be generated using the code `"MxN"`, where `M` and `N` ar
 
 &nbsp;
 
-### EXAMPLE 5 - SpawnerButton (Interactive Objects)
+#### EXAMPLE 5 - SpawnerButton (Interactive Objects)
 ```YAML
 !ArenaConfig
 arenas:
@@ -320,7 +343,7 @@ As an added feature, the weights can be used to control the probability of spawn
 
 &nbsp;
 
-### EXAMPLE 6 - Multiple Arenas (Randomisation)
+#### EXAMPLE 6 - Multiple Arenas (Randomisation)
 ```YAML
 !ArenaConfig
 randomizeArenas: true # Here, we set randomizeArenas to true, which means that the arenas will be randomized upon play. Note that this is not applicable to training mode.
@@ -362,12 +385,12 @@ We can observe that:
 In this example, we define two arenas. However, we set `randomizeArenas` to `true`, which means that the arenas will be randomized upon play. Note that this is not applicable to training mode. This means that the order in which the arenas are defined does not matter, as the arenas will be randomized upon play. Please note that the `randomizeArenas` parameter is only applicable to the arenas in the file, not the objects within the arenas. 
 
 
-## Conclusion
+### Conclusion
 
 We hope that this guide has helped you understand how to use the YAML syntax in Animal-AI to create custom arenas. If you are still unsure about how to use the YAML syntax, please refer to the [Background-YAML](docs\Background-YAML.md) guide and/or [Background-Unity](docs\Background-Unity.md) guide for a closer look into how YAML is used.
 
 
-## YAML Documentation
+### Further Reading and Documentation
 
 For more information on how YAML works, please refer to the [YAML documentation](https://yaml.org/spec/1.2/spec.html). Also, we have provided a starter background guide to YAML [here](YAML-Background.md).
 
