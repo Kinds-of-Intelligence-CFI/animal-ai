@@ -9,10 +9,10 @@
 3. [EXAMPLES of YAML Configurations](#examples-of-yaml-configurations)
    3.1 [Example 1 - Standard Parameters & Randomisation](#example-1---standard-parameters--randomisation)
    3.2 [Example 2 - Decay Goals / Size-Changing Goals](#example-2---decay-goals--size-changing-goals)
-   3.3 [Example 3 - SignBoard Objects (Preset Symbols)](#example-3---signboard-objects-preset-symbols)
-   3.4 [Example 4 - SignBoard Objects (Special Symbols)](#example-4---signboard-objects-special-symbols)
+   3.3 [Example 3 - SignBoard (Preset Symbols)](#example-3---signboard-preset-symbols)
+   3.4 [Example 4 - SignBoard (Special Symbols)](#example-4---signboard-special-symbols)
    3.5 [Example 5 - SpawnerButton (Interactive Objects)](#example-5---spawnerbutton-interactive-objects)
-   3.6 [Example 6 - Multiple Arenas (Randomization)](#example-6---multiple-arenas-randomization)
+   3.6 [Example 6 - Multiple Arenas (Randomisation)](#example-6---multiple-arenas-randomisation)
    3.7 [Example 7 - Arena 'Blackouts'](#example-7---arena-blackouts)
 4. [Conclusion](#conclusion)
 5. [Further Reading and Documentation](#further-reading-and-documentation)
@@ -26,7 +26,8 @@ Let's take a look at some examples to understand how to use the YAML syntax in A
 
 #### YAML Hierarchical Syntax
 ```YAML
-# note that the arena has a fixed size of 40x40, meaning the size of the arena does not change.
+# note that the arena has a fixed size of 40x40, meaning the size of the arena does not change. 
+# in later versions of Animal-AI, the arena size will be configurable. and be set dynamically.
 !ArenaConfig
 arenas:
   0: !Arena 
