@@ -13,6 +13,7 @@
    3.4 [Example 4 - SignBoard Objects (Special Symbols)](#example-4---signboard-objects-special-symbols)
    3.5 [Example 5 - SpawnerButton (Interactive Objects)](#example-5---spawnerbutton-interactive-objects)
    3.6 [Example 6 - Multiple Arenas (Randomization)](#example-6---multiple-arenas-randomization)
+   3.7 [Example 7 - Arena 'Blackouts'](#example-7---arena-blackouts)
 4. [Conclusion](#conclusion)
 5. [Further Reading and Documentation](#further-reading-and-documentation)
 
@@ -384,6 +385,33 @@ We can observe that:
 
 In this example, we define two arenas. However, we set `randomizeArenas` to `true`, which means that the arenas will be randomized upon play. Note that this is not applicable to training mode. This means that the order in which the arenas are defined does not matter, as the arenas will be randomized upon play. Please note that the `randomizeArenas` parameter is only applicable to the arenas in the file, not the objects within the arenas. 
 
+&nbsp;
+
+#### EXAMPLE 7 - Arena 'Blackouts'
+
+```YAML
+!ArenaConfig
+arenas:
+  0: !Arena
+    t: 250 
+    pass_mark: 50 
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      rotations: [90]
+      skins:
+      - "pig"
+    blackouts: [10, 43, 50, 20] # here, we are defining the blackout times (in frames) for the arena at frames 10, 43, 50 and 20.
+```
+**Observations:** 
+
+We can observe that:
+
+- The `blackouts` parameter is used to define the blackout zones for the arena. The `blackouts` parameter is a list of frames at which the arena will be blacked out. For example, if we set `blackouts` to `[10, 43, 50, 20]`, the arena will be blacked out at frames 10, 43, 50 and 20. This means the player/agent will be virtually blind at these frames (no light will be emitted to the arena).
+- Additionally, if we set `blackouts` to `[-20]`, the arena will blackout every 20 frames (because we placed the '-' indicating repeat).
+- The blackout has no effect on any other aspect of the agent or the arena. For example, the agent will still be able to move around the arena, and the objects in the arena will still be visible to the agent. _RayCasting_ will still work. 
 
 ### Conclusion
 
