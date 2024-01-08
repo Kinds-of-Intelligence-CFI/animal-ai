@@ -68,7 +68,7 @@ arenas:
 
 ## Objects
 
-All objects can be configured in the same manner, using a set of parameters for each `item` unity object:
+All objects can be configured in the same manner, using a set of parameters for each `item` Unity gameobject:
 
 - `name`: the name of the object you want to spawn, which must match the object name specified in [Arena Object Definitions](definitionsOfObjects.md). You can spawn the same object as many times as required, but they must be in different positions from one another.
 - `positions`: a list of `Vector3` positions within the arena where you want to spawn items, if the list is empty the position will be sampled randomly in the arena. Any position vector set to -1 will spawn randomly. Also note that Animal-AI enforces a constraint where objects cannot spawn within 0.1 units of each other, so if you try to spawn objects too close together there will be object collision clashes and the objects will not spawn.
@@ -76,14 +76,16 @@ All objects can be configured in the same manner, using a set of parameters for 
 - `rotations`: a list of `float` in the range `[0,360]`, if the list is empty the rotation is sampled randomly. Default is 0 degrees.
 - `colors`: a list of `RGB` values (integers in the range `[0,255]`), if the list is empty the color is sampled randomly. Note that not all objects can have their colour changed and for those (e.g. transparent objects) this value will be ignored.
 
-**N.B.** Any of these parameters can be omitted in the configuration files per object, in which case the omitted fields are automatically randomized. However, we advise that you specify these parameters as this will allow you to have a more controlled environment in your arena(s). Any Vector3 that contains a -1 for any of its dimensions will spawn that dimension randomly `(e.g. x: -1, y: 10, z: 2 --> will spawn the object randomly along the x axis)`. Finally, some objects have specific parameters applicable only to them, which are described in the [unique/special objects](#uniquespecial-object-parameters).
+**N.B:** Any of these parameters can be omitted in the configuration files per object, in which case the omitted fields are automatically randomized. However, we advise that you specify these parameters as this will allow you to have a more controlled environment in your arena(s). Any Vector3 that contains a -1 for any of its dimensions will spawn that dimension randomly `(e.g. x: -1, y: 10, z: 2 --> will spawn the object randomly along the x axis)`. Finally, some objects have specific parameters applicable only to them, which are described in the [Unique/Special Objects](#uniquespecial-object-parameters).
 
-**All value ranges for the above fields can be found in [object definitions](definitionsOfObjects.md)**. If you go above or below the range for size it will automatically be set to the max or min respectively. If you try to spawn outside the arena (or overlapping with another object) then that object will not be spawned. Objects are placed in the order defined such that the second overlapping object is the one that does not spawn.
+**All value ranges for the above fields can be found in [Arena Object Definitions](definitionsOfObjects.md)**. If you go above or below the range for size it will automatically be set to the max or min respectively. If you try to spawn outside the arena (or overlapping with another object) then that object will not be spawned. Objects are placed in the order defined such that the second overlapping object is the one that does not spawn.
 
 ## Unique/Special Object Parameters
+
 Some objects have unique/special parameters that only apply to them or a select few objects - they can be written in the configuration in exactly the same way as the 'standard' parameters, but will only be applied if assigned to a valid object:
 
 ### Agent-Specific Parameters
+
 - **Skins**:
   List of animal skins for the agent model.
   - **Applies to:** Agent
@@ -157,19 +159,6 @@ Some objects have unique/special parameters that only apply to them or a select 
 
 ## Blackouts
 
-Blackouts are parameters you can pass to each arena, which define between which frames of an episode the lights are 
-on or off. If omitted, this parameter automatically sets to have lights on for the entire episode. You can otherwise 
-pass two types of arguments for this parameter:
-
-- passing a list of frames `[5,10,15,20,25]` will start with the lights on, switch them off from frames 5 to 9 included, 
-then back on from 15 to 19 included etc...
-- passing a single negative argument `[-20]` will automatically switch lights on and off every 20 frames.
-
-**Note**: for infinite episodes (where `t=0`), the first point above would leave the light off after frame `25` while the second point would keep switching the lights every `20` frames indefinitely.
-
-
-## Blackouts
-
 Blackouts define when the lights are on or off during an episode in each arena.
 
 - **Default Behavior**: Lights are on for the entire episode if no blackout parameter is provided.
@@ -184,6 +173,7 @@ Blackouts define when the lights are on or off during an episode in each arena.
 When configuring an arena, follow these rules and be aware of certain behaviors:
 
 ### Spawning Objects
+
 - **Non-Overlapping**: Objects can only spawn if they don't overlap with others. Overlapping attempts discard the latter object.
 - **Spawn Order**: Objects are spawned in the order listed. Randomized components try to spawn up to 20 times; if unsuccessful, the object is discarded.
 - **Spawn Likelihood**: Early list objects are more likely to spawn than later ones.
@@ -194,6 +184,7 @@ When configuring an arena, follow these rules and be aware of certain behaviors:
   - Some objects can spawn on top of each other, with a `0.1` height buffer added automatically.
 
 ### Configuration File Values
+
 - **Object Names**: Must match names from [definitions](definitionsOfObjects.md). Unmatched names are ignored.
 - **Randomization**: Use `-1` in `positions`, `sizes`, and `rotations` for random values.
 - **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level.
