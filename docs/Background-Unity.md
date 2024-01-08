@@ -14,6 +14,13 @@
 
 Unity is a powerful game development engine that offers a rich set of features for creating immersive 2D and 3D games. This document provides an overview of the fundamental concepts of the Unity Engine, complete with links to resources for deeper understanding. We try to provide a comprehensive overview of the Unity Engine, but we recommend that you refer to the [Unity Documentation](https://docs.unity3d.com/Manual/index.html) for more detailed information. 
 
+**Note** that in Unity the **y** axis is the vertical axis, while the **z** axis is the depth axis.
+
+<p align="center">
+  <img height="200" src="C:\Users\ia424\Desktop\animal-ai\docs\media\prefabs\Referential.png">
+</p>
+
+
 ## Unity Editor
 
 The Unity Editor is the core interface where game development takes place. It provides a user-friendly environment for building game scenes, adding assets, and scripting behavior.
