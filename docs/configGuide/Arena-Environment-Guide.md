@@ -30,12 +30,19 @@ This guide will help you understand the structure of the physical Arena Environm
   </tr>
 </table>
 
+The default arena instance is shown above, with just the arena (walls and ground gameobjects) and the agent spawned. Currently, an arena can only support a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). It is currently a square of fixed size `40x40`, meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
+
+The arena is made up of a set of gameobjects, which are as follows:
+
+- **Walls**: The walls of the arena, which are 10 units high and 40 units long. The walls are made up of 4 gameobjects, one for each wall, which are named `Wall1`, `Wall2`, `Wall3`, and `Wall4`, each with a set of childobjects called `fences`, which contain the textures for the walls. The walls are all children of the `Walls` gameobject, which is itself a child of the `Arena` gameobject.
+- **Ground**: The ground of the arena, which is 40 units long and 40 units wide. The ground is a child of the `Arena` gameobject.
+- **Lights**: The lights of the arena, which are 4 spotlights, one for each corner of the arena. The lights are all children of the `Lights` gameobject, which is a child of the `Arena` gameobject.
+- **SpawnArea**: The spawn gameobject responsible for spawning objects defined in the configuration file, which is a child of the `Arena` gameobject. This gameobject essentially controls the size of the spawn area, currently set to within the bounds of the walls of the arena.
+- **Agent**: The agent, which is a child of the `Arena` gameobject, must be spawned in every arena.
 
 <p align="center">
   <img height="300" src="../../docs/media/prefabs/DefaultArena.png">
 </p>
-
-The default arena instance is shown above, with just the arena (walls and ground gameobjects) and the agent spawned. Currently, an arena can only support a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). It is currently a square of fixed size `40x40`, meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
 
 In the above picture with the agent on the ground in the center of the environment its coordinates are `(20, 0, 20)`. Below is a sample configuration file for the default arena as shown above:
 
@@ -65,6 +72,44 @@ arenas:
 - `blackouts` a `list`, defines the frames at which the lights are on or off during an episode. If omitted, the lights will be on for the entire episode. For more information on blackouts, [see here](#blackouts)
 
 **N.B:** These parameters are optional (except `t` and `pass_mark`) and can be omitted from the configuration file. If omitted, the default values will be used, which are explained in detail in our [YAML Config Syntax](docs\configGuide\YAML-Config-Syntax.md) guide.
+
+## The Agent
+
+The agent is the main character in the arena, for playing and training. It is a spherical animal with a set of controls that can be used to move it around the arena. The agent can be configured to have a set of different skins, which can be specified in the configuration file, under it's parameters. The agent has a set of controls that can be used to move it around the arena. The controls are as follows:
+
+- `W` - move forward
+- `A` - move left
+- `S` - move backward
+- `D` - move right
+- `C` - change camera perspective (first-person, third-person, eagle-view, only if `canChangePerspective` is `true`)
+- `R` - reset the arena (cycles to the next episode if `canResetEpisode` is `true`)
+- `Q` - quit (exits the application upon press)
+
+
+<table>
+  <tr>
+    <td><img src="../../project/figs/arena/arena-2DView.png" width="500"/>
+    <p>2D view of the Arena</p></td>
+  </tr>
+  <tr>
+    <td><img src="../../project/figs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
+  </tr>
+  <tr>
+    <td><img src="../../project/figs/arena-skins/agent-hedgehog.png" width="500"/><p>Close-up of arena ground</p></td>
+  </tr>
+</table>
+
+The arena has a few limitations, which are as follows:
+
+- Only a single agent _per_ arena is supported, both for play and training.
+- The agent can only move on the ground, and cannot move on the walls.
+- The agent cannot move through objects (except for the hot/death zones).
+- The agent cannot jump or fly. 
+
+### Agent Properties
+
+The agent has a set of 
+
 
 ## Objects
 
