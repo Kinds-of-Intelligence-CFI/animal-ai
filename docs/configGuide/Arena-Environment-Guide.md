@@ -3,10 +3,20 @@
 #### Table of Contents
 1. [Introduction](#introduction)
 2. [The Arena](#the-arena)
-3. [Objects](#objects)
-4. [Unique/Special Object Parameters](#uniquespecial-object-parameters)
-5. [Blackouts](#blackouts)
-6. [Rules and Notes for Arena Configuration](#rules-and-notes-for-arena-configuration)
+3. [The Agent](#the-agent)
+   - [Arena Limitations](#arena-limitations)
+   - [Agent Properties](#agent-properties)
+   - [Complex Agent Properties (ML-Agents / Training)](#complex-agent-properties-ml-agents--training)
+4. [GameObjects](#gameobjects)
+5. [Unique/Special Object Parameters](#uniquespecial-object-parameters)
+   - [Agent-Specific Parameters](#agent-specific-parameters)
+   - [Goal-Related Parameters](#goal-related-parameters)
+   - [Spawner Parameters](#spawner-parameters)
+   - [SignBoard Parameters](#signboard-parameters)
+6. [Blackouts](#blackouts)
+7. [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
+   - [Spawning GameObjects](#spawning-gameobjects)
+   - [Configuration File Values](#configuration-file-values)
 
 
 ## Introduction
@@ -18,15 +28,15 @@ This guide will help you understand the structure of the physical Arena Environm
 
 <table>
   <tr>
-    <td><img src="../../project/figs/arena/arena-2DView.png" width="500"/>
+    <td><img src="../../docs/media/prefabs/arena/arena-2DView.png" width="500"/>
     <p>2D view of the Arena</p></td>
-    <td><img src="../../project/figs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
-    <td><img src="../../project/figs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
   </tr>
   <tr>
-    <td><img src="../../project/figs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
-    <td><img src="../../project/figs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
-    <td><img src="../../project/figs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
   </tr>
 </table>
 
