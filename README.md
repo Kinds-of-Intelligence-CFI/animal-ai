@@ -85,6 +85,7 @@ We've prepared a comprehensive set of tutorials to help you get started with the
 - [Technical Overview](docs\technicalOverview.md)
 - [Designing Experiments](docs\configGuide\Arena-Environment-Guide.md)
 - [Training Examples](docs/training.md)
+- [Glossary](docs\Glossary.md)
 
 
 ## Citing
