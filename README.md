@@ -78,7 +78,7 @@ For legacy versions of Animal-AI, please see ([legacy releases](project\AAIVersi
 
 ## Tutorials and Examples
 
-Some example scripts to get started can be found in the `docs/configGuide` folder. We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. These tutorials are designed to be followed in any order you like, but it is recommended to follow them in the order they are presented. Your first stop should be the [Getting Started Guide](docs\installation\QuickStart.md), which will guide you on where to start and where to go next depending on your interest and experience.
+We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. These tutorials are designed to be followed in any order you like, but it is recommended to follow them in the order they are presented. Your first stop should be the [Getting Started Guide](docs\installation\QuickStart.md), which will guide you on where to start and where to go next depending on your interest and experience.
 
 - [Getting Started](docs\installation\QuickStart.md) <-- **Start here!**
 - [Installation Guide](docs\installation\InstallationGuide.md)
