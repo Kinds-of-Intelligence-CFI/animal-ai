@@ -19,6 +19,7 @@
 
 
 ### Introduction
+
 Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. Let's take a closer look into the YAML syntax used in Animal-AI itself.
 
 
