@@ -19,7 +19,7 @@
 7. [License Notice](#license-notice)
 
 - **Website:** [here](https://animalai.org/)
-- **Unity Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
+- **Unity/C# Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
 
 This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It is the exclusive source for all past and forthcoming releases of Animal-AI. To facilitate your initiation, the repository includes a collection of introductory Python scripts for engagement with the environment, alongside an extensive library of over 900 tasks featured in the inaugural Animal-AI Olympics competition. The repository also contains a comprehensive documentation of the environment, including a detailed description of the environment's objects and their properties, as well as a guide to designing experiments with the environment from scratch. More advanced tutorials are also found, such as how to train agents in Animal-AI environments. 
