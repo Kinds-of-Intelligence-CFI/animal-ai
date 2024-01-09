@@ -2,11 +2,11 @@
 
 #### Table of Contents
 
-  1. [RL/Agent Training Terms](#rlagent-training-terms)
+  1. [RL/ML-Agents Terms](#rlml-agents-terms)
   2. [Unity Terms](#unity-terms)
   3. [YAML Terms](#yaml-terms)
 
-## RL/Agent Training Terms
+## RL/ML-Agents Terms
 
 - **Academy**: A singleton object controlling the timing, reset, and training/inference settings of the environment.
 - **Action**: The execution of a decision by an agent within the environment.
@@ -43,5 +43,5 @@
 
 - **YAML File**: A file containing data in YAML format.
 - **YAML Configuration File**: A YAML file containing configuration data for the Animal-AI environment.
-- **YAML Configuration Name**: The name of a YAML configuration file, which is used to identify the configuration.
+- **YAML Configuration Name**: The name of a YAML configuration file, which is used to identify the configuration. Your custom configurations are used to create a new environment.
 - **YAML Configuration Path**: The path to a YAML configuration file.
