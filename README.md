@@ -9,7 +9,7 @@
 | ![](project\figs\animal-cyl-fail.gif) | ![](project\figs\animal-cyl-pass.gif) |
 
 
-### Table of Contents
+#### Table of Contents
 1. [Features](#features)
 2. [Quick Install](#quick-install)
 3. [Tutorials and Examples](#tutorials-and-examples)
