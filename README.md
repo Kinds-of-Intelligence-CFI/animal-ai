@@ -2,7 +2,7 @@
 
 # Animal-AI
 
-*Animal-Artificial Intelligence*, commonly known as Animal-AI or AAI, serves as a nexus for multi-disciplinary inquiry, aiming to deepen our understanding of cognition in humans, animals, and artificial entities. Its objective is to advance AI research by exploring cognitive abilities and broadening our comprehension of the spectrum of potential minds. AAI is uniquely structured to enable comparative assessments among animals, humans, and artificial intelligences. It encompasses software engineering and research, maintained as an open-source project to foster collaborative progress.
+*Animal-Artificial Intelligence*, commonly known as Animal-AI or AAI, serves as a nexus for multi-disciplinary inquiry, aiming to deepen our understanding of cognition in humans, animals, and artificial entities. Its objective is to advance AI research by exploring cognitive abilities and broadening our comprehension of the spectrum of potential minds. AAI is uniquely structured to enable comparative assessments among animals, humans, and artificial intelligences. It encompasses software engineering and research, maintained as an open-source project to foster collaboration.
 
 | ![](project/figs/agent-cyl-fail.gif) | ![](project/figs/agent-cyl-pass.gif) |
 |---|---|
