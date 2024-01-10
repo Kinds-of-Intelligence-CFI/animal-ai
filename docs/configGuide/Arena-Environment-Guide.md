@@ -111,7 +111,7 @@ The controls are as follows:
 The agent has a HUD (_Heads-Up Display_) that displays the following information per episode:
 
 - **Health**: The health of the agent, which is a value between `0` and `1`. The agent's health decays over time, and is reset to `1` when the agent collects a reward. The agent's health is displayed as a blue-green-red bar at the bottom of the HUD.
-- **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards.
+- **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards. It contains the previous episode's reward, as well as the current episode's reward, respectively.
 - **Episode**: The episode number, which is the number of episodes the agent has played in the arena. The episode number is displayed as a white number at the top of the HUD. **(This is a feature to be added in the future.)**
 - **Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for playing the game._
 
