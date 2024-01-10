@@ -1,4 +1,6 @@
-### Table of Contents
+# Background: YAML
+
+#### Table of Contents
 
 - [YAML? What is it](#yaml-what-is-it)
 - [Configuration of Training Environments and Agents in ML-Agents](#configuration-of-training-environments-and-agents-in-ml-agents)

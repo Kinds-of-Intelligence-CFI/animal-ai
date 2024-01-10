@@ -4,7 +4,7 @@ This guide will walk you through the engineering aspects of the Animal-AI Enviro
 
 If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and documentation before posting an issue on GitHub.
 
-### Table of Contents
+#### Table of Contents
 
 - [Running the Environment](#running-the-environment)
   - [Play Mode](#play-mode)

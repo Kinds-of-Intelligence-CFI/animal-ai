@@ -1,7 +1,6 @@
-
 # Using Virtual Environments for Animal-AI
 
-### Table of Contents
+#### Table of Contents
 - [Introduction to Virtual Environments](#introduction-to-virtual-environments)
 - [Benefits of Using a Virtual Environment](#benefits-of-using-a-virtual-environment)
 - [Python Version Compatibility](#python-version-compatibility)

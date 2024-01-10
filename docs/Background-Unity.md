@@ -1,4 +1,6 @@
-### Table of Contents
+# Background: Unity
+
+#### Table of Contents
 - [Unity Engine: Fundamental Concepts](#Unity-Engine:-Fundamental-Concepts)
   - [Unity Editor](#Unity-Editor)
   - [Prefabs](#Prefabs)

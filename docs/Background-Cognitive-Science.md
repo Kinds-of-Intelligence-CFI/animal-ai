@@ -1,4 +1,6 @@
-### Table of Contents
+# Background: Cognitive Science
+
+#### Table of Contents
 - [Introduction to Cognitive Science](#Introduction-to-Cognitive-Science)
   - [What is Cognitive Science?](#What-is-Cognitive-Science?)
   - [Key Areas in Cognitive Science](#Key-Areas-in-Cognitive-Science)

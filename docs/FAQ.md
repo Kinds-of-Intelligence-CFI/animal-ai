@@ -1,4 +1,3 @@
-
 # Frequently Asked Questions
 This document provides a comprehensive list of frequently asked questions and troubleshooting tips for the Animal-AI environment.
 

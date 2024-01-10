@@ -1,4 +1,6 @@
-### Table of Contents
+# Background: Machine Learning
+
+#### Table of Contents
 - [Introduction to Machine Learning Concepts](#Introduction-to-Machine-Learning-Concepts)
   - [What is Machine Learning?](#What-is-Machine-Learning?)
   - [Types of Machine Learning Algorithms](#Types-of-Machine-Learning-Algorithms)
