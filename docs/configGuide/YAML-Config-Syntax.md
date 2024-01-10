@@ -128,6 +128,11 @@ arenas:
     - !Item
       name: GoodGoal
 ```
+
+<p align="center">
+  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example1.png">
+</p>
+
 **Observations:** 
 - The number of parameters for `positions`, `rotations`, and `sizes` do not need to match.
 - The environment will spawn `max(len(positions), len(rotations), len(sizes))` objects.
@@ -197,6 +202,11 @@ arenas:
       delays: [100]
       changeRates: [0.01]
 ```
+
+<p align="center">
+  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example2.png">
+</p>
+
 **Observations:**
 
 This example showcases various goals that undergo changes such as `decay`, `growth`, `shrinkage`, and `ripening` (anti-decay). Each Item in this setup includes certain parameters that are either irrelevant or used incorrectly. These 'red herring' parameters, while not utilized properly, do not impact the overall outcome or cause issues with the AAI environment.
@@ -248,6 +258,11 @@ arenas:
       - "u-turn-arrow"    
       - "tick"
 ```
+
+<p align="center">
+  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example3.png">
+</p>
+
 **Observations:**
 
 This example illustrates how to employ predefined symbols using the `symbolNames` parameter, which is exclusive to `SignBoard` objects. Each symbol in this list comes with a default color. However, these colors do not affect the texture of the symbol. Instead, the color of the SignBoard gameobject is determined by the `colors` parameter and only that.
@@ -289,6 +304,11 @@ arenas:
       - "0101/**10/0010/0***"
       - "13x11"
 ```
+
+<p align="center">
+  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example4.png">
+</p>
+
 **Observations:**
 
 This example demonstrates the use of *special codes* to generate black-and-white pixel grids to use as symbols. `0` -> black, `1` -> white, and `*` is a 'joker' character that chooses to output black or white at random. The dimensions of the grid are given by the `/` character - each row between `/`s must be of the same size for the code to be valid. 
@@ -313,11 +333,12 @@ arenas:
     - !Item
       name: SpawnerButton
       positions:
-      - !Vector3 {x: 20, y: 0, z: 8}
+      - !Vector3 {x: 10, y: 0, z: 10}
       sizes:
-      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 5, y: 5, z: 5}
       rotations: [0]
-      colors:
+      # colors:
+      # - !RGB {r: 204, g: 0, b: 204 }
       # note that the SpawnerButton is a modular object, but the colors are fixed for each module in order to remove the
       # ...occurance of each module having the same color, which would be confusing for the player/agent on which module to interact with.
       moveDurations: [0.1] 
@@ -328,6 +349,11 @@ arenas:
       maxRewardCounts: [-1, -1, -1] 
       rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23} # the position where the reward will be spawned. 
 ```
+
+<p align="center">
+  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example5.png">
+</p>
+
 **Observations:** 
 
 - The `SpawnerButton` object is an interactive object, meaning that it can be interacted with by the player/agent.
@@ -377,7 +403,19 @@ arenas:
       name: SpawnerButton
       positions:
       - !Vector3 {x: 20, y: 0, z: 8}
+    - !Item
+      name: SpawnerButton
+      - !Vector3 {x: 27.9799995, y: 0, z: 7.99999905}
 ```
+
+<table>
+  <tr>
+    <td><img src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example5.png" width="500"/>
+    <p>Arena 0 </p></td>
+    <td><img src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example6.png" width="500"/><p>Arena 1</p></td>
+  </tr>
+</table>
+
 **Observations:** 
 
 We can observe that:
@@ -390,7 +428,6 @@ In this example, we define two arenas. However, we set `randomizeArenas` to `tru
 &nbsp;
 
 #### EXAMPLE 7 - Arena 'Blackouts'
-
 ```YAML
 !ArenaConfig
 arenas:
@@ -407,6 +444,11 @@ arenas:
       - "pig"
     blackouts: [10, 43, 50, 20] # here, we are defining the blackout times (in frames) for the arena at frames 10, 43, 50 and 20.
 ```
+
+<p align="center">
+  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example7.png">
+</p>
+
 **Observations:** 
 
 We can observe that:
@@ -418,7 +460,6 @@ We can observe that:
 ### Conclusion
 
 We hope that this guide has helped you understand how to use the YAML syntax in Animal-AI to create custom arenas. If you are still unsure about how to use the YAML syntax, please refer to the [Background-YAML](docs\Background-YAML.md) guide and/or [Background-Unity](docs\Background-Unity.md) guide for a closer look into how YAML is used.
-
 
 ### Further Reading and Documentation
 
