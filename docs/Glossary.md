@@ -5,6 +5,7 @@
   1. [RL/ML-Agents Terms](#rlml-agents-terms)
   2. [Unity Terms](#unity-terms)
   3. [YAML Terms](#yaml-terms)
+  4. [Animal-AI Terms](#animal-ai-terms)
 
 ## RL/ML-Agents Terms
 
@@ -45,3 +46,9 @@
 - **YAML Configuration File**: A YAML file containing configuration data for the Animal-AI environment.
 - **YAML Configuration Name**: The name of a YAML configuration file, which is used to identify the configuration. Your custom configurations are used to create a new environment.
 - **YAML Configuration Path**: The path to a YAML configuration file.
+
+## Animal-AI Terms
+
+- **Animal-AI**: The Animal-AI environment, encompassing the Unity environment, Python API, and associated documentation.
+- **Episode**: A single run of the environment, starting with a reset and ending with a failure or success.
+- **Arena**: The area in which the agent is placed at the start of an episode, which is synonymous with the environment/episode.
