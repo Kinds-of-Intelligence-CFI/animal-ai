@@ -1,13 +1,14 @@
 # Animal-AI RoadMap
 
-### Table of Contents
+#### Table of Contents
 - [Project Overview](#overview)
+- [Roadmap](#roadmap)
 
-## Project Overview
+# Project Overview
+
 We wish to enable the possibility of interdisciplinary research to better understand human, animal, and artificial cognition. We also want it to be a useful resource for making AI progress on these unsolved problems and also act as a way of tracking such progress so that we can stay on top of any AI breakthroughs that may have important societal implications.
 
----
-
+# Roadmap
 
 ## 2.1 Initial Port + RayCasts (Released 01/07/2021)
 
