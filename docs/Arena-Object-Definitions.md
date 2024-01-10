@@ -22,20 +22,6 @@ Briefly, Unity game objects, commonly referred to as *GameObjects*, are the fund
 
 _Immovable_ objects are fixed in place and cannot be moved. The outer walls of the arena are also immovable and are permanently fixed in place to prevent the player/agent from escaping the arena.
 
-<table>
-  <tr>
-    <td><img src="../../docs/media/prefabs/arena/arena-2DView.png" width="500"/>
-    <p>2D view of the Arena</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
-  </tr>
-  <tr>
-    <td><img src="../../docs/media/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
-  </tr>
-</table>
-
 ### Wall
 - **Name**: `Wall`
 - **Size Range**: `(0.1,0.1,0.1)-(40,10,40)`
@@ -60,6 +46,20 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 - **Name**: `CylinderTunnelTransparent`
 - **Size Range**: `(2.5,2.5,2.5)-(10,10,10)`
 - **Color**: Not changeable
+
+#### -Gallery-
+<table>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Immovable/Wall.png" width="500"/>
+    <p>Wall</p></td>
+    <td><img src="/docs/figs/prefabs/Immovable/CylinderTunnel.png" width="500"/><p>Tunnel</p></td>
+    <td><img src="/docs/figs/prefabs/Immovable/CylinderTunnelTransparent.png" width="500"/><p>Transparent Tunnel</p></td>
+  </tr>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Immovable/Ramp.png" width="500"/><p>Ramp</p></td>
+    <td><img src="/docs/figs/prefabs/Immovable/WallTransparent.png" width="500"/><p>Transparent Wall</p></td>
+  </tr>
+</table>
 
 ## Movable Objects
 
@@ -89,6 +89,20 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 - **Name**: `LObject2`
 - **Size Range**: `(1,0.3,3)-(5,2,20)`
 - **Color**: Not changeable
+
+#### -Gallery-
+<table>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Movable/HeavyBlock.png" width="500"/>
+    <p>HeavyBlock</p></td>
+    <td><img src="/docs/figs/prefabs/Movable/JBlock.png" width="500"/><p>JBlock</p></td>
+    <td><img src="/docs/figs/prefabs/Movable/LBlock.png" width="500"/><p>LBlock</p></td>
+  </tr>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Movable/LightBlock.png" width="500"/><p>LightBlock</p></td>
+    <td><img src="/docs/figs/prefabs/Movable/UBlock.png" width="500"/><p>UBlock</p></td>
+  </tr>
+</table>
 
 ## Rewards
 
@@ -154,6 +168,28 @@ Notes: The DeathZone is a reward that has a default value of -1. The DeathZone i
 - **Color**: Not changeable
 Notes: The HotZone is a reward that has a default value of -10. The HotZone is meant to be used as a steady punishment mechanisim for the player/agent. If the player/agent collides with the HotZone (i.e. steps on it and continues to do so) they will be inflicted with a -10 health penalty at every second they are in the zone. The episode is terminated and the player/agent is reset to the starting position if the player/agent's health reaches 0. Finally, the HotZone is a 3D stationary object that is meant to be placed on the ground.
 
+#### -Gallery-
+<table>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Rewards/GoodGoal.png" width="500">
+    <p>GoodGoal</p></td>
+    <td><img src="/docs/figs/prefabs/Rewards/BadGoal.png" width="500"/><p>BadGoal</p></td>
+    <td><img src="/docs/figs/prefabs/Rewards/GoodGoalMulti.png" width="500"/><p>GoodGoalMulti</p></td>
+  </tr>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Rewards/DecayGoal.png" width="500"/><p>DecayGoal</p></td>
+    <td><img src="/docs/figs/prefabs/Rewards/ShrinkGoal.png" width="500"/><p>ShrinkGoal</p></td>
+    <td><img src="/docs/figs/prefabs/Rewards/AntiDecayGoal.png" width="500"/><p>AntiDecayGoal</p></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Rewards/DeathZone.png" width="500"/><p>DeathZone</p></td>
+    <td><img src="/docs/figs/prefabs/Rewards/HotZone.png" width="500"/><p>HotZone</p></td>
+  </tr>
+</table>
+
 ## Reward Spawners
 
 These objects have unique functionalities and characteristics and their primary function is to spawn rewards in the environment. They are immoveable (once they are spawned, they can't be moved).
@@ -186,6 +222,18 @@ These objects have unique functionalities and characteristics and their primary 
 - **Color**: Spawner color not changeable; spawned goals color changeable
 - **Functionality**: Spawns a reward when the player/agent *interacts* with it by colliding with the phyisical object. The rewards can be set via a simple probability distribution between the three types of rewards (positive, negative, and neutral). The rewards are spawned at any location within the arena via a parameter. Lastly, the SpawnerButton can be interacted with multiple times to spawn multiple rewards (this can also be set via a parameter, where you have complete control over how many times a reward type spawns and it's spawn rate).
 
+#### -Gallery-
+<table>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerButton.png" width="500"/><p>DeathZone</p></td>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerContainerShort.png" width="500"/><p>HotZone</p></td>
+  </tr>
+  <tr>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerDispenserTall.png" width="500"/><p>DeathZone</p></td>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerTree.png" width="500"/><p>HotZone</p></td>
+  </tr>
+</table>
+
 ## Other/Unique Objects
 
 These objects have specific and limited functionalities, with their primary function is to provide a unique experience for the player or specific cues for the agent.
@@ -195,3 +243,8 @@ These objects have specific and limited functionalities, with their primary func
 - **Color**: Symbol color changeable; SignBoard color fixed
 - **Symbol**: Specified using `symbolNames` parameter
 - **Functionality**: The SignBoard is a 3D object that can be placed in the environment to provide a visual cue to the player/agent. The SignBoard has a fixed color (grey) and a symbol that can be changed via the `symbolNames` parameter. The SignBoard can be placed on the ground or on a wall.
+
+#### -Gallery-
+<p align="center">
+  <img height="250" src="/docs/figs/prefabs/Other-Unique/SignBoard.png">
+</p>
