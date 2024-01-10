@@ -88,4 +88,4 @@ _Anaconda_ (or simply Conda) is an open-source package management and environmen
 - Deactivate with `conda deactivate`.
 
 ## Conclusion
-Conda environments offer a robust solution for managing complex dependencies and are particularly useful for projects requiring a combination of Python and non-Python packages. This guide should help you get started with Conda for managing your Python environments alongside traditional virtual environments.
+Virtual Environments offer a robust solution for managing complex dependencies and are particularly useful for projects requiring a combination of Python and non-Python packages. This guide should help you get started with Conda or Python's Virtual Environments for using with Animal-AI.
