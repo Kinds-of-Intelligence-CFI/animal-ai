@@ -2,7 +2,7 @@
 # Frequently Asked Questions
 This document provides a comprehensive list of frequently asked questions and troubleshooting tips for the Animal-AI environment.
 
-## Table of Contents
+#### Table of Contents
 1. [Troubleshooting Installation Issues](#1-troubleshooting-installation-issues)
    1. [Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
       1. [For macOS and Linux Users](#111-for-macos-and-linux-users)
