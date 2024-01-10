@@ -1,6 +1,6 @@
 # Animal-AI Environment Objects
 
-### Table of Contents
+#### Table of Contents
 1. [Introduction](#introduction)
 2. [Unity Objects - What are they?](#unity-objects---what-are-they)
 3. [Immovable Objects](#immovable-objects)
