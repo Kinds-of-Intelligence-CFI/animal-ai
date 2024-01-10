@@ -27,7 +27,7 @@ If you're a Linux user, you're likely more comfortable with command-line interfa
 ## Steps:
 ### 1. Installing Python
 - **Download Python**: Obtain Python 3.9.x from [Python's official website](https://www.python.org/downloads/).
-- **Run the Installer**: Follow the installation instructions. Ensure to add Python to your PATH (via the checkbox). Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
+- **Run the Installer**: Follow the installation instructions. Ensure to **add Python to your PATH** (via the checkbox). Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
 - **Check Installation**: Open a Command Prompt terminal and run `python --version`. You should see the version you installed. Make sure it's Python 3.9.x.
 
 ### 2. Cloning the Animal-AI Repository
@@ -55,7 +55,7 @@ For more information on virtual environments, refer to the [Python Documentation
 - **Check**: The `env` folder should contain the `.exe` file and other files from the `.zip` download.
 
 ### 6. Starting Animal-AI
-- You can now start using Animal-AI. Contact the team for any issues you may encounter.
+- You can now start using Animal-AI by launching the application for your OS. Contact the team for any issues you may encounter.
 - **Note**: If you're using a virtual environment, make sure to activate it before running Animal-AI.
 
 ### Additional Resources
