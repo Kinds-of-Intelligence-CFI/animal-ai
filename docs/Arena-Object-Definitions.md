@@ -10,18 +10,31 @@
 7. [Other/Unique Objects](#otherunique-objects)
 
 ## Introduction
+
 The Animal-AI environment comprises various objects categorized into _immovable_, _movable_, _rewards_, and _other/unique_ types. These objects can be configured in numerous ways to create diverse tasks. Each object's name, default characteristics, and configurable ranges are detailed below. All objects can rotate 360 degrees. Unity uses a left-handed coordinate system with `y` as the vertical axis, and `x` and `z` axes representing horizontal and depth dimensions, respectively.
 
 
 ## Unity Objects - What are they?
+
 Briefly, Unity game objects, commonly referred to as *GameObjects*, are the fundamental components in the Unity Engine, serving as containers for all other components or functionalities within a Unity scene. These objects can represent characters, props, scenery, cameras, lights, and more. Each GameObject can be equipped with various components such as scripts, renderers, colliders, or custom components, defining their behavior and interaction within the game world. *Prefabs* in Unity are essentially templates created from GameObjects; they allow developers to create, configure, and store a GameObject complete with its components and properties. Once a Prefab is created, it can be reused multiple times across the scene or even across different projects, ensuring consistency and efficiency in game development by allowing changes to be made to multiple instances simultaneously.
 
 ## Immovable Objects
+
 _Immovable_ objects are fixed in place and cannot be moved. The outer walls of the arena are also immovable and are permanently fixed in place to prevent the player/agent from escaping the arena.
 
-| ![](immovable\CylinderTunnel.png) | ![](project\figs\agent-cyl-pass.gif) |
-|---|---|
-| ![](project\figs\animal-cyl-fail.gif) | ![](project\figs\animal-cyl-pass.gif) |
+<table>
+  <tr>
+    <td><img src="../../docs/media/prefabs/arena/arena-2DView.png" width="500"/>
+    <p>2D view of the Arena</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
+  </tr>
+  <tr>
+    <td><img src="../../docs/media/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
+    <td><img src="../../docs/media/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
+  </tr>
+</table>
 
 ### Wall
 - **Name**: `Wall`
@@ -49,6 +62,7 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 - **Color**: Not changeable
 
 ## Movable Objects
+
 _Movable_ objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects directly.
 
 ### Light Cardboard Box
@@ -77,6 +91,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 - **Color**: Not changeable
 
 ## Rewards
+
 Rewards are objects that provide positive or negative feedback to the agent. These objects are stationary or moving, and can be configured to provide positive or negative rewards to the agent. The agent collides with these objects to receive feedback. 
 
 ### Stationary Positive Goal
@@ -140,6 +155,7 @@ Notes: The DeathZone is a reward that has a default value of -1. The DeathZone i
 Notes: The HotZone is a reward that has a default value of -10. The HotZone is meant to be used as a steady punishment mechanisim for the player/agent. If the player/agent collides with the HotZone (i.e. steps on it and continues to do so) they will be inflicted with a -10 health penalty at every second they are in the zone. The episode is terminated and the player/agent is reset to the starting position if the player/agent's health reaches 0. Finally, the HotZone is a 3D stationary object that is meant to be placed on the ground.
 
 ## Reward Spawners
+
 These objects have unique functionalities and characteristics and their primary function is to spawn rewards in the environment. They are immoveable (once they are spawned, they can't be moved).
 
 ### SpawnerTree
@@ -171,6 +187,7 @@ These objects have unique functionalities and characteristics and their primary 
 - **Functionality**: Spawns a reward when the player/agent *interacts* with it by colliding with the phyisical object. The rewards can be set via a simple probability distribution between the three types of rewards (positive, negative, and neutral). The rewards are spawned at any location within the arena via a parameter. Lastly, the SpawnerButton can be interacted with multiple times to spawn multiple rewards (this can also be set via a parameter, where you have complete control over how many times a reward type spawns and it's spawn rate).
 
 ## Other/Unique Objects
+
 These objects have specific and limited functionalities, with their primary function is to provide a unique experience for the player or specific cues for the agent.
 
 ### SignBoard
