@@ -4,6 +4,7 @@
 1. [Introduction](#introduction)
 2. [The Arena](#the-arena)
 3. [The Agent](#the-agent)
+   - [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
    - [Arena Limitations](#arena-limitations)
    - [Agent Properties](#agent-properties)
    - [Complex Agent Properties (ML-Agents / Training)](#complex-agent-properties-ml-agents--training)
@@ -28,19 +29,19 @@ This guide will help you understand the structure of the physical Arena Environm
 
 <table>
   <tr>
-    <td><img src="../../docs/media/prefabs/arena/arena-2DView.png" width="500"/>
+    <td><img src="../../docs/figs/prefabs/arena/arena-2DView.png" width="500"/>
     <p>2D view of the Arena</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
+    <td><img src="../../docs/figs/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
+    <td><img src="../../docs/figs/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
   </tr>
   <tr>
-    <td><img src="../../docs/media/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
-    <td><img src="../../docs/media/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
+    <td><img src="../../docs/figs/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
+    <td><img src="../../docs/figs/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
+    <td><img src="../../docs/figs/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
   </tr>
 </table>
 
-The default arena instance is shown above, with just the arena (walls and ground gameobjects) and the agent spawned. Currently, an arena can only support a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). It is currently a square of fixed size `40x40`, meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
+Each **episode** (a single run) contains an arena environment. Currently, an arena can only support a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). It is currently a square of fixed size `40x40`, meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
 
 The arena is made up of a set of gameobjects, which are as follows:
 
@@ -51,7 +52,7 @@ The arena is made up of a set of gameobjects, which are as follows:
 - **Agent**: The agent, which is a child of the `Arena` gameobject, must be spawned in every arena.
 
 <p align="center">
-  <img height="300" src="../../docs/media/prefabs/DefaultArena.png">
+  <img height="300" src="../../docs/figs/prefabs/DefaultArena.png">
 </p>
 
 In the above picture with the agent on the ground in the center of the environment its coordinates are `(20, 0, 20)`. Below is a sample configuration file for the default arena as shown above:
@@ -99,11 +100,24 @@ The controls are as follows:
 
 <table>
   <tr>
-    <td><img src="../../project/figs/agent-skins/agent-hedgehog.png" width="500"/>
+    <td><img src="../../docs/figs/prefabs/Agent-Skins/agent-hedgehog.png" width="500"/>
     <p>Hedgehog</p></td>
-    <td><img src="../../project/figs/agent-skins/agent-panda.png" width="500"/><p>Panda</p></td>
-    <td><img src="../../project/figs/agent-skins/agent-pig.png" width="500"/><p>Pig</p></td>
+    <td><img src="../../docs/figs/prefabs/Agent-Skins/agent-panda.png" width="500"/><p>Panda</p></td>
+    <td><img src="../../docs/figs/prefabs/Agent-Skins/agent-pig.png" width="500"/><p>Pig</p></td>
 </table>
+
+### Agent HUD (Heads-Up Display)
+
+The agent has a HUD (_Heads-Up Display_) that displays the following information per episode:
+
+- **Health**: The health of the agent, which is a value between `0` and `1`. The agent's health decays over time, and is reset to `1` when the agent collects a reward. The agent's health is displayed as a blue-green-red bar at the bottom of the HUD.
+- **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards.
+- **Episode**: The episode number, which is the number of episodes the agent has played in the arena. The episode number is displayed as a white number at the top of the HUD. **(This is a feature to be added in the future.)**
+- **Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for playing the game._
+
+| ![](../../docs/figs/Agent-HUD/agent-health.png) | ![](../../docs/figs/Agent-HUD/agent-REWARD.png) |
+|---|---|
+| ![](../../docs/figs/Agent-HUD/notification-bad.png) | ![](../../docs/figs/Agent-HUD/notification-good.png) |
 
 ### Arena Limitations
 
