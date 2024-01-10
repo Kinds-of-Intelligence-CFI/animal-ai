@@ -75,4 +75,4 @@ Cognitive Science offers profound insights into the workings of the human mind a
 
 ---
 
-**N.B:** This document provides a concise yet comprehensive overview of cognitive science, designed to introduce newcomers to the field and its diverse research areas. We hope it has provided you with a solid understanding of the fundamental concepts of cognitive science, as understanding the workings of the human mind is essential enhancing the capabilities of artificial intelligence, which is the primary goal of Animal-AI as a research platform.
+**N.B:** _This document provides a concise yet comprehensive overview of cognitive science, designed to introduce newcomers to the field and its diverse research areas. We hope it has provided you with a solid understanding of the fundamental concepts of cognitive science, as understanding the workings of the human mind is essential enhancing the capabilities of artificial intelligence, which is the primary goal of Animal-AI as a research platform._
