@@ -52,3 +52,35 @@ port = 5005 + random.randint(0, 1000)
 
 ### 1.4 Mean Reward Displaying NaN
 Seeing `Mean reward : nan`? Set the `Max Steps` to a non-zero value or script custom termination conditions.
+
+
+## 2. Python API / Package Dependency Issues
+Encountering issues with the Python API or package dependencies? Here are some solutions to common problems:
+
+### 2.1 No Module Named `animalai`
+Seeing `ModuleNotFoundError: No module named 'animalai'`? Ensure the `animalai` package is installed:
+
+```sh
+pip install animalai
+```
+or if you are using a virtual environment:
+```sh
+pip install animalai --user
+```
+or conda:
+```sh 
+conda install -c conda-forge animalai
+```
+Please do not forget to activate your environment before installing the package.
+
+You can verify the installation by running:
+```sh
+python -c "import animalai"
+```
+### 2.3 Incompatible Python Version
+Currently, the Animal-AI environment only supports Python 3.9. We have tested using 3.6, 3.7 and 3.8, but we cannot guarantee that it will work with these versions for everyone. If you are using a different version of Python, please install Python 3.9 for the optimal experience.
+
+Please verify that you are using the correct version of Python by running:
+```sh
+python --version
+```
