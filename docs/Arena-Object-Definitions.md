@@ -246,5 +246,5 @@ These objects have specific and limited functionalities, with their primary func
 
 #### -Gallery-
 <p align="center">
-  <img height="250" src="/docs/figs/prefabs/Other-Unique/SignBoard.png">
+  <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-preset-symbols.png">
 </p>
