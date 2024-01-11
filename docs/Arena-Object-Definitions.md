@@ -225,12 +225,12 @@ These objects have unique functionalities and characteristics and their primary 
 #### -Gallery-
 <table>
   <tr>
-    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerButton.png" width="500"/><p>DeathZone</p></td>
-    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerContainerShort.png" width="500"/><p>HotZone</p></td>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerButton.png" width="500"/><p>SpawnerButton</p></td>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerContainerShort.png" width="500"/><p>SpawnerContainerShort</p></td>
   </tr>
   <tr>
-    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerDispenserTall.png" width="500"/><p>DeathZone</p></td>
-    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerTree.png" width="500"/><p>HotZone</p></td>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerDispenserTall.png" width="500"/><p>SpawnerDispenserTall</p></td>
+    <td><img src="/docs/figs/prefabs/Reward-Spawners/SpawnerTree.png" width="500"/><p>SpawnerTree</p></td>
   </tr>
 </table>
 
