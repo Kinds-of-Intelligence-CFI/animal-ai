@@ -67,7 +67,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 - Supports dynamic environment generation.
 
 
-## Quick Install
+## Installation
 
 *See [here](docs\installation\InstallationGuide.md) for a more detailed installation guide.*
 
