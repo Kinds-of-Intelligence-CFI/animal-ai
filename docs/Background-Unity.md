@@ -19,7 +19,7 @@ Unity is a powerful game development engine that offers a rich set of features f
 **Note** that in Unity the **y** axis is the vertical axis, while the **z** axis is the depth axis.
 
 <p align="center">
-  <img height="200" src="C:\Users\ia424\Desktop\animal-ai\docs\media\prefabs\Referential.png">
+  <img height="200" src="/docs/figs/prefabs/Referential.png">
 </p>
 
 
