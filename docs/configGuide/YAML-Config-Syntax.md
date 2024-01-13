@@ -459,10 +459,10 @@ We can observe that:
 
 ### Conclusion
 
-We hope that this guide has helped you understand how to use the YAML syntax in Animal-AI to create custom arenas. If you are still unsure about how to use the YAML syntax, please refer to the [Background-YAML](docs\Background-YAML.md) guide and/or [Background-Unity](docs\Background-Unity.md) guide for a closer look into how YAML is used.
+We hope that this guide has helped you understand how to use the YAML syntax in Animal-AI to create custom arenas. 
 
 ### Further Reading and Documentation
 
-For more information on how YAML works, please refer to the [YAML documentation](https://yaml.org/spec/1.2/spec.html). Also, we have provided a starter background guide to YAML [here](YAML-Background.md).
+For more information on how YAML works, please refer to the [YAML documentation](https://yaml.org/spec/1.2/spec.html). If you are still unsure about how to use the YAML syntax, please refer to the [Background-YAML](/docs/Background-YAML.md) guide for a closer look into how YAML is used.
 
 ---
