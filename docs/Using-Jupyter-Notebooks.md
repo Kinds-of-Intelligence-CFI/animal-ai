@@ -1,6 +1,6 @@
 # Using Jupyter Notebooks for Animal-AI
 
-This guide combines instructions on creating a custom kernel for Jupyter Notebooks and specific steps for using Jupyter Notebooks with the Animal-AI environment. It is advised that you either create a python virtual environment or Anaconda for easier project management. See [Using-Virtual-Environments](docs\Using-Virtual-Environment.md) for more information on creating and using a virtual environment. For more information on Jupyter Notebooks, refer to the [official documentation](https://jupyter-notebook.readthedocs.io/en/stable/)
+This guide combines instructions on creating a custom kernel for Jupyter Notebooks and specific steps for using Jupyter Notebooks with the Animal-AI environment. It is advised that you either create a python virtual environment or Anaconda for easier project management. See [Using-Virtual-Environments](/docs/Using-Virtual-Environment.md) for more information on creating and using a virtual environment. For more information on Jupyter Notebooks, refer to the [official documentation](https://jupyter-notebook.readthedocs.io/en/stable/)
 
 #### Table of Contents
 - [Creating a Kernel for Jupyter Notebooks](#creating-a-kernel-for-jupyter-notebooks)
