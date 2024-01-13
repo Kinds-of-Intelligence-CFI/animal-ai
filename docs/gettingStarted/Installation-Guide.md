@@ -22,7 +22,7 @@ This guide is primarily written with Windows users in mind. We've tried to make 
 For **Mac** and **Linux** Users:
 Similarly for Mac, most of the instructions for Windows users should still apply to you. If you are using MacOS, you may also need to run this command: `chmod -R 777 AnimalAI.app` in your MacOS terminal to unlock permissions for running the application.
 
-If you're a Linux user, you're likely more comfortable with command-line interfaces and installations. The quick install guide in the README.md file should suffice for your needs. Please **note** that if you are using Linux, you may need to make the .exe file executable: Simply run this command in your terminal: `chmod +x env/AnimalAI.x86_64`. Please also make sure that when you extract the folder, you move the files inside the sub-directory to its parent folder.
+If you're a Linux user, you're likely more comfortable with command-line interfaces and installations. Please **note** that if you are using Linux, you may need to make the .exe file executable: Simply run this command in your terminal: `chmod +x env/AnimalAI.x86_64`. Please also make sure that when you extract the folder, you move the files inside the sub-directory to its parent folder.
 
 ## Steps:
 ### 1. Installing Python
@@ -59,7 +59,6 @@ For more information on virtual environments, refer to the [Python Documentation
 - **Note**: If you're using a virtual environment, make sure to activate it before running Animal-AI.
 
 ### Additional Resources
-- [Quick Start Guide](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/main/docs/quickStart.md) - for a quick overview of how to get started with Animal-AI, including running the standalone arena and learning controls for manual play.
 - [Configuration Guide](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/overhaul_docs/docs/configGuide/ConfigFileGuide.md) - for a detailed guide on how to design and run configuration files in Animal-AI.
 - [Training Agents](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/b596c6a8a9d36d2a504db7a06dc814d0a8b76c4a/docs/Training.md) - for a detailed guide on how to train agents in Animal-AI.
 
