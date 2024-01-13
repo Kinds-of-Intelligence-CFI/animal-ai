@@ -119,14 +119,15 @@ The agent has a HUD (_Heads-Up Display_) that displays the following information
 |---|---|
 | ![](../../docs/figs/Agent-HUD/notification-bad.png) | ![](../../docs/figs/Agent-HUD/notification-good.png) |
 
-### Arena Limitations
+### Arena/Agent Limitations
 
 The arena has a few limitations, which are as follows:
 
 1. Only a single agent _per_ arena is supported, both for play and training.
 2. The agent can only move on the ground, and cannot move on the walls.
 3. The agent cannot move through objects (except for the hot/death zones).
-4. The agent cannot jump or fly. 
+4. The agent cannot jump or fly.
+5. The agent cannot pick up objects (this is a feature to be added in the future).
 
 ### Agent Properties
 
