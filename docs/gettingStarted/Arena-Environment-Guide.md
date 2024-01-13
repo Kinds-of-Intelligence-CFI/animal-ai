@@ -22,7 +22,7 @@
 
 ## Introduction
 
-This guide will help you understand the structure of the physical Arena Environment as developed in Unity. We will explain the various functions of the arena environment, and their purposes and uses. We will also outline the various parameters that can be used to configure the arena environment, and how to use them. Please see the [YAML Config Syntax](docs\configGuide\YAML-Config-Syntax.md) guide for a detailed explanation of the syntax used in the configuration files for additional information. Be aware that this guide is not a comprehensive guide to Unity, and assumes that you have a basic understanding of the Unity Engine. If you are unfamiliar with Unity, please refer to the [Background - Unity](docs\Background-Unity.md) guide for a brief overview of the Unity Engine as well as relevant useful links.
+This guide will help you understand the structure of the physical Arena Environment as developed in Unity. We will explain the various functions of the arena environment, and their purposes and uses. We will also outline the various parameters that can be used to configure the arena environment, and how to use them. Please see the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide for a detailed explanation of the syntax used in the configuration files for additional information. Be aware that this guide is not a comprehensive guide to Unity, and assumes that you have a basic understanding of the Unity Engine. If you are unfamiliar with Unity, please refer to the [Background - Unity](/docs/Background-Unity.md) guide for a brief overview of the Unity Engine as well as relevant useful links.
 
 
 ## The Arena
@@ -82,7 +82,7 @@ arenas:
 - `showNotification` a `bool`, defines whether the player will receive a notification at the end of an episode. If set to `true`, the player will be shown a notification at the end of an episode for approximately 2.5 seconds, then move on to the next episode (arena). If set to `false`, the agent will not receive a notification at the end of an episode and episode-to-episode termination is back-to-back. This parameter is set to `false` by default.
 - `blackouts` a `list`, defines the frames at which the lights are on or off during an episode. If omitted, the lights will be on for the entire episode. For more information on blackouts, [see here](#blackouts)
 
-**N.B:** These parameters are optional (except `t` and `pass_mark`) and can be omitted from the configuration file. If omitted, the default values will be used, which are explained in detail in our [YAML Config Syntax](docs\configGuide\YAML-Config-Syntax.md) guide.
+**N.B:** These parameters are optional (except `t` and `pass_mark`) and can be omitted from the configuration file. If omitted, the default values will be used, which are explained in detail in our [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide.
 
 ## The Agent
 
@@ -131,7 +131,7 @@ The arena has a few limitations, which are as follows:
 
 ### Agent Properties
 
-The agent has a Phydics component attached to it, which allows it to interact with other objects in the arena. Please read our [Background - Unity](docs\Background-Unity.md) guide for more information. 
+The agent has a Phydics component attached to it, which allows it to interact with other objects in the arena. Please read our [Background - Unity](/docs/Background-Unity.md) guide for more information. 
 
 _Essentially, you can expect that the Physics of Unity game engine are modelled to mimic our three-dimensional reality as much as possible_. The agent has the following properties:
 
@@ -182,7 +182,7 @@ Defines the maximum number of steps an agent can take in an episode. Currently, 
 
 All objects can be configured in the same manner, using a set of parameters for each `item` Unity gameobject:
 
-- `name`: the name of the object you want to spawn, which must match the object name specified in [Arena Object Definitions](definitionsOfObjects.md). You can spawn the same object as many times as required, but they must be in different positions from one another.
+- `name`: the name of the object you want to spawn, which must match the object name specified in [Arena Object Definitions](/docs/Arena-Object-Definitions.md). You can spawn the same object as many times as required, but they must be in different positions from one another.
 - `positions`: a list of `Vector3` positions within the arena where you want to spawn items, if the list is empty the position will be sampled randomly in the arena. Any position vector set to -1 will spawn randomly. Also note that Animal-AI enforces a constraint where objects cannot spawn within 0.1 units of each other, so if you try to spawn objects too close together there will be object collision clashes and the objects will not spawn.
 - `sizes`: a list of `Vector3` sizes, if the list is empty the size will be sampled randomly (within preset bounds for that particular object). You can set any size to -1 to spawn randomly along that vector only.
 - `rotations`: a list of `float` in the range `[0,360]`, if the list is empty the rotation is sampled randomly. Default is 0 degrees.
@@ -190,7 +190,7 @@ All objects can be configured in the same manner, using a set of parameters for 
 
 **N.B:** Any of these parameters can be omitted in the configuration files per object, in which case the omitted fields are automatically randomized. However, we advise that you specify these parameters as this will allow you to have a more controlled environment in your arena(s). Any Vector3 that contains a -1 for any of its dimensions will spawn that dimension randomly `(e.g. x: -1, y: 10, z: 2 --> will spawn the object randomly along the x axis)`. Finally, some objects have specific parameters applicable only to them, which are described in the [Unique/Special Objects](#uniquespecial-object-parameters).
 
-**All value ranges for the above fields can be found in [Arena Object Definitions](definitionsOfObjects.md)**. If you go above or below the range for size it will automatically be set to the max or min respectively. If you try to spawn outside the arena (or overlapping with another object) then that object will not be spawned. Objects are placed in the order defined such that the second overlapping object is the one that does not spawn.
+**All value ranges for the above fields can be found in [Arena Object Definitions](/docs/Arena-Object-Definitions.md)**. If you go above or below the range for size it will automatically be set to the max or min respectively. If you try to spawn objects outside the arena (i.e. with a configuration like this: `x = 41, z = 41`) or overlapping with another object with very close spawn positions, then that object will not be spawned. Objects are placed in the order defined such that the second overlapping object is the one that does not spawn.
 
 ## Unique/Special Object Parameters
 
@@ -297,7 +297,7 @@ When configuring an arena, follow these rules and be aware of certain behaviors:
 
 ### Configuration File Values
 
-- **Object Names**: Must match names from [Arena Object Definitions](docs\Arena-Object-Definitions.md). Unmatched names are ignored and may result in unexpected behavior.
+- **Object Names**: Must match names from [Arena Object Definitions](/docs/Arena-Object-Definitions.md). Unmatched names are ignored and may result in unexpected behavior.
 - **Randomization**: Use `-1` or blank in `positions`, `sizes`, and `rotations` for random values.
 - **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level (with a `0.1` height buffer to prevent gameobject clipping).
 - **Goal Scaling**: Goals (except red zone) scale equally on all axes. For sphere goals, only the `x` component of `Vector3` scales all axes.
