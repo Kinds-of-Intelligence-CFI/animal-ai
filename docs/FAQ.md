@@ -83,7 +83,7 @@ You can verify the installation by running:
 python -c "import animalai"
 ```
 ### 2.3 Incompatible Python Version
-Currently, the Animal-AI environment only supports Python 3.6 to 3.9. We have tested using 3.6, 3.7 and 3.8, but we cannot guarantee that it will work with these versions for everyone. If you are using a different version of Python, please install Python 3.9 for the optimal experience.
+Currently, the Animal-AI environment only supports **Python 3.6 to 3.9.** We have tested using 3.6, 3.7 and 3.8, but we cannot guarantee that it will work with these versions for everyone. If you are using a different version of Python, please install Python 3.9 for the optimal experience.
 
 Please verify that you are using the correct version of Python by running:
 ```sh
