@@ -1,23 +1,25 @@
 # Arena Environment Guide
 
 #### Table of Contents
-1. [Introduction](#introduction)
-2. [The Arena](#the-arena)
-3. [The Agent](#the-agent)
-   - [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
-   - [Arena Limitations](#arena-limitations)
-   - [Agent Properties](#agent-properties)
-   - [Complex Agent Properties (ML-Agents / Training)](#complex-agent-properties-ml-agents--training)
-4. [GameObjects](#gameobjects)
-5. [Unique/Special Object Parameters](#uniquespecial-object-parameters)
-   - [Agent-Specific Parameters](#agent-specific-parameters)
-   - [Goal-Related Parameters](#goal-related-parameters)
-   - [Spawner Parameters](#spawner-parameters)
-   - [SignBoard Parameters](#signboard-parameters)
-6. [Blackouts](#blackouts)
-7. [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
-   - [Spawning GameObjects](#spawning-gameobjects)
-   - [Configuration File Values](#configuration-file-values)
+- [Arena Environment Guide](#arena-environment-guide)
+      - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [The Arena](#the-arena)
+  - [The Agent](#the-agent)
+    - [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
+    - [Arena/Agent Limitations](#arenaagent-limitations)
+    - [Agent Properties](#agent-properties)
+    - [Complex Agent Properties (ML-Agents / Training)](#complex-agent-properties-ml-agents--training)
+  - [GameObjects](#gameobjects)
+  - [Unique/Special Object Parameters](#uniquespecial-object-parameters)
+    - [Agent-Specific Parameters](#agent-specific-parameters)
+    - [Goal-Related Parameters](#goal-related-parameters)
+    - [Spawner Parameters](#spawner-parameters)
+    - [SignBoard Parameters](#signboard-parameters)
+  - [Blackouts](#blackouts)
+  - [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
+    - [Spawning GameObjects](#spawning-gameobjects)
+    - [Configuration File Values](#configuration-file-values)
 
 
 ## Introduction
@@ -43,7 +45,8 @@ This guide will help you understand the structure of the physical Arena Environm
 
 Each **episode** (a single run) contains an _arena_ environment. Currently, an arena can only support a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). It is currently a square of fixed size `40x40`, meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
 
-The default arena is made up of a set of gameobjects, which are as follows:
+The default arena is made up of a set of gameobjects, which itself is contained in a _Unity Scene_, which are as follows:
+
 
 - **Walls**: The walls of the arena, which are 10 units high and 40 units long. The walls are made up of 4 gameobjects, one for each wall, which are named `Wall1`, `Wall2`, `Wall3`, and `Wall4`, each with a set of childobjects called `fences`, which contain the textures for the walls. The walls are all children of the `Walls` gameobject, which is itself a child of the `Arena` gameobject.
 - **Ground**: The ground of the arena, which is 40 units long and 40 units wide. The ground is a child of the `Arena` gameobject.
@@ -127,7 +130,7 @@ The arena has a few limitations, which are as follows:
 2. The agent can only move on the ground, and cannot move on the walls.
 3. The agent cannot move through objects (except for the hot/death zones).
 4. The agent cannot jump or fly.
-5. The agent cannot pick up objects (this is a feature to be added in the future).
+5. The agent cannot pick up objects (however, this is a feature to be added in the future).
 
 ### Agent Properties
 
@@ -139,7 +142,7 @@ _Essentially, you can expect that the Physics of Unity game engine are modelled 
 - **Mass**: The mass of the agent, which is set to `100` by default.
 - **Drag**: The drag of the agent, which is set to `1.2` by default.
 - **Angular Drag**: The angular drag of the agent, which is set to `0.05` by default.
-- **Gravity**: Enabled for the agent (and for all other objects for that matter), which means that it will fall to the ground when spawned if it's `y` coordinate `> 0`.
+- **Gravity**: Enabled for the agent (and for all other objects for that matter), which means that the Agent will fall to the ground when spawned if it's `y` coordinate `> 0`.
 - **Speed**: The speed of the agent, which is set to `30` by code. This is the speed at which the agent moves when the `W`, `A`, `S`, and `D` keys are pressed. Note that the speed of the agent is affected by the `drag` and `angular drag` properties, which means that the agent will slow down over time if the keys are not pressed.
 - **Rotation Speed**: The rotation speed of the agent, which is set to `100` by code. This is the speed at which the agent rotates when the `A` and `D` keys are pressed. Rotation speed is unaffected by the `drag` and `angular drag` properties.
 - **Rotation Angle**: The angle of rotation of the agent, which is `0.25` by code. This property is used to dictate the angle of rotating the agent when the `A` and `D` keys are pressed. Rotation angle is unaffected by the `drag` and `angular drag` properties.
@@ -207,7 +210,7 @@ Some objects have unique/special parameters that only apply to them or a select 
 - **Frozen Agent Delays**:
   Time (in frames) the agent is frozen at the start of an episode.
   - **Applies to:** Agent
-  - **Default:** 0 (no delay)
+  - **Default:** 0 (no delay), n (delay of n frames)
 
 ### Goal-Related Parameters
 - **Delays**:
@@ -271,14 +274,16 @@ Some objects have unique/special parameters that only apply to them or a select 
 
 ## Blackouts
 
-Blackouts define when the lights are on or off during an episode in each arena.
+_Blackouts_ define when the lights are on or off during an episode in each arena, resulting in a black screen/view in any camera angle. This is an optional parameter in the configuration file, and can be omitted if you don't want to use it. If omitted, the lights will be on for the entire episode.
 
 - **Default Behavior**: Lights are on for the entire episode if no blackout parameter is provided.
 - **List of Frames**: Provide a list like `[5,10,15,20,25]` to toggle lights. Lights will be off between frames 5-9, 15-19, etc., and on at other times.
 - **Regular Intervals**: Use a negative number like `[-20]` to toggle lights every 20 frames.
 - **Infinite Episodes**: For episodes with `t=0`, lights will follow the pattern indefinitely.
 
-**Note**: With a list of frames, lights will stay off after the last frame in the list for infinite episodes.
+**Note**: With a list of frames, the lights will stay off after the last frame in the list for infinite episodes. 
+
+See the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide for a detailed tutorial on how to use blackouts.
 
 ## Rules and Notes for Arena Configurations
 
@@ -286,20 +291,22 @@ When configuring an arena, follow these rules and be aware of certain behaviors:
 
 ### Spawning GameObjects
 
-- **Non-Overlapping**: Objects can only spawn if they don't overlap with others. Overlapping attempts discard the latter object.
-- **Spawn Order**: Objects are spawned in the order listed. Randomized components try to spawn up to 20 times; if unsuccessful, the object is discarded.
-- **Spawn Likelihood**: Early list objects are more likely to spawn than later ones. This is because the arena is scanned from top to bottom, and objects are spawned in the order they are found.
+- **Non-Overlapping**: Objects can only spawn if they don't overlap with others. Overlapping attempts discard the latter object (i.e. the object that is spawned later in the configuration file). This is to avoid object collision issues during runtime.
+- **Spawn Order**: Objects are spawned in the order listed. Randomized objects (i.e. the object is set to spawn randomly) try to spawn up to 20 times concurrently in any given arena/episode; if unsuccessful, the object is discarded and the arena continues to spawn the next object in the list (if any).
+- **Spawn Likelihood**: Early list objects are more likely to spawn than later ones. This is because the configuration file is scanned from top to bottom, and objects are spawned in the order they are found.
 - **Agent Spawning**:
-  - The Agent spawns randomly if it's spawn position is not specified.
-  - Specified Agent positions are processed _first_, which might conflict with randomly spawned objects.
-  - If an object occupies the Agent's spot, the environment will try to spawn the Agent up to 20 times randomly within the bounds of the arena.
-  - Some objects can spawn on top of each other (a `0.1` height buffer added to accomodate this).
+  - The Agent spawns randomly within the arena bounds if it's spawn position is not specified.
+  - Specified Agent positions are processed _first_, which might conflict with randomly spawned objects that are spawned _after_ the Agent, as the Agent's position is not known until runtime.
+  - If you have defined the Agent's position and another object tries to spawn at the same position as the Agent then the environment will always spawn the Agent in that position always, as _the Agent has priority above every other object_. This is to avoid a potential conflict during runtime.
+  - Some objects can spawn on top of each other (a `0.1` height buffer added to accomodate this). 
 
 ### Configuration File Values
 
-- **Object Names**: Must match names from [Arena Object Definitions](/docs/Arena-Object-Definitions.md). Unmatched names are ignored and may result in unexpected behavior.
-- **Randomization**: Use `-1` or blank in `positions`, `sizes`, and `rotations` for random values.
+- **Object Names**: Must match names from [Arena Object Definitions](/docs/Arena-Object-Definitions.md). Unmatched names are ignored and may result in unexpected behavior or fatal errors.
+- **Randomization**: Use `-1` or leave blank in `positions`, `sizes`, and `rotations` for random values for any object that supports randomization (see [Arena Object Definitions](/docs/Arena-Object-Definitions.md)).
 - **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level (with a `0.1` height buffer to prevent gameobject clipping).
 - **Goal Scaling**: Goals (except red zone) scale equally on all axes. For sphere goals, only the `x` component of `Vector3` scales all axes.
+- **Arena Height Bounds**: Currently, objects can spawn at any height within the arena, which translates to the `y` component of `Vector3` in the configuration file. However, a recommended height range is between `0` and `50` units, as anything above `50` units will be out of the camera's view until the object falls from the sky and lands on the ground at the specified `x` and `z` coordinates, which may take a while depending on the object's mass and drag properties. This is not an issue for objects that spawn on the ground, as they will spawn at the specified `x` and `z` coordinates, and at ground level (i.e. `y = 0`).
+- **Arena Size Bounds**: The arena is currently a square of fixed size `40x40`, meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats. Any coordinates outside this range will be discarded and the object will not spawn. We plan to make the arena size configurable in the future.
 
 ---
