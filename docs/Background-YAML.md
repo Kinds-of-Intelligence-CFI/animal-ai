@@ -2,15 +2,17 @@
 
 #### Table of Contents
 
-- [YAML? What is it](#yaml-what-is-it)
-- [Configuration of Training Environments and Agents in ML-Agents](#configuration-of-training-environments-and-agents-in-ml-agents)
-  - [Defining Agent Behaviors in ML-Agents](#defining-agent-behaviors-in-ml-agents)
-  - [Setting Hyperparameters for Training in ML-Agents](#setting-hyperparameters-for-training-in-ml-agents)
-- [Example of a YAML Configuration in ML-Agents](#example-of-a-yaml-configuration-in-ml-agents)
-- [Example of a YAML Configuration in Animal-AI](#example-of-a-yaml-configuration-in-animal-ai)
-- [Advantages of Using YAML in Animal-AI Context](#advantages-of-using-yaml-in-animal-ai-context)
-  - [Easy to Read and Modify](#easy-to-read-and-modify)
-  - [Facilitating Complex Configurations](#facilitating-complex-configurations)
+- [Background: YAML](#background-yaml)
+      - [Table of Contents](#table-of-contents)
+  - [YAML? What is it?](#yaml-what-is-it)
+  - [Configuration of Training Environments and Agents](#configuration-of-training-environments-and-agents)
+    - [Defining Agent Behaviors](#defining-agent-behaviors)
+    - [Setting Hyperparameters for Training](#setting-hyperparameters-for-training)
+  - [Example of a YAML Configuration in ML-Agents](#example-of-a-yaml-configuration-in-ml-agents)
+  - [Example of a YAML Configuration in Animal-AI](#example-of-a-yaml-configuration-in-animal-ai)
+  - [Advantages in Animal-AI Context](#advantages-in-animal-ai-context)
+    - [Easy to Read and Modify](#easy-to-read-and-modify)
+    - [Facilitating Complex Configurations](#facilitating-complex-configurations)
 
 
 ## YAML? What is it?
@@ -67,7 +69,7 @@ arenas:
       - !Vector3 {x: 2, y: 0, z: -1}
       rotations: [90]
     - !Item
-      name: Pillar-Button
+      name: SpawnerButton
       positions:
       - !Vector3 {x: 20, y: 0, z: 20}
       moveDurations: [0.1]
