@@ -30,6 +30,7 @@ If you're a Linux user, you're likely more comfortable with command-line interfa
 - **Download Python**: Obtain Python 3.9.x from [Python's official website](https://www.python.org/downloads/).
 - **Run the Installer**: Follow the installation instructions. Ensure to **add Python to your PATH** (via the checkbox). Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
 - **Check Installation**: Open a Command Prompt terminal and run `python --version`. You should see the version you installed. Make sure it's Python 3.9.x.
+- todo: if using conda, specify python to 3.9 in the conda environment setup (conda create --name your_env_name python=3.9) or application 
 
 ### 2. Cloning the Animal-AI Repository (Optional)
 - **Prepare a Directory**: Create a root folder for the AnimalAI project for better organization.
@@ -66,7 +67,7 @@ For more information on virtual environments, refer to the [Python Documentation
   - **Mac**: Run `env/AnimalAI.app`.
   - **Linux**: Run `env/AnimalAI.x86_64`.
 - **Note**: If you're using a virtual environment, make sure to activate it before running Animal-AI.
-- **Check**: The Animal-AI application should open in a new window, with a brief Unity loading screen.
+- **Check**: The Animal-AI application should open in a new window, with a brief Unity loading screen, which indicates you have successfully installed and started Animal-AI.
 
 
 ### General Notes
@@ -75,5 +76,5 @@ Folder navigation in Windows is performed using the `cd` command, e.g. if the cu
 Everything you need to run scripts in Animal-AI (including the correct version of Unity's `ml-agents` package) is found in the Python Index Package `animalai`. This is installed using `pip` or `conda` as described above. The `animalai` package is a Python wrapper for the Unity environment, and is the only dependency you need to install. The `animalai` package is also the only dependency you need to import in your scripts, and it will import everything else you need from the `animalai` package itself.
 
 ### Troubleshooting
-You can then start using Animal-AI! Any problems, please get in touch (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/) or post an issue on the GitHub repository.
+You can then start using Animal-AI! Any problems, please get in touch (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/)) or post an issue on the GitHub repository.
 
