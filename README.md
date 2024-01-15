@@ -10,13 +10,19 @@
 
 
 #### Table of Contents
-1. [Features](#features)
-2. [Installation](#installation)
-3. [Tutorials and Examples](#tutorials-and-examples)
-4. [Citing Animal-AI](#citing-animal-ai)
-5. [Unity ML-Agents](#unity-ml-agents)
-6. [The Animal-AI Community](#the-animal-ai-community)
-7. [License Notice](#license-notice)
+- [Animal-AI](#animal-ai)
+      - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Quick Start](#quick-start)
+  - [Citing](#citing)
+  - [Unity ML-Agents](#unity-ml-agents)
+  - [The Animal-AI Community](#the-animal-ai-community)
+    - [Notice](#notice)
+
+
+## Overview
 
 - **Website:** [here](https://animalai.org/)
 - **Unity/C# Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
@@ -76,46 +82,32 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 For legacy versions of Animal-AI, please see ([legacy releases](project\AAIVersionsArchive.md))
 
 
-## Tutorials and Examples
+## Quick Start
 
-We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. These tutorials are designed to be followed in any order you like, but it is recommended to follow them in the order they are presented. Your first stop should be the [Getting Started Guide](docs\installation\QuickStart.md), which will guide you on where to start and where to go next depending on your interest and experience.
-
-- [Getting Started](docs/installation/QuickStart.md) **<-- your first stop!**
-- [Installation Guide](docs/installation/InstallationGuide.md)
-- [Technical Overview](docs/technicalOverview.md)
-- [Designing Experiments](docs/configGuide\Arena-Environment-Guide.md)
-- [Training Examples](docs/training.md)
-- [Glossary](docs/Glossary.md)
+We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. Your first stop should be the [Getting Started Guide](docs\installation\QuickStart.md), which will guide you on where to start and where to go next depending on your interests and experience.
 
 
 ## Citing
 
-If you use the Animal-AI environment in your work you can cite the environment paper:
+We recently published our new paper on Animal-AI, which you can find [here](https://arxiv.org/abs/2312.11414). If you use Animal-AI in your research, please cite our paper:
 
- Crosby, M., Beyret, B., Shanahan, M., Hernández-Orallo, J., Cheke, L. & Halina, M.. (2020). The Animal-AI Testbed and Competition. Proceedings of the NeurIPS 2019 Competition and Demonstration Track, in Proceedings of Machine Learning Research 123:164-176 Available [here](http://proceedings.mlr.press/v123/crosby20a.html).
+ _Voudouris, K., Alhas, I., Schellaert, W., Crosby, M., Holmes, J., Burden, J., Chaubey, N., Donnelly, N., Patel, M., Halina, M,. Hernández-Orallo, J. & Cheke, L. G. (2023). Animal-AI 3: What's New & Why You Should Care. arXiv preprint arXiv:2312.11414._
 ```
- @InProceedings{pmlr-v123-crosby20a, 
-    title = {The Animal-AI Testbed and Competition}, 
-    author = {Crosby, Matthew and Beyret, Benjamin and Shanahan, Murray and Hern\'{a}ndez-Orallo, Jos\'{e} and Cheke, Lucy and Halina, Marta}, 
-    booktitle = {Proceedings of the NeurIPS 2019 Competition and Demonstration Track}, 
-    pages = {164--176}, 
-    year = {2020}, 
-    editor = {Hugo Jair Escalante and Raia Hadsell}, 
-    volume = {123}, 
-    series = {Proceedings of Machine Learning Research}, 
-    month = {08--14 Dec}, 
-    publisher = {PMLR}, 
-} 
+@article{voudouris2023animal,
+  title={Animal-AI 3: What's New \& Why You Should Care},
+  author={Voudouris, Konstantinos and Alhas, Ibrahim and Schellaert, Wout and Crosby, Matthew and Holmes, Joel and Burden, John and Chaubey, Niharika and Donnelly, Niall and Patel, Matishalin and Halina, Marta and Hernández-Orallo, José and Cheke, Lucy G.},
+  journal={arXiv preprint arXiv:2312.11414},
+  year={2023}
+}
 ```
+For further publications related to Animal-AI, see our website [here](https://sites.google.com/csah.cam.ac.uk/animalai/resources).
 
 
 ## Unity ML-Agents
 
-Animal-AI as well as The Animal-AI Olympics is built using [Unity's ML-Agents Toolkit.](https://github.com/Unity-Technologies/ml-agents)
-
 Juliani, A., Berges, V., Vckay, E., Gao, Y., Henry, H., Mattar, M., Lange, D. (2018). [Unity: A General Platform for Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:1809.02627*
 
-Further the documentation for [mlagents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want to make any changes.
+Documentation for [ML-Agents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want additional resources or to make any changes.
 
 
 ## The Animal-AI Community 
@@ -139,3 +131,4 @@ Animal-AI has been an open-source research project from the beginning. If you wi
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
