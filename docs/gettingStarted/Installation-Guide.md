@@ -1,17 +1,18 @@
 # Detailed Installation Guide
 
 #### Table of Contents
-1. [Introduction](#introduction)
-2. [Steps](#steps)
-    1. [Installing Python](#1-installing-python)
-    2. [Cloning the Animal-AI Repository](#2-cloning-the-animal-ai-repository)
-    3. [Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
-    4. [Installing Dependencies](#4-installing-dependencies)
-    5. [Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
-    6. [Starting Animal-AI](#6-starting-animal-ai)
-3. [Additional Resources](#additional-resources)
-4. [General Notes](#general-notes)
-5. [Troubleshooting](#troubleshooting)
+- [Detailed Installation Guide](#detailed-installation-guide)
+      - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Steps:](#steps)
+    - [1. Installing Python](#1-installing-python)
+    - [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
+    - [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
+    - [4. Installing Dependencies](#4-installing-dependencies)
+    - [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
+    - [6. Starting Animal-AI](#6-starting-animal-ai)
+    - [General Notes](#general-notes)
+    - [Troubleshooting](#troubleshooting)
 
 ## Introduction
 Welcome to the comprehensive installation guide for Animal-AI. This guide is tailored for users who may not be familiar with Python dependencies, navigating GitHub repositories, or working with Unity. It's also here to help you smoothly navigate through any installation hiccups – because let's face it, *it's custom software installation... when **isn't** there a hiccup or two?*.
@@ -30,17 +31,20 @@ If you're a Linux user, you're likely more comfortable with command-line interfa
 - **Run the Installer**: Follow the installation instructions. Ensure to **add Python to your PATH** (via the checkbox). Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
 - **Check Installation**: Open a Command Prompt terminal and run `python --version`. You should see the version you installed. Make sure it's Python 3.9.x.
 
-### 2. Cloning the Animal-AI Repository
+### 2. Cloning the Animal-AI Repository (Optional)
 - **Prepare a Directory**: Create a root folder for the AnimalAI project for better organization.
 - **Clone the Repository**: Options include:
   - Downloading the `.zip` file from [Animal-AI GitHub](https://github.com/Kinds-of-Intelligence-CFI/animal-ai) and extracting it.
   - Using [GitHub Desktop](https://desktop.github.com/) for direct cloning.
   - Cloning via the [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli).
+- **Check**: The root folder should contain the `animal-ai-main` folder.
+
 
 ### 3. Setting Up a Virtual Environment (Optional)
 - **Creating a Virtual Environment**: Useful for managing dependencies.
   - **Python**: Use `python -m venv your_env_name` and activate it in the `Scripts` directory with `activate`.
   - **Conda**: Use `conda create --name your_env_name` and activate with `conda activate your_env_name`.
+
 For more information on virtual environments, refer to the [Python Documentation](https://docs.python.org/3/tutorial/venv.html) or [Conda Documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 
 ### 4. Installing Dependencies
@@ -48,19 +52,21 @@ For more information on virtual environments, refer to the [Python Documentation
 - **Install Dependencies**: 
   - **Using pip**: Run `pip install animalai`. This will install the dependencies necessary to run Animal-AI, located in the `animalai` package from PyPI (Python Package Index).
   - **Using Conda**: Install pip (`conda install pip`), then run `pip install animalai`.
+  - **Using a Virtual Environment**: Activate your virtual environment, then run `pip install animalai`.
+- **Check**: Run `pip list` to see if `animalai` is installed. You should obtain the latest version of the package automatically.
 
 ### 5. Downloading the Animal-AI Environment
 - **Download**: Get the version for your OS from the `Releases` section in the repository.
-- **Extract**: Unzip into the `env` folder in the main repository.
+- **Extract**: Unzip into the `env` folder in the main repository. We use the `env` folder to store the environment files. You can use WinRAR or 7-Zip to extract the files.
 - **Check**: The `env` folder should contain the `.exe` file and other files from the `.zip` download.
 
 ### 6. Starting Animal-AI
-- You can now start using Animal-AI by launching the application for your OS. Contact the team for any issues you may encounter.
+- You can now start using Animal-AI by launching the application for your OS, located in the directory where you saved the folder, typically in your Downloads folder. _Note that Animal-AI does not need to be installed in your system to run._
+  - **Windows**: Run `env/AnimalAI.exe`.
+  - **Mac**: Run `env/AnimalAI.app`.
+  - **Linux**: Run `env/AnimalAI.x86_64`.
 - **Note**: If you're using a virtual environment, make sure to activate it before running Animal-AI.
-
-### Additional Resources
-- [Configuration Guide](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/overhaul_docs/docs/configGuide/ConfigFileGuide.md) - for a detailed guide on how to design and run configuration files in Animal-AI.
-- [Training Agents](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/b596c6a8a9d36d2a504db7a06dc814d0a8b76c4a/docs/Training.md) - for a detailed guide on how to train agents in Animal-AI.
+- **Check**: The Animal-AI application should open in a new window, with a brief Unity loading screen.
 
 
 ### General Notes
