@@ -11,7 +11,7 @@
 
 #### Table of Contents
 1. [Features](#features)
-2. [Quick Install](#quick-install)
+2. [Installation](#installation)
 3. [Tutorials and Examples](#tutorials-and-examples)
 4. [Citing Animal-AI](#citing-animal-ai)
 5. [Unity ML-Agents](#unity-ml-agents)
