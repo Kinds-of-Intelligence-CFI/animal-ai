@@ -3,16 +3,18 @@ This document provides a comprehensive list of frequently asked questions and tr
 
 #### Table of Contents
 
-- [1. Troubleshooting Installation Issues](#1-troubleshooting-installation-issues)
-  - [1.1 Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
-    - [1.1.1 For macOS and Linux Users](#111-for-macos-and-linux-users)
-    - [1.1.2 For Windows Users](#112-for-windows-users)
-  - [1.2 Addressing Environment Connection Timeouts](#12-addressing-environment-connection-timeouts)
-  - [1.3 Communication Port Conflict](#13-communication-port-conflict)
-  - [1.4 Mean Reward Displaying NaN](#14-mean-reward-displaying-nan)
-- [2. Python API / Package Dependency Issues](#2-python-api--package-dependency-issues)
-   - [2.1 No Module Named "animalai"](#21-no-module-named-animalai)
-   - [2.3 Incompatible Python Version](#23-incompatible-python-version) 
+- [Frequently Asked Questions](#frequently-asked-questions)
+      - [Table of Contents](#table-of-contents)
+  - [1. Troubleshooting Installation Issues](#1-troubleshooting-installation-issues)
+    - [1.1 Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
+      - [1.1.1 For macOS and Linux Users](#111-for-macos-and-linux-users)
+      - [1.1.2 For Windows Users](#112-for-windows-users)
+    - [1.2 Addressing Environment Connection Timeouts](#12-addressing-environment-connection-timeouts)
+    - [1.3 Communication Port Conflict](#13-communication-port-conflict)
+    - [1.4 Mean Reward Displaying NaN](#14-mean-reward-displaying-nan)
+  - [2. Python API / Package Dependency Issues](#2-python-api--package-dependency-issues)
+    - [2.1 No Module Named `animalai`](#21-no-module-named-animalai)
+    - [2.3 Incompatible Python Version](#23-incompatible-python-version)
 
 ## 1. Troubleshooting Installation Issues
 Encountering issues while installing the Animal-AI environment? Here are some solutions to common problems:
@@ -81,7 +83,7 @@ You can verify the installation by running:
 python -c "import animalai"
 ```
 ### 2.3 Incompatible Python Version
-Currently, the Animal-AI environment only supports Python 3.9. We have tested using 3.6, 3.7 and 3.8, but we cannot guarantee that it will work with these versions for everyone. If you are using a different version of Python, please install Python 3.9 for the optimal experience.
+Currently, the Animal-AI environment only supports Python 3.6 to 3.9. We have tested using 3.6, 3.7 and 3.8, but we cannot guarantee that it will work with these versions for everyone. If you are using a different version of Python, please install Python 3.9 for the optimal experience.
 
 Please verify that you are using the correct version of Python by running:
 ```sh
