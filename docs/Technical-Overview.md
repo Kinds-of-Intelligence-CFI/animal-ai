@@ -58,26 +58,7 @@ In play mode, you can switch the camera view and control the agent using the fol
 | R             | Reset environment    |
 | Q             | Quit application     |
 
-Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W`, `A`, `S`, `D`. Hitting `R` or collecting certain rewards (green or red) will reset the arena. Note that the camera and agent controls are not available in `Train` mode, with only third-person perspective implemented currently (we plan to add multiple camera observations during training at some point). Furthermore, you can toggle on/off the ability to restrict the player's camera angles via the `canChangePerspective` parameter in the configuration file. If this is set to false, then the player will not be able to change the camera angle. In addition, you can toggle on/off the ability to reset the arena via the `canResetArena` parameter in the configuration file. If this is set to false, then the player will not be able to reset the arena manually. A new feature added is that users can now toggle on/off Lastly, if you have multiple arenas specified in youur configuration file, you can randomize via the `randomizeArenas` parameter. This is false by default. See below for an example of a configuration file with these parameters:
-
-```yaml
-!ArenaConfig
-randomizeArenas: false # whether to randomize arenas from the beginning. Default is false.
-showNotification: false # show/hide the notification box. Default is false.
-canResetEpisode: false # allow the user to change the perspective. Default is true.
-canChangePerspective: true # allow the user to change the perspective. Default is true.
-arenas:
-  0: !Arena
-    pass_mark: 0
-    t: 250
-    items:
-    - !Item
-      name: Agent
-      positions:
-      - !Vector3 {x: 20, y: 0, z: 20}
-      rotations: [0]
- ```
-In the above example, the user will not be able to reset the arena or change the camera angle during play. Furthermore, the arena will not be randomized as there is only one arena specified. The `showNotification` parameter is not currently implemented, meaning there will be no notification box in the environment immediately after the arena has been called to reset (the next arena is spawned).
+Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W`, `A`, `S`, `D`. Hitting `R` or collecting certain rewards (green or red) will reset the arena. Note that the camera and agent controls are not available in `Train` mode, with only third-person perspective implemented currently (we plan to add multiple camera observations during training at some point). Furthermore, you can toggle on/off the ability to restrict the player's camera angles via the `canChangePerspective` parameter in the configuration file. If this is set to false, then the player will not be able to change the camera angle. In addition, you can toggle on/off the ability to reset the arena via the `canResetArena` parameter in the configuration file. If this is set to false, then the player will not be able to reset the arena manually. A new feature added is that users can now toggle on/off Lastly, if you have multiple arenas specified in youur configuration file, you can randomize via the `randomizeArenas` parameter. This is false by default.
 
 ### Train Mode
 
