@@ -1,18 +1,16 @@
 # Detailed Installation Guide
 
 #### Table of Contents
-- [Detailed Installation Guide](#detailed-installation-guide)
-      - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
+- [Introduction](#introduction)
   - [Steps:](#steps)
-    - [1. Installing Python](#1-installing-python)
-    - [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
-    - [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
-    - [4. Installing Dependencies](#4-installing-dependencies)
-    - [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
-    - [6. Starting Animal-AI](#6-starting-animal-ai)
-    - [General Notes](#general-notes)
-    - [Troubleshooting](#troubleshooting)
+  - [1. Installing Python](#1-installing-python)
+  - [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
+  - [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
+  - [4. Installing Dependencies](#4-installing-dependencies)
+  - [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
+  - [6. Starting Animal-AI](#6-starting-animal-ai)
+  - [General Notes](#general-notes)
+  - [Troubleshooting](#troubleshooting)
 
 ## Introduction
 Welcome to the comprehensive installation guide for Animal-AI. This guide is tailored for users who may not be familiar with Python dependencies, navigating GitHub repositories, or working with Unity. It's also here to help you smoothly navigate through any installation hiccups – because let's face it, *it's custom software installation... when **isn't** there a hiccup or two?*.

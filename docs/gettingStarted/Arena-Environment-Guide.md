@@ -1,25 +1,23 @@
 # Arena Environment Guide
 
 #### Table of Contents
-- [Arena Environment Guide](#arena-environment-guide)
-      - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-  - [The Arena](#the-arena)
-  - [The Agent](#the-agent)
-    - [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
-    - [Arena/Agent Limitations](#arenaagent-limitations)
-    - [Agent Properties](#agent-properties)
-    - [Complex Agent Properties (ML-Agents / Training)](#complex-agent-properties-ml-agents--training)
-  - [GameObjects](#gameobjects)
+- [Introduction](#introduction)
+- [The Arena](#the-arena)
+- [The Agent](#the-agent)
+  - [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
+  - [Arena/Agent Limitations](#arenaagent-limitations)
+  - [Agent Properties](#agent-properties)
+  - [Complex Agent Properties (ML-Agents / Training)](#complex-agent-properties-ml-agents--training)
+- [GameObjects](#gameobjects)
   - [Unique/Special Object Parameters](#uniquespecial-object-parameters)
-    - [Agent-Specific Parameters](#agent-specific-parameters)
-    - [Goal-Related Parameters](#goal-related-parameters)
-    - [Spawner Parameters](#spawner-parameters)
-    - [SignBoard Parameters](#signboard-parameters)
-  - [Blackouts](#blackouts)
-  - [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
-    - [Spawning GameObjects](#spawning-gameobjects)
-    - [Configuration File Values](#configuration-file-values)
+  - [Agent-Specific Parameters](#agent-specific-parameters)
+  - [Goal-Related Parameters](#goal-related-parameters)
+  - [Spawner Parameters](#spawner-parameters)
+  - [SignBoard Parameters](#signboard-parameters)
+- [Blackouts](#blackouts)
+- [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
+  - [Spawning GameObjects](#spawning-gameobjects)
+  - [Configuration File Values](#configuration-file-values)
 
 
 ## Introduction
@@ -47,7 +45,6 @@ Each **episode** (a single run) contains an _arena_ environment. Currently, an a
 
 The default arena is made up of a set of gameobjects, which itself is contained in a _Unity Scene_, which are as follows:
 
-
 - **Walls**: The walls of the arena, which are 10 units high and 40 units long. The walls are made up of 4 gameobjects, one for each wall, which are named `Wall1`, `Wall2`, `Wall3`, and `Wall4`, each with a set of childobjects called `fences`, which contain the textures for the walls. The walls are all children of the `Walls` gameobject, which is itself a child of the `Arena` gameobject.
 - **Ground**: The ground of the arena, which is 40 units long and 40 units wide. The ground is a child of the `Arena` gameobject.
 - **Lights**: The lights of the arena, which are 4 spotlights, one for each corner of the arena. The lights are all children of the `Lights` gameobject, which is a child of the `Arena` gameobject.
@@ -67,7 +64,7 @@ showNotification: false
 canResetEpisode: true 
 canChangePerspective: true 
 arenas:
-  0: !Arena
+  n: !Arena # note that the n is a placeholder integer between 0 and n, but the first arena must start with 0
     pass_mark: 0
     t: 250
     items:
@@ -77,7 +74,7 @@ arenas:
       - !Vector3 {x: 20, y: 0, z: 20}
       rotations: [0]
 ```
-
+- `n: !Arena` an `int`, denotes the unique arena number, which is used to identify the arena in the configuration file. The first arena must start with `0`, upto `n`, where `n` is the number of arenas defined in a single configuration file. 
 - `t` an `int`, defines the length of an episode which can change from one episode to the other. A value of `0` means that the episode will not terminate until a reward has been collected (setting `t=0` and having no reward will lead to an infinite episode). This value is converted into a decay rate for the health of the agent. A `t` of 100 means that the agent's health will decay to 0, and the episode will end, after 100 time steps.
 - `pass_mark` an `int`, defines the reward threshold that should constitute a ‘pass’ in the enviroment. Leaving this parameter undefined leads to the default value of 0, whereby any reward value obtained by the Agent results in a pass. This parameter also determines the notifications that players receive at the end of an episode. If used, this parameter should be defined with consideration to the reward size that can feasibly be obtained by the agent in each configuration file.
 - `canChangePerspective` a `bool`, defines whether the agent can change its camera perspective during an episode (first-person, third-person or eagle-view). If set to `false`, the agent will be unable to change its camera perspective during an episode by pressing the C button on their keyboards, which will cycle through the cameras attached to the Agent in-gasme. If set to `true`, the agent will be able to change its perspective during an episode. This parameter is set to `true` by default.
@@ -302,6 +299,7 @@ When configuring an arena, follow these rules and be aware of certain behaviors:
 
 ### Configuration File Values
 
+- **n: !Arena**: The `n` in `n: !Arena` is a placeholder integer between `0` and `n`, where `n` is the number of arenas defined in a single configuration file. The first arena must start with `0`, upto `n` arenas. Any negative arena numbers are automatically converted to positive integers accordingly, resulting in flexible and robust arena numbering and management.
 - **Object Names**: Must match names from [Arena Object Definitions](/docs/Arena-Object-Definitions.md). Unmatched names are ignored and may result in unexpected behavior or fatal errors.
 - **Randomization**: Use `-1` or leave blank in `positions`, `sizes`, and `rotations` for random values for any object that supports randomization (see [Arena Object Definitions](/docs/Arena-Object-Definitions.md)).
 - **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level (with a `0.1` height buffer to prevent gameobject clipping).

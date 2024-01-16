@@ -20,7 +20,7 @@
 
 ### Introduction
 
-Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. Let's take a closer look into the YAML syntax used in Animal-AI itself.
+Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. We will start with some simple examples and then move on to more complex examples.
 
 
 ### Understanding YAML Syntax
@@ -47,7 +47,7 @@ We can observe the following structure:
 
 The `!ArenaConfig` tag is used to indicate that the following YAML file is an ArenaConfig file. The `arenas` tag is used to indicate that the following YAML file contains one or more arenas. The `0` tag indicates that the following arena is the first arena in the file, upto `n arenas`. The `!Arena` tag indicates that the following YAML file contains an arena. The `!` tag is used to indicate that the following YAML file is a custom class. In this case, the `!Arena` tag indicates that the following YAML file is an Arena file. The `!Arena` tag is followed by a list of parameters that are used to define the arena, with the objects to spawn for that particular arena only. Some arena parameters are applied locally, such as `t` (time limit) and `pass_mark` (more on this later), while others are applied globally (see below for an example). 
 
-#### YAML Hierarchical Syntax (Global Parameters)
+#### YAML Hierarchical Syntax (Config/YAML Global Parameters)
 ```YAML
 !ArenaConfig
 # Global Parameters that are optional to put here.
@@ -71,7 +71,7 @@ Bear in mind that the global parameters are optional to define. If we do not def
 
 In the example above, the global parameters are defined before the arenas. These parameters are applied to all arenas in the file. Please note that these parameters are only applicable during `Play` mode, not agent `Training` mode.
 
-#### YAML Hierarchical Syntax (Local Parameters)
+#### YAML Hierarchical Syntax (Arena/Item Local Parameters)
 ```YAML
 !ArenaConfig
 arenas:
@@ -86,14 +86,57 @@ arenas:
       rotations: [90]
       skins:
       - "hedgehog"
+  1: !Arena # note that the arena number is 1, meaning this is the second arena in the file. Each arena must have a unique number and the first arena must be 0.
+    t: 250 # Time limit for the arena. This is a local parameter, and is only applicable to this arena.
+    pass_mark: 0 # Pass mark for the arena (i.e. the minimum reward required to pass the arena). This is a local parameter, and is only applicable to this arena.
+    items: # List of objects to spawn in the arena. This is a list which is converted to a GameObject array in Unity.
+    - !Item # An individual object to spawn in the arena. This object is then added to the list of objects to spawn in the arena.
+      name: Agent
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      rotations: [90]
+      skins:
+      - "hedgehog"
 ```
 **Observations:**
 
-We can observe:
+Regarding Arena and Item local parameters, we can observe respectively that:
 
-- The local parameters apply from the point at which the arena is defined. In other words, any parameter defined after the `0: !Arena` tag is a local parameter. 
+- The _arena-specific_ parameters are only applicable to the arena in which they are defined. For example, if `t` is set to `250`, the time limit for the arena will be 250 seconds. However, if there are multiple arenas defined in the same YAML configuration file `t` is set to `500`, the time limit for the arena will be 500 seconds for that arena only. Please note that these parameters are applicable during `Play` and `Training` modes. Lastly, the properties of each "Item" is a local parameter specified for that particular object only. For example, if the `Agent` object is specified to have a `hedgehog` skin, only the `Agent` object will have a `hedgehog` skin for that particular arena.
 
-In the above example, the local parameters are defined within the individual arena(s). These parameters are only applicable to the arena in which they are defined. For example, if `t` is set to `250`, the time limit for the arena will be 250 seconds. However, if `t` is set to `500`, the time limit for the arena will be 500 seconds for that arena only. Please note that these parameters are applicable during `Play` and `Training` modes. Lastly, the properties of each "Item" is a local parameter specified for that particular object only. For example, if the `Agent` object is specified to have a `hedgehog` skin, only the `Agent` object will have a `hedgehog` skin for that particular arena.
+```YAML
+!ArenaConfig
+arenas:
+  0: !Arena
+    t: 250 # Time limit for the arena. This is a local parameter, and is only applicable to this arena.
+    pass_mark: 0 # Pass mark for the arena (i.e. the minimum reward required to pass the arena). This is a local parameter, and is only applicable to this arena.
+    items: # List of objects to spawn in the arena. This is a list which is converted to a GameObject array in Unity.
+    - !Item # An individual object to spawn in the arena. This object is then added to the list of objects to spawn in the arena.
+      name: Agent
+      ... # rest of Agent parameters...
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 10}
+      colors:
+      - !RGB {r: 204, g: 0, b: 204 }
+      rotations: [45]
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 1000, y: 1000, z: 1000}
+      colors:
+      - !RGB {r: 204, g: 0, b: 204 }
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1000, y: 1000, z: 1000}
+```
+
+- Moreover, we can observe that the `!Item` tag also contains local parameters of its own, which we define as _item-only_ local parameters. Such item-only local parameters are only applicable to the object in which they are defined. For example, if we define a `Wall` object twice in the same arena (as demonstrated in the above YAML snippet), the local parameters such as positions, sizes, colors, rotations etc. defined for the first  `Wall` object will not apply to the second `Wall` object in the same arena. 
+
+The syntax implemented allows for a high degree of flexibility in the creation of custom arenas where multiple objects of the same type can be defined with different properties for the same arena, without conflict.
 
 Let's now take a look at more complex examples to understand how to use the YAML syntax in Animal-AI to create custom arenas.
 
