@@ -10,16 +10,14 @@
 
 
 #### Table of Contents
-- [Animal-AI](#animal-ai)
-      - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [Quick Start](#quick-start)
-  - [Citing](#citing)
-  - [Unity ML-Agents](#unity-ml-agents)
-  - [The Animal-AI Community](#the-animal-ai-community)
-    - [Notice](#notice)
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Citation](#citation)
+- [Unity ML-Agents](#unity-ml-agents)
+- [The Animal-AI Community](#the-animal-ai-community)
+- [Notice](#notice)
 
 
 ## Overview
@@ -87,7 +85,7 @@ For legacy versions of Animal-AI, please see ([legacy releases](project\AAIVersi
 We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. Your first stop should be the [Getting Started Guide](docs\installation\QuickStart.md), which will guide you on where to start and where to go next depending on your interests and experience.
 
 
-## Citing
+## Citation
 
 We recently published our new paper on Animal-AI, which you can find [here](https://arxiv.org/abs/2312.11414). If you use Animal-AI in your research, please cite our paper:
 
