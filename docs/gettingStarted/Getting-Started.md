@@ -63,3 +63,8 @@ You are now ready to launch the platform and run your first configuration file. 
 An example of a configuration file can be found here where you can simply download/copy:
 
 - [Example Configuration File](/docs/configGuide/Example-YAML-File.yaml)
+
+
+---
+
+NOTE FOR REVIEWERS: HELP NEEDED HERE ON CREATING A A UNIFIED AND CENTRAL GUIDE FOR RESEARCHERS TO FOLLOW. I HAVE CREATED A NUMBER OF GUIDES WHICH ARE ALL LINKED ABOVE, BUT I AM NOT SURE IF THIS IS THE BEST WAY TO GO ABOUT IT. PLEASE LET ME KNOW IF YOU HAVE ANY SUGGESTIONS. THANK YOU!
