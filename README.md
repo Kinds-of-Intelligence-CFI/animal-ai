@@ -110,6 +110,6 @@ Documentation for [ML-Agents](https://github.com/Unity-Technologies/ml-agents) s
 
 ## The Animal-AI Community 
 
-Animal-AI has been an open-source research project from the beginning. If you wish to contribute to the project, please refer to the [Contributing Guide](contributing.md) for more information, and to the [Code of Conduct](codeOfConduct.md) for guidelines on how to interact with the community. 
+Animal-AI has been an open-source research project from the beginning, and will continue to be so in the future. We welcome contributions from the community from all backgrounds and experiences, and we are always looking for new ways to collaborate. 
 
 ---
