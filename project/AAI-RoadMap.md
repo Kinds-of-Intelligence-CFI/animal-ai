@@ -38,7 +38,7 @@ Previous setting had an abstract system where food = +ve reward and time = -ve r
 
 This update is focused on improving the environment for experimentation. This includes a major graphics update to all items, the addition of goals that decay/ripen/change size, and more items for setting up experiments. This update also includes improved documentation which enhances user experience.
 
-## 3.3 Animal-AI Version 3 [Major Release]
+## 3.3 Animal-AI 'Version 3' [Major Release - 25/12/2023]
 
 - [x] Migrate to Unity Editor 2022
 - [x] Migrate to ml-agents 0.30.0
