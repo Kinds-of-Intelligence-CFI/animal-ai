@@ -80,7 +80,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 For legacy versions of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 
 
-## Quick Start
+## Getting Started
 
 We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. Your first stop should be the [Getting Started Guide](/docs/gettingStarted/Getting-Started.md), which will guide you on where to start and where to go next depending on your interests and experience.
 
