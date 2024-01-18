@@ -77,7 +77,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 ([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
 
-For legacy versions of Animal-AI, please see ([legacy releases](project\AAIVersionsArchive.md))
+For legacy versions of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 
 
 ## Quick Start
@@ -105,28 +105,11 @@ For further publications related to Animal-AI, see our website [here](https://si
 
 Juliani, A., Berges, V., Vckay, E., Gao, Y., Henry, H., Mattar, M., Lange, D. (2018). [Unity: A General Platform for Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:1809.02627*
 
-Documentation for [ML-Agents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want additional resources or to make any changes.
+Documentation for [ML-Agents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want additional resources.
 
 
 ## The Animal-AI Community 
 
 Animal-AI has been an open-source research project from the beginning. If you wish to contribute to the project, please refer to the [Contributing Guide](contributing.md) for more information, and to the [Code of Conduct](codeOfConduct.md) for guidelines on how to interact with the community. 
 
-
 ---
-### Notice
-
-   _Copyright 2024 Kinds of Intelligence, Centre for the Future of Intelligence, University of Cambridge._
-   
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-
