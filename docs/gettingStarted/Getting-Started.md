@@ -101,7 +101,9 @@ We provided a set of sanity check configurations which **must be passed** before
 
 Once you have fixed an issue or implemented a feature, you can create a pull request to submit your changes. The pull request should be created where the issue or feature request is located and should be linked to the issue or feature request. Please make sure to follow the pull request template, and provide as much information as possible. If you are fixing an issue, please provide the issue number in the pull request description. Please note that a sufficient amount of documentation is required for the pull request to be accepted.
 
-Once you have created the pull request, it will be reviewed by the project maintainers. A project maintainer will review your pull request, and may request changes. If changes are requested, you should make the requested changes and update the pull request. We kindly ask you to be patient, as it may take some time for your pull request to be reviewed.
+Once you have created the pull request, it will be reviewed by the project maintainers and may request changes. If changes are requested, you should make the requested changes and update the pull request. **Please update any documentation that may be affected by your changes.**
+
+_We kindly ask you to be patient, as it may take some time for your pull request to be reviewed._
 
 ### Review and Merging a Pull Request
 
