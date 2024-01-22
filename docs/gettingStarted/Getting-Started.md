@@ -111,7 +111,7 @@ Once a pull request has been created, it will be reviewed by the _Lead Software 
 
 ### Post-Merge
 
-Once your pull request has been merged, you will be added to the list of contributors in the project. If there are any issues with your pull request, you will be notified and asked to fix the issues. 
+Once your pull request has been merged, you will be added to the list of contributors in the project.
 
 
 ---
