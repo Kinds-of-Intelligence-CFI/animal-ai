@@ -13,7 +13,7 @@ The Animal-AI Environment (AAI) aims to unite cognitive scientists, engineers, c
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
-- [Quick Start](#quick-start)
+- [Getting Started](#getting-started)
 - [Citation](#citation)
 - [Unity ML-Agents](#unity-ml-agents)
 - [The Animal-AI Community](#the-animal-ai-community)
