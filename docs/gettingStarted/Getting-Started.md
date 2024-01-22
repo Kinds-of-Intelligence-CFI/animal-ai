@@ -61,7 +61,7 @@ If you would like a brief introduction to YAML, you can find it here (If you hav
 
 You may then proceed to the guide on using YAML in Animal-AI, which is tailored to the platform:
 
-- [YAML Congifuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
+- [YAML Configuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
 
 
 You are now ready to launch the platform and run your first configuration file. The next guide will show you how to do this from downloading the platform for your operating system to running your first configuration file:
