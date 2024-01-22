@@ -2,7 +2,7 @@
 
 # Animal-AI
 
-*Animal-Artificial Intelligence*, commonly known as Animal-AI or AAI, serves as a nexus for multi-disciplinary inquiry, aiming to deepen our understanding of cognition in humans, animals, and artificial entities. Its objective is to advance AI research by exploring cognitive abilities and broadening our comprehension of the spectrum of potential minds. AAI is uniquely structured to enable comparative assessments among animals, humans, and artificial intelligences. It encompasses software engineering and research, maintained as an open-source project to foster collaboration.
+The Animal-AI Environment (AAI) aims to unite cognitive scientists, engineers, computer scientists, biologists and more to deepen our understanding of cognition in humans, animals, and artificial intelligence systems. Its objective is to advance research in all of these fields, including the development of biologically inspired artificial intelligence, the evaluation of the cognitive capabilities of state-of-the-art systems, and empirical research on humans and other animals. AAI is uniquely structured to enable comparative assessments between animals, humans, and artificial intelligence systems.
 
 | ![agent-cyl-fail](project/figs/agent-cyl-fail.gif) | ![agent-cyl-pass](project/figs/agent-cyl-pass.gif) |
 |---|---|
