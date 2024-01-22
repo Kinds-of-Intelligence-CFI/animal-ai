@@ -248,3 +248,7 @@ These objects have specific and limited functionalities, with their primary func
 <p align="center">
   <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-preset-symbols.png">
 </p>
+
+<p align="center">
+  <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-special-symbols-annotated.png">
+</p>
