@@ -26,7 +26,7 @@ The Animal-AI Environment (AAI) aims to unite cognitive scientists, engineers, c
 - **Unity/C# Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
 
-This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It is the exclusive source for all past and forthcoming releases of Animal-AI. To facilitate your initiation, the repository includes a collection of introductory Python scripts for engagement with the environment, alongside an extensive library of over 900 tasks featured in the inaugural Animal-AI Olympics competition. The repository also contains a comprehensive documentation of the environment, including a detailed description of the environment's objects and their properties, as well as a guide to designing experiments with the environment from scratch. More advanced tutorials are also found, such as how to train agents in Animal-AI environments. 
+This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It contains a collection of in-depth guides to the environment, as well as an extensive library of 900 tasks featured in the inaugural Animal-AI Olympics competition.
 
 _If you wish to contribute to the project, please familiarize yourself with the [Contributing Guide](contributing.md) and the [Code of Conduct](codeOfConduct.md) first._ A comprehensive documentation of how Animal-AI works is also available [here](docs/Technical-Overview.md.md), where you can understand the inner workings of how the environment is built and how it functions (_csharp_ and _Python_ codebases).
 
@@ -42,13 +42,13 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 **Comprehensive AI Environment:**
 - Includes a versatile environment for AI experiments, from basic to advanced configurations.
-- Wrap Unity learning environments as a gym environment
+- Wrap Unity learning environments as a gym(nasium) environment
 - Wrap Unity learning environments as a PettingZoo environment
 - Support for several Deep Reinforcement Learning algorithms (PPO, SAC, MA-POCA, self-play).
 
 **Extensive Task Library:**
 - Multiple example tasks.
-- Over 900 tasks from the Animal-AI Olympics.
+- 900 tasks from the Animal-AI Olympics.
 - Procedural Generation functionality
 - Additional tasks for demonstration and experimentation.
 
@@ -77,7 +77,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 ([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
 
-For legacy versions of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
+For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 
 
 ## Getting Started
