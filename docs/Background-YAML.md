@@ -1,7 +1,6 @@
 # Background: YAML
 
 #### Table of Contents
-
 - [Background: YAML](#background-yaml)
       - [Table of Contents](#table-of-contents)
   - [YAML? What is it?](#yaml-what-is-it)
