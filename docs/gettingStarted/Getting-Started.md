@@ -9,12 +9,14 @@ This document should be your introductory document to Animal-AI, which outlines 
       - [What is the aim of the project?](#what-is-the-aim-of-the-project)
       - [What is the background of the project?](#what-is-the-background-of-the-project)
 - [If you are a researcher](#if-you-are-a-researcher)
+  - [Recommended Order of Exposure](#recommended-order-of-exposure)
 - [If you are a contributor](#if-you-are-a-contributor)
   - [Next Steps](#next-steps)
-    - [Creating an Issue/Feature Request](#creating-an-issuefeature-request)
-    - [Pre-Pull Request Tasks](#pre-pull-request-tasks)
-    - [Creating a Pull Request](#creating-a-pull-request)
-    - [Review and Merging a Pull Request](#review-and-merging-a-pull-request) 
+  - [Creating an Issue/Feature Request](#creating-an-issuefeature-request)
+  - [Pre-Pull Request](#pre-pull-request)
+  - [Creating a Pull Request](#creating-a-pull-request)
+  - [Review and Merging a Pull Request](#review-and-merging-a-pull-request)
+  - [Post-Merge](#post-merge)
 
 
 # What is Animal-AI?
@@ -39,8 +41,7 @@ We assume you have basic understanding and/or experience of Python programming a
 
 _You can start your journey in the recommended order of exposure below, which will facilitate a smooth introduction and understanding of the platform:_
 
-
---- 
+### Recommended Order of Exposure
 
 Assuming you haven't already, you can install the platform by following the detailed installation guide here:
 - [Installation Guide](/docs/gettingStarted/Installation-Guide.md) 
@@ -79,7 +80,7 @@ Before you start contributing to the project, you should first familiarize yours
 
 Once you are familiar with the project structure, you can start contributing to the project in either or both codebases, located [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity) (Unity/csharp) and [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-python) (Python).
 
-## Next Steps
+### Next Steps
 
 So you decided on which codebases you want to contribute to...so...what do you do now? 
 
@@ -92,7 +93,7 @@ Please make sure to follow the issue template, and provide as much information a
 
 _Note well that the feature request may not be accepted, and may be closed if it is not in line with the project goals. Therefore, checking out the Project Roadmap [here](/project/AAI-RoadMap.md) will keep you aligned and oriented._ 
 
-### Pre-Pull Request Tasks
+### Pre-Pull Request
 
 Before you create a pull request, there are a few tasks that you should complete. First, you should make sure that your code is well documented, and that you have written unit tests for your code. You should also make sure that your code is well formatted, and that it follows the project style guide. 
 
@@ -100,16 +101,19 @@ We provided a set of sanity check configurations which **must be passed** before
 
 ### Creating a Pull Request
 
-Once you have fixed an issue or implemented a feature, you can create a pull request to submit your changes. The pull request should be created where the issue or feature request is located and should be linked to the issue or feature request. Please make sure to follow the pull request template, and provide as much information as possible. If you are fixing an issue, please provide the issue number in the pull request description.
+Once you have fixed an issue or implemented a feature, you can create a pull request to submit your changes. The pull request should be created where the issue or feature request is located and should be linked to the issue or feature request. Please make sure to follow the pull request template, and provide as much information as possible. If you are fixing an issue, please provide the issue number in the pull request description. Please note that a sufficient amount of documentation is required for the pull request to be accepted.
 
-Once you have created the pull request, it will be reviewed by the project maintainers. If the pull request is accepted, it will be merged into the master branch. If the pull request is rejected, it will be closed, and you will be notified of the reason for rejection. 
+Once you have created the pull request, it will be reviewed by the project maintainers. A project maintainer will review your pull request, and may request changes. If changes are requested, you should make the requested changes and update the pull request. We kindly ask you to be patient, as it may take some time for your pull request to be reviewed.
 
 ### Review and Merging a Pull Request
 
-Once a pull request has been created, it will be reviewed by the Lead Software Developer (alhasacademy@gmail.com). For any questions, feel free to contact him at any time in any stage you are in. 
+Once a pull request has been created, it will be reviewed by the _Lead Software Developer_ (alhasacademy@gmail.com). For any questions, feel free to contact him at any time in any stage you are in. 
 
-Congratulations and thank you so much for contributing to our project and vision. We are very grateful for your contribution and we hope you will continue to contribute to the project in the future. 
+### Post-Merge
+
+Once your pull request has been merged, you will be added to the list of contributors in the project. If there are any issues with your pull request, you will be notified and asked to fix the issues. 
+
 
 ---
 
-NOTE FOR REVIEWERS: HELP NEEDED HERE ON CREATING A A UNIFIED AND CENTRAL GUIDE FOR RESEARCHERS TO FOLLOW. I HAVE CREATED A NUMBER OF GUIDES WHICH ARE ALL LINKED ABOVE, BUT I AM NOT SURE IF THIS IS THE BEST WAY TO GO ABOUT IT. PLEASE LET ME KNOW IF YOU HAVE ANY SUGGESTIONS. THANK YOU!
+Congratulations and thank you so much for contributing to our project and vision. We are very grateful for your contribution and we hope you will continue to contribute to the project in the future.
