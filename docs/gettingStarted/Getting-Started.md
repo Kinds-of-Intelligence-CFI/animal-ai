@@ -2,7 +2,6 @@
 
 This document should be your introductory document to Animal-AI, which outlines the process of getting started with the project, in  recommended order of material exposure. It is essentially a spiderweb connecting the project with the various documentation and resources available.
 
-
 #### Table of Contents
 
 - [What is Animal-AI?](#what-is-animal-ai)
