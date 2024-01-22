@@ -42,9 +42,11 @@ _You can start your journey in the recommended order of exposure below, which wi
 ### Recommended Order of Exposure
 
 Assuming you haven't already, you can install the platform by following the detailed installation guide here:
+
 - [Installation Guide](/docs/gettingStarted/Installation-Guide.md) 
   
 You may then proceed to an introduction on the Arena Environment and the Agent here:
+
 - [Arena Environment Guide](/docs/gettingStarted/Arena-Environment-Guide.md)
 
 Furthermore, a comprehensive guide on the available objects and their properties can be found here which will enhance ytou understanding of the Arena Environment and it's many objects:
@@ -54,10 +56,11 @@ Furthermore, a comprehensive guide on the available objects and their properties
 Once you are familiar with the Arena Environment and the objects you can use to populate your custom environments, you can proceed to the following guides which will guide you on creating your own configuration files:
 
 If you would like a brief introduction to YAML, you can find it here (If you have experience or are familiar with YAML, bypass this step):
+
 - [Background on YAML](/docs/Background-YAML.md)
 
-
 You may then proceed to the guide on using YAML in Animal-AI, which is tailored to the platform:
+
 - [YAML Congifuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
 
 
@@ -65,9 +68,11 @@ You are now ready to launch the platform and run your first configuration file. 
 
 - [Launching Animal-AI](/docs/gettingStarted/Launching-Animal-AI.md)
 
-An example of a configuration file can be found here where you can simply download/copy:
+An example of a configuration file can be found here where you can simply download/copy to your IDE of choice and run it:
 
 - [Example Configuration File](/docs/configGuide/Example-YAML-File.yaml)
+
+
 
 
 # If you are a contributor
