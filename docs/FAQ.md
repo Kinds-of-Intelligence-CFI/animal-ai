@@ -2,9 +2,6 @@
 This document provides a comprehensive list of frequently asked questions and troubleshooting tips for the Animal-AI environment.
 
 #### Table of Contents
-
-- [Frequently Asked Questions](#frequently-asked-questions)
-      - [Table of Contents](#table-of-contents)
   - [1. Troubleshooting Installation Issues](#1-troubleshooting-installation-issues)
     - [1.1 Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
       - [1.1.1 For macOS and Linux Users](#111-for-macos-and-linux-users)
@@ -15,6 +12,7 @@ This document provides a comprehensive list of frequently asked questions and tr
   - [2. Python API / Package Dependency Issues](#2-python-api--package-dependency-issues)
     - [2.1 No Module Named `animalai`](#21-no-module-named-animalai)
     - [2.3 Incompatible Python Version](#23-incompatible-python-version)
+  - [3. File Not Found Error](#3-file-not-found-error)
 
 ## 1. Troubleshooting Installation Issues
 Encountering issues while installing the Animal-AI environment? Here are some solutions to common problems:
@@ -89,3 +87,13 @@ Please verify that you are using the correct version of Python by running:
 ```sh
 python --version
 ```
+
+If you are using a different version of Python, please install Python 3.9 for the optimal experience.
+
+## 3. File Not Found Error
+
+Seeing `FileNotFoundError: [Errno 2] No such file or directory: 'AnimalAI/AnimalAI.app'`? Ensure the `AnimalAI` folder is in the same directory as your Python script.
+
+If you are using macOS, you may get this error: `FileNotFoundError: [Errno 2] No such file or directory: 'env/AnimalAI'`. This error occurs when running the ``python play.py`` command from the ``animal-ai/examples`` folder. 
+
+To fix this, simply rename the 'MACOS.app' folder you downloaded to AnimalAI. This will allow the ``play.py`` script to find the environment. Note that this error is likely to occur in older versions of Animal-AI.
