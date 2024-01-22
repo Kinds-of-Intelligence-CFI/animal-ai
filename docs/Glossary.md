@@ -1,7 +1,6 @@
 # Animal-AI Glossary
 
 #### Table of Contents
-
   1. [Animal-AI Terms](#animal-ai-terms) 
   2. [RL/ML-Agents Terms](#rlml-agents-terms)
   3. [Unity Terms](#unity-terms)

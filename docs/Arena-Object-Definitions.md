@@ -341,12 +341,6 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
   <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-preset-symbols.png">
 </p>
 
-The SignBoard is a 3D object that can be placed in the environment to provide a visual cue to the player/agent.
-
-- **Name**: `SignBoard`, formerly `SignPosterboard`
-- **Size**: `0.5-2.5` (**note:** `x` is posterboard thickness, `y` is height, `z` is width - size values for posterboards are a *scale factor*, not the actual size)
-- **Color**: Symbol color changeable; SignBoard color fixed (white with brown edges)
-- **Symbol**: Specified using `symbolNames` parameter
-- **Alias**: `SignPosterboard`
-
-Notes: The SignBoard is a 3D object that can be placed in the environment to provide a visual cue to the player/agent. The symbol can be changed via the `symbolNames` parameter. There is a preset list: `"left-arrow"`, `"right-arrow"`, `"up-arrow"`, `"down-arrow"`, `"u-turn-arrow"`, `"letter-a"`, `"letter-b"`, `"letter-c"`, `"square"`, `"triangle"`, `"circle"`, `"star"`, `"tick"`, `"cross"`. Pixel arrays can be passed to this parameter as arrays of `0`s and `1`s. For instance, a 2x2 pixel grid would be passed as `"01/10"`. Randomised pixels can be provided with the wild card `*`. A 3x3 partially randomised grid might look like `"0*1/**0/*1*"`.
+<p align="center">
+  <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-special-symbols-annotated.png">
+</p>

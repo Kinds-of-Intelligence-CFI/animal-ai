@@ -2,13 +2,19 @@
 
 This document should be your introductory document to Animal-AI, which outlines the process of getting started with the project, in  recommended order of material exposure. It is essentially a spiderweb connecting the project with the various documentation and resources available.
 
-
 #### Table of Contents
-
 - [What is Animal-AI?](#what-is-animal-ai)
       - [What is the aim of the project?](#what-is-the-aim-of-the-project)
       - [What is the background of the project?](#what-is-the-background-of-the-project)
 - [If you are a researcher](#if-you-are-a-researcher)
+  - [Recommended Order of Exposure](#recommended-order-of-exposure)
+- [If you are a contributor](#if-you-are-a-contributor)
+  - [Next Steps](#next-steps)
+  - [Creating an Issue/Feature Request](#creating-an-issuefeature-request)
+  - [Pre-Pull Request](#pre-pull-request)
+  - [Creating a Pull Request](#creating-a-pull-request)
+  - [Review and Merging a Pull Request](#review-and-merging-a-pull-request)
+  - [Post-Merge](#post-merge)
 
 
 # What is Animal-AI?
@@ -33,13 +39,14 @@ We assume you have basic understanding and/or experience of Python programming a
 
 _You can start your journey in the recommended order of exposure below, which will facilitate a smooth introduction and understanding of the platform:_
 
-
---- 
+### Recommended Order of Exposure
 
 Assuming you haven't already, you can install the platform by following the detailed installation guide here:
+
 - [Installation Guide](/docs/gettingStarted/Installation-Guide.md) 
   
 You may then proceed to an introduction on the Arena Environment and the Agent here:
+
 - [Arena Environment Guide](/docs/gettingStarted/Arena-Environment-Guide.md)
 
 Furthermore, a comprehensive guide on the available objects and their properties can be found here which will enhance ytou understanding of the Arena Environment and it's many objects:
@@ -49,22 +56,69 @@ Furthermore, a comprehensive guide on the available objects and their properties
 Once you are familiar with the Arena Environment and the objects you can use to populate your custom environments, you can proceed to the following guides which will guide you on creating your own configuration files:
 
 If you would like a brief introduction to YAML, you can find it here (If you have experience or are familiar with YAML, bypass this step):
+
 - [Background on YAML](/docs/Background-YAML.md)
 
-
 You may then proceed to the guide on using YAML in Animal-AI, which is tailored to the platform:
-- [YAML Congifuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
+
+- [YAML Configuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
 
 
 You are now ready to launch the platform and run your first configuration file. The next guide will show you how to do this from downloading the platform for your operating system to running your first configuration file:
 
 - [Launching Animal-AI](/docs/gettingStarted/Launching-Animal-AI.md)
 
-An example of a configuration file can be found here where you can simply download/copy:
+An example of a configuration file can be found here where you can simply download/copy to your IDE of choice and run it:
 
 - [Example Configuration File](/docs/configGuide/Example-YAML-File.yaml)
 
 
+
+
+# If you are a contributor
+
+We assume you have a good understanding of and/or experience with programming languages **chsarp** and **python**. A good level of knowledge/experience is required to contribute to the project in very technical terms, especially on the Unity game engine. Note that having good knowledge/experience in other aspects of development such as 3D prefab model design, animation, and other general game designing is also very welcome. However, having a computer science background is not a requirement, and we welcome contributions from all backgrounds. 
+
+Before you start contributing to the project, you should first familiarize yourself with the project structure and the various components that make up the project. You can find a detailed guide on the project structure [here](/docs/Technical-Overview.md). This documentation will explain the various components of the project, and how they interact with each other. It will also explain how to set up the project for development, and how to run the project in the Unity editor.
+
+Once you are familiar with the project structure, you can start contributing to the project in either or both codebases, located [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity) (Unity/csharp) and [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-python) (Python).
+
+### Next Steps
+
+So you decided on which codebases you want to contribute to...so...what do you do now? 
+
+The next step would be to look at the issues tab of the repository you want to contribute to. The issues tab contains a list of issues that need to be addressed, and is a good place to start if you are new to the project. You can also create your own issues if you have a feature request or a bug report. If you are new to the project, you can start by looking at the issues tagged with the `good first issue` label. These issues are relatively easy to fix, usually with minimal to little testing required. If you are looking for a more challenging issue, you can look at the issues tagged with the `help wanted` label. These issues are more challenging, and may require more effort and time, as well as testing and debugging.
+
+### Creating an Issue/Feature Request
+If you have a feature request or a bug report, you can create your own issue in the respective codebase repository. If you are unsure where to submit your issue or request, then choose the codebase repository where the programming language you are using is located. if using both, then choose the codebase repository where the issue is most relevant and make a note of it in the issue description.
+
+Please make sure to follow the issue template, and provide as much information as possible. If you are creating a bug report, please provide the steps to reproduce the bug, as well as the expected and actual behavior. If you are creating a feature request, please provide a detailed description of the feature, as well as the motivation behind the feature. 
+
+_Note well that the feature request may not be accepted, and may be closed if it is not in line with the project goals. Therefore, checking out the Project Roadmap [here](/project/AAI-RoadMap.md) will keep you aligned and oriented._ 
+
+### Pre-Pull Request
+
+Before you create a pull request, there are a few tasks that you should complete. First, you should make sure that your code is well documented, and that you have written unit tests for your code. You should also make sure that your code is well formatted, and that it follows the project style guide. 
+
+We provided a set of sanity check configurations which **must be passed** before creating a pull request. These configurations can be found in the `sanity-checks` folder in the respective codebase repository. You should run these configurations before creating a pull request, and make sure that they pass. If they do not pass, then you should fix the issues before creating a pull request. Additional testing/checks may be beneficial and are welcome. Finally, please state which sanity checks you have run in the pull request description and provide the output of the sanity checks.
+
+### Creating a Pull Request
+
+Once you have fixed an issue or implemented a feature, you can create a pull request to submit your changes. The pull request should be created where the issue or feature request is located and should be linked to the issue or feature request. Please make sure to follow the pull request template, and provide as much information as possible. If you are fixing an issue, please provide the issue number in the pull request description. Please note that a sufficient amount of documentation is required for the pull request to be accepted.
+
+Once you have created the pull request, it will be reviewed by the project maintainers and may request changes. If changes are requested, you should make the requested changes and update the pull request. **Please update any documentation that may be affected by your changes.**
+
+_We kindly ask you to be patient, as it may take some time for your pull request to be reviewed._
+
+### Review and Merging a Pull Request
+
+Once a pull request has been created, it will be reviewed by the _Lead Software Developer_ (alhasacademy@gmail.com). For any questions, feel free to contact him at any time in any stage you are in. 
+
+### Post-Merge
+
+Once your pull request has been merged, you will be added to the list of contributors in the project.
+
+
 ---
 
-NOTE FOR REVIEWERS: HELP NEEDED HERE ON CREATING A A UNIFIED AND CENTRAL GUIDE FOR RESEARCHERS TO FOLLOW. I HAVE CREATED A NUMBER OF GUIDES WHICH ARE ALL LINKED ABOVE, BUT I AM NOT SURE IF THIS IS THE BEST WAY TO GO ABOUT IT. PLEASE LET ME KNOW IF YOU HAVE ANY SUGGESTIONS. THANK YOU!
+Congratulations and thank you so much for contributing to our project and vision. We are very grateful for your contribution and we hope you will continue to contribute to the project in the future.

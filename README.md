@@ -10,14 +10,15 @@ The Animal-AI Environment (AAI) aims to unite cognitive scientists, engineers, c
 
 
 #### Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Citation](#citation)
-- [Unity ML-Agents](#unity-ml-agents)
-- [The Animal-AI Community](#the-animal-ai-community)
-- [Notice](#notice)
+- [Animal-AI](#animal-ai)
+      - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Getting Started](#getting-started)
+  - [Citation](#citation)
+  - [Unity ML-Agents](#unity-ml-agents)
+  - [The Animal-AI Community](#the-animal-ai-community)
 
 
 ## Overview
@@ -75,7 +76,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 *See [here](/docs/gettingStarted/Installation-Guide.md) for a detailed installation guide.*
 
-([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
+([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases]))
 
 For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 
