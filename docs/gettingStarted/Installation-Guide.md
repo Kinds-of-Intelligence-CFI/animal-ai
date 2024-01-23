@@ -57,7 +57,7 @@ For more information on virtual environments, refer to the [Python Documentation
 ### 5. Downloading the Animal-AI Environment
 - **Download**: Get the version for your OS from the `Releases` section in the repository.
 - **Extract**: Unzip into the `env` folder in the main repository. We use the `env` folder to store the environment files. You can use WinRAR or 7-Zip to extract the files.
-- **Check**: The `env` folder should contain the `.exe` file and other files from the `.zip` download.
+- **Check**: The `env` folder should contain the `.exe` file and other files from the `.zip/.rar` download.
 
 ### 6. Starting Animal-AI
 - You can now start using Animal-AI by launching the application for your OS, located in the directory where you saved the folder, typically in your Downloads folder. _Note that Animal-AI does not need to be installed in your system to run._
@@ -76,3 +76,4 @@ Everything you need to run scripts in Animal-AI (including the correct version o
 ### Troubleshooting
 You can then start using Animal-AI! Any problems, please get in touch (ia424@cam.ac.uk / [alhasacademy96](https://github.com/alhasacademy96/)) or post an issue on the GitHub repository.
 
+Visit our FAQ page for more information on common issues and solutions [here](/docs/FAQ.md).
