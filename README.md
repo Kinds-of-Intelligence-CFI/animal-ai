@@ -10,6 +10,7 @@ Animal-Artificial Intelligence (Animal-AI) supports interdisciplinary research t
 
 
 #### Table of Contents
+
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
