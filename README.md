@@ -28,7 +28,7 @@ Animal-Artificial Intelligence (Animal-AI) supports interdisciplinary research t
 
 This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It contains a collection of in-depth guides to the environment, as well as an extensive library of 900 tasks featured in the inaugural Animal-AI Olympics competition.
 
-_If you wish to contribute to the project, please familiarize yourself with the [Contributing Guide](contributing.md) and the [Code of Conduct](codeOfConduct.md) first._ A comprehensive documentation of how Animal-AI works is also available [here](docs/Technical-Overview.md.md), where you can understand the inner workings of how the environment is built and how it functions (_csharp_ and _Python_ codebases).
+_If you wish to contribute to the project, please familiarize yourself with the [Contributing Guide](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) first._ A comprehensive documentation of how Animal-AI works is also available [here](docs/Technical-Overview.md.md), where you can understand the inner workings of how the environment is built and how it functions (_csharp_ and _Python_ codebases).
 
 The Animal-AI environment and packages are currently tested on **Windows 11**, **Linux**, and **MacOS**, with **Python 3.9.x** support, but **Python 3.6.x+** has been reported to be working also. **Linux distros** are also working and stable. 
 
