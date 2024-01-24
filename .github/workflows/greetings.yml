@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Hello there! Thanks for submitting an issue. We really appreciate your time and effort into making Animal-AI better!"
+        pr-message: "HOORAH! You submitted your first pull review! We hope it's one of the many to come! Thank you so much in taking the time, energy and commitment to making Animal-AI better!"
