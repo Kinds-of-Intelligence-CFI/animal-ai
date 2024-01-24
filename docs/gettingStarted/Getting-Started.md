@@ -89,7 +89,7 @@ The next step would be to look at the issues tab of the repository you want to c
 
 ### Creating an Issue/Feature Request
 
-If you have a feature request or a bug report, you can create your own issue in the respective codebase repository. If you are unsure where to submit your issue or request, then choose the codebase repository where the programming language you are using is located. if using both, then choose the codebase repository where the issue is most relevant and make a note of it in the issue description.
+If you have a feature request or a bug report, you can create your own issue in the respective codebase repository. If you are unsure where to submit your issue or request, then choose the codebase repository where the programming language you are using is located. If using both, then choose the codebase repository where the issue is most relevant and make a note of it in the issue description.
 
 Please make sure to follow the issue template, and provide as much information as possible. If you are creating a bug report, please provide the steps to reproduce the bug, as well as the expected and actual behavior. If you are creating a feature request, please provide a detailed description of the feature, as well as the motivation behind the feature. 
 

@@ -43,7 +43,6 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 - Includes a versatile environment for AI experiments, from basic to advanced configurations.
 - Wrap Unity learning environments as a gym(nasium) environment
 - Wrap Unity learning environments as a PettingZoo environment
-- Support for several Deep Reinforcement Learning algorithms (PPO, SAC, MA-POCA, self-play).
 
 **Extensive Task Library:**
 - Multiple example tasks.
@@ -67,7 +66,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 **Interactive and Dynamic Environment:**
 - Offers interactive elements for complex AI training.
-- Supports dynamic environment generation.
+- Supports dynamic environment generation (dynamic)
 
 
 ## Installation
@@ -86,7 +85,7 @@ We've prepared a comprehensive set of tutorials to help you get started with the
 
 ## Citation
 
-We recently published our new paper on Animal-AI, which you can find [here](https://arxiv.org/abs/2312.11414). If you use Animal-AI in your research, please cite our paper:
+We published our Version 3 paper on Animal-AI, which you can find [here](https://arxiv.org/abs/2312.11414). If you use Animal-AI in your research, please cite our paper:
 
  _Voudouris, K., Alhas, I., Schellaert, W., Crosby, M., Holmes, J., Burden, J., Chaubey, N., Donnelly, N., Patel, M., Halina, M,. Hernández-Orallo, J. & Cheke, L. G. (2023). Animal-AI 3: What's New & Why You Should Care. arXiv preprint arXiv:2312.11414._
 ```
@@ -109,6 +108,6 @@ Documentation for [ML-Agents](https://github.com/Unity-Technologies/ml-agents) s
 
 ## The Animal-AI Community 
 
-Animal-AI has been an open-source research project from the beginning, and will continue to be so in the future. We welcome contributions from the community from all backgrounds and experiences, and we are always looking for new ways to collaborate. 
+Animal-AI has been an open-source research project from the beginning, and will continue to be so in the future. We welcome contributions from the community from all backgrounds and experiences, and we are always looking for new ways to collaborate. Do check out our [Contributing Guide](contributing.md) if you are interested in contributing to the project. 
 
 ---

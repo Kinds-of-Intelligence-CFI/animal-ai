@@ -108,7 +108,7 @@ The controls are as follows:
 
 ### Agent HUD (Heads-Up Display)
 
-The agent has a HUD (_Heads-Up Display_) that displays the following information per episode:
+The agent has a HUD (_Heads-Up Display_) that displays the following information per episode by default:
 
 - **Health**: The health of the agent, which is a value between `0` and `1`. The agent's health decays over time, and is reset to `1` when the agent collects a reward. The agent's health is displayed as a blue-green-red bar at the bottom of the HUD.
 - **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards. It contains the previous episode's reward, as well as the current episode's reward, respectively.
@@ -131,7 +131,7 @@ The arena has a few limitations, which are as follows:
 
 ### Agent Properties
 
-The agent has a Phydics component attached to it, which allows it to interact with other objects in the arena. Please read our [Background - Unity](/docs/Background-Unity.md) guide for more information. 
+The agent has a Physics component attached to it, which allows it to interact with other objects in the arena. Please read our [Background - Unity](/docs/Background-Unity.md) guide for more information. 
 
 _Essentially, you can expect that the Physics of Unity game engine are modelled to mimic our three-dimensional reality as much as possible_. The agent has the following properties:
 

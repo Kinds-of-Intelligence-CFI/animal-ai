@@ -48,7 +48,7 @@ Encountering port conflicts? Try changing the worker number or port:
 ```python
 UnityEnvironment(file_name=filename, worker_id=X)
 ```
-Or find an available port dynamically:
+Or find an available port:
 ```python
 port = 5005 + random.randint(0, 1000)
 ```
