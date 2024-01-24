@@ -48,7 +48,6 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 - Multiple example tasks.
 - 900 tasks from the Animal-AI Olympics.
 - Procedural Generation functionality
-- Additional tasks for demonstration and experimentation.
 
 **Unity Game Engine:**
 - Utilizes Unity ml-agents.
