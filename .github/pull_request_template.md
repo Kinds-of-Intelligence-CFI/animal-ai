@@ -1,8 +1,9 @@
 ### Proposed change(s)
 
-Describe the changes made in this PR.
+_i.e. what this PR does, and why it should be merged._
 
 ### Useful links (Github issues, ML-Agents forum threads etc.)
+
 
 
 ### Types of change(s)
@@ -15,6 +16,7 @@ Describe the changes made in this PR.
 - [ ] Other (please describe)
 
 ### Checklist
+
 - [ ] Added tests that prove my fix is effective or that my feature works
 - [ ] Updated the changelog (if applicable)
 - [ ] Updated the documentation (if applicable)
@@ -22,5 +24,9 @@ Describe the changes made in this PR.
 
 ### Other comments
 
+
+
 ### Screenshots (if any)
-```
+
+
+
