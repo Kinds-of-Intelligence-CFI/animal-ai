@@ -1,17 +1,18 @@
 # Background: Machine Learning
 
 #### Table of Contents
-- [Introduction to Machine Learning Concepts](#Introduction-to-Machine-Learning-Concepts)
-  - [What is Machine Learning?](#What-is-Machine-Learning?)
-  - [Types of Machine Learning Algorithms](#Types-of-Machine-Learning-Algorithms)
+
+* [Introduction to Machine Learning Concepts](#Introduction-to-Machine-Learning-Concepts)
+  + [What is Machine Learning?](#What-is-Machine-Learning?)
+  + [Types of Machine Learning Algorithms](#Types-of-Machine-Learning-Algorithms)
     - [Unsupervised Learning](#Unsupervised-Learning)
     - [Supervised Learning](#Supervised-Learning)
     - [Reinforcement Learning](#Reinforcement-Learning)
-  - [Deep Learning in Machine Learning](#Deep-Learning-in-Machine-Learning)
-  - [Training and Inference in ML](#Training-and-Inference-in-ML)
-  - [Conclusion](#Conclusion)
+  + [Deep Learning in Machine Learning](#Deep-Learning-in-Machine-Learning)
+  + [Training and Inference in ML](#Training-and-Inference-in-ML)
+  + [Conclusion](#Conclusion)
 
-
+  
 # Introduction to Machine Learning Concepts
 
 This document aims to provide an accessible overview of Machine Learning (ML) for those new to the field, particularly users of the ML-Agents Toolkit. While we won't cover machine learning exhaustively, we'll touch upon its key aspects, as numerous comprehensive resources are available online.

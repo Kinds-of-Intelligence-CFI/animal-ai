@@ -1,18 +1,18 @@
 # Background: YAML
 
 #### Table of Contents
-- [Background: YAML](#background-yaml)
+
+* [Background: YAML](#background-yaml)
       - [Table of Contents](#table-of-contents)
-  - [YAML? What is it?](#yaml-what-is-it)
-  - [Configuration of Training Environments and Agents](#configuration-of-training-environments-and-agents)
+  + [YAML? What is it?](#yaml-what-is-it)
+  + [Configuration of Training Environments and Agents](#configuration-of-training-environments-and-agents)
     - [Defining Agent Behaviors](#defining-agent-behaviors)
     - [Setting Hyperparameters for Training](#setting-hyperparameters-for-training)
-  - [Example of a YAML Configuration in ML-Agents](#example-of-a-yaml-configuration-in-ml-agents)
-  - [Example of a YAML Configuration in Animal-AI](#example-of-a-yaml-configuration-in-animal-ai)
-  - [Advantages in Animal-AI Context](#advantages-in-animal-ai-context)
+  + [Example of a YAML Configuration in ML-Agents](#example-of-a-yaml-configuration-in-ml-agents)
+  + [Example of a YAML Configuration in Animal-AI](#example-of-a-yaml-configuration-in-animal-ai)
+  + [Advantages in Animal-AI Context](#advantages-in-animal-ai-context)
     - [Easy to Read and Modify](#easy-to-read-and-modify)
     - [Facilitating Complex Configurations](#facilitating-complex-configurations)
-
 
 ## YAML? What is it?
 
@@ -51,6 +51,7 @@ behaviors:
     time_horizon: 64
     summary_freq: 10000
 ```
+
 The above example shows a YAML configuration file for a soccer player agent in ML-Agents, for agent training. The agent's behavior is defined by the `SoccerPlayer` behavior name. The `trainer_type` parameter specifies the type of training algorithm used to train the agent. The `hyperparameters` section defines the hyperparameters for the training process. The `network_settings` section defines the neural network architecture for the agent. The `reward_signals` section defines the reward signals used to train the agent. The `max_steps` parameter defines the maximum number of steps the agent can take in the environment. The `time_horizon` parameter defines the number of steps the agent can take before the environment is reset. The `summary_freq` parameter defines the frequency at which the agent's training progress is logged. 
 
 ## Example of a YAML Configuration in Animal-AI
@@ -78,6 +79,7 @@ arenas:
       spawnProbability: 1.0
       rewardSpawnPos: !Vector3 {x: 20, y: 0, z: 35}
 ```
+
 The above example shows a YAML configuration file for an arena in Animal-AI. The `!ArenaConfig` tag indicates that the file is a configuration file for an arena. The `arenas` section defines the arenas in the environment. The `0` tag indicates that the arena is the first arena in the environment. The `pass_mark` parameter defines the minimum score required to pass the arena. The `t` parameter defines the maximum number of steps the agent can take in the arena. The `items` section defines the objects in the arena. The `name` parameter defines the name of the object. The `positions` parameter defines the positions of the object. The `rotations` parameter defines the rotations of the object. The `moveDurations` parameter defines the durations of the object's movements. The `resetDurations` parameter defines the durations of the object's resets. The `rewardNames` parameter defines the names of the object's rewards. The `rewardWeights` parameter defines the weights of the object's rewards. The `spawnProbability` parameter defines the probability of the object spawning. The `rewardSpawnPos` parameter defines the position of the object's reward.
 
 ## Advantages in Animal-AI Context

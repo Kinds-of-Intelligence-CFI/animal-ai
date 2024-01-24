@@ -5,11 +5,12 @@ This guide will walk you through the engineering aspects of the Animal-AI Enviro
 If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and documentation before posting an issue on GitHub.
 
 #### Table of Contents
-- [Running the Environment](#running-the-environment)
-  - [Play Mode](#play-mode)
+
+* [Running the Environment](#running-the-environment)
+  + [Play Mode](#play-mode)
       - [Controls in Play Mode](#controls-in-play-mode)
-  - [Train Mode](#train-mode)
-- [Environment Overview](#environment-overview)
+  + [Train Mode](#train-mode)
+* [Environment Overview](#environment-overview)
    - [Observations](#observations)
    - [Actions](#actions)
    - [Rewards](#rewards)
@@ -17,7 +18,7 @@ If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and doc
    - [Configuration Files](#configuration-files)
    - [Arena Files](#arena-files)
    - [Unity Editor](#unity-editor)
-- [Training Agents](#training-agents)
+* [Training Agents](#training-agents)
    - [Baselines](#baselines)
    - [Training Scripts](#training-scripts)
    - [Training Observations](#training-observations)
@@ -25,16 +26,14 @@ If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and doc
    - [Training Curriculum](#training-curriculum)
    - [Training Arena Files](#training-arena-files)
    - [Training Configuration Files](#training-configuration-files)
-- [Testing Agents](#testing-agents)
-- [Contributing](#contributing)
-- [Citation](#citation)
-- [License](#license)
-
+* [Testing Agents](#testing-agents)
+* [Contributing](#contributing)
+* [Citation](#citation)
+* [License](#license)
 
 ## Running the Environment
 
-The Animal-AI Environment can be run in one of two modes: `Play` and `Train`. In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent (see [Training Agents](#training-agents)). 
-
+The Animal-AI Environment can be run in one of two modes: `Play` and `Train` . In `Play` mode, the environment is run with a human player controlling the agent. In `Train` mode, the environment is run with an AI agent (see [Training Agents](#training-agents)). 
 
 ### Play Mode
 
@@ -43,6 +42,7 @@ To run the environment in `Play` mode, simply run the Animal-AI application for 
 ```bash
 animalai play configs/curriculum/0.yaml
 ```
+
 #### Controls in Play Mode
 
 In play mode, you can switch the camera view and control the agent using the following keyboard commands: 
@@ -57,7 +57,7 @@ In play mode, you can switch the camera view and control the agent using the fol
 | R             | Reset environment    |
 | Q             | Quit application     |
 
-Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W`, `A`, `S`, `D` (or the arrow keys). Hitting `R` or collecting certain rewards (green or red) will reset the arena. Note that the camera and agent controls are not available in `Train` mode, with only third-person perspective implemented currently (we plan to add multiple camera observations during training at some point). Furthermore, you can toggle on/off the ability to restrict the player's camera angles via the `canChangePerspective` parameter in the configuration file. If this is set to false, then the player will not be able to change the camera angle. In addition, you can toggle on/off the ability to reset the arena via the `canResetArena` parameter in the configuration file. If this is set to false, then the player will not be able to reset the arena manually. A new feature added is that users can now toggle on/off Lastly, if you have multiple arenas specified in youur configuration file, you can randomize via the `randomizeArenas` parameter. This is false by default.
+Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W` , `A` , `S` , `D` (or the arrow keys). Hitting `R` or collecting certain rewards (green or red) will reset the arena. Note that the camera and agent controls are not available in `Train` mode, with only third-person perspective implemented currently (we plan to add multiple camera observations during training at some point). Furthermore, you can toggle on/off the ability to restrict the player's camera angles via the `canChangePerspective` parameter in the configuration file. If this is set to false, then the player will not be able to change the camera angle. In addition, you can toggle on/off the ability to reset the arena via the `canResetArena` parameter in the configuration file. If this is set to false, then the player will not be able to reset the arena manually. A new feature added is that users can now toggle on/off Lastly, if you have multiple arenas specified in youur configuration file, you can randomize via the `randomizeArenas` parameter. This is false by default.
 
 ### Train Mode
 
@@ -70,5 +70,3 @@ animalai train configs/curriculum/0.yaml
 ## Environment Overview
 
 Regardless on what mode you are using, the arena you specify in the configuration file will be loaded. The agent will be placed in the arena and the environment will run until the agent reaches the goal or the episode time limit is reached. The environment will then reset and the process will repeat. The order of the arenas in the configuration file will be used to determine the order in which the arenas are loaded. Take a look at the [Configuration Files](#configuration-files) section for more details on how to create your own configuration files.
-
-

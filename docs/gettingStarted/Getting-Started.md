@@ -12,7 +12,6 @@ This document should be your introductory document to Animal-AI, which outlines 
 * [If you are a contributor](#if-you-are-a-contributor)
 
   
-
 # What is Animal-AI?
 
 Animal-AI is a platform for training and testing AI agents and human participants on a variety of tasks that require a rich understanding of the environment. The platform is built upon the Unity game engine, with Ml-Agents Toolkit used for backend functionality for training, and is designed to be extensible and easy to use. The platform is being used to study cognitive capabilities across humans, animals and AI agents comparatively across a variety of tasks and experiments. 
