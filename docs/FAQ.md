@@ -4,17 +4,18 @@ This document provides a comprehensive list of frequently asked questions and tr
 
 #### Table of Contents
 
-  + [1. Troubleshooting Installation Issues](#1-troubleshooting-installation-issues)
-    - [1.1 Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
-      - [1.1.1 For macOS and Linux Users](#111-for-macos-and-linux-users)
-      - [1.1.2 For Windows Users](#112-for-windows-users)
-    - [1.2 Addressing Environment Connection Timeouts](#12-addressing-environment-connection-timeouts)
-    - [1.3 Communication Port Conflict](#13-communication-port-conflict)
-    - [1.4 Mean Reward Displaying NaN](#14-mean-reward-displaying-nan)
-  + [2. Python API / Package Dependency Issues](#2-python-api--package-dependency-issues)
-    - [2.1 No Module Named `animalai`](#21-no-module-named-animalai)
-    - [2.3 Incompatible Python Version](#23-incompatible-python-version)
-  + [3. File Not Found Error](#3-file-not-found-error)
+* [Troubleshooting Installation Issues](#1-troubleshooting-installation-issues)
+  * [Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
+    * [For macOS and Linux Users](#111-for-macos-and-linux-users)
+    * [For Windows Users](#112-for-windows-users)
+  * [Addressing Environment Connection Timeouts](#12-addressing-environment-connection-timeouts)
+  * [Communication Port Conflict](#13-communication-port-conflict)
+* [Mean Reward Displaying NaN](#2-mean-reward-displaying-nan)
+* [Python API / Package Dependency Issues](#3-python-api--package-dependency-issues)
+  * [No Module Named `animalai`](#31-no-module-named-animalai)
+  * [Incompatible Python Version](#32-incompatible-python-version)
+* [File Not Found Error](#4-file-not-found-error)
+
 
 ## 1. Troubleshooting Installation Issues
 
@@ -64,15 +65,15 @@ Or find an available port:
 port = 5005 + random.randint(0, 1000)
 ```
 
-### 1.4 Mean Reward Displaying NaN
+## 2. Mean Reward Displaying NaN
 
 Seeing `Mean reward : nan` ? Set the `Max Steps` to a non-zero value or script custom termination conditions.
 
-## 2. Python API / Package Dependency Issues
+## 3. Python API / Package Dependency Issues
 
 Encountering issues with the Python API or package dependencies? Here are some solutions to common problems:
 
-### 2.1 No Module Named `animalai`
+### 3.1 No Module Named `animalai`
 
 Seeing `ModuleNotFoundError: No module named 'animalai'` ? Ensure the `animalai` package is installed:
 
@@ -98,7 +99,7 @@ You can verify the installation by running:
 python -c "import animalai"
 ```
 
-### 2.3 Incompatible Python Version
+### 3.2 Incompatible Python Version
 
 Currently, the Animal-AI environment only supports **Python 3.6 to 3.9.** We have tested using 3.6, 3.7 and 3.8, but we cannot guarantee that it will work with these versions for everyone. If you are using a different version of Python, please install Python 3.9 for the optimal experience.
 
@@ -110,10 +111,10 @@ python --version
 
 If you are using a different version of Python, please install Python 3.9 for the optimal experience.
 
-## 3. File Not Found Error
+## 4. File Not Found Error
 
-Seeing `FileNotFoundError: [Errno 2] No such file or directory: 'AnimalAI/AnimalAI.app'` ? Ensure the `AnimalAI` folder is in the same directory as your Python script.
+Seeing `FileNotFoundError: [Errno 2] No such file or directory: 'AnimalAI/AnimalAI.app'`? Ensure the `AnimalAI` folder is in the same directory as your Python script.
 
-If you are using macOS, you may get this error: `FileNotFoundError: [Errno 2] No such file or directory: 'env/AnimalAI'` . This error occurs when running the ` `python play.py`  ` command from the `  `animal-ai/examples` ` folder. 
+If you are using macOS, you may get this error: `FileNotFoundError: [Errno 2] No such file or directory: 'env/AnimalAI'` . This error occurs when running the `python play.py` command from the `animal-ai/examples` folder. 
 
-To fix this, simply rename the 'MACOS.app' folder you downloaded to AnimalAI. This will allow the ` `play.py` ` script to find the environment. Note that this error is likely to occur in older versions of Animal-AI.
+To fix this, simply rename the `MACOS.app` folder you downloaded to Animal-AI. This will allow the `play.py` script to find the environment. Note that this error is likely to occur in older versions of Animal-AI.
