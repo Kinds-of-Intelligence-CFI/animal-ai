@@ -2,15 +2,28 @@
 
 Welcome! We are glad that you want to contribute to Animal-AI! This document will help you get started.
 
-As you get started, you are in the best position to give us feedback on areas of
-our project that we need help with including:
+#### Table of Contents
+
+* [Introduction](#introduction)
+* [Ways to Contribute](#ways-to-contribute)
+* [1. Fork the repository](#1-fork-the-repository)
+* [2. Set up your development environment](#2-set-up-your-development-environment)
+* [3. Contribution Workflow](#3-contribution-workflow)
+  + [Creating an Issue/Feature Request](#creating-an-issuefeature-request)
+  + [Pre-Pull Request](#pre-pull-request)
+  + [Creating a Pull Request](#creating-a-pull-request)
+  + [Review and Merging a Pull Request](#review-and-merging-a-pull-request)
+  + [Post-Merge](#post-merge)
+
+## Introduction
+
+As you get started, you are in the best position to give us feedback on areas of our project that we need help with including:
 
 * Problems found during setting up a new developer environment
-* Gaps in our Quickstart Guide or documentation
+* Gaps in our Getting Started Guide or documentation
 * Bugs in our automation scripts
 
-If anything doesn't make sense, or doesn't work when you run it, please open a
-bug report and let us know!
+If anything doesn't make sense, or doesn't work when you run it, please open a bug report and let us know!
 
 ## Ways to Contribute
 
@@ -23,37 +36,52 @@ We welcome many different types of contributions including:
 * Issue Triage
 
 ## 1. Fork the repository
-Fork the respective Animal-AI 'sister' repositories (Unity/C# and/or Ml-agents/Python) by clicking on the "Fork" button in the top right corner of the repositories, located here: [Unity](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project), and [Python](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package).
+
+Fork the respective Animal-AI 'sister' repositories (Unity/C# and/or Ml-agents/Python) by clicking on the "Fork" button in the top right corner of the repositories, located here: [Unity](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project) and [Python](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package).
 
 ## 2. Set up your development environment
+
 Clone the forked repository to your local machine using Git. Install the necessary dependencies (pip install animalai) and follow the instructions provided in the documentation to set up your development environment properly. Create a new branch for your changes and start working on your contribution.
 
-## 3. Choose an issue or feature
-Browse the project's issue tracker or discussions to find an open issue or feature that you would like to contribute to. Please note that Animal-AI has a de-centralized project structure currently, and all issues/bugs/technical developments are to be submitted to their respective repositories. If you can't find an issue or feature that interests you, create a new one and discuss it with the project maintainers. Note that any new feature is to be submitted to the main repository [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai).
+So you decided on which codebases you want to contribute to...so...what do you do now? 
 
-## 4. Make your changes
-Create a new branch for your changes based on the main branch of the respective Animal-AI repository, either Unity or Python. Implement your code changes or add new features as necessary. Ensure that your code follows the project's coding style and conventions.
+The next step would be to look at the issues tab of the repository you want to contribute to. The issues tab contains a list of issues that need to be addressed, and is a good place to start if you are new to the project. You can also create your own issues if you have a feature request or a bug report. If you are new to the project, you can start by looking at the issues tagged with the `good first issue` label. These issues are relatively easy to fix, usually with minimal to little testing required. If you are looking for a more challenging issue, you can look at the issues tagged with the `help wanted` label. These issues are more challenging, and may require more effort and time, as well as testing and debugging.
 
-* Example: Let's say you want to add support for a new type of reward in the Animal-AI environment. You should make your changes on the Unity codebase (and Python codebase if your modifications affect how the Python API behaves). You can create a new branch named feature/reward-function to implement this feature and make your changes.
+## 3. Contribution Workflow
 
-## 5. Test your changes
-Run the appropriate tests to ensure your changes work as intended. If necessary, add new tests to cover your code and verify that it doesn't introduce regressions. We have Csharp and Python specific tests for Animal-AI. You should run the tests for the programming language you are using appropriately.
+### Creating an Issue/Feature Request
 
-* Example: For the reward function feature, you would write tests to check different scenarios and expected outcomes of the new reward function. Animal-AI is a complex multi-disciplinary project, with a strong emphasis on game development, which requires more extensive testing on average.
+If you have a feature request or a bug report, you can create your own issue in the respective codebase repository. If you are unsure where to submit your issue or request, then choose the codebase repository where the programming language you are using is located. If using both, then choose the codebase repository where the issue is most relevant and make a note of it in the issue description.
 
-## 6. Submit a pull request
-Push your branch to your forked repository and submit a pull request (PR) to the respective Animal-AI repository. Provide a clear and concise description of your changes, explaining the problem you solved or the feature you added. Include any relevant links or references that would help the project maintainers review your changes.
+Please make sure to follow the issue template, and provide as much information as possible. If you are creating a bug report, please provide the steps to reproduce the bug, as well as the expected and actual behavior. If you are creating a feature request, please provide a detailed description of the feature, as well as the motivation behind the feature. 
 
-## 7. Respond to feedback
-Be responsive to any feedback or comments provided by the project maintainers. Address the feedback by making necessary revisions to your code and continue the discussion if required.
+_Note well that the feature request may not be accepted, and may be closed if it is not in line with the project goals. Therefore, checking out the Project Roadmap [here](/project/AAI-RoadMap.md) will keep you aligned and oriented._ 
 
-## 8. Code review
-The Animal-AI project requires code reviewers to review your code before merging to main. Address any issues flagged by the reviewer and actively participate in the code review process by addressing comments from reviewers.
+### Pre-Pull Request
 
-## 9. Merge your changes
-Once your pull request has been approved and meets all the project's requirements, one of the maintainers will merge your changes into the main repository and provide feedback to you. 
+Before you create a pull request, there are a few tasks that you should complete. First, you should make sure that your code is well documented, and that you have written unit tests for your code. You should also make sure that your code is well formatted, and that it follows the project style guide. 
 
-We are grateful for your contribution to the Animal-AI project.
+We provided a set of sanity check configurations which **must be passed** before creating a pull request. These configurations can be found in the `sanity-checks` folder in the respective codebase repository. You should run these configurations before creating a pull request, and make sure that they pass. If they do not pass, then you should fix the issues before creating a pull request. Additional testing/checks may be beneficial and are welcome. Finally, please state which sanity checks you have run in the pull request description and provide the output of the sanity checks.
+
+### Creating a Pull Request
+
+Once you have fixed an issue or implemented a feature, you can create a pull request to submit your changes. The pull request should be created where the issue or feature request is located and should be linked to the issue or feature request. Please make sure to follow the pull request template, and provide as much information as possible. If you are fixing an issue, please provide the issue number in the pull request description. Please note that a sufficient amount of documentation is required for the pull request to be accepted.
+
+Once you have created the pull request, it will be reviewed by the project maintainers and may request changes. If changes are requested, you should make the requested changes and update the pull request. **Please update any documentation that may be affected by your changes.**
+
+_We kindly ask you to be patient, as it may take some time for your pull request to be reviewed._
+
+### Review and Merging a Pull Request
+
+Once a pull request has been created, it will be reviewed by the _Lead Software Developer_ (alhasacademy@gmail.com). For any questions, feel free to contact him at any time in any stage you are in. 
+
+### Post-Merge
+
+Once your pull request has been merged, you will be added to the list of contributors in the project.
+
+---
+
+Congratulations and thank you so much for contributing to our project and vision. We are very grateful for your contribution and we hope you will continue to contribute to the project in the future.
 
 **Remember to always adhere to the project's code of conduct, be respectful, and follow any specific contribution guidelines provided by the Animal-AI project.**
 
