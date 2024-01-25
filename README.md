@@ -73,7 +73,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 *See [here](/docs/gettingStarted/Installation-Guide.md) for a detailed installation guide.*
 
-([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases]))
+([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
 
 For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 
