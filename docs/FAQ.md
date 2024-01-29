@@ -109,8 +109,6 @@ Please verify that you are using the correct version of Python by running:
 python --version
 ```
 
-If you are using a different version of Python, please install Python 3.9 for the optimal experience.
-
 ## 4. File Not Found Error
 
 Seeing `FileNotFoundError: [Errno 2] No such file or directory: 'AnimalAI/AnimalAI.app'`? Ensure the `AnimalAI` folder is in the same directory as your Python script.
