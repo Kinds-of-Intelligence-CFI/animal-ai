@@ -115,6 +115,4 @@ If you are using a different version of Python, please install Python 3.9 for th
 
 Seeing `FileNotFoundError: [Errno 2] No such file or directory: 'AnimalAI/AnimalAI.app'`? Ensure the `AnimalAI` folder is in the same directory as your Python script.
 
-If you are using macOS, you may get this error: `FileNotFoundError: [Errno 2] No such file or directory: 'env/AnimalAI'` . This error occurs when running the `python play.py` command from the `animal-ai/examples` folder. 
-
-To fix this, simply rename the `MACOS.app` folder you downloaded to Animal-AI. This will allow the `play.py` script to find the environment. Note that this error is likely to occur in older versions of Animal-AI.
+If you are using macOS, you may get this error: `FileNotFoundError: [Errno 2] No such file or directory: 'env/AnimalAI'` . This error occurs when running the `python play.py` command from the `animal-ai/examples` folder. To fix this, simply rename the `MACOS.app` folder you downloaded to `Animal-AI`. This will allow the `play.py` script to find the environment. Note that this error is likely to occur in older versions of Animal-AI.
