@@ -40,7 +40,15 @@ _You can start your journey in the recommended order of exposure below, which wi
 
 Assuming you haven't already, you can install the platform by following the detailed installation guide here:
 
-* [Installation Guide](/docs/gettingStarted/Installation-Guide.md) 
+* [Installation Guide](/docs/gettingStarted/Installation-Guide.md)
+  
+You are now ready to launch the platform and run your first configuration file. The next guide will show you how to do this from downloading the platform for your operating system to running your first configuration file:
+
+* [Launching Animal-AI](/docs/gettingStarted/Launching-Animal-AI.md)
+
+An example of a configuration file can be found here where you can simply download/copy to your IDE of choice and run it:
+
+* [Example Configuration File](/docs/configGuide/Example-YAML-File.yaml)
   
 You may then proceed to an introduction on the Arena Environment and the Agent here:
 
@@ -60,13 +68,8 @@ You may then proceed to the guide on using YAML in Animal-AI, which is tailored 
 
 * [YAML Configuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
 
-You are now ready to launch the platform and run your first configuration file. The next guide will show you how to do this from downloading the platform for your operating system to running your first configuration file:
+Keep in mind that this order is recommended and not mandatory to follow - you may skip or choose what you wish to learn or discover freely.
 
-* [Launching Animal-AI](/docs/gettingStarted/Launching-Animal-AI.md)
-
-An example of a configuration file can be found here where you can simply download/copy to your IDE of choice and run it:
-
-* [Example Configuration File](/docs/configGuide/Example-YAML-File.yaml)
 # If you are a contributor
 
 We assume you have a good understanding of and/or experience with programming languages **chsarp** and **python**. A good level of knowledge/experience is required to contribute to the project in very technical terms, especially on the Unity game engine. Note that having good knowledge/experience in other aspects of development such as 3D prefab model design, animation, and other general game designing is also very welcome. However, having a computer science background is not a requirement, and we welcome contributions from all backgrounds. 
