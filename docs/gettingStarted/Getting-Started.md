@@ -70,6 +70,10 @@ You may then proceed to the guide on using YAML in Animal-AI, which is tailored 
 
 Keep in mind that this order is recommended and not mandatory to follow - you may skip or choose what you wish to learn or discover freely.
 
+If you are interested in integrating Animal-AI with other AI libraries, you can find a guide on how to do so here:
+
+* [Using Animal-AI w/ Stable-Baselines3 and Dreamerv3](/docs/integration/Integrate-AAI.md)
+
 # If you are a contributor
 
 We assume you have a good understanding of and/or experience with programming languages **chsarp** and **python**. A good level of knowledge/experience is required to contribute to the project in very technical terms, especially on the Unity game engine. Note that having good knowledge/experience in other aspects of development such as 3D prefab model design, animation, and other general game designing is also very welcome. However, having a computer science background is not a requirement, and we welcome contributions from all backgrounds. 
