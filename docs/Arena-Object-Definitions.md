@@ -238,12 +238,12 @@ Notes: The `rotations` parameter sets the direction of motion.
 * **Name**: `RipenGoal`
 * **Valence Range**: `0-5`
 * **Size**: automatically sets to final reward value
-* **Color**: Not changeable
+* **Color**: Not changeable manually
 * **Ripen Onset Delay Range (frames)** (`delays`): `0-Inf` (default `150`)
 * **Ripen Rate (frames)** (`changeRates`): `0.001-Inf` (default `0.005`)
 * **Alias**: `AntiDecayGoal`
 
-Notes: Colour changes (from purple to grey) and a radial-timer fills over time during ripening process. Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
+Notes: Colour changes (from grey to yellow) and a radial-timer fills over time during ripening process. Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
 
 ### Non-Episode-Ending Decay Goal
 
@@ -252,11 +252,11 @@ Notes: Colour changes (from purple to grey) and a radial-timer fills over time d
 * **Name**: `DecayGoal`
 * **Valence Range**: `0-5`
 * **Size**: automatically sets to final reward value
-* **Color**: Not changeable
+* **Color**: Not changeable manually
 * **Decay Onset Delay Range (frames)** (`delays`): `0-Inf` (default `150`)
 * **Decay Rate (frames)** (`changeRates`): `-0.001-Inf` (default `-0.005`, automatically converts to negative values if positive provided)
 
-Notes: Colour changes (from purple to grey) and a radial-timer depletes over time during decay process. Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
+Notes: Colour changes (from yellow to grey) and a radial-timer depletes over time during decay process. Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
 
 ### Episode-Ending Grow Goal
 
