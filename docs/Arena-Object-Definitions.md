@@ -297,7 +297,7 @@ Notes: Maximum size is `5` . Initial valence can be set with a float passed to t
 
 ### Non-Episode-Ending HotZone
 
-<img align="right" height="100" src="/docs/figs/prefabs/Rewards/HotZone.png" />
+<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/HotZone.png" />
 
 * **Name**: `HotZone`
 * **Valence**: `min(-10/t, -0.00001)` for `t > 0`,  `-0.00001` otherwise, where `t` is the number of steps in the episode
@@ -338,7 +338,7 @@ Notes: The dispenser spawns `GoodGoalMulti` . The valence of the goals is propor
 
 ### SpawnerContainerShort
 
-<img align="right" height="100" src="/docs/figs/prefabs/Dispensers/SpawnerDispenserTall.png" />
+<img align="right" height="100" src="/docs/figs/prefabs/Dispensers/SpawnerContainerShort.png" />
 
 * **Name**: `SpawnerDispenserShort`
 * **Size**: Fixed (`1.67 x 1.67 x 1.67`)
@@ -360,12 +360,12 @@ Notes: The dispenser spawns `GoodGoalMulti` . The valence of the goals is propor
 * **Color**: Not changeable
 * **Alias**: `Pillar-Button`
 
-Notes: Spawns a goal when the player/agent *interacts* with it by colliding with the physical object. The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPos` parameter. The probability that a goal will spawn upon a press can be set with a float between 0 and 1 passed to the `spawnProbability` parameter. Different valenced objects can be spawned on different presses. A list, such as `["GoodGoal", "BadGoal", "GoodGoalMulti"]` , can be passed to `rewardNames` to define the valenced objects (only these three are supported at the moment). A corresponding list of floats between 0 and 1 can be passed to the `rewardWeights` to determine the probability of spawning each of the types of valenced object. The probabilities are normalized to sum to one. The number of frames taken for the button to depress upon touching it can be defined with `moveDurations` , and the number of frames for the button to be reset before it can be pressed again can be set with `resetDurations` .
+Notes: Spawns a goal when the player/agent *interacts* with it by colliding with the physical object. The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPos` parameter. The probability that a goal will spawn upon a press can be set with a float between 0 and 1 passed to the `spawnProbability` parameter. Different valenced objects can be spawned on different presses. A list, such as `["GoodGoal", "BadGoal", "GoodGoalMulti"]` , can be passed to `rewardNames` to define the valenced objects (only these three are supported at the moment). A corresponding list of floats between 0 and 1 can be passed to the `rewardWeights` to determine the probability of spawning each of the types of valenced object. The probabilities are normalized to sum to one. The number of frames taken for the button to depress upon touching it can be defined with `moveDurations` , and the number of frames for the button to be reset before it can be pressed again can be set with `resetDurations`.
 
 ## Sign Boards
 
 <p align="center">
-  <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-preset-symbols.png">
+  <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-preset-symbols.PNG">
 </p>
 
 <p align="center">
