@@ -284,6 +284,17 @@ Notes: Growth halts if the the goal is trapped between/underneath other objects.
 
 Notes: Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
 
+### Decoy Goal
+
+<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/DecoyGoal.png" />
+
+* **Name**: `DecoyGoal`
+* **Size Range**: `0.5-5`
+* **Valence**: `0` - no reward in/decrement
+* **Color**: Not changeable
+
+Notes: The agent's reward is not affected when it touches the decoy goal. It is simply a tool for visual distraction or to create a more complex environment without having the agent's reward affected.
+
 ### Episode-Ending DeathZone
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/DeathZone.png" />
