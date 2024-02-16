@@ -295,9 +295,6 @@ Notes: Maximum size is `5` . Initial valence can be set with a float passed to t
 
 Notes: The agent's reward is not affected when it touches the decoy goal. It is simply a tool for visual distraction or to create a more complex environment without having the agent's reward affected.
 
-### 'Bounce' Valenced Objects
-
-Every valenced object (rewards) has a physics-enabled version called Bounce (e.g. GoodGoalBounce), which has an initial velocity at the start of an episode. Furthermore, the objects have gravity enabled which allows them to bounce off the walls and other objects (hence the name).
 
 ### Episode-Ending DeathZone
 
@@ -317,6 +314,10 @@ Every valenced object (rewards) has a physics-enabled version called Bounce (e.g
 * **Color**: Not changeable
 
 Notes: When the agent enters the hot zone, reward decrement is accelerated by a factor of 10 compared to time alone. If a `DeathZone` and a `HotZone` overlap, `DeathZone` prevails.
+
+### 'Bounce' Valenced Objects
+
+Every valenced object (rewards) has a physics-enabled version called Bounce (e.g. GoodGoalBounce), which has an initial velocity at the start of an episode. Furthermore, the objects have gravity enabled which allows them to bounce off the walls and other objects (hence the name).
 
 ## Dispensers
 
