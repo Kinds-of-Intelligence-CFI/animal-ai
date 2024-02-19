@@ -44,7 +44,7 @@ Assuming you haven't already, you can install the platform by following the deta
   
 You are now ready to launch the platform and run your first configuration file. The next guide will show you how to do this from downloading the platform for your operating system to running your first configuration file:
 
-* [Launching Animal-AI](/docs/gettingStarted/Launching-Animal-AI.md)
+* [Launching Animal-AI](/docs/gettingStarted/Launching-AnimalAI.md)
 
 An example of a configuration file can be found here where you can simply download/copy to your IDE of choice and run it:
 
