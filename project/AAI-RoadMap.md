@@ -49,7 +49,10 @@ This update is focused on improving the environment for experimentation. This in
     - [x] Add new objects to the environment that are interactable (SpawnerButton) by user and agents
 * [x] Add more objects to the RayCast Parser (Unity and Python sides) 
 * [x] Overhaul documentation and tutorials for the environment (play and training)
-    - [x] Restructure documentation and GitHub repository to be more user friendly and easier to navigate
+
+This update is focused on migrating to the latest version of Unity Editor and ml-agents. It also includes fixing major graphical bugs affecting shadows and object placement, adding interactive objects to the environment, and adding more objects to the RayCast Parser. This update also includes an overhaul of documentation and tutorials for the environment.
+
+
 
 ---
 
