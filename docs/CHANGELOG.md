@@ -4,7 +4,9 @@ All notable changes to the Animal-AI project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [3.3.0] - coming soon...
+_Please also refer to the [Roadmap](/project/AAI-RoadMap.md) for a high-level overview of the project._
+
+## [v4.0.0] - 05.03.2024
 
 ### Added
 
@@ -14,7 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 --- 
 
-## [3.1.3] - 30.09.2023
+## [v3.1.3] - 30.09.2023
 
 ### Fixed
 * Resolved Spawner Tree Clock desync issue.
@@ -35,12 +37,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Undertook minor Unity script optimizations.
 * Updated the `README.md` file with more detailed instructions.
 
-## [3.1.2.exp1] - 11.09.2023
+## [v3.1.2.exp1] - 11.09.2023
 
 ### Fixed
 * Implemented hot fix for a newly discovered bug affecting the Spawner Tree.
 
-## [3.1.1] - 10.08.2023
+## [v3.1.1] - 10.08.2023
 
 ### Added
 * Introduced "End of Episode Notification" feature.
@@ -51,22 +53,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Fixed bug affecting the Spawner Tree.
 * Fixed bug affecting the Interactive Button.
 
-## [3.1.0]
+## [v3.1.0]
 
 ### Added
 * Introduced "Interactive Button" feature.
 
-## [3.0.2]
+## [v3.0.2]
 
 ### Changed
 * Upgraded Mlagents to 2.3.0-exp3 (mlagents python version 0.30.0).
 
-## [3.0.1]
+## [v3.0.1]
 
 ### Added
 * Added Agent Freezing Parameter.
 
-## [3.0]
+## [v3.0]
 
 ### Changed
 * Updated agent handling for improved stop and acceleration.
@@ -83,17 +85,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 * Due to changes to controls and graphics, agents trained on previous versions might not perform the same.
 
-## [2.2.3]
+## [v2.2.3]
 
 ### Added
 * Ability to specify multiple different arenas in a single YAML config file.
 
-## [2.2.2]
+## [v2.2.2]
 
 ### Changed
 * Introduced a low-quality version with improved fps.
 
-## [2.2.1]
+## [vv2.2.1]
 
 ### Fixed
 * Improved UI scaling with respect to screen size.
@@ -104,7 +106,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 * Improved Death Zone shader for unusual Zone sizes.
 
-## [2.2.0]
+## [v2.2.0]
 
 ### Added
 * Switched to health-based system.
@@ -116,7 +118,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Fixed a reset environment bug during training.
 * Added the ability to set the DecisionPeriod (frameskip) when instantiating an environment.
 
-## [2.1.1] - 01.07.2021
+## [v2.1.1] - 01.07.2021
 
 ### Added
 * RayCast Observations
@@ -125,7 +127,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 * Fixed raycast length being less than diagonal length of standard arena.
 
-## [2.1] - Beta Release 2019
+## [v2.1] - Beta Release 2019
 
 ### Added
 * Raycast observations.
@@ -134,3 +136,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 
 * Upgraded to ML-Agents release 2 (0.26.0).
+
+## [v2.0] - Initial Port 2019
+
+### Added
+
+* Ported Unity Environment from ml-agents 0.15 to 2.0.
+* Ported basic python scripts from ml-agents 0.15 to 2.0.
+
+* * *
