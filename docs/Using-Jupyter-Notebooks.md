@@ -4,113 +4,115 @@ This guide combines instructions on creating a custom kernel for Jupyter Noteboo
 
 #### Table of Contents
 
-* [Creating a Kernel for Jupyter Notebooks](#creating-a-kernel-for-jupyter-notebooks)
-* [Using Jupyter Notebooks with Animal-AI](#using-jupyter-notebooks-with-animal-ai)
-* [Advantages of Using Jupyter Notebooks](#advantages-of-using-jupyter-notebooks)
-* [Tips for Effective Jupyter Notebook Use](#tips-for-effective-jupyter-notebook-use)
+- [Creating a Kernel for Jupyter Notebooks](#creating-a-kernel-for-jupyter-notebooks)
+  - [Step-by-Step Guide](#step-by-step-guide)
+  - [Notes](#notes)
+- [Using Jupyter Notebooks with Animal-AI](#using-jupyter-notebooks-with-animal-ai)
+   - [Introduction](#introduction)
+   - [Setup](#setup)
+   - [Using with Animal-AI](#using-with-animal-ai)
+   - [Writing Interactive Scripts](#writing-interactive-scripts)
+- [Advantages of Using Jupyter Notebooks](#advantages-of-using-jupyter-notebooks)
+- [Tips for Effective Jupyter Notebook Use](#tips-for-effective-jupyter-notebook-use)
 
 ## Creating a Kernel for Jupyter Notebooks
 
-### Step-by-Step Guide
+### Step-by-Step Guide:
 
 1. **Install the IPython Kernel**: 
-   
 
 ```bash
-   pip install ipykernel
-   ```
+pip install ipykernel
+```
 
 2. **Create a New Python Environment**:
-   - Using venv: 
 
-     
-
-```bash
-     python -m venv /path/to/new/virtual/environment
-     ```
-
-   - Using Conda:
-
-     
+- Using venv: 
 
 ```bash
-     conda create -n myenv python=3.x
-     ```
+python -m venv /path/to/new/virtual/environment
+```
+
+- Using Conda:
+
+```bash
+conda create -n myenv python=3.x
+```
 
 3. **Activate the Environment**:
-   - Using venv:
 
-     
-
-```bash
-     source /path/to/new/virtual/environment/bin/activate
-     ```
-
-   - Using Conda:
-
-     
+- Using venv:
 
 ```bash
-     conda activate myenv
-     ```
+source /path/to/new/virtual/environment/bin/activate
+```
+
+- Using Conda:
+
+```bash
+conda activate myenv
+```
 
 4. **Install Necessary Packages**:
-   
+
 
 ```bash
-   pip install numpy pandas matplotlib
-   ```
+pip install numpy pandas matplotlib
+```
 
 5. **Add Your Kernel to Jupyter**:
-   
+
 
 ```bash
-   ipython kernel install --name "myenv" --user
-   ```
+ipython kernel install --name "myenv" --user
+```
 
 6. **Launch Jupyter Notebook**:
-   
+
 
 ```bash
-   jupyter notebook
-   ```
+jupyter notebook
+```
 
 7. **Select Your Kernel**:
-   Choose "myenv" from the kernel list in Jupyter.
+
+Choose "myenv" from the kernel list in Jupyter.
 
 ### Notes
 
 * Replace placeholders with your desired directory and environment name.
-* Adjust Python version as needed.
+* Adjust Python version as needed (we recommend 3.9 and above).
 
 ## Using Jupyter Notebooks with Animal-AI
 
 ### Introduction
 
-_Jupyter Notebooks_ are interactive documents that combine live code, output, text, and visualizations.
+_Jupyter Notebooks_ are interactive documents that combine live code, output, text, and visualizations. We recommend using Jupyter Notebooks for quick experimentation and visualization with the Animal-AI environment.
 
 ### Setup
 
 1. **Install Jupyter**:
-   
+
+   - Use pip to install Jupyter Notebook.
+   - Run the following command in your terminal:
 
 ```bash
-   pip install notebook
-   ```
+pip install notebook
+```
 
 2. **Start Jupyter Notebook**:
-   - Use `jupyter notebook` or JupyterLab ( `jupyter lab` ).
+- Use `jupyter notebook` or JupyterLab (`jupyter lab`).
 
 ### Using with Animal-AI
 
 * **Create a New Notebook**: In your project directory.
 * **Import Animal-AI Package**:
-  
+
 
 ```python
   from animalai.envs.environment import AnimalAIEnvironment
   # Other necessary imports for your script
-  ```
+```
 
 ### Writing Interactive Scripts
 
