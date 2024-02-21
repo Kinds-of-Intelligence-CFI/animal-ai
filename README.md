@@ -13,8 +13,8 @@ Animal-Artificial Intelligence (Animal-AI) supports interdisciplinary research t
 
 - [Overview](#overview)
 - [Features](#features)
-- [Installation](#installation)
 - [Getting Started](#getting-started)
+- [Installation](#installation)
 - [Citation](#citation)
 - [Unity ML-Agents](#unity-ml-agents)
 - [The Animal-AI Community](#the-animal-ai-community)
@@ -68,6 +68,9 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 - Offers interactive elements for complex AI training.
 - Supports dynamic environment generation (dynamic)
 
+## Getting Started
+
+We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. Your first stop should be the [Getting Started Guide](/docs/gettingStarted/Getting-Started.md), which will guide you on where to start and where to go next depending on your interests and experience.
 
 ## Installation
 
@@ -76,12 +79,6 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 ([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
 
 For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
-
-
-## Getting Started
-
-We've prepared a comprehensive set of tutorials to help you get started with the Animal-AI environment. Your first stop should be the [Getting Started Guide](/docs/gettingStarted/Getting-Started.md), which will guide you on where to start and where to go next depending on your interests and experience.
-
 
 ## Citation
 
