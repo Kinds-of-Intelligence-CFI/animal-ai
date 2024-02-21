@@ -1,10 +1,12 @@
+# Animal-AI w/ RL Libraries
+
 ## Animal-AI w/ Stable Baselines3
 
-[Stable Baselines3](https://stable-baselines3.readthedocs.io/en/master/) works against the [Gymnasium](https://gymnasium.farama.org/) interface ([source](https://stable-baselines3.readthedocs.io/en/master/guide/custom_env.html#using-custom-environments)), while the AnimalAI implements an older (<0.26) [Gym](https://github.com/openai/gym/releases/tag/v0.21.0) interface ([compatibility notes](https://gymnasium.farama.org/content/migration-guide/)).
+[Stable Baselines3](https://stable-baselines3.readthedocs.io/en/master/) works against the [Gymnasium](https://gymnasium.farama.org/) interface, whilst Animal-AI implements an older (<0.26) [Gym](https://github.com/openai/gym/releases/tag/v0.21.0) interface ([compatibility notes](https://gymnasium.farama.org/content/migration-guide/)).
 
 Stable Baselines3 will automatically convert between the two interfaces using [Shimmy](https://shimmy.farama.org/), which needs to be installed separately.
 
-Install your dependencies `pip install animalai stable-baselines3 shimmy`, and use following code:
+Install your dependencies `pip install animalai stable-baselines3 shimmy` , and use following code:
 
 ```python
 # Import the necessary environment wrappers.
@@ -34,7 +36,7 @@ model = stable_baselines3.A2C(
 model.learn(total_timesteps=10_000)
 ```
 
-See also <https://github.com/Kinds-of-Intelligence-CFI/animal-ai-stablebaselines3> for a complete example.
+See [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-stablebaselines3) for a complete example of using Animal-AI with Stable Baselines3.
 
 ## Animal-AI w/ DreamerV3
 
