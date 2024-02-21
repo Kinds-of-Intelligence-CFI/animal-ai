@@ -2,17 +2,12 @@
 
 #### Table of Contents
 
-* [Background: YAML](#background-yaml)
-      - [Table of Contents](#table-of-contents)
-  + [YAML? What is it?](#yaml-what-is-it)
-  + [Configuration of Training Environments and Agents](#configuration-of-training-environments-and-agents)
-    - [Defining Agent Behaviors](#defining-agent-behaviors)
-    - [Setting Hyperparameters for Training](#setting-hyperparameters-for-training)
-  + [Example of a YAML Configuration in ML-Agents](#example-of-a-yaml-configuration-in-ml-agents)
++ [YAML? What is it?](#yaml-what-is-it)
++ [Configuration of Training Environments and Agents](#configuration-of-training-environments-and-agents)
   + [Example of a YAML Configuration in Animal-AI](#example-of-a-yaml-configuration-in-animal-ai)
-  + [Advantages in Animal-AI Context](#advantages-in-animal-ai-context)
-    - [Easy to Read and Modify](#easy-to-read-and-modify)
-    - [Facilitating Complex Configurations](#facilitating-complex-configurations)
++ [Advantages in Animal-AI Context](#advantages-in-animal-ai-context)
+  - [Easy to Read and Modify](#easy-to-read-and-modify)
+  - [Facilitating Complex Configurations](#facilitating-complex-configurations)
 
 ## YAML? What is it?
 
@@ -21,38 +16,6 @@
 ## Configuration of Training Environments and Agents
 
 YAML files are used to configure training environments and agents in Animal-AI. These files are used to define the parameters of the training process, such as the neural network architecture, the reward signals, and the hyperparameters. They are also used to define the parameters of the agents, such as the observation types, the action spaces, and the reward signals. 
-
-### Defining Agent Behaviors
-
-YAML files in ML-Agents are used to set up behavior parameters for agents, such as neural network models, observation types, actions, and reward signals. 
-
-### Setting Hyperparameters for Training
-
-These files are crucial for defining hyperparameters that guide the training process, like learning rate, batch size, and neural network configurations. 
-
-## Example of a YAML Configuration in ML-Agents
-
-```yaml
-behaviors:
-  SoccerPlayer:
-    trainer_type: ppo
-    hyperparameters:
-      batch_size: 64
-      buffer_size: 12000
-      learning_rate: 0.0003
-    network_settings:
-      normalize: false
-      hidden_units: 128
-    reward_signals:
-      extrinsic:
-        gamma: 0.99
-        strength: 1.0
-    max_steps: 5e5
-    time_horizon: 64
-    summary_freq: 10000
-```
-
-The above example shows a YAML configuration file for a soccer player agent in ML-Agents, for agent training. The agent's behavior is defined by the `SoccerPlayer` behavior name. The `trainer_type` parameter specifies the type of training algorithm used to train the agent. The `hyperparameters` section defines the hyperparameters for the training process. The `network_settings` section defines the neural network architecture for the agent. The `reward_signals` section defines the reward signals used to train the agent. The `max_steps` parameter defines the maximum number of steps the agent can take in the environment. The `time_horizon` parameter defines the number of steps the agent can take before the environment is reset. The `summary_freq` parameter defines the frequency at which the agent's training progress is logged. 
 
 ## Example of a YAML Configuration in Animal-AI
 
