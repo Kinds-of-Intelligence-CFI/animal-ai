@@ -52,7 +52,7 @@ For more information on virtual environments, refer to the [Python Documentation
 
 ### 4. Installing Dependencies
 
-* **Navigate to the Repository**: Go to `animal-ai-main`.
+* **Navigate to the Repository**: Go to `animal-ai`.
 * **Install Dependencies**: 
   + **Using pip**: Run `pip install animalai`. This will install the dependencies necessary to run Animal-AI, located in the `animalai` package from PyPI (Python Package Index).
   + **Using Conda**: Install pip (`conda install pip`), then run `pip install animalai`.
