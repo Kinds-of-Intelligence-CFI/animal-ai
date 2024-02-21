@@ -4,12 +4,12 @@
 
 * [Introduction](#introduction)
   + [Steps:](#steps)
-  + [1. Installing Python](#1-installing-python)
-  + [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
-  + [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
-  + [4. Installing Dependencies](#4-installing-dependencies)
-  + [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
-  + [6. Starting Animal-AI](#6-starting-animal-ai)
+    + [1. Installing Python](#1-installing-python)
+    + [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
+    + [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
+    + [4. Installing Dependencies](#4-installing-dependencies)
+    + [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
+    + [6. Starting Animal-AI](#6-starting-animal-ai)
   + [General Notes](#general-notes)
   + [Troubleshooting](#troubleshooting)
 
@@ -40,7 +40,7 @@ If you're a Linux user, you're likely more comfortable with command-line interfa
   + Downloading the `.zip` file from [Animal-AI GitHub](https://github.com/Kinds-of-Intelligence-CFI/animal-ai) and extracting it.
   + Using [GitHub Desktop](https://desktop.github.com/) for direct cloning.
   + Cloning via the [GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli).
-* **Check**: The root folder should contain the `animal-ai-main` folder.
+* **Check**: The root folder should contain the `animal-ai` folder.
 
 ### 3. Setting Up a Virtual Environment (Optional)
 
@@ -57,7 +57,7 @@ For more information on virtual environments, refer to the [Python Documentation
   + **Using pip**: Run `pip install animalai`. This will install the dependencies necessary to run Animal-AI, located in the `animalai` package from PyPI (Python Package Index).
   + **Using Conda**: Install pip (`conda install pip`), then run `pip install animalai`.
   + **Using a Virtual Environment**: Activate your virtual environment, then run `pip install animalai`.
-* **Check**: Run `pip list` to see if `animalai` is installed. You should obtain the latest version of the package automatically.
+* **Check**: Run `pip list` to see if `animalai` is installed. You should obtain the latest version of the package automatically. If you require an older version, you can specify it with `pip install animalai==x.x.x` where `x.x.x` is the version number.
 
 ### 5. Downloading the Animal-AI Environment
 
