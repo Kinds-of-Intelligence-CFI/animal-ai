@@ -11,7 +11,7 @@ This document contains useful scripts and code snippets that can be used to perf
 
 ## Extract Configuration File Objects (Python)
 
-The following Python script can be used to extract the positions of objects from the configuration file of the AAI environment. The script uses the `PyYAML` library to parse the YAML file and extract the positions of the objects. 
+The following Python script can be used to extract the positions of objects from the configuration file of the AAI environment. It saves the laboursome effort of maunally writing down the objects and their various positions. The script uses the `PyYAML` library to parse the YAML file and extract the positions of the objects. 
 
 The script first defines a custom constructor to handle unknown YAML tags, and then uses this constructor to parse the YAML file and extract the positions of the objects. The positions are stored in a dictionary where the keys are the names of the objects and the values are lists of positions. 
 
@@ -58,4 +58,3 @@ config = parse_config_file(file_path)
 objects_positions = extract_objects_positions(config)
 print(objects_positions)
 ```
-
