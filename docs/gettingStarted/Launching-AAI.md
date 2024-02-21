@@ -1,6 +1,13 @@
-# Launching Animal-AI
+# Launching Animal-AI Guide
 
 #### Table of Contents
+
+1. [Introduction](#introduction)
+2. [Getting Ready to Launch Animal-AI](#getting-ready-to-launch-animal-ai)
+3. [Launching Animal-AI](#launching-animal-ai)
+    - [Manual Play](#manual-play)
+    - [Training Mode](#training-mode)
+4. [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -156,11 +163,10 @@ tensorboard --logdir ./tensorboardLogs
 
 A folder named `tensorboardLogs` will be created in the current working directory (where you ran the code). You can view the training logs there directly.
 
-
 If you are new to training agents in Animal-AI, we've provide a guide on how to integrate Animal-AI with other AI libraries such as Stable-Baselines3 and DreamerV3 [here](/docs/integration/Integrate-AAI.md).
 
 ## Conclusion
 
-This guide has provided you with the necessary steps to launch the Animal-AI environment in both manual play and training modes. You can now interact with the environment using the keyboard and mouse in manual play mode or train an agent using the code provided in training mode. 
+This guide has provided you with the necessary steps to launch the Animal-AI environment in both manual play and training modes. You can now interact with the environment using the keyboard and mouse in manual play mode or train an agent using the code provided in training mode. Of course, you can also use the code provided in your own Python scripts to launch the Animal-AI environment. Please check our documentation for more information on the platform and how to use it.
 
 If you encounter any issues or have any questions, please feel free to reach out to us on our [GitHub Discussions](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/discussions).
