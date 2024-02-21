@@ -67,12 +67,9 @@ For more information on virtual environments, refer to the [Python Documentation
 
 ### 6. Starting Animal-AI
 
-* You can now start using Animal-AI by launching the application for your OS, located in the directory where you saved the folder, typically in your Downloads folder. _Note that Animal-AI does not need to be installed in your system to run._
-  + **Windows**: Run `env/AnimalAI.exe`.
-  + **Mac**: Run `env/AnimalAI.app`.
-  + **Linux**: Run `env/AnimalAI.x86_64`.
-* **Note**: If you're using a virtual environment, make sure to activate it before running Animal-AI.
-* **Check**: The Animal-AI application should open in a new window, with a brief Unity loading screen, which indicates you have successfully installed and started Animal-AI.
+You can now start using Animal-AI by launching the application for your OS, located in the directory where you saved the folder, typically in your Downloads folder. _Note that Animal-AI does not need to be installed in your system to run._
+
+Please see our [Launching AAI](/docs/gettingStarted/Launching-AAI.md) guide for a step-by-step guide on how to start using Animal-AI.
 
 ### General Notes
 
