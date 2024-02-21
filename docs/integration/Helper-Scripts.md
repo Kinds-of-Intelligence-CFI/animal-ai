@@ -21,7 +21,6 @@ The script can be used as follows:
 
 import yaml
 
-
 # Custom constructor for handling unknown YAML tags (needed to avoid errors when loading the YAML file for AAI)
 def custom_constructor(loader, tag_suffix, node):
     if isinstance(node, yaml.MappingNode):
