@@ -11,7 +11,7 @@
 
 ## Introduction
 
-This document provides instructions on how to launch the Animal-AI environment and run the Animal-AI simulation (application). This is a step=by-step guide to help you get running Animal-AI in either of the two modes: _training or manual play modes_.
+This document provides instructions on how to launch the Animal-AI environment and run the Animal-AI simulation (application). This is a step-by-step guide to help you get running Animal-AI in either of the two modes: _training or manual play modes_.
 
 Note that the steps are the same for all platforms (Windows, Linux, and macOS). However, the commands may differ slightly between platforms.
 
