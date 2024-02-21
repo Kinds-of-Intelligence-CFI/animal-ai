@@ -81,4 +81,4 @@ Before you start contributing to the project, you should first familiarize yours
 
 Once you are familiar with the project structure, you can start contributing to the project in either or both codebases, located [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity) (Unity/csharp) and [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-python) (Python).
 
-For a detailed guide on acceptable contributions, see the [Contributing Guide](/docs/Contributing-Guide.md).
+For a detailed guide on acceptable contributions, see the [Contributing Guide](/CONTRIBUTING.md).
