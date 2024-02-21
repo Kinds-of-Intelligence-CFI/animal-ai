@@ -1,8 +1,9 @@
 # Animal-AI Technical Guide
 
+# IMPORTANT! This is a work in progress. Please check back soon for updates.
+
 This guide will walk you through the engineering aspects of the Animal-AI Environment. It provides an overview of the environment and its components. If you are intending on contributing, then this guide will be a good place to start.
 
-If you have any questions or issues, please check the [FAQ](docs/FAQ.md) and documentation before posting an issue on GitHub.
 
 #### Table of Contents
 
@@ -45,27 +46,23 @@ animalai play configs/curriculum/0.yaml
 
 #### Controls in Play Mode
 
-In play mode, you can switch the camera view and control the agent using the following keyboard commands: 
+In play mode, the player can control the agent using the keyboard. The following table lists the available controls:
 
-| Keyboard Key  | Action               |
-| ------------- | -------------------- |
-| W             | Move agent forwards  |
-| S             | Move agent backwards |
-| A             | Turn agent left      |
-| D             | Turn agent right     |
-| C             | Switch camera view   |
-| R             | Reset environment    |
-| Q             | Quit application     |
+| Keyboard Key | Action               |
+| ------------ | -------------------- |
+| W            | Move agent forwards  |
+| S            | Move agent backwards |
+| A            | Turn agent left      |
+| D            | Turn agent right     |
+| C            | Switch camera view   |
+| R            | Reset environment    |
+| Q            | Quit application     |
 
 Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W` , `A` , `S` , `D` (or the arrow keys). Hitting `R` or collecting certain rewards (green or red) will reset the arena. Note that the camera and agent controls are not available in `Train` mode, with only third-person perspective implemented currently (we plan to add multiple camera observations during training at some point). Furthermore, you can toggle on/off the ability to restrict the player's camera angles via the `canChangePerspective` parameter in the configuration file. If this is set to false, then the player will not be able to change the camera angle. In addition, you can toggle on/off the ability to reset the arena via the `canResetArena` parameter in the configuration file. If this is set to false, then the player will not be able to reset the arena manually. A new feature added is that users can now toggle on/off Lastly, if you have multiple arenas specified in youur configuration file, you can randomize via the `randomizeArenas` parameter. This is false by default.
 
 ### Train Mode
 
-To run the environment in `Train` mode, use the `animalai train` command. This will launch the environment with an AI agent controlling the agent. The `animalai train` command takes a single argument, the path to the configuration file to use. For example, to run the environment in `Train` mode using the `configs/curriculum/0.yaml` configuration file, use the following command:
-
-```bash
-animalai train configs/curriculum/0.yaml
-```
+To run the environment in `Train` mode, use the `animalai train` command. This will launch the environment with an AI agent controlling the agent. The `animalai train` command takes a single argument, the path to the configuration file to use. 
 
 ## Environment Overview
 
