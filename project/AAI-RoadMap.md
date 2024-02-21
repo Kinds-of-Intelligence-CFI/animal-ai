@@ -12,7 +12,7 @@ We wish to enable the possibility of interdisciplinary research to better unders
 
 # - - - Roadmap - - - 
 
-## 2.1 Initial Port + RayCasts (Released 01/07/2021)
+## 2.1 Initial Port + RayCasts  [Major Release]
 
 * [x] Port Unity Environment from ml-agents 0.15 to 2.0
 * [x] Port basic python scripts from ml-agents 0.15 to 2.0
@@ -20,7 +20,7 @@ We wish to enable the possibility of interdisciplinary research to better unders
 
 The environment was ported to ml-agents 2.0. Raycast observations added and ensured to be roughly backwards compatible with 2.0.
 
-## 2.2 Health and Basic Scripts (Released 13/07/2021)
+## 2.2 Health and Basic Scripts  [Major Release]
 
 * [x] Switched from reward system to health system (from DRL perspective functionally similar but unlocks more tasks and better integration with a continual learning setting)
 * [x] Added decaying rewards
@@ -31,7 +31,7 @@ The environment was ported to ml-agents 2.0. Raycast observations added and ensu
 
 Previous setting had an abstract system where food = +ve reward and time = -ve reward. This will be converted to decaying health that must be maintained by seeking our reward. Many tasks are functionally identical, but this setup is better for future tasks and also persistent survival. Other additions are improvements to the environment that go with this change and the initial setup of scripts as tutorials for using different training settings.
 
-## 2.3 Experiment, Object, and Graphical Improvements (Released 13/10/2021)
+## 2.3 Experiment, Object, and Graphical Improvements  [Major Release]
 
 * [x] Major graphics update to all items
 * [x] Goals that decay/ripen/change size
@@ -40,7 +40,7 @@ Previous setting had an abstract system where food = +ve reward and time = -ve r
 
 This update is focused on improving the environment for experimentation. This includes a major graphics update to all items, the addition of goals that decay/ripen/change size, and more items for setting up experiments. This update also includes improved documentation which enhances user experience.
 
-## 3.3 Animal-AI 'Version 3' [Major Release - 25/12/2023]
+## 3.3 Animal-AI 'Version 3' [Major Release]
 
 * [x] Migrate to Unity Editor 2022
 * [x] Migrate to ml-agents 0.30.0
@@ -52,8 +52,13 @@ This update is focused on improving the environment for experimentation. This in
 
 This update is focused on migrating to the latest version of Unity Editor and ml-agents. It also includes fixing major graphical bugs affecting shadows and object placement, adding interactive objects to the environment, and adding more objects to the RayCast Parser. This update also includes an overhaul of documentation and tutorials for the environment.
 
+## 4.0 Animal-AI 'Version 4' [Major Release] [Stable 1.0]
+
+* [x] Add 'decoy' valenced objects to the environment (no reward, but can be interacted with)
+* [x] ...
+
 
 
 ---
 
-_This roadmap is subject to change and is currently a work in progress._
+_N.B: This roadmap is subject to change and is currently a work in progress._
