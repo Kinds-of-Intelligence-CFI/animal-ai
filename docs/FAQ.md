@@ -83,18 +83,16 @@ Seeing `ModuleNotFoundError: No module named 'animalai'` ? Ensure the `animalai`
 ```sh
 pip install animalai
 ```
-
 or if you are using a virtual environment:
 
 ```sh
 pip install animalai --user
 ```
-
 or conda:
 ```sh 
 conda install -c conda-forge animalai
-
 ```
+
 Please do not forget to activate your environment before installing the package.
 
 You can verify the installation by running:
@@ -121,7 +119,6 @@ If you are using macOS, you may get this error: `FileNotFoundError: [Errno 2] No
 ## 5. Unity Environment Not Found
 
 Seeing `UnityEnvironmentException: Couldn't launch the Unity environment`? Ensure the `file_name` parameter is set to the correct path.
-
 
 ## 6. Unity Environment Not Responding
 
