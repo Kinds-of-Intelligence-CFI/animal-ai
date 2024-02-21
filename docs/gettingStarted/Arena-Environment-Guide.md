@@ -29,19 +29,15 @@ This guide will help you understand the structure of the physical Arena Environm
 
 <table>
   <tr>
-
     <td><img src="../../docs/figs/prefabs/arena/arena-2DView.png" width="500"/>
     <p>2D view of the Arena</p></td>
     <td><img src="../../docs/figs/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
     <td><img src="../../docs/figs/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
-
   </tr>
   <tr>
-
     <td><img src="../../docs/figs/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
     <td><img src="../../docs/figs/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
     <td><img src="../../docs/figs/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
-
   </tr>
 </table>
 
@@ -105,12 +101,10 @@ The controls are as follows:
 
 <table>
   <tr>
-
     <td><img src="../../docs/figs/prefabs/Agent-Skins/agent-hedgehog.png" width="500"/>
     <p>Hedgehog</p></td>
     <td><img src="../../docs/figs/prefabs/Agent-Skins/agent-panda.png" width="500"/><p>Panda</p></td>
     <td><img src="../../docs/figs/prefabs/Agent-Skins/agent-pig.png" width="500"/><p>Pig</p></td>
-
 </table>
 
 ### Agent HUD (Heads-Up Display)
@@ -122,17 +116,9 @@ The agent has a HUD (_Heads-Up Display_) that displays the following information
 * **Episode**: The episode number, which is the number of episodes the agent has played in the arena. The episode number is displayed as a white number at the top of the HUD. **(This is a feature to be added in the future.)**
 * **Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for playing the game._
 
-| 
-
-![](../../docs/figs/Agent-HUD/agent-health.png) | ![](../../docs/figs/Agent-HUD/agent-REWARD.png)
-
- |
+|![](../../docs/figs/Agent-HUD/agent-health.png) | ![](../../docs/figs/Agent-HUD/agent-REWARD.png)|
 |---|---|
-| 
-
-![](../../docs/figs/Agent-HUD/notification-bad.png) | ![](../../docs/figs/Agent-HUD/notification-good.png)
-
- |
+|![](../../docs/figs/Agent-HUD/notification-bad.png) | ![](../../docs/figs/Agent-HUD/notification-good.png)|
 
 ### Arena/Agent Limitations
 
