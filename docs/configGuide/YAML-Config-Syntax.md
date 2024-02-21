@@ -180,7 +180,7 @@ arenas:
 ```
 
 <p align="center">
-  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example1.png">
+  <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example1.png">
 </p>
 
 **Observations:** 
@@ -255,7 +255,7 @@ arenas:
 ```
 
 <p align="center">
-  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example2.png">
+  <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example2.png">
 </p>
 
 **Observations:**
@@ -312,7 +312,7 @@ arenas:
 ```
 
 <p align="center">
-  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example3.png">
+  <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example3.png">
 </p>
 
 **Observations:**
@@ -359,7 +359,7 @@ arenas:
 ```
 
 <p align="center">
-  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example4.png">
+  <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example4.png">
 </p>
 
 **Observations:**
@@ -405,7 +405,7 @@ arenas:
 ```
 
 <p align="center">
-  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example5.png">
+  <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example5.png">
 </p>
 
 **Observations:** 
@@ -465,11 +465,9 @@ arenas:
 
 <table>
   <tr>
-
-    <td><img src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example5.png" width="500"/>
+    <td><img src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example5.png" width="500"/>
     <p>Arena 0 </p></td>
-    <td><img src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example6.png" width="500"/><p>Arena 1</p></td>
-
+    <td><img src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example6.png" width="500"/><p>Arena 1</p></td>
   </tr>
 </table>
 
@@ -504,7 +502,7 @@ arenas:
 ```
 
 <p align="center">
-  <img height="250" src="../../docs/figs/exampleGallery/Yaml-Config-Sytax-Arenas/example7.png">
+  <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example7.png">
 </p>
 
 **Observations:** 
