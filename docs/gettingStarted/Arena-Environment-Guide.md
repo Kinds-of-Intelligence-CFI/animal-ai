@@ -8,7 +8,6 @@
   + [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
   + [Arena/Agent Limitations](#arenaagent-limitations)
   + [Agent Properties](#agent-properties)
-  + [Complex Agent Properties (ML-Agents / Training)](#complex-agent-properties-ml-agents--training)
 * [GameObjects](#gameobjects)
   + [Unique/Special Object Parameters](#uniquespecial-object-parameters)
   + [Agent-Specific Parameters](#agent-specific-parameters)
@@ -145,38 +144,6 @@ _Essentially, you can expect that the Physics of Unity game engine are modelled 
 * **Rotation Speed**: The rotation speed of the agent, which is set to `100` by code. This is the speed at which the agent rotates when the `A` and `D` keys are pressed. Rotation speed is unaffected by the `drag` and `angular drag` properties.
 * **Rotation Angle**: The angle of rotation of the agent, which is `0.25` by code. This property is used to dictate the angle of rotating the agent when the `A` and `D` keys are pressed. Rotation angle is unaffected by the `drag` and `angular drag` properties.
 
-### Complex Agent Properties (ML-Agents / Training)
-
-Please refer to ML-Agents for documentation for a full breakdown of the Agent's Properties: [ML-Agent's Documentation](https://github.com/Unity-Technologies/ml-agents/blob/f442194297f878a84eb60c04eccf7662cbc9ff60/docs/Learning-Environment-Design-Agents.md#L467). Here is a brief overview of the properties:
-
-* **Behavior Parameters**
-This component dictates the policy the agent will follow and includes several sub-settings:
-
-* **Behavior Name**
-A unique identifier for the agent's behavior. Agents with the same name share the same policy.
-
-* **Vector Observation**
-  + **Space Size**: Defines the length of the vector observation for the agent.
-  + **Stacked Vectors**: Number of previous vector observations to be stacked together.
-
-* **Actions**
-  + **Continuous Actions**: Number of concurrent continuous actions the agent can take.
-  + **Discrete Branches**: An array defining multiple concurrent discrete actions.
-
-* **Model**
-Refers to the neural network model used for decision-making.
-
-* **Inference Device**
-Determines whether to use CPU or GPU during inference.
-
-* **Behavior Type**
-Sets the mode of operation for the agent:
-  + **Default**: Trains if connected to a Python trainer; otherwise, performs inference.
-  + **Heuristic Only**: Uses a heuristic method for decision-making.
-  + **Inference Only**: Always uses its trained model for decision-making.
-
-* **Max Step**
-Defines the maximum number of steps an agent can take in an episode. Currently, this is not implemented as we have the Health of the agent as the episode termination condition, which is custom to our environment.
 
 ## GameObjects
 
