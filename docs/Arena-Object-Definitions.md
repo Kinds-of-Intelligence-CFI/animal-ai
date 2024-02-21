@@ -64,7 +64,7 @@ The agent can be placed anywhere in the arena with any rotation. It has a fixed 
 * **Size**: `(1,1,1)` (not changeable)
 * **Skins** (`skins`): `"hedgehog"`,  `"panda"`,  `"pig"` (can be randomized)
 
-Notes: The agent can be frozefor a specified number of frames at the start of an episode. There is no reward decrement during the frozen period. This can be set with an integer value passed to the `frozenAgentDelays` parameter (defaults to `0`).
+Notes: The agent can be frozen for a specified number of frames at the start of an episode. There is no reward decrement during the frozen period. This can be set with an integer value passed to the `frozenAgentDelays` parameter (defaults to `0`).
 
 <table>
   <tr>
