@@ -17,7 +17,7 @@ Note that the steps are the same for all platforms (Windows, Linux, and macOS). 
 
 ## Getting Ready to Launch Animal-AI
 
-Before you can launch the Animal-AI environment, you need to download the application from our [Releases page](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases). You may choose to download the application for Windows, Linux, or macOS, depending on your operating system. After downloading, simply extract the contents of the downloaded file to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS).
+As a reminder (or if you have not done so already) you need to download the application from our [Releases page](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases). You may choose to download the application for Windows, Linux, or macOS, depending on your operating system. After downloading, simply extract the contents of the downloaded file to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS).
 
 The next thing to do is to install the `animalai` package in your Python environment. You can do this by running the following command in your terminal (Command Prompt, Terminal, etc.). It's recommended to create a virtual environment for your project before installing the `animalai` package.
 
@@ -172,6 +172,8 @@ If you are new to training agents in Animal-AI, we've provide a guide on how to 
 
 ## Conclusion
 
-This guide has provided you with the necessary steps to launch the Animal-AI environment in both manual play and training modes. You can now interact with the environment using the keyboard and mouse in manual play mode or train an agent using the code provided in training mode. Of course, you can also use the code provided in your own Python scripts to launch the Animal-AI environment. Please check our documentation for more information on the platform and how to use it.
+Congradulations! You've successfully launched the Animal-AI environment.
 
-If you encounter any issues or have any questions, please feel free to reach out to us on our [GitHub Discussions](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/discussions).
+This guide hopefully has provided you with the necessary steps to launch the Animal-AI environment in both manual play and training modes. You can now interact with the environment using the keyboard and mouse in manual play mode or train an agent using the code provided in training mode. Of course, you can also use the code provided in your own Python scripts to launch the Animal-AI environment. Please check our documentation for more information on the platform and how to use it.
+
+If you encounter any issues or have any questions, please feel free to reach out to us on our [GitHub Discussions](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/discussions). You may also wish to check our [FAQs](/docs/FAQ.md) for answers to common questions.
