@@ -378,6 +378,22 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
 
 ## Sign Boards
 
+* **Name**: `Sign Boards`
+* **Size**: Fixed
+* **Color**: Not changeable
+* **Alias**: `SignPosterboard`
+* **Symbol Names**: a list of strings, the names of the symbols to display:
+  - "tick"
+  - "u-turn-arrow"
+  - "circle"
+  - "letter-a"
+  - "right-arrow"
+  - "left-arrow"
+  - "up-arrow"
+  - "down-arrow"
+  - "cross"
+
+
 <p align="center">
   <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-preset-symbols.PNG">
 </p>
@@ -385,3 +401,5 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
 <p align="center">
   <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-special-symbols-annotated.png">
 </p>
+
+Sign boards are immovable objects that display a symbol or a word. They can be used to create tasks where the agent has to navigate to a specific location or to perform a specific action
