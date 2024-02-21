@@ -1,6 +1,6 @@
-# Frequently Asked Questions
+# Frequently Asked Questions | Known Issues
 
-This document provides a comprehensive list of frequently asked questions and troubleshooting tips for the Animal-AI environment.
+Encountering issues with the Animal-AI environment? Here are some solutions to common problems:
 
 #### Table of Contents
 
@@ -15,6 +15,9 @@ This document provides a comprehensive list of frequently asked questions and tr
   * [No Module Named `animalai`](#31-no-module-named-animalai)
   * [Incompatible Python Version](#32-incompatible-python-version)
 * [File Not Found Error](#4-file-not-found-error)
+* [Unity Environment Not Found](#5-unity-environment-not-found)
+* [Unity Environment Not Responding](#6-unity-environment-not-responding)
+* [During Training, First Arena is Not Loaded](#7-during-training-first-arena-is-not-loaded)
 
 
 ## 1. Troubleshooting Installation Issues
@@ -114,3 +117,18 @@ python --version
 Seeing `FileNotFoundError: [Errno 2] No such file or directory: 'AnimalAI/AnimalAI.app'`? Ensure the `AnimalAI` folder is in the same directory as your Python script.
 
 If you are using macOS, you may get this error: `FileNotFoundError: [Errno 2] No such file or directory: 'env/AnimalAI'` . This error occurs when running the `python play.py` command from the `animal-ai/examples` folder. To fix this, simply rename the `MACOS.app` folder you downloaded to `Animal-AI`. This will allow the `play.py` script to find the environment. Note that this error is likely to occur in older versions of Animal-AI.
+
+## 5. Unity Environment Not Found
+
+Seeing `UnityEnvironmentException: Couldn't launch the Unity environment`? Ensure the `file_name` parameter is set to the correct path.
+
+
+## 6. Unity Environment Not Responding
+
+Seeing `UnityActionException: The Unity environment took too long to respond`? Ensure the `timeout_wait` parameter is set to a higher value. Alternatively, during training, try not to close the Unity environment window. This will prevent the environment from terminating the connection with the Python API, which will avoid a freeze or crash of the environment.
+
+## 7. During Training, First Arena is Not Loaded
+
+We are aware of this issue with the first arena (typically index 0) being skipped entirely during the initial training loop. However, this issue is resolved in the subsequent training loops. For a temporary fix, you can duplicate the first arena with the same parameters but change the index to 1. This will ensure that the first arena is loaded during the initial training loop in place of the first arena.
+
+We are working on a fix for this issue. We apologize for any inconvenience this may cause.
