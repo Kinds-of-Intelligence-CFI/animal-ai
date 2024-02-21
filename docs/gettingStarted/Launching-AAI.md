@@ -149,6 +149,11 @@ def train_agent_single_config(configuration_file, env_path , log_bool = False, a
     for i in range(num_eval):
         model.learn(num_steps, reset_num_timesteps=False)
     env.close()
+
+env_path = r"your-path-to-application.exe"
+configuration_file = r"your-config-file.yml"
+
+rewards = train_agent_single_config(configuration_file=configuration_file, env_path = env_path, watch = True, num_steps = 500, num_eval = 3000)
 ```
 
 In the above code, we are training an agent using the PPO algorithm from Stable-Baselines3. The agent is trained for 10,000 steps and evaluated for 100 episodes. You can change the number of steps and episodes to suit your needs. The `configuration_file` and `env_path` variables should be replaced with the path to your configuration file and the AnimalAI.exe file, respectively, as in our previous example.
