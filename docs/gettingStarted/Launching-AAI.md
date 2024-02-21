@@ -25,7 +25,7 @@ The next thing to do is to install the `animalai` package in your Python environ
 pip install animalai
 ```
 
-After installing the `animalai` package, you need to create a configuration file for the Animal-AI environment. The configuration file is a YAML file that specifies the settings for the environment, such as the arena and the objects within it. You can create a configuration file by following the instructions in our [Creating a Configuration File](/docs/configGuide/YAML-Config-Syntax.md) guide or use our example configuration file as a starting point [here](/docs/configGuide/Example-YAML-File.yaml). Download this file and save it to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS.
+After installing the `animalai` package, you need to create a configuration file for the Animal-AI environment. The configuration file is a YAML file that specifies the settings for the environment, such as the arena and the objects within it. You can create a configuration file by following the instructions in our [Creating a Configuration File](/docs/configGuide/YAML-Config-Syntax.md) guide or use our example configuration file as a starting point [here](/docs/configGuide/Example-YAML-File.yaml). Download this file and save it to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS.)
 
 ## Launching Animal-AI
 
