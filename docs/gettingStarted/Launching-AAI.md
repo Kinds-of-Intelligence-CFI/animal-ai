@@ -35,7 +35,7 @@ You can use Python scripts to launch the Animal-AI environment by specifying the
 
 Note that you need to have the `animalai` package installed in your Python environment to run the code below. 
 
-Copy and paste this code into a Jupyter Notebook and run it to launch the Animal-AI environment. Save the file as `launch_animal_ai.ipynb` and run it in your Jupyter Notebook. Also, remember to create a kernel gateway in your Jupyter Notebook to run the code above. We have a guide on how to do that in our [Jupyter Notebook guide](/docs/Using-Jupyter-Notebooks.md).
+Copy and paste this code into a Jupyter Notebook and run it to launch the Animal-AI environment. Save the file as `launch_animal_ai.ipynb` and run it in your Jupyter Notebook. Also, remember to create a kernel gateway in your Jupyter Notebook to run the code below. We have a guide on how to do that in our [Jupyter Notebook guide](/docs/Using-Jupyter-Notebooks.md).
 
 ```python
 
