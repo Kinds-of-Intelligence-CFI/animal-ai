@@ -4,12 +4,12 @@
 
 * [Introduction](#introduction)
   + [Steps:](#steps)
-    + [1. Installing Python](#1-installing-python)
-    + [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
-    + [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
-    + [4. Installing Dependencies](#4-installing-dependencies)
-    + [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
-    + [6. Starting Animal-AI](#6-starting-animal-ai)
+    - [1. Installing Python](#1-installing-python)
+    - [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
+    - [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
+    - [4. Installing Dependencies](#4-installing-dependencies)
+    - [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
+    - [6. Starting Animal-AI](#6-starting-animal-ai)
   + [General Notes](#general-notes)
   + [Troubleshooting](#troubleshooting)
 
@@ -28,13 +28,16 @@ If you're a Linux user, you're likely more comfortable with command-line interfa
 ## Steps:
 
 ### 1. Installing Python
+
 * **Download Python**: Obtain Python 3.9.x from [Python's official website](https://www.python.org/downloads/).
 * **Run the Installer**: Follow the installation instructions. Ensure to **add Python to your PATH** (via the checkbox). Note: if you're doing a custom intallation, it is recommended to keep the `install pip` box ticked and use `pip` to install dependencies. 
 * **Check Installation**: Open a Command Prompt terminal and run `python --version`. You should see the version you installed. Make sure it's Python 3.9.x.
-* todo: if using conda, specify python to 3.9 in the conda environment setup (conda create --name your_env_name python=3.9) or application 
+* **Check Pip**: Run `pip --version` to see if pip is installed. If it's not, you can install it by running `python -m ensurepip` in the terminal. If you're using Python 3.4 or later, pip is included by default.
+* **Check PATH**: Run `echo %PATH%` in the terminal to see if Python is added to your PATH. If it's not, you can add it manually by following the instructions [here](https://datatofish.com/add-python-to-windows-path/).
 
 ### 2. Cloning the Animal-AI Repository (Optional)
 
+**Note**: This step is only necessary if you wish to contribute to Animal-AI. If you only want to use the environment, you can skip this step and go to step 3.
 * **Prepare a Directory**: Create a root folder for the AnimalAI project for better organization.
 * **Clone the Repository**: Options include:
   + Downloading the `.zip` file from [Animal-AI GitHub](https://github.com/Kinds-of-Intelligence-CFI/animal-ai) and extracting it.
@@ -61,13 +64,13 @@ For more information on virtual environments, refer to the [Python Documentation
 
 ### 5. Downloading the Animal-AI Environment
 
-* **Download**: Get the version for your OS from the `Releases` section in the repository.
-* **Extract**: Unzip into the `env` folder in the main repository. We use the `env` folder to store the environment files. You can use WinRAR or 7-Zip to extract the files.
-* **Check**: The `env` folder should contain the `.exe` file and other files from the `.zip/.rar` download.
+* **Download**: Get the version for your OS from the `Releases` section in the repository [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases).
+* **Extract**: Unzip the downloaded folder into any destination of your choosing (we recommend to your Desktop). You can use WinRAR or 7-Zip to extract the files.
+* **Check**: The folder should contain the `.exe` file for Windows,  `.app` file for MacOS, and the `.x86_64` file for Linux.
 
 ### 6. Starting Animal-AI
 
-You can now start using Animal-AI by launching the application for your OS, located in the directory where you saved the folder, typically in your Downloads folder. _Note that Animal-AI does not need to be installed in your system to run._
+You can now start using Animal-AI by launching the application for your OS, located in the directory where you extracted the folder. _Note that Animal-AI does not need to be installed in your system to run._
 
 Please see our [Launching AAI](/docs/gettingStarted/Launching-AAI.md) guide for a step-by-step guide on how to start using Animal-AI.
 
