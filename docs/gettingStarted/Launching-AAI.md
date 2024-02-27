@@ -22,7 +22,7 @@ As a reminder (or if you have not done so already) you need to download the appl
 The next thing to do is to install the `animalai` package into your Python environment. You can do this by running the following command in your terminal (Command Prompt, Terminal, etc.). It's recommended to create a virtual environment for your project before installing the `animalai` package. If you already have a conda environment, you can activate it before install animalai package.
 
 ```bash
-pip install animalai
+pip install animalai stable-baselines3 # we will need stable-baselines3 for training and it's good practice to install it now to avoid dependency issues which may arise later.
 ```
 
 After installing the `animalai` package, you can use a configuration file for the Animal-AI environment. The configuration file is a YAML file that specifies the settings for the environment, such as the arena and the objects within it. You can create a configuration file by following the instructions in our [Creating a Configuration File](/docs/configGuide/YAML-Config-Syntax.md) guide or use our example configuration file as a starting point [here](/docs/configGuide/Example-YAML-File.yaml). Download this file and save it to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS.)
@@ -95,11 +95,8 @@ Toggle the camera between first-person, third-person, and bird's eye view using 
 
 ### Training Mode
 
-For training mode, you can use the following code to launch the Animal-AI environment. Save the code below as `launch_animal_ai_training.ipynb` and run it in your Jupyter Notebook. Note that we will be using Stable-Baselines3 to train the agent in this example. You can install the package using the following command:
+For training mode, you can use the following code to launch the Animal-AI environment. Save the code below as `launch_animal_ai_training.ipynb` and run it in your Jupyter Notebook. Note that we will be using Stable-Baselines3 to train the agent in this example.
 
-```bash
-pip install stable-baselines3
-```
 
 ```python
 
