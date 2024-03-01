@@ -29,7 +29,7 @@ After installing the `animalai` package, you can use a configuration file for th
 
 ## Launching Animal-AI
 
-You can use Python scripts to launch the Animal-AI environment by specifying the configuration file and the path to the AnimalAI.exe file. For simplicity and coherence sake, we will showcase how to launch via _Jupyter Notebook and Kernel Gateway_ for both manual play and training modes below. 
+You can use Python scripts to launch the Animal-AI environment by specifying the configuration file and the path to the AnimalAI.exe file. For simplicity and coherence sake, we will showcase how to launch via _Jupyter Notebook and Kernel Gateway_ for both manual play and training modes below using the same code. 
 
 ### Manual Play
 
@@ -39,6 +39,7 @@ Copy and paste this code into a Jupyter Notebook and run it to launch the Animal
 
 ```python
 
+# Import the necessary libraries
 import sys
 import random
 import os
@@ -46,12 +47,15 @@ import os
 from animalai.environment import AnimalAIEnvironment
 from mlagents_envs.exception import UnityCommunicationException
 
+# IMPORTANT! Replace configuration file with the correct path here:
 configuration_file = r"your-config-file.yml"
 
 with open(configuration_file) as f:
     print(f.read()) 
 
-env_path = r'your-path-to-application.exe' # where you extracted the application that you downloaded from our Releases page
+# IMPORTANT! Replace the path to the application .exe here:
+env_path = r'your-path-to-application.exe' 
+
 port = 5005 + random.randint(
     0, 1000
 )  # uses a random port to avoid problems with parallel runs
@@ -64,10 +68,12 @@ try:
         arenas_configurations=configuration_file,
         play=True,
     )
+
 except UnityCommunicationException:
     # you'll end up here if you close the environment window directly
     # always try to close it from script (environment.close())
     environment.close()
+    print("Environment was closed")
 
 if environment:
     environment.close() # takes a few seconds to close...
@@ -95,11 +101,14 @@ Toggle the camera between first-person, third-person, and bird's eye view using 
 
 ### Training Mode
 
-For training mode, you can use the following code to launch the Animal-AI environment. Save the code below as `launch_animal_ai_training.ipynb` and run it in your Jupyter Notebook. Note that we will be using Stable-Baselines3 to train the agent in this example.
+For training mode, you can use the following code to launch the Animal-AI environment. Save the code below as `launch_animal_ai_training.ipynb` and run it in your Jupyter Notebook. In addition, you can create code junks to sequentially run bits of code by clicking on the `+` button in the Jupyter Notebook (assuming you're using an IDE such as Visual Studio Code) and selecting `Code`. Copy and paste the code below into the code junk and run it. 
+
+Lastly, we will be using Stable-Baselines3 to train the PPO agent in this example. Refer to the [Stable-Baselines3 documentation](https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html) for more information on how to use the PPO agent for training (_class_: `classstable_baselines3.common.policies.ActorCriticCnnPolicy`).
 
 
 ```python
 
+# Import the necessary libraries
 from stable_baselines3 import PPO
 import matplotlib.pyplot as plt
 from stable_baselines3.common.monitor import Monitor
@@ -123,7 +132,7 @@ def train_agent_single_config(configuration_file, env_path , log_bool = False, a
     
     # Create the environment and wrap it...
     aai_env = AnimalAIEnvironment( # the environment object
-        seed = aai_seed,
+        seed = aai_seed, # seed for the pseudo random generators
         file_name=env_path,
         arenas_configurations=configuration_file,
         play=False, # note that this is set to False for training
@@ -136,36 +145,50 @@ def train_agent_single_config(configuration_file, env_path , log_bool = False, a
         timescale=1
     )
 
-    env = UnityToGymWrapper(aai_env, uint8_visual=True, allow_multiple_obs=False, flatten_branched=True)
+    env = UnityToGymWrapper(aai_env, uint8_visual=True, allow_multiple_obs=False, flatten_branched=True) # the wrapper for the environment
     
-    runname = "optional_run_name"
+    runname = "optional_run_name" # the name of the run, used for logging
 
-    policy_kwargs = dict(activation_fn=th.nn.ReLU)
-    model = PPO("CnnPolicy", env, policy_kwargs=policy_kwargs, verbose=1, tensorboard_log="./tensorboardLogs")
+    policy_kwargs = dict(activation_fn=th.nn.ReLU) # the policy kwargs for the PPO agent, such as the activation function
+    
+    model = PPO("CnnPolicy", env, policy_kwargs=policy_kwargs, verbose=1, tensorboard_log="./tensorboardLogs") 
+    # verbosity level: 0 for no output, 1 for info messages (such as device or wrappers used), 2 for debug messages
     
     for i in range(num_eval):
         model.learn(num_steps, reset_num_timesteps=False)
     env.close()
 
+# IMPORTANT! Replace the path to the application and the configuration file with the correct paths here:
 env_path = r"your-path-to-application.exe"
 configuration_file = r"your-config-file.yml"
 
 rewards = train_agent_single_config(configuration_file=configuration_file, env_path = env_path, watch = True, num_steps = 500, num_eval = 3000)
 ```
+So, what are we doing in the above code? 
 
-In the above code, we are training an agent using the PPO algorithm from Stable-Baselines3. The agent is trained for 10,000 steps and evaluated for 100 episodes. You can change the number of steps and episodes to suit your needs. The `configuration_file` and `env_path` variables should be replaced with the path to your configuration file and the AnimalAI.exe file, respectively, as in our previous example.
+- We first import the necessary libraries, including the PPO algorithm from Stable-Baselines3.
 
-After running the code, the Animal-AI environment will launch in training mode. The agent will be trained using the PPO algorithm. Note that the controls in training mode are not available, as the agent is trained using the PPO algorithm. The agent will learn to navigate the environment and collect rewards based on the configuration file you provided.
+- We then define a function called `train_agent_single_config` that takes the configuration file, the path to the AnimalAI.exe file, and other parameters as input. The function creates the Animal-AI environment and wraps it using the `UnityToGymWrapper` class from the `mlagents_envs` package. We then create a PPO agent using the `PPO` class from Stable-Baselines3 and train the agent for a specified number of steps. 
 
-You can monitor the training process using TensorBoard by running the following command in your terminal:
+- The other parameters are as follows:
+    - `log_bool` - a boolean value that specifies whether to log the training process using TensorBoard.
+    - `aai_seed` - an integer value that specifies the seed for the Animal-AI environment.
+    - `watch` - a boolean value that specifies whether to watch the agent play.
+    - `num_steps` - an integer value that specifies the number of steps to train the agent.
+    - `num_eval` - an integer value that specifies the number of evaluations to perform.
 
-```bash
-tensorboard --logdir ./tensorboardLogs
-```
+- We then call the `train_agent_single_config` function with the configuration file and the path to the AnimalAI.exe file as input.
+
+- Lastly, the rewards obtained during training are stored in the `rewards` variable.
+
+**N.B:** The `configuration_file` and `env_path` variables should be replaced with the path to your configuration file and the Animal-AI.exe file, respectively, as in our previous example.
+
+After running the code, the Animal-AI environment will launch in training mode. The agent will be trained using the PPO algorithm. Note that the controls in training mode are not available. The agent will learn to navigate the environment and collect rewards based on the configuration file you provided.
 
 A folder named `tensorboardLogs` will be created in the current working directory (where you ran the code). You can view the training logs there directly.
 
 If you are new to training agents in Animal-AI, we've provide a guide on how to integrate Animal-AI with other AI libraries such as Stable-Baselines3 and DreamerV3 [here](/docs/integration/Integrate-AAI.md).
+
 
 ## Conclusion
 
