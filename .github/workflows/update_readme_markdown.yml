@@ -1,11 +1,11 @@
-name: Update Markdown with Latest Release
+name: Update README with Latest Release
 
 on:
   release:
     types: [published]
 
 jobs:
-  update-markdown-file:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout the repo
@@ -22,14 +22,16 @@ jobs:
           });
           return response.data.tag_name;
 
-    - name: Update Markdown file
+    - name: Update README.md file
       run: |
         LATEST_RELEASE_TAG=${{ steps.get-latest-release.outputs.result }}
         LATEST_RELEASE_URL="https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/$LATEST_RELEASE_TAG"
         MD_FILE_PATH="./README.md"
-        sed -i "s|\[latest release\].*|\[latest release\]($LATEST_RELEASE_URL)|" $MD_FILE_PATH
+        # This command looks for the markdown link syntax [latest release](URL) and updates the URL
+        sed -i "s|\(latest release).*|\(latest release\)\($LATEST_RELEASE_URL\)|" $MD_FILE_PATH
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add $MD_FILE_PATH
         git commit -m "Update README.md with the latest release link - $LATEST_RELEASE_TAG"
         git push
+
