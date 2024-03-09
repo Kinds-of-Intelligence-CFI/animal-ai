@@ -78,7 +78,7 @@ We've prepared a comprehensive set of tutorials to help you get started with the
 
 *See [here](/docs/gettingStarted/Installation-Guide.md) for a detailed installation guide.*
 
-([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v4.0.0)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
+([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v4.0.0)
 
 For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 
