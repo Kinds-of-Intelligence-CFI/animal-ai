@@ -110,24 +110,28 @@ The controls are as follows:
 
 The agent has a HUD (_Heads-Up Display_) that displays the following information per episode by default:
 
-* **Health**: The health of the agent, which is a value between `0` and `1`. The agent's health decays over time, and is reset to `1` when the agent collects a reward. The agent's health is displayed as a blue-green-red bar at the bottom of the HUD.
-* **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards. It contains the previous episode's reward, as well as the current episode's reward, respectively.
-* **Episode**: The episode number, which is the number of episodes the agent has played in the arena. The episode number is displayed as a white number at the top of the HUD. **(This is a feature to be added in the future.)**
-* **Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for playing the game._
+* **Health**: The health of the agent, which is a value between `0` and `1`. The agent's health decays over time, and is reset to `1` when the agent collects a reward. The agent's health is displayed as a green-yellow-red bar at the bottom of the HUD.
+* **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards. It contains the previous episode's reward (not valid if the current arena is the first), as well as the current episode's reward.
+* **Yaml File Details**: The YAML file details of the current yaml file used, which is displayed at the top-right of the HUD. This is an integer that contains the arena number out of total arenas, and the total number of objects spawned as an integer.
+* **Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for play mode._
 
 |![](../../docs/figs/Agent-HUD/agent-health.png) | ![](../../docs/figs/Agent-HUD/agent-REWARD.png)|
 |---|---|
 |![](../../docs/figs/Agent-HUD/notification-bad.png) | ![](../../docs/figs/Agent-HUD/notification-good.png)|
+|![](../../docs/figs/Agent-HUD/yaml-file-data.png)
+
 
 ### Arena/Agent Limitations
 
-The arena has a few limitations, which are as follows:
+The arena/agent has a few limitations to be considered, which are as follows:
 
 1. Only a single agent _per_ arena is supported, both for play and training.
 2. The agent can only move on the ground, and cannot move on the walls.
 3. The agent cannot move through objects (except for the hot/death zones).
 4. The agent cannot jump or fly.
 5. The agent cannot pick up objects (however, this is a feature to be added in the future).
+6. The arena is reset _only_ when the health of the agent reaches `0`, or when the `R` key is pressed (in play mode). This is a limitation as the agent cannot reset the arena itself, and the arena can only be reset by the player or the training environment.
+7. The logic of spawning objects in the arena is fixed and currently prioritises the agent over other objects. Furthermore, the current spawn logic dictates that objects spawn in the order they are defined in the configuration file.
 
 ### Agent Properties
 

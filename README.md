@@ -36,36 +36,36 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 ## Features
 
 **Interdisciplinary Research Platform:**
-- Facilitates research in human, animal, and artificial cognition.
-- Supports cross-disciplinary studies.
-- Enables comparative assessments among humans, animals, and artificial intelligences.
+- Facilitates research in human, animal, and artificial cognition
+- Supports cross-disciplinary studies
+- Enables comparative assessments among humans, animals, and artificial intelligences
 
 **Comprehensive AI Environment:**
-- Includes a versatile environment for AI experiments, from basic to advanced configurations.
+- Includes a versatile environment for AI experiments, from basic to advanced configurations
 - Wrap Unity learning environments as a gym(nasium) environment
 - Wrap Unity learning environments as a PettingZoo environment
 
 **Extensive Task Library:**
-- Multiple example tasks.
-- 900 tasks from the Animal-AI Olympics.
-- Procedural Generation functionality
+- Multiple example tasks for getting started
+- 900 tasks from the Animal-AI Olympics competition
+- Procedural YAML Configuration File Generation
 
 **Unity Game Engine:**
-- Utilizes Unity ml-agents.
-- Leverages Unity game engine for advanced simulation capabilities.
-- Fast and robust wrapper.
+- Utilizes Unity ML-Agents toolkit for AI training
+- Leverages Unity game engine for advanced simulation capabilities
+- Fast and robust wrapper
 
 **Cross-Platform Compatibility:**
-- Compatible with Windows 11, Linux, and MacOS.
-- Supports Python 3.6.x and above.
+- Compatible with Windows 11, Linux, and MacOS
+- Supports Python 3.6.x and above
 
 **Control Modes:**
-- Player mode for interactive environment control, for human testing.
-- Training mode for Reinforcement Learning, with support for tensorflow analysis.
-- Supports AI model training across different systems.
+- Player mode for interactive environment control, for human testing
+- Training mode for Reinforcement Learning, with support for tensorflow analysis
+- Supports AI model training across different systems
 
 **Interactive and Dynamic Environment:**
-- Offers interactive elements for complex AI training.
+- Offers interactive elements for complex AI training
 - Supports dynamic environment generation (dynamic)
 
 
@@ -78,7 +78,7 @@ We've prepared a comprehensive set of tutorials to help you get started with the
 
 *See [here](/docs/gettingStarted/Installation-Guide.md) for a detailed installation guide.*
 
-([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v3.1.4)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
+([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v4.0.0)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
 
 For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 

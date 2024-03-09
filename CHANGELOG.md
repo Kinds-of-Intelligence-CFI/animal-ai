@@ -3,8 +3,20 @@
 This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
 
 
-## Version 4.0.0 (coming soon)
-*No changes documented yet.*
+## Version 4.0.0 (Released on 08.03.2024)
+### Notes
+- _This release is a major update that moves away from the experimental phase and introduces a stable version of the Animal-AI environment._
+- _This release is backward incompatible with the previous version `v3.1.4.exp`, and agents trained on the previous version may work with this new version._
+
+### Added
+- New valanced objects: `DecayGoal` and `DecayGoalBounce`.
+- New UI for presenting data to the user: 
+- New csharp Script: `UIManager.cs`, for managing the UI and displaying data about the current YAML configuration file arenas and total spawned objects.
+
+### Changed
+- Updated to TMPro for text rendering in Unity, for better performance and flexibility in the UI.
+- Changed the layout of the UI to be more user-friendly and intuitive.
+- Changed UI text colours to be more accessible and readable.
 
 ---
 
