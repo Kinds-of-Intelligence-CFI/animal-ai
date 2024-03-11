@@ -52,7 +52,7 @@ An example of a configuration file can be found here where you can simply downlo
   
 You may then proceed to an introduction on the Arena Environment and the Agent here:
 
-* [Arena Environment Guide](/docs/gettingStarted/Arena-Environment-Guide.md)
+* [Arena Environment Guide](/docs/Arena-Environment-Guide.md)
 
 Furthermore, a comprehensive guide on the available objects and their properties can be found here which will enhance ytou understanding of the Arena Environment and it's many objects:
 
