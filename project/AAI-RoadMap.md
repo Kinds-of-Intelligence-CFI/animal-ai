@@ -54,9 +54,10 @@ This update is focused on migrating to the latest version of Unity Editor and ml
 
 ## 4.0 Animal-AI 'Version 4' [Major Release] [Stable 1.0]
 
-* [x] Add 'decoy' valenced objects to the environment (no reward, but can be interacted with)
-* [x] ...
-
+* [x] Add 'decoy' valenced objects to the environment (no reward values, but can be interacted with as with other regular valanced rewards)
+* [x] UI overhaul --> modern UI elements and components
+* [x] Add new UI elements to present YAML configuration-specific information, such as number of defined arenas and current arena index; total number of spawned objects
+* [x] Implement project-specific testing framework
 
 
 ---
