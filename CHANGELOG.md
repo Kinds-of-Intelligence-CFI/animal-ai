@@ -18,6 +18,9 @@ This document records all notable changes to the Animal-AI project. It follows t
 - Changed the layout of the UI to be more user-friendly and intuitive.
 - Changed UI text colours to be more accessible and readable.
 
+### Fixed
+- Fixed object tag being incorrectly set for game object `RAMP` (from _IMMOVABLE_ to _RAMP_).
+
 ---
 
 ## Version 3.1.3 (Released on 30.09.2023)
