@@ -10,7 +10,7 @@ This document records all notable changes to the Animal-AI project. It follows t
 
 ### Added
 - New valanced objects: `DecayGoal` and `DecayGoalBounce`.
-- New UI for presenting data to the user: 
+- New UI for presenting data to the user: Arena and Object statistics.
 - New csharp Script: `UIManager.cs`, for managing the UI and displaying data about the current YAML configuration file arenas and total spawned objects.
 
 ### Changed
