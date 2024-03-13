@@ -24,7 +24,7 @@ Animal-Artificial Intelligence (Animal-AI) supports interdisciplinary research t
 
 - **Website:** [here](https://animalai.org/)
 - **Unity/C# Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
-- **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package/tree/main/animalai)
+- **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package)
 
 This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It contains a collection of in-depth guides to the environment, as well as an extensive library of 900 tasks featured in the inaugural Animal-AI Olympics competition.
 
