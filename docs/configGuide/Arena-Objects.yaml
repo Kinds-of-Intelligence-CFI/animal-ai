@@ -155,15 +155,155 @@ arenas:
       - !Vector3 {x: 1, y: 1, z: 1}
       colors:
       - !RGB {r: 255, g: 0, b: 255}
-      initialValues: [0]
-      finalValues: [1]
-      
+      initialValues: [2.5]
+      finalValues: [0.5]
+      timesBetweenSpawns: [0.0]
+      doorDelays: [0.0]
+      spawnCounts: [10]
 
-
-
-
-
-
-
+    - !Item
+      name: SpawnerContainerShort
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+      initialValues: [2.5]
+      finalValues: [0.5]
+      timesBetweenSpawns: [0.5]
+      doorDelays: [1.0]
+      spawnCounts: [1]
+    
+    - !Item
+      name: SpawnerTree
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+      initialValues: [2.5]
+      finalValues: [0.5]
+      ripenTimes: [4.0]
+      timesBetweenSpawns: [0.5]
+      spawnCounts: [10]
 
 # VALANCED REWARDS (GOALS)
+
+    - !Item
+      name: GoodGoal
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: GoodGoalBounce
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+     - !Item
+      name: BadGoal
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+    - !Item
+      name: BadGoalBounce
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: GoodGoalMulti
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: GoodGoalMultiBounce
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+    - !Item
+      name: BadGoalMulti
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+    
+    - !Item
+      name: BadGoalMultiBounce
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: RipenGoal
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: DecayGoal
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+    - !Item
+      name: DecoyGoal
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+    - !Item
+      name: DecayGoalBounce
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+# ZONES
+  
+    - !Item
+      name: HotZone
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: DeathZone
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+  
