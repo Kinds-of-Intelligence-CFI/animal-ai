@@ -1,0 +1,169 @@
+### IMPORTANT! READ BEFORE USE! ###
+
+# This YAML file contains every object in the arena that is spawnable. 
+# Each object has it's own properties such as name, position, rotation, size, and color, as well as their default values.
+# You can use this file to see how to define each and every object in the arena. 
+# Simply copy the object you want to use and paste it into your own YAML file, either changing the default values or leaving them as they are.
+
+!ArenaConfig
+arenas:
+  0: !Arena
+    t: 250 # The time limit for the arena in seconds. In other words, the time limit for the agent to complete the task (the arena resets after this time).
+    - !Item
+      name: Agent # Note that the agent will always be spawned first regardless of its position in the configuration.
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15} # The position of the item. This is a Vector3 object with x, y, and z coordinates. Leave values for random spawning.
+      rotations: [0] # The rotations of the items. It can be in any angle but default is 0 degrees.
+
+# IMMOVABLE OBJECTS (Note: RAMP is immovable but has a special tag of "ramp" for the agent to detect).
+    - !Item
+      name: CylinderTunnel
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+
+    - !Item
+      name: CylinderTunnelTransparent
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors:
+    - !RGB {r: 255, g: 0, b: 255}
+
+    - !Item
+      name: Ramp
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+    
+    - !Item
+      name: Wall
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+
+    - !Item
+      name: WallTransparent
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+
+# MOVABLE OBJECTS 
+
+    - !Item
+      name: HeavyBlock
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: LightBlock
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: JBlock
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+    - !Item
+      name: LBlock
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+  
+    - !Item
+      name: UBlock
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+
+# SIGNBOARD
+
+    - !Item
+      name: SignBoard
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+      symbolNames: 
+      - "transparent" # this is the default symbol that will be displayed if not changed in this parameter. 
+      # The list of symbols that can be used are: "transparent", "right-arrow", "left-arrow", "up-arrow", "down-arrow",
+      # ..."u-turn-arrow", "letter-a", "letter-b", "letter-c", "square", "triangle", "circle", "star", "tick", "cross".
+
+# VALANCED REWARDS SPAWNERS/DISPENSERS
+
+    - !Item
+      name: SpawnerButton # Interactive button that spawns rewards when pressed by the agent.
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors: # can't change color
+      moveDurations: [0.1] # the time it takes for the button to move forwards. This impacts the time the button can be pressed again.
+      resetDurations: [1.0] # the time it takes for the button to move backwards. This impacts the time the button can be pressed again.
+      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"] # the list of rewards that can be spawned. The names must match the names of the rewards.
+      rewardWeights: [100, 0, 0] # the weights of each reward in the rewards list respectively. The sum of all weights must be 100.
+      spawnProbability: 1.0 # the probability of spawning the reward. 1.0 means 100% chance of spawning. 0.0 means 0% chance of spawning ANY reward.
+      maxRewardCounts: [-1, -1, -1] # the maximum number of times each reward can be spawned. -1 means no limit respectively for each reward.
+      rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23} # the position where the reward will be spawned upon pressing the button.
+
+    - !Item
+      name: SpawnerDispenserTall
+      positions: 
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+      initialValues: [0]
+      finalValues: [1]
+      
+
+
+
+
+
+
+
+
+# VALANCED REWARDS (GOALS)
