@@ -11,6 +11,7 @@
 7. [Valenced Objects](#valenced-objects)
 8. [Dispensers](#dispensers)
 9. [Sign Boards](#sign-boards)
+10. [Ready-Made Configuration File](#ready-made-configuration-file)
 
 ## Introduction
 
@@ -404,6 +405,6 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
 
 Sign boards are immovable objects that display a symbol or a word. They can be used to create tasks where the agent has to navigate to a specific location or to perform a specific action.
 
-## Example Configurations
+## Ready-Made Configuration File
 
 For a complete list of all spawnable objects and their default values, see the [Arena Objects.yml](/docs/configGuide/Arena-Objects.yaml) file. It is ready to use and can be copied and pasted into a configuration file.
