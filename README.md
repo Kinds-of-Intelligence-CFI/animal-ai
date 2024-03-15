@@ -22,7 +22,7 @@ Animal-Artificial Intelligence (Animal-AI) supports interdisciplinary research t
 
 ## Overview
 
-- **Website:** [here](https://animalai.org/)
+- **Website:** [here](https://sites.google.com/csah.cam.ac.uk/animalai/)
 - **Unity/C# Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package)
 
