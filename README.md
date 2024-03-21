@@ -66,7 +66,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 **Interactive and Dynamic Environment:**
 - Offers interactive elements for complex AI training
-- Supports dynamic environment generation (dynamic)
+- Supports dynamic environment generation
 
 
 ## Getting Started
