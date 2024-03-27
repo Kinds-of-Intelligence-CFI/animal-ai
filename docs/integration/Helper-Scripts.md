@@ -5,6 +5,7 @@
 1. [Introduction](#introduction)
 2. [Extract Configuration File Objects (Python)](#extract-configuration-file-objects-python)
 3. [Randomize Object Positions (Python)](#randomize-object-positions-python)
+4. [Replace Old Parameters w/ New Ones (Python)](#replace-old-parameters-w-new-ones-python)
 
 ## Introduction
 
@@ -102,3 +103,45 @@ print("Updated YAML configuration saved. Please check the output file.")
 ```
 
 Simply adjust the `file_path` and `output_path` variables to point to your configuration file and the location where you want to save the updated configuration file, respectively. The script will randomize the positions of all items in the configuration file and save the updated configuration to the specified output file.
+
+**_Note that the script overrites the original file, so it is recommended to make a backup of the original file before running the script._**
+
+## Replace Old Parameters w/ New Ones (Python)
+
+The following Python script can be used to replace old parameters with new ones in the configuration file of the AAI environment. It reads the configuration file, replaces the old parameters with new ones, particularly `"t"` & `"pass_mark"` with `"timeLimit"` & `"passMark"` respectively (at the time of writing). It then writes the updated configuration file to a new file. This script can be useful for updating the configuration file with new parameters.
+
+This script was developed to mitigate the need to manually replace these parameters in the configuration file, helpful if you have many configs to update.
+
+The script can be used as follows:
+
+```python
+# Replace old parameters with new ones in the configuration file.
+def replace_yaml_keys(file_path, replacements):
+    # Reads the original YAML file
+    with open(file_path, 'r') as file:
+        content = file.read()
+    
+    # Replaces keys based on the replacements dictionary
+    for old_key, new_key in replacements.items():
+        content = content.replace(f'{old_key}:', f'{new_key}:')
+    
+    # Write the modified content back to the file
+    with open(file_path, 'w') as file:
+        file.write(content)
+
+# Define the file path. This should point to your configuration file.
+file_path = 'path-to-your-yaml-config.yaml' 
+replacements = {
+    't': 'timeLimit',
+    'pass_mark': 'passMark'
+}
+
+# Calls the function to implement the changes
+replace_yaml_keys(file_path, replacements)
+
+print('YAML parameters replaced successfully!')
+```
+
+Simply adjust the `file_path` variable to point to your configuration file. The script will replace the old parameters with the new ones in the configuration file and save the updated configuration to the same file. 
+
+**_Note that the script overrites the original file, so it is recommended to make a backup of the original file before running the script._**
