@@ -4,10 +4,11 @@
 
 1. [Introduction](#introduction)
 2. [Extract Configuration File Objects (Python)](#extract-configuration-file-objects-python)
+3. [Randomize Object Positions (Python)](#randomize-object-positions-python)
 
 ## Introduction
 
-This document contains useful scripts and code snippets that can be used to perform various tasks.
+This document contains useful scripts and code snippets that can be used to perform various tasks. These scripts were developed in Python version `3.9.9` and `3.10.0`, and may require additional libraries to be installed.
 
 ## Extract Configuration File Objects (Python)
 
@@ -57,3 +58,47 @@ config = parse_config_file(file_path)
 objects_positions = extract_objects_positions(config)
 print(objects_positions)
 ```
+
+## Randomize Object Positions (Python)
+
+The following Python script can be used to randomize the positions of objects in the configuration file of the AAI environment. It reads the configuration file, shuffles the positions of the objects, and then writes the updated configuration file to a new file. This script can be useful for generating variations of the environment with different object positions.
+
+The script uses the `PyYAML` library to parse the YAML file and update the positions of the objects. It shuffles the positions of each object in each arena and then writes the updated configuration to a new file.
+
+The script can be used as follows:
+
+```python
+# IMPORTANT! Please install ruamel.yaml package before running this script. You can do so by running the following command:
+# pip install ruamel.yaml
+
+from ruamel.yaml import YAML
+import random
+
+# Randomize positions of all items in the configuration file.
+def randomize_positions(data):
+    for arena in data['arenas'].values():
+        for item in arena['items']:
+            for position in item['positions']: # Randomize all positions, or just the axis you'd like within the boundary of the arena.
+                position['x'] = random.randint(1, 40)  # Randomize x
+                position['y'] = random.randint(1, 15)  # Randomize y
+                position['z'] = random.randint(1, 40)  # Randomize z
+
+# Load the configuration file. Please adjust the file path to match your configuration file.
+file_path = 'location-of-your-config-file.yaml'
+output_path = 'where-to-save-the-new-config-file.yaml'
+
+yaml = YAML()
+yaml.preserve_quotes = True
+
+with open(file_path, 'r') as f:
+    data = yaml.load(f)
+
+randomize_positions(data)
+
+with open(output_path, 'w') as f:
+    yaml.dump(data, f)
+
+print("Updated YAML configuration saved. Please check the output file.")
+```
+
+Simply adjust the `file_path` and `output_path` variables to point to your configuration file and the location where you want to save the updated configuration file, respectively. The script will randomize the positions of all items in the configuration file and save the updated configuration to the specified output file.
