@@ -2,6 +2,20 @@
 
 This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
 
+## Version 4.1.0 (upcoming)
+### Notes
+_A breaking change is introduced in this version for YAML configuration files. The YAML syntax for defining arenas has been updated to be more user-friendly and intuitive. The new syntax is backward incompatible with the previous version `v4.0.0`. Please refer to the updated documentation for more information._
+
+### Added
+
+### Changed
+- YAML syntax has major changes: 
+  - `"t"` parameter has been refactored to `"timeLimit"` to better reflect its purpose and improve readability.
+  - `"pass_mark"` parameter has been refactored to `"passMark"` for coherency with other parameters.
+
+### Fixed
+
+---
 
 ## Version 4.0.0 (Released on 08.03.2024)
 ### Notes
