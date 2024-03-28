@@ -1,7 +1,16 @@
+### IMPORTANT NOTES ###
+# 1. The YAML file must be indented correctly. The indentation must be consistent throughout the file.
+# 2. The YAML file must be saved with a .yaml extension.
+
+### IMPORTANT NEWS ###
+# As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
+# ... You may still use these parameters in AAI v4.0.0 and below.
+
 !ArenaConfig
 arenas:
   0: !Arena # The number here is the arena ID. It must be unique.
-    t: 250 # The time limit for the arena in seconds.
+    timeLimit: 100 # The time limit for the arena in seconds. 
+    passMark: 0 # The pass mark for the arena. This is the minimum score required to pass the arena.
     items: # The items that will be spawned in the arena.
     - !Item # The item type. This can be any item type defined in the items section of the config file.
       name: Wall # The name of the item type. This must match the name of an item type defined in the items section of the config file.
@@ -11,7 +20,8 @@ arenas:
       sizes: # The sizes of the items. You can scale the items by changing the sizes in each dimension.
       - !Vector3 {x: 5, y: 3, z: 1} 
       colors:  # The colors of the items. This is a RGB object with r, g, and b values.
-      - !RGB {r: 255, g: 0, b: 255} 
+      - !RGB {r: 255, g: 0, b: 255}
+
     - !Item
       name: GoodGoalBounce 
       positions: 
@@ -21,8 +31,9 @@ arenas:
       sizes: 
       - !Vector3 {x: 1, y: 1, z: 1}
       - !Vector3 {x: 3, y: 3, z: 3}
+
     - !Item
       name: Agent # Note that the agent will always be spawned first regardless of its position in the configuration.
-      positions: 
+      positions:
       - !Vector3 {x: 20, y: 0, z: 15}
       rotations: [0]

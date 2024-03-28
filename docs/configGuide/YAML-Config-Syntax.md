@@ -21,15 +21,19 @@
 
 ### Introduction
 
-Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. We will start with some simple examples and then move on to more complex examples.
+Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. We will start with some simple examples and then move on to more complex examples. 
 
+_Please note that becuase AAI is being developed actively, the screenshots and examples may not be accurately representative of the current version of the game. However, the YAML syntax and the examples provided are still valid and can be used to create custom arenas in the current version of the game._
+
+**Important Notes/News:**
+- As of AAI v4.1.0, the `t` parameter has been renamed to `timeLimit` and the `pass_mark` parameter has been renamed to `passMark`. Please adjust your YAML configurations accordingly, either manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). However, you may still use these parameters with their older, deprecated names in AAI v4.0.0 and below.
 ### Understanding YAML Syntax
 
 #### YAML Hierarchical Syntax
 
 ```YAML
-# note that the arena has a fixed size of 40x40, meaning the size of the arena does not change. 
-# in later versions of Animal-AI, the arena size will be configurable. and be set dynamically.
+# Note that the physical arena has a fixed size of 40x40, meaning the size of the arena does not change nor is it configurable.
+# In later versions of Animal-AI, the arena size will be configurable. and be set dynamically.
 !ArenaConfig
 arenas:
   0: !Arena 
@@ -47,17 +51,17 @@ We can observe the following structure:
 * `!Arena` is the tag for the arena itself.
 * `Items` is the tag for the objects to spawn in the arena.
 
-The `!ArenaConfig` tag is used to indicate that the following YAML file is an ArenaConfig file. The `arenas` tag is used to indicate that the following YAML file contains one or more arenas. The `0` tag indicates that the following arena is the first arena in the file, upto `n arenas` . The `!Arena` tag indicates that the following YAML file contains an arena. The `!` tag is used to indicate that the following YAML file is a custom class. In this case, the `!Arena` tag indicates that the following YAML file is an Arena file. The `!Arena` tag is followed by a list of parameters that are used to define the arena, with the objects to spawn for that particular arena only. Some arena parameters are applied locally, such as `t` (time limit) and `pass_mark` (more on this later), while others are applied globally (see below for an example). 
+The `!ArenaConfig` tag is used to indicate that the following YAML file is an ArenaConfig file. The `arenas` tag is used to indicate that the following YAML file contains one or more arenas. The `0` tag indicates that the following arena is the first arena in the file, upto `n arenas` . The `!Arena` tag indicates that the following YAML file contains an arena. The `!` tag is used to indicate that the following YAML file is a custom class. In this case, the `!Arena` tag indicates that the following YAML file is an Arena file. The `!Arena` tag is followed by a list of parameters that are used to define the arena, with the objects to spawn for that particular arena only. Some arena parameters are applied locally, such as `t` (renamed to `timeLimit` from v4.1.0) and `pass_mark` (renamed to `passMark` from v4.1.0), while others are applied globally (see below for an example). 
 
 #### YAML Hierarchical Syntax (Config/YAML Global Parameters)
 
 ```YAML
 !ArenaConfig
 # Global Parameters that are optional to put here.
-canChangePerspective: false # can the agent change its perspective? (i.e. switch between first-person and third-person view)
-canResetEpisode: false # can the agent reset the episode? 
-showNotification: false # show the notification to the user upon completion of the episode? 
-randomizeArenas: false # randomize the arenas? This applies if there are > 1 arenas in the file. 
+canChangePerspective: false # Can the agent change its perspective? (i.e. switch between first-person and third-person view)
+canResetEpisode: false # Can the agent reset the episode? 
+showNotification: false # Show the notification to the user upon completion of the episode? 
+randomizeArenas: false # Randomize the arenas? This applies if there are > 1 arenas in the file. 
 arenas:
   0: !Arena
     ... # rest of configuration file...
@@ -81,8 +85,8 @@ In the example above, the global parameters are defined before the arenas. These
 !ArenaConfig
 arenas:
   0: !Arena
-    t: 250 # Time limit for the arena. This is a local parameter, and is only applicable to this arena.
-    pass_mark: 0 # Pass mark for the arena (i.e. the minimum reward required to pass the arena). This is a local parameter, and is only applicable to this arena.
+    timeLimit: 0 # Time limit for the arena. This is a local parameter, and is only applicable to this arena.
+    passMark: 100 # Pass mark for the arena (i.e. the minimum reward required to pass the arena). This is a local parameter, and is only applicable to this arena.
     items: # List of objects to spawn in the arena. This is a list which is converted to a GameObject array in Unity.
     - !Item # An individual object to spawn in the arena. This object is then added to the list of objects to spawn in the arena.
       name: Agent
@@ -91,9 +95,10 @@ arenas:
       rotations: [90]
       skins:
       - "hedgehog"
-  1: !Arena # note that the arena number is 1, meaning this is the second arena in the file. Each arena must have a unique number and the first arena must be 0.
-    t: 250 # Time limit for the arena. This is a local parameter, and is only applicable to this arena.
-    pass_mark: 0 # Pass mark for the arena (i.e. the minimum reward required to pass the arena). This is a local parameter, and is only applicable to this arena.
+
+  1: !Arena # Note that the arena number is 1, meaning this is the second arena in the file. Each arena must have a unique number and the first arena must be 0.
+    timeLimit: 100
+    passMark: 0
     items: # List of objects to spawn in the arena. This is a list which is converted to a GameObject array in Unity.
     - !Item # An individual object to spawn in the arena. This object is then added to the list of objects to spawn in the arena.
       name: Agent
@@ -114,12 +119,13 @@ Regarding Arena and Item local parameters, we can observe respectively that:
 !ArenaConfig
 arenas:
   0: !Arena
-    t: 250 # Time limit for the arena. This is a local parameter, and is only applicable to this arena.
-    pass_mark: 0 # Pass mark for the arena (i.e. the minimum reward required to pass the arena). This is a local parameter, and is only applicable to this arena.
+    timeLimit: 100
+    passMark: 0
     items: # List of objects to spawn in the arena. This is a list which is converted to a GameObject array in Unity.
     - !Item # An individual object to spawn in the arena. This object is then added to the list of objects to spawn in the arena.
       name: Agent
       ... # rest of Agent parameters...
+
     - !Item
       name: Wall
       positions:
@@ -129,15 +135,16 @@ arenas:
       rotations: [45]
       sizes:
       - !Vector3 {x: 5, y: 5, z: 5}
+      
     - !Item
       name: Wall
       positions:
-      - !Vector3 {x: 1000, y: 1000, z: 1000}
+      - !Vector3 {x: 10, y: 10, z: 10}
       colors:
       - !RGB {r: 204, g: 0, b: 204 }
       rotations: [0]
       sizes:
-      - !Vector3 {x: 1000, y: 1000, z: 1000}
+      - !Vector3 {x: 1, y: 1, z: 1}
 ```
 
 * Moreover, we can observe that the `!Item` tag also contains local parameters of its own, which we define as _item-only_ local parameters. Such item-only local parameters are only applicable to the object in which they are defined. For example, if we define a `Wall` object twice in the same arena (as demonstrated in the above YAML snippet), the local parameters such as positions, sizes, colors, rotations etc. defined for the first  `Wall` object will not apply to the second `Wall` object in the same arena. 
@@ -156,27 +163,39 @@ Let's take a look at some examples to understand how to use the YAML syntax in A
 !ArenaConfig
 arenas:
   0: !Arena
-    t: 0
+    timeLimit: 100
+    passMark: 0
     items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      skins: # Optional parameter. If not specified, a random skin will be assigned.
+      - "hedgehog"
+
     - !Item
       name: Wall
       positions:
       - !Vector3 {x: 10, y: 0, z: 10}
       - !Vector3 {x: -1, y: 0, z: 30}
+      # Note that the second wall game object has a '-1' value defined for x axis, which means that the x axis will be randomomized.
       colors:
       - !RGB {r: 204, g: 0, b: 204 }
-      rotations: [45, 45]
+      - !RGB {r: 204, g: 0, b: 204 }
+      rotations: [45, 45] # Optional parameter for the rotation of the object. If not specified, the object is not rotated.
       sizes:
       - !Vector3 {x: -1, y: 5, z: -1}
-      # note that the second wall gameobject has no positions defined, meaning it will be randomly spawned in the arena. 
+
     - !Item
       name: CylinderTunnel
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      - !Vector3 {x: 30, y: 0, z: 20}
+      - !Vector3 {x: 40, y: 0, z: 20}
       colors:
       - !RGB {r: 204, g: 0, b: 204 }
       - !RGB {r: 204, g: 0, b: 204 }
       - !RGB {r: 204, g: 0, b: 204 }
-    - !Item
-      name: GoodGoal
 ```
 
 <p align="center">
@@ -191,10 +210,10 @@ arenas:
 In this scenario, the objects will spawn in the following order:
 
 * A pink Cube will appear at coordinates `[10, 10]` on the ground. It will have a rotation of `45` degrees and its size will be random along the `x` and `z` axes, with a fixed size of `y=5`.
-Another Cube will be placed on the ground at a random x coordinate and z=30. This cube's rotation, size, and color will all be randomly determined.
+Another Cube will be placed on the ground at a random x coordinate and `z=30`. This cube's rotation, size, and color will all be randomly determined.
 * Three CylinderTunnel objects will spawn next, and each of these will be entirely random in terms of position, size, color, and rotation.
 * A GoodGoal object will then appear, with all its attributes randomized.
-* Finally, the agent will spawn in a random position and orientation if it is unspecified in the arena instance. This is an important point to note, as if the agent was specified, it would have priority over all other objects and would be spawned first, before any other object(s).
+* Finally, the agent will spawn first. This is an important point to note, as it currently priority over all other objects and would be spawned first, before any other object(s).
 
 &nbsp; 
 
@@ -204,8 +223,8 @@ Another Cube will be placed on the ground at a random x coordinate and z=30. Thi
 !ArenaConfig
 arenas:
   0: !Arena
-    pass_mark: 0
-    t: 250
+    timeLimit: 100
+    passMark: 0
     items:
     - !Item
       name: Agent
@@ -214,18 +233,18 @@ arenas:
       rotations: [90]
       skins:
       - "hedgehog"
+
     - !Item
       name: ShrinkGoal
       positions:
       - !Vector3 {x: 20, y: 0, z: 11}
       sizes:
       - !Vector3 {x: 0.1, y: 0.1, z: 0.1}
-      symbolNames:
-      - "left-arrow"
       initialValues: [2.5]
       finalValues: [1.5]
       delays: [400]
       changeRates: [-0.2]
+
     - !Item
       name: DecayGoal
       positions:
@@ -234,6 +253,7 @@ arenas:
       finalValues: [3]
       delays: [250]
       changeRates: [-0.003]
+
     - !Item
       name: AntiDecayGoal
       positions:
@@ -244,6 +264,7 @@ arenas:
       finalValues: [1.5]
       delays: [300]
       changeRates: [-0.007]
+
     - !Item
       name: GrowGoal
       positions:
@@ -278,17 +299,18 @@ Interestingly, the ShrinkGoal includes a `symbolNames` parameter, which is typic
 !ArenaConfig
 arenas:
   0: !Arena
-    pass_mark: 0
-    t: 250
+    timeLimit: 100
+    passMark: 0
     items:
     - !Item
       name: Agent
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
+
     - !Item
       name: SignBoard
-      positions: # note that the positions, rotations, and sizes parameters must be of the same length 
+      positions: # Note that the positions, rotations, and sizes parameters must be of the same length 
       # ...(i.e. if there are 5 positions, there must be 5 rotations and 5 sizes).
       - !Vector3 {x: 20, y: 0, z: 8}
       - !Vector3 {x: 20, y: 0, z: 14}
@@ -302,12 +324,12 @@ arenas:
       - !Vector3 {x: 1, y: 1, z: 1}
       - !Vector3 {x: 1, y: 1, z: 1}
       - !Vector3 {x: 1, y: 1, z: 1}
-      symbolNames: # note also that the symbolNames parameter must be of the same length as the positions parameters 
+      symbolNames: # Note also that the symbolNames parameter must be of the same length as the positions parameters 
       # ...(i.e. if there are 5 positions, there must be 5 symbolNames). Each position is an instance of a SignBoard object, and each SignBoard object can only have one symbol.
-      - "left-arrow"    
-      - "letter-a"    
-      - "circle"    
-      - "u-turn-arrow"    
+      - "left-arrow"
+      - "letter-a"
+      - "circle"
+      - "u-turn-arrow"
       - "tick"
 ```
 
@@ -327,14 +349,15 @@ This example illustrates how to employ predefined symbols using the `symbolNames
 !ArenaConfig
 arenas:
   0: !Arena
-    pass_mark: 0
-    t: 250
+    timeLimit: 100
+    passMark: 0
     items:
     - !Item
       name: Agent
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
+
     - !Item
       name: SignBoard
       positions:
@@ -376,14 +399,15 @@ Fully-random grids can be generated using the code `"MxN"` , where `M` and `N` a
 !ArenaConfig
 arenas:
   0: !Arena
-    pass_mark: 0
-    t: 250
+    timeLimit: 100
+    passMark: 0
     items:
     - !Item
       name: Agent
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
+
     - !Item
       name: SpawnerButton
       positions:
@@ -391,17 +415,15 @@ arenas:
       sizes:
       - !Vector3 {x: 5, y: 5, z: 5}
       rotations: [0]
-      # colors:
-      # - !RGB {r: 204, g: 0, b: 204 }
-      # note that the SpawnerButton is a modular object, but the colors are fixed for each module in order to remove the
-      # ...occurance of each module having the same color, which would be confusing for the player/agent on which module to interact with.
-      moveDurations: [0.1] 
-      resetDurations: [1.0] 
+      # Note that the SpawnerButton is a modular object and the colors are fixed for each part of the game object in order to remove
+      # ... the occurance of each part having the same color, which would be confusing for the player/agent.
+      moveDurations: [0.1]
+      resetDurations: [1.0]
       rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
-      rewardWeights: [100, 0, 0] 
-      spawnProbability: 1.0 
-      maxRewardCounts: [-1, -1, -1] 
-      rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23} # the position where the reward will be spawned. 
+      rewardWeights: [100, 0, 0]
+      spawnProbability: 1.0
+      maxRewardCounts: [-1, -1, -1]
+      rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23} # The position where the reward will be spawned.
 ```
 
 <p align="center">
@@ -433,34 +455,55 @@ As an added feature, the weights can be used to control the probability of spawn
 randomizeArenas: true # Here, we set randomizeArenas to true, which means that the arenas will be randomized upon play. Note that this is not applicable to training mode.
 arenas:
   0: !Arena
-    pass_mark: 0
-    t: 250
+    timeLimit: 100
+    passMark: 0
     items:
     - !Item
       name: Agent
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
+
     - !Item
       name: SpawnerButton
       positions:
-      - !Vector3 {x: 20, y: 0, z: 8}
-  1: !Arena # Here, we define a second arena. However, for simplicitiy, the second arena has the same objects and parameters as the first arena.
-    pass_mark: 0
-    t: 250
+      - !Vector3 {x: 10, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5}
+      rotations: [0]
+      moveDurations: [0.1]
+      resetDurations: [1.0]
+      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
+      rewardWeights: [100, 0, 0]
+      spawnProbability: 1.0
+      maxRewardCounts: [-1, -1, -1]
+      rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23}
+
+  1: !Arena # We define a second arena. However, for example sake, the second arena has the same objects and parameters as the first arena.
+    timeLimit: 100
+    passMark: 0
     items:
     - !Item
       name: Agent
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
+
     - !Item
       name: SpawnerButton
       positions:
-      - !Vector3 {x: 20, y: 0, z: 8}
-    - !Item
-      name: SpawnerButton
-      - !Vector3 {x: 27.9799995, y: 0, z: 7.99999905}
+      - !Vector3 {x: 10, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5}
+      rotations: [0]
+      moveDurations: [0.1]
+      resetDurations: [1.0]
+      rewardNames: ["GoodGoal", "BadGoal", "GoodGoalMulti"]
+      rewardWeights: [100, 0, 0]
+      spawnProbability: 1.0
+      maxRewardCounts: [-1, -1, -1]
+      rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23}
+
 ```
 
 <table>
@@ -488,8 +531,8 @@ In this example, we define two arenas. However, we set `randomizeArenas` to `tru
 !ArenaConfig
 arenas:
   0: !Arena
-    t: 250 
-    pass_mark: 50 
+    timeLimit: 100
+    passMark: 0
     items:
     - !Item
       name: Agent
