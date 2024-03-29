@@ -28,7 +28,7 @@ Most objects in AAI share a handful of fundamental parameters governing their si
 * `rotations`: a list of `float` in the range `[0,360]`, if the list is empty the rotation is sampled randomly.
 * `colors`: a list of `RGB` values (integers in the range `[0,255]`), if the list is empty the color is sampled randomly. Note that not all objects can have their colour changed and for those (e.g. transparent objects) this value will be ignored.
 
-Any of these fields can be omitted in the configuration files, in which case the omitted fields are automatically randomized. Any Vector3 that contains a -1 for any of its dimensions will spawn that dimension randomly. This can be used to spawn, for example, multiple walls of a set width and height but random lengths. 
+All except `name` and `positions` parameters can be omitted in the configuration files, in which case the omitted fields are automatically randomized. Any Vector3 that contains a `-1` value for any of its dimensions (x,y,z) will spawn that dimension randomly. This can be used to spawn, for example, multiple walls of a set width and height but random lengths. 
 
 ## The Arena
 
@@ -38,12 +38,7 @@ Any of these fields can be omitted in the configuration files, in which case the
 
 A single arena is as shown above, it comes with a single agent (spherical animal, [see below](#the-agent)), a floor and four walls. It is a square of size 40x40, the origin (the bottom-left corner) of the arena is `(0,0)` . You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
 
-Note that in Unity the **y** axis is the vertical axis. In the above picture with the agent on the ground in the center of the environment its coordinates are `(20, 0, 20)` .
-
-For each arena you can provide the following parameters and a list of objects to spawn:
-* `t` an `int`, the length of an episode which can change from one episode to the other. A value of `0` means that the episode will not terminate until a reward has been collected (setting `t=0` and having no reward will lead to an infinite episode). This value is converted into a decay rate for the health of the agent. A `t` of 100 means that the agent's health will decay to 0, and the episode will end, after 100 time steps.
-* `pass_mark` an `int`, the reward threshold that should constitute a ‘pass’ in the environment. Leaving this parameter undefined leads to the default value of 0, whereby any reward value obtained by the Agent results in a pass. This parameter also determines the notifications that players receive at the end of an episode. If used, this parameter should be defined with consideration to the reward size that can feasibly be obtained by the agent in each configuration file. 
-* `blackouts` a list of `int` or a single `int`, the frames at which the lights should be switched off. See [Blackouts](#blackouts) for more details.
+Note that in Unity the **y** axis is the vertical axis. In the above picture with the agent on the ground in the center of the environment its coordinates are `(x = 20, y = 0, z = 20)`.
 
 ### Blackouts
 
@@ -55,7 +50,7 @@ pass two types of arguments for this parameter:
 then back on from 15 to 19 included etc...
 * passing a single negative argument `[-20]` will automatically switch lights on and off every 20 frames.
 
-**Note**: for infinite episodes (where `t=0` ), the first point above would leave the light off after frame `25` while the second point would keep switching the lights every `20` frames indefinitely.
+**Note**: for infinite episodes (where `timeLimit = 0` ), the first point above would leave the light off after frame `25` while the second point would keep switching the lights every `20` frames indefinitely.
 
 ## The Agent
 
