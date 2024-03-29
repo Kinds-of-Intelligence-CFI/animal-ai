@@ -129,3 +129,18 @@ Seeing `UnityActionException: The Unity environment took too long to respond`? E
 We are aware of this issue with the first arena (typically index 0) being skipped entirely during the initial training loop. However, this issue is resolved in the subsequent training loops. For a temporary fix, you can duplicate the first arena with the same parameters but change the index to 1. This will ensure that the first arena is loaded during the initial training loop in place of the first arena.
 
 We are working on a fix for this issue. We apologize for any inconvenience this may cause.
+
+## 't' and/or 'pass_mark' is Not Defined/Recognized
+
+Seeing `NameError: name 't' is not defined` or `NameError: name 'pass_mark' is not defined`? Ensure that the `t` and `pass_mark` are changed to `timeLimit` and `passMark` for any AAI builds from v4.1.0 and above. This change was made to ensure consistency in the naming conventions across the Animal-AI environment.
+
+If you are using an older version of the Animal-AI environment, you can find the `t` and `pass_mark` variables in the `config.yaml` file, which should be defined below the Arena index definition, such as:
+
+```yaml
+!ArenaConfig
+arenas:
+  0: !Arena
+    passMark/pass_mark: 50
+    timeLimit/t: 100
+    # rest of the arena configuration...
+```
