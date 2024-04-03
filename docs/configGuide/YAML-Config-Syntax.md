@@ -23,12 +23,13 @@
 
 Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. We will start with some simple examples and then move on to more complex examples. 
 
-_Please note that becuase AAI is being developed actively, the screenshots and examples may not be accurately representative of the current version of the game. However, the YAML syntax and the examples provided are still valid and can be used to create custom arenas in the current version of the game._
+_Please note that becuase AAI is being developed actively, the screenshots and examples may not be accurately representative of the current version of the project. However, the YAML syntax and the examples provided are still valid and can be used to create custom arenas in the current version of the game._
 
 **Important Notes/News:**
-- As of AAI v4.1.0, the `t` parameter has been renamed to `timeLimit` and the `pass_mark` parameter has been renamed to `passMark`. Please adjust your YAML configurations accordingly, either manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). However, you may still use these parameters with their older, deprecated names in AAI v4.0.0 and below.
-### Understanding YAML Syntax
 
+- **As of AAI v4.1.0**, the `t` parameter has been renamed to `timeLimit` and the `pass_mark` parameter has been renamed to `passMark`. Please adjust your YAML configurations accordingly, either manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). However, you may still use these parameters with their older, deprecated names in AAI v4.0.0 and below.
+
+### Understanding YAML Syntax
 #### YAML Hierarchical Syntax
 
 ```YAML
