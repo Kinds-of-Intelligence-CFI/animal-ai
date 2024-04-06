@@ -114,10 +114,10 @@ The controls are as follows:
 
 <table>
   <tr>
-    <td><img src="../docs/figs/prefabs/agent-skins/agent-hedgehog.png" width="500"/>
+    <td><img src="/docs/figs/prefabs/agent-skins/agent-hedgehog.png" width="500"/>
     <p>Hedgehog</p></td>
-    <td><img src="../docs/figs/prefabs/Agent-Skins/agent-panda.png" width="500"/><p>Panda</p></td>
-    <td><img src="../docs/figs/prefabs/Agent-Skins/agent-pig.png" width="500"/><p>Pig</p></td>
+    <td><img src="/docs/figs/prefabs/Agent-Skins/agent-panda.png" width="500"/><p>Panda</p></td>
+    <td><img src="/docs/figs/prefabs/Agent-Skins/agent-pig.png" width="500"/><p>Pig</p></td>
 </table>
 
 ### Agent HUD (Heads-Up Display)
