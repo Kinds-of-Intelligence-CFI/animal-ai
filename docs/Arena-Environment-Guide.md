@@ -120,6 +120,7 @@ The controls are as follows:
     <p>Panda</p></td>
     <td><img src="../docs/figs/prefabs/Agent-Skins/agent-pig.png" width="500"/>
     <p>Pig</p></td>
+  </tr>
 </table>
 
 ### Agent HUD (Heads-Up Display)
