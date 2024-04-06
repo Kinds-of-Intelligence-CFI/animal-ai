@@ -112,14 +112,13 @@ The controls are as follows:
 * `R` - reset the arena (cycles to the next episode if `canResetEpisode` is `true`)
 * `Q` - quit (exits the application upon press)
 
+The agent has a set of skins that can be used to change its appearance in the arena. The skins are as follows:
+
 <table>
   <tr>
-    <td><img src="../docs/figs/prefabs/agent-skins/agent-hedgehog.png" width="500"/>
-    <p>Hedgehog</p></td>
-    <td><img src="../docs/figs/prefabs/Agent-Skins/agent-panda.png" width="500"/>
-    <p>Panda</p></td>
-    <td><img src="../docs/figs/prefabs/Agent-Skins/agent-pig.png" width="500"/>
-    <p>Pig</p></td>
+    <td><img src="../docs/figs/prefabs/agent-skins/agent-hedgehog.png" width="500"/><p>Hedgehog</p></td>
+    <td><img src="../docs/figs/prefabs/agent-Skins/agent-panda.png" width="500"/><p>Panda</p></td>
+    <td><img src="../docs/figs/prefabs/agent-Skins/agent-pig.png" width="500"/><p>Pig</p></td>
   </tr>
 </table>
 
