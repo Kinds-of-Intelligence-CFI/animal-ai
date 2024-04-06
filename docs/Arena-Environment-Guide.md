@@ -115,11 +115,9 @@ The controls are as follows:
 The agent has a set of skins that can be used to change its appearance in the arena. The skins are as follows:
 
 <table>
-  <tr>
     <td><img src="../docs/figs/prefabs/agent-skins/agent-hedgehog.png" width="500"/><p>Hedgehog</p></td>
     <td><img src="../docs/figs/prefabs/agent-Skins/agent-panda.png" width="500"/><p>Panda</p></td>
     <td><img src="../docs/figs/prefabs/agent-Skins/agent-pig.png" width="500"/><p>Pig</p></td>
-  </tr>
 </table>
 
 ### Agent HUD (Heads-Up Display)
