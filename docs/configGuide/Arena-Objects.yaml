@@ -1,4 +1,4 @@
-### IMPORTANT! READ BEFORE USE! ###
+### IMPORTANT! ###
 
 # This YAML file contains every object in the arena that is spawnable. 
 # Each object has it's own properties such as name, position, rotation, size, and color, as well as their default values.
@@ -129,6 +129,10 @@ arenas:
 
 # VALANCED REWARDS SPAWNERS/DISPENSERS
 
+### ATTENTION! READ BEFORE USE! ###
+# A special note on the SpawnerButton: The SpawnerButton is defined uniquely in the arena with the major difference being that each SpawnerButton can be used to define a single instance of the object.
+# For example, for other objects you can define multiple instances of the object by simply adding more positions, rotations, sizes, etc. However, for the SpawnerButton, you can only define one instance of the object. 
+# Therefore, if you want to have multiple SpawnerButtons in the arena, you will need to define each SpawnerButton separately.
     - !Item
       name: SpawnerButton # Interactive button that spawns rewards when pressed by the agent.
       positions:
