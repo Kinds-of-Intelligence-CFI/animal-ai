@@ -84,9 +84,9 @@ arenas:
 
 * `(n): !Arena` an `int`, denotes the unique arena index, which is used to identify the arena in the configuration file. The first arena must start with `0`, upto `n`, where `n` is the number of arenas defined in a single configuration file. 
 #####
-* `timeLimit` an `int`, defines the length of an episode which can change from one episode to the other. A value of `0` means that the episode will not terminate until a reward has been collected (setting `t=0` and having no reward will lead to an infinite episode). This value is converted into a decay rate for the health of the agent. A `t` of 100 means that the agent's health will decay to 0, and the episode will end, after 100 time steps. **Note: This parameter is supported in AAI builds v4.0.0 and below, and should be replaced. It is replaced by `timeLimit` in AAI builds v4.1.0 and above.**
+* `timeLimit` an `int`, defines the length of an episode which can change from one episode to the other. A value of `0` means that the episode will not terminate until a reward has been collected (setting `t=0` and having no reward will lead to an infinite episode). This value is converted into a decay rate for the health of the agent. A `t` of 100 means that the agent's health will decay to 0, and the episode will end, after 100 time steps. **Note: This parameter name is supported in AAI builds v4.0.0 and below. It is replaced by `timeLimit` in AAI builds v4.1.0 and above.**
 #####
-* `passMark` an `int`, defines the reward threshold that should constitute a ‘pass’ in the enviroment. Leaving this parameter undefined leads to the default value of 0, whereby any reward value obtained by the Agent results in a pass. This parameter also determines the notifications that players receive at the end of an episode. If used, this parameter should be defined with consideration to the reward size that can feasibly be obtained by the agent in each configuration file. **Note: This parameter is supported in AAI builds v4.0.0 and below, and should be replaced. It is replaced by `passMark` in AAI builds v4.1.0 and above.**
+* `passMark` an `int`, defines the reward threshold that should constitute a ‘pass’ in the enviroment. Leaving this parameter undefined leads to the default value of 0, whereby any reward value obtained by the Agent results in a pass. This parameter also determines the notifications that players receive at the end of an episode. If used, this parameter should be defined with consideration to the reward size that can feasibly be obtained by the agent in each configuration file. **Note: This parameter name is supported in AAI builds v4.0.0 and below. It is replaced by `passMark` in AAI builds v4.1.0 and above.**
 #####
 * `canChangePerspective` a `bool`, defines whether the agent can change its camera perspective during an episode (first-person, third-person or eagle-view). If set to `false`, the agent will be unable to change its camera perspective during an episode by pressing the C button on their keyboards, which will cycle through the cameras attached to the Agent in-gasme. If set to `true`, the agent will be able to change its perspective during an episode. This parameter is set to `true` by default.
 #####
@@ -122,7 +122,7 @@ The controls are as follows:
 
 ### Agent HUD (Heads-Up Display)
 
-The agent has a HUD (_Heads-Up Display_) that displays the following information per episode by default:
+The agent has a HUD that displays the following information per episode by default:
 
 * **Health**: The health of the agent, which is a value between `0` and `1`. The agent's health decays over time, and is reset to `1` when the agent collects a reward. The agent's health is displayed as a green-yellow-red bar at the bottom of the HUD.
 #####
@@ -142,8 +142,8 @@ The agent has a HUD (_Heads-Up Display_) that displays the following information
 
 The arena/agent has a few limitations to be considered, which are as follows:
 
-1. Only a single agent _per_ arena is supported, both for play and training.
-2. The agent can only move on the ground, and cannot move on the walls or any other object.
+1. Only a single agent _per_ arena/episode is supported, both for play and training.
+2. The agent can only move on the ground, and cannot move on the walls or any other object (except when placed on top of objects that have a flat surface).
 3. The agent cannot move through objects (except for the hot/death zones).
 4. The agent cannot jump or fly.
 5. The agent cannot pick up objects (however, this is a feature to be added in the future).
