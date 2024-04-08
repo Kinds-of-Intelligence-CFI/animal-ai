@@ -557,6 +557,50 @@ We can observe that:
 * Additionally, if we set `blackouts` to `[-20]`, the arena will blackout every 20 frames (because we placed the '-' indicating repeat).
 * The blackout has no effect on any other aspect of the agent or the arena. For example, the agent will still be able to move around the arena, and the objects in the arena will still be visible to the agent. _RayCasting_ will still work. 
 
+#### EXAMPLE 8 - Multi-Arena Episodes
+
+```YAML
+!ArenaConfig
+arenas:
+  0: !Arena
+    t: 50
+    mergeNextArena: true
+    items:
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+  1: !Arena
+    t: 50
+    items:
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+```
+
+**Observations:**
+
+Sometimes we would like to include multiple arenas in a single episode (for example to test in-context learning of the shape of a maze). This can be achieved by setting the `mergeNextArena` parameter to `true`. In the example this causes Animal AI to treat arena 0 (where the reward is ahead of the agent) and arena 1 (where it is behind) as a single unit, only ending the episode when it is failed or both arenas are completed. More than two arenas can be merged in this way, using the `mergeNextArena` parameter in each arena to add the following arena to the episode.
+
 ### Conclusion
 
 We hope that this guide has helped you understand how to use the YAML syntax in Animal-AI to create custom arenas. 
