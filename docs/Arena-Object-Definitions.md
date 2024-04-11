@@ -184,6 +184,15 @@ Valenced objects increase or decrease the agent's reward when the agent touches 
 * **Size Range**: `0.5-5`
 * **Color**: Not changeable
 * **Valence**: Positive, proportional to size
+
+### Non-Episode-Ending Positive Multi Goal
+
+<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoal.png" />
+
+* **Name**: `GoodGoalMulti`
+* **Size Range**: `0.5-5`
+* **Color**: Not changeable
+* **Valence**: Negative, proportional to size
   
 Notes: The `rotations` parameter sets the direction of motion.
 
@@ -201,6 +210,15 @@ Notes: The `rotations` parameter sets the direction of motion.
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoal.png" />
 
 * **Name**: `BadGoalBounce`
+* **Size Range**: `0.5-5`
+* **Color**: Not changeable
+* **Valence**: Negative, proportional to size
+
+### Non-Episode-Ending Negative Multi Goal
+
+<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoal.png" />
+
+* **Name**: `BadGoalMulti`
 * **Size Range**: `0.5-5`
 * **Color**: Not changeable
 * **Valence**: Negative, proportional to size
