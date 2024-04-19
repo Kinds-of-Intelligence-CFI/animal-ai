@@ -15,9 +15,9 @@
    3.5 [Example 5 - SpawnerButton (Interactive Objects)](#example-5---spawnerbutton-interactive-objects)
    3.6 [Example 6 - Multiple Arenas (Randomisation)](#example-6---multiple-arenas-randomisation)
    3.7 [Example 7 - Arena 'Blackouts'](#example-7---arena-blackouts)
+   3.8 [Example 8 - Multi-Arena Episodes](#example-8---multi-arena-episodes)
 4. [Conclusion](#conclusion)
 5. [Further Reading and Documentation](#further-reading-and-documentation)
-
 
 ### Introduction
 
@@ -27,9 +27,10 @@ _Please note that becuase AAI is being developed actively, the screenshots and e
 
 **Important Notes/News:**
 
-- **As of AAI v4.1.0**, the `t` parameter has been renamed to `timeLimit` and the `pass_mark` parameter has been renamed to `passMark`. Please adjust your YAML configurations accordingly, either manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). However, you may still use these parameters with their older, deprecated names in AAI v4.0.0 and below.
+* **As of AAI v4.1.0**, the `t` parameter has been renamed to `timeLimit` and the `pass_mark` parameter has been renamed to `passMark`. Please adjust your YAML configurations accordingly, either manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). However, you may still use these parameters with their older, deprecated names in AAI v4.0.0 and below.
 
 ### Understanding YAML Syntax
+
 #### YAML Hierarchical Syntax
 
 ```YAML
@@ -73,7 +74,7 @@ arenas:
 
 We can observe:
 
-* The default values for the global parameters are as follows: `canChangePerspective: true`,  `canResetEpisode: true`,  `showNotification: false`, and `randomizeArenas: false`.
+* The default values for the global parameters are as follows: `canChangePerspective: true`,   `canResetEpisode: true`,   `showNotification: false`, and `randomizeArenas: false`.
 Bear in mind that the global parameters are optional to define. If we do not define them, the default values are used. 
 * If we do not provide global parameters, the default values are used. For example, if we do not provide a value for `canChangePerspective`, the default value of `true` is used.
 * If we provide a value for a global parameter, the value is applied to all arenas in the file. For example, if we set `canChangePerspective` to `false`, the agent will not be able to change its perspective in any of the arenas in the file. However, if we set `canChangePerspective` to `true`, the agent will be able to change its perspective in any of the arenas in the file.
@@ -204,14 +205,14 @@ arenas:
 </p>
 
 **Observations:** 
-* The number of parameters for `positions`,  `rotations`, and `sizes` do not need to match.
+* The number of parameters for `positions`,   `rotations`, and `sizes` do not need to match.
 * The environment will spawn `max(len(positions), len(rotations), len(sizes))` objects.
 * Missing parameters are assigned randomly. For example, if `positions` is specified, but `sizes` are not, the environment will randomly assign sizes values to the objects.
 
 In this scenario, the objects will spawn in the following order:
 
 * A pink Cube will appear at coordinates `[10, 10]` on the ground. It will have a rotation of `45` degrees and its size will be random along the `x` and `z` axes, with a fixed size of `y=5`.
-Another Cube will be placed on the ground at a random x coordinate and `z=30`. This cube's rotation, size, and color will all be randomly determined.
+Another Cube will be placed on the ground at a random x coordinate and `z=30` . This cube's rotation, size, and color will all be randomly determined.
 * Three CylinderTunnel objects will spawn next, and each of these will be entirely random in terms of position, size, color, and rotation.
 * A GoodGoal object will then appear, with all its attributes randomized.
 * Finally, the agent will spawn first. This is an important point to note, as it currently priority over all other objects and would be spawned first, before any other object(s).
@@ -556,6 +557,50 @@ We can observe that:
 * The `blackouts` parameter is used to define the blackout zones for the arena. The `blackouts` parameter is a list of frames at which the arena will be blacked out. For example, if we set `blackouts` to `[10, 43, 50, 20]`, the arena will be blacked out at frames 10, 43, 50 and 20. This means the player/agent will be virtually blind at these frames (no light will be emitted to the arena).
 * Additionally, if we set `blackouts` to `[-20]`, the arena will blackout every 20 frames (because we placed the '-' indicating repeat).
 * The blackout has no effect on any other aspect of the agent or the arena. For example, the agent will still be able to move around the arena, and the objects in the arena will still be visible to the agent. _RayCasting_ will still work. 
+
+#### EXAMPLE 8 - Multi-Arena Episodes
+
+```YAML
+!ArenaConfig
+arenas:
+  0: !Arena
+    t: 50
+    mergeNextArena: true # Here, we set mergeNextArena to true, which means that the next arena will be merged with this arena, creating a single episode.
+    items:
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+  1: !Arena
+    t: 50
+    items:
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+```
+
+**Observations:**
+
+Sometimes we would like to include multiple arenas in a single episode (for example to test in-context learning of the shape of a maze). This can be achieved by setting the `mergeNextArena` parameter to `true` . In the example above, this causes Animal-AI to treat arena 0 (where the reward is ahead of the agent) and arena 1 (where it is behind) as a single unit, only ending the episode when it is failed or both arenas are completed. More than two arenas can be merged in this way, using the `mergeNextArena` parameter in each arena to add the following arena to the episode.
 
 ### Conclusion
 

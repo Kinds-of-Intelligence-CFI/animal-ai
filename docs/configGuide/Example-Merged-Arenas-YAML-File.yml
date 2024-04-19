@@ -1,0 +1,46 @@
+### IMPORTANT NOTES ###
+# 1. The YAML file must be indented correctly. The indentation must be consistent throughout the file.
+# 2. The YAML file must be saved with a .yaml extension.
+
+### IMPORTANT NEWS ###
+# As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
+# ... You may still use the old parameter names in AAI v4.0.0 and below.
+
+!ArenaConfig
+arenas:
+  0: !Arena
+    timeLimit: 50
+    passMark: 50
+    mergeNextArena: true # This line indicates that the next arena will be merged with this one, meaning the agent will not be reset between arenas.
+    items:
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+
+  1: !Arena
+    timeLimit: 50
+    passMark: 50
+    items:
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}

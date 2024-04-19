@@ -3,8 +3,8 @@
 # 2. The YAML file must be saved with a .yaml extension.
 
 ### IMPORTANT NEWS ###
-# As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated (name change). Replace them with "timeLimit" and "passMark" respectively.
-# ... You may still use the older parameter names in AAI builds v4.0.0 and below.
+# As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
+# ... You may still use the old parameter names in AAI v4.0.0 and below.
 
 !ArenaConfig
 arenas:
