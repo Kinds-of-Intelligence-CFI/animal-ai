@@ -20,6 +20,14 @@ _A small breaking change is introduced in this version for YAML configuration fi
   - `"t"` parameter has been renamed to `"timeLimit"` to better reflect its purpose and improve readability.
   - `"pass_mark"` parameter has been renamed to `"passMark"` for coherency with other parameters.
   - UI text elements have been set to use the same font style for coherency.
+- _New Object: [Spawner] `Hollow-Object`._
+  - This new object is a hollow box that can be configured to have a reward spawn right above it (by setting the y axis to anything above 1). The reward will be spawned at the same x and z position as the hollow object, so it is easy to configure the reward to spawn directly above the hollow object. The hollow object can be used to create more complex environments and challenges for the agent.
+  - The new object has a few parameters specific to it, such as `rewardToSpawn` (string), `rewardSpawnPosition` (Vector3), `delayRewardSpawn` (bool), delayTime (float), and `rewardSpawnHeight` (float).
+- _New UI Element: `AAI Build Version`._
+  - Now, users will directly see the Animal-AI Build Version in the UI they are using for quick reference. It is displayed in the bottom-right corner of the UI.
+- _New Functionality: `mergeArenas`._ 
+  - This new functionality allows users to merge multiple arenas into one. This is useful for creating more complex environments with multiple arenas. The merged arenas will be placed in the same position in the scene, and the agent will be able to move between them seamlessly. An example YAML configuration file is provided in the documentation (see [here](docs/configGuide/Example-Merged-Arenas-YAML-File.yml)).
+
 
 ### Fixed
 

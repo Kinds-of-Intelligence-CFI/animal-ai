@@ -88,7 +88,7 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 
 * **Name**: `WallTransparent`
 * **Size Range**: `(0.1,0.1,0.1)-(40,10,40)`
-* **Color**: Not changeable
+* **Color**: Not changeable / (transparent)
 
 ### Ramp
 
@@ -112,7 +112,7 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 
 * **Name**: `CylinderTunnelTransparent`
 * **Size Range**: `(2.5,2.5,2.5)-(10,10,10)`
-* **Color**: Not changeable
+* **Color**: Not changeable / (transparent)
 
 ## Movable Objects
 
@@ -124,7 +124,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 
 * **Name**: `LightBlock`
 * **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
-* **Color**: Not changeable
+* **Color**: Not changeable / (grey)
 * **Alias**: `CardBox1`
 
 ### Heavy Cardboard Block
@@ -133,7 +133,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 
 * **Name**: `HeavyBlock`
 * **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
-* **Color**: Not changeable
+* **Color**: Not changeable / (grey)
 * **Alias**: `CardBox2`
 
 ### U-shaped Block
@@ -142,7 +142,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 
 * **Name**: `UBlock`
 * **Size Range**: `(1,0.3,3)-(5,2,20)`
-* **Color**: Not changeable
+* **Color**: Not changeable / (grey)
 * **Alias**: `UObject`
 
 ### L-shaped Block
@@ -151,7 +151,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 
 * **Name**: `LBlock`
 * **Size Range**: `(1,0.3,3)-(5,2,20)`
-* **Color**: Not changeable
+* **Color**: Not changeable / (grey)
 * **Alias**: `LObject`
 
 ### J-shaped Block
@@ -160,7 +160,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 
 * **Name**: `JBlock`
 * **Size Range**: `(1,0.3,3)-(5,2,20)`
-* **Color**: Not changeable
+* **Color**: Not changeable / (grey)
 * **Alias**: `LObject2`
 
 ## Valenced Objects
@@ -173,7 +173,7 @@ Valenced objects increase or decrease the agent's reward when the agent touches 
 
 * **Name**: `GoodGoal`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable
+* **Color**: Not changeable / (green)
 * **Valence**: Positive, proportional to size
 
 ### Moving Episode-Ending Positive Goal
@@ -182,8 +182,17 @@ Valenced objects increase or decrease the agent's reward when the agent touches 
 
 * **Name**: `GoodGoalBounce`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable
+* **Color**: Not changeable / (green)
 * **Valence**: Positive, proportional to size
+
+### Non-Episode-Ending Positive Multi Goal
+
+<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoal.png" />
+
+* **Name**: `GoodGoalMulti`
+* **Size Range**: `0.5-5`
+* **Color**: Not changeable / (green)
+* **Valence**: Negative, proportional to size
   
 Notes: The `rotations` parameter sets the direction of motion.
 
@@ -193,7 +202,7 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 * **Name**: `BadGoal`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable
+* **Color**: Not changeable / (red)
 * **Valence**: Negative, proportional to size
 
 ### Moving Episode-Ending Negative Goal
@@ -202,7 +211,16 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 * **Name**: `BadGoalBounce`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable
+* **Color**: Not changeable / (red)
+* **Valence**: Negative, proportional to size
+
+### Non-Episode-Ending Negative Multi Goal
+
+<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoal.png" />
+
+* **Name**: `BadGoalMulti`
+* **Size Range**: `0.5-5`
+* **Color**: Not changeable / (red)
 * **Valence**: Negative, proportional to size
 
 Notes: The `rotations` parameter sets the direction of motion.
@@ -213,7 +231,7 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 * **Name**: `GoodGoalMulti`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable
+* **Color**: Not changeable / (yellow)
 * **Valence**: Positive, proportional to size
 
 ### Moving Non-Episode-Ending Positive Goal
@@ -222,7 +240,7 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 * **Name**: `GoodGoalMultiBounce`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable
+* **Color**: Not changeable / (yellow)
 * **Valence**: Positive, proportional to size
 
 Notes: The `rotations` parameter sets the direction of motion.
@@ -233,8 +251,8 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 * **Name**: `RipenGoal`
 * **Valence Range**: `0-5`
-* **Size**: automatically sets to final reward value
-* **Color**: Not changeable manually
+* **Size**: automatically sets to final reward value (dynamic)
+* **Color**: Not changeable / (yellow and blue)
 * **Ripen Onset Delay Range (frames)** (`delays`): `0-Inf` (default `150`)
 * **Ripen Rate (frames)** (`changeRates`): `0.001-Inf` (default `0.005`)
 * **Alias**: `AntiDecayGoal`
@@ -247,8 +265,8 @@ Notes: Colour changes (from grey to yellow) and a radial-timer fills over time d
 
 * **Name**: `DecayGoal`
 * **Valence Range**: `0-5`
-* **Size**: automatically sets to final reward value
-* **Color**: Not changeable manually
+* **Size**: automatically sets to final reward value (dynamic)
+* **Color**: Not changeable / (yellow and orange)
 * **Decay Onset Delay Range (frames)** (`delays`): `0-Inf` (default `150`)
 * **Decay Rate (frames)** (`changeRates`): `-0.001-Inf` (default `-0.005`, automatically converts to negative values if positive provided)
 
@@ -262,7 +280,7 @@ Notes: Colour changes (from yellow to grey) and a radial-timer depletes over tim
 * **Size Range**: `0-5`
 * **Valence Change Rate** (`changeRates`): `0.001-Inf` (default `0.005`)
 * **Valence**: Positive, proportional to size
-* **Color**: Not changeable
+* **Color**: Not changeable / (green)
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
 
 Notes: Growth halts if the the goal is trapped between/underneath other objects. Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
@@ -275,7 +293,7 @@ Notes: Growth halts if the the goal is trapped between/underneath other objects.
 * **Size Range**: `0-5`
 * **Valence Change Rate** (`changeRates`): `0.001-Inf` (default `0.005`)
 * **Valence**: Positive, proportional to size
-* **Color**: Not changeable
+* **Color**: Not changeable / (green)
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
 
 Notes: Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
@@ -287,7 +305,7 @@ Notes: Maximum size is `5` . Initial valence can be set with a float passed to t
 * **Name**: `DecoyGoal`
 * **Size Range**: `0.5-5`
 * **Valence**: `0` - no reward in/decrement
-* **Color**: Not changeable
+* **Color**: Not changeable / (grey)
 
 Notes: The agent's reward is not affected when it touches the decoy goal. It is simply a tool for visual distraction or to create a more complex environment without having the agent's reward affected.
 
@@ -299,7 +317,7 @@ Notes: The agent's reward is not affected when it touches the decoy goal. It is 
 * **Name**: `DeathZone`
 * **Size Range**: `(1,0.5,1)-(40,10,40)`
 * **Valence**: `-1`
-* **Color**: Not changeable
+* **Color**: Not changeable / (red)
 
 ### Non-Episode-Ending HotZone
 
@@ -307,7 +325,7 @@ Notes: The agent's reward is not affected when it touches the decoy goal. It is 
 
 * **Name**: `HotZone`
 * **Valence**: `min(-10/t, -0.00001)` for `t > 0`,  `-0.00001` otherwise, where `t` is the number of steps in the episode
-* **Color**: Not changeable
+* **Color**: Not changeable / (orange)
 
 Notes: When the agent enters the hot zone, reward decrement is accelerated by a factor of 10 compared to time alone. If a `DeathZone` and a `HotZone` overlap, `DeathZone` prevails.
 
@@ -317,7 +335,7 @@ Every valenced object (rewards) has a physics-enabled version called Bounce (e.g
 
 ## Dispensers
 
-These objects dispense valenced objects. They are immovable.
+These objects dispense valenced objects. They are immovable (can't be displaced from their original positions) and have aliases (alternative names) for backwards compatibility with previous versions of AAI.
 
 ### SpawnerTree
 
@@ -327,7 +345,7 @@ These objects dispense valenced objects. They are immovable.
 * **Size**: Fixed (`5.19 x 5.95 x 5.02`)
 * **Spawned Goal Size Range**: `0.2-3`
 * **Number of goals to spawn** (`spawnCounts`): `0-Inf` (leave blank or set to `-1` to spawn infinitely)
-* **Color**: Not changeable
+* **Color**: Not changeable / (green and brown)
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
 
 Notes: The tree spawns `GoodGoalMulti` . They grow on the trees before dropping to the floor once they have reached their final size. The starting size of the goals can be set with the `initialValues` parameter (default: `0.2` ) and the final size with the `finalValues` parameter (default: `1.0` ). The valence of the goals is proportional to their size. The number of seconds it takes to 'grow' the goals on the tree (relative to the timescale of the environment) can be set with the `ripenTimes` parameter. The number of seconds between spawnings (relative to the timescale of the environment) can be set with the `timesBetweenSpawns` parameter (default: 4.0).
@@ -365,9 +383,9 @@ Notes: The dispenser spawns `GoodGoalMulti` . The valence of the goals is propor
 <img align="right" height="100" src="/docs/figs/prefabs/Dispensers/SpawnerButton.png" />
 
 * **Name**: `SpawnerButton`
-* **Size**: Fixed
+* **Size**: Fixed (`1.30 x 1.30 x 1.30`)
 * **Spawned Goal Size**: `1`
-* **Color**: Not changeable
+* **Color**: Not changeable / (yellow and light blue)
 * **Alias**: `Pillar-Button`
 
 Notes: Spawns a goal when the player/agent *interacts* with it by colliding with the physical object. The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPos` parameter. The probability that a goal will spawn upon a press can be set with a float between 0 and 1 passed to the `spawnProbability` parameter. Different valenced objects can be spawned on different presses. A list, such as `["GoodGoal", "BadGoal", "GoodGoalMulti"]` , can be passed to `rewardNames` to define the valenced objects (only these three are supported at the moment). A corresponding list of floats between 0 and 1 can be passed to the `rewardWeights` to determine the probability of spawning each of the types of valenced object. The probabilities are normalized to sum to one. The number of frames taken for the button to depress upon touching it can be defined with `moveDurations` , and the number of frames for the button to be reset before it can be pressed again can be set with `resetDurations`.
@@ -375,8 +393,8 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
 ## Sign Boards
 
 * **Name**: `Sign Boards`
-* **Size**: Fixed
-* **Color**: Not changeable
+* **Size**: Fixed (`1.40 x 1.40 x 1.40`)
+* **Color**: RGB range (0,0,0)-(255,255,255) (only the background color can be changed, the symbols are fixed in color)
 * **Alias**: `SignPosterboard`
 * **Symbol Names**: a list of strings, the names of the symbols to display:
   - "tick"
