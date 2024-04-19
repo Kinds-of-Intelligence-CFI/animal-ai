@@ -4,7 +4,7 @@
 
 ### IMPORTANT NEWS ###
 # As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
-# ... You may still use these parameters in AAI v4.0.0 and below.
+# ... You may still use the old parameter names in AAI v4.0.0 and below.
 
 !ArenaConfig
 arenas:
