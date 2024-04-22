@@ -9,7 +9,7 @@
 5. [Immovable Objects](#immovable-objects)
 6. [Movable Objects](#movable-objects)
 7. [Valenced Objects](#valenced-objects)
-8. [Dispensers](#dispensers)
+8. [Spawners](#spawners)
 9. [Sign Boards](#sign-boards)
 10. [Ready-Made Configuration File](#ready-made-configuration-file)
 
@@ -333,7 +333,7 @@ Notes: When the agent enters the hot zone, reward decrement is accelerated by a 
 
 Every valenced object (rewards) has a physics-enabled version called Bounce (e.g. GoodGoalBounce), which has an initial velocity at the start of an episode. Furthermore, the objects have gravity enabled which allows them to bounce off the walls and other objects (hence the name).
 
-## Dispensers
+## Spawners
 
 These objects dispense valenced objects. They are immovable (can't be displaced from their original positions) and have aliases (alternative names) for backwards compatibility with previous versions of AAI.
 
@@ -389,6 +389,18 @@ Notes: The dispenser spawns `GoodGoalMulti` . The valence of the goals is propor
 * **Alias**: `Pillar-Button`
 
 Notes: Spawns a goal when the player/agent *interacts* with it by colliding with the physical object. The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPos` parameter. The probability that a goal will spawn upon a press can be set with a float between 0 and 1 passed to the `spawnProbability` parameter. Different valenced objects can be spawned on different presses. A list, such as `["GoodGoal", "BadGoal", "GoodGoalMulti"]` , can be passed to `rewardNames` to define the valenced objects (only these three are supported at the moment). A corresponding list of floats between 0 and 1 can be passed to the `rewardWeights` to determine the probability of spawning each of the types of valenced object. The probabilities are normalized to sum to one. The number of frames taken for the button to depress upon touching it can be defined with `moveDurations` , and the number of frames for the button to be reset before it can be pressed again can be set with `resetDurations`.
+
+### Hollow-Obj
+
+<img align="right" height="100" src="/docs/figs/prefabs/Dispensers/Hollow-Obj.png" />
+
+* **Name**: `Hollow-Obj`
+* **Size**: Fixed (`1.10 x 1.10 x 1.10`)
+* **Spawned Goal Size**: `1`
+* **Color**: RGB range (0,0,0)-(255,255,255) / (blue)
+
+Notes: The Hollow-Obj spawns a reward during episode launch or after a delay set by the user. Any reward can be spawned by setting the `rewardToSpawn` parameter to the desired object. The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPosision` parameter. The number of frames before the goal spawns can be set with the `delayTime` parameter (if the boolean `delayRewardSpawn` is set to true, which is by default set to false).
+
 
 ## Sign Boards
 
