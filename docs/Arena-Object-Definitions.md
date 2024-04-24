@@ -399,7 +399,7 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
 * **Spawned Goal Size**: `1`
 * **Color**: RGB range (0,0,0)-(255,255,255) / (blue)
 
-Notes: The Hollow-Obj spawns a reward during episode launch or after a delay set by the user. Any reward can be spawned by setting the `rewardToSpawn` parameter to the desired object. The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPosision` parameter. The number of frames before the goal spawns can be set with the `delayTime` parameter (if the boolean `delayRewardSpawn` is set to true, which is by default set to false).
+Notes: The Hollow-Obj can be used to spawn a reward inside it or just above it. It can fit any reward inside. The Hollow-Obj is immovable and has a rigid body, with a relaxed mass setting, meaning it can be interacted with by the Agent to, say, tip over the contained reward inside it.
 
 
 ## Sign Boards
