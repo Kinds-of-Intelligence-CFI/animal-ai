@@ -198,6 +198,10 @@ arenas:
       colors: # can be randomized by removing this field
       - !RGB {r: 80, g: 0, b: 60}
       rotations: [0]
+      rewardToSpawn: ["DecoyGoal"] # Can be any rewards
+      rewardSpawnPosition: !Vector3 {x: 20, y: 5, z: 25} # Spawns the reward 5 units above the Hollow-Obj
+      delayRewardSpawn: [false] # Spawns the reward immediately if set false, otherwise, spawns after delayTime
+      delayTime: [10] # Spawns the reward after 10 seconds
 
 
 # REWARDS
