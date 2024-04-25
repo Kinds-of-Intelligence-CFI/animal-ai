@@ -7,11 +7,8 @@ This document records all notable changes to the Animal-AI project. It follows t
 _A small breaking change is introduced in this version for YAML configuration files. The YAML syntax for defining arenas has been updated to be more user-friendly and intuitive. The new syntax is backward incompatible with the previous version `v4.0.0`. Please refer to the updated documentation for more information._
 
 ### Added
-- _New Object: `SpawnerHollowBox`._
-  - This new object is a hollow box that can be configured to have a reward spawn right above it (by setting the y axis to anything above 1). The reward will be spawned at the same x and z position as the hollow object, so it is easy to configure the reward to spawn directly above the hollow object. The hollow object can be used to create more complex environments and challenges for the agent.
-  - The new object has a few parameters specific to it, such as `rewardToSpawn` (string), `rewardSpawnPosition` (Vector3), `delayRewardSpawn` (bool), delayTime (float), and `rewardSpawnHeight` (float).
 - _New Game Object (Movable): `Hollow Box`._
-  - This new object is a hollow box that can be moved around the arena by the agent. It can be used to create more complex environments and challenges for the agent. It is a simple version of the SpawnerHollowBox object, without the ability to spawn rewards.
+  - This new object is a hollow box that can be moved around the arena by the agent. It can be used to create more complex environments and challenges for the agent.
 - _New UI Element: `AAI Build Version`._
   - Now, users will directly see the Animal-AI Build Version in the UI they are using for quick reference. It is displayed in the bottom-right corner of the UI.
 - _New Functionality: `mergeArenas`._ 
