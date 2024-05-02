@@ -14,10 +14,10 @@ jobs:
     steps:
       - uses: actions/stale@v5
         with:
-          days-before-issue-stale: 45
-          days-before-issue-close: 50
-          stale-issue-message: "This issue is stale because it has been open for 45 days with no activity."
-          close-issue-message: "This issue was closed because it has been inactive for 50 days since being marked as stale. Please open a new issue for related bugs."
+          days-before-issue-stale: 60
+          days-before-issue-close: 120
+          stale-issue-message: "This issue is stale because it has been open for 60 days with no activity."
+          close-issue-message: "This issue was closed because it has been inactive for 120 days since being marked as stale. Please open a new issue for related bugs."
           days-before-pr-stale: 45 
           days-before-pr-close: 50
           stale-pr-message: "This PR is stale because it has been open for 45 days with no activity."
