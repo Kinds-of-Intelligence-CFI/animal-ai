@@ -200,7 +200,7 @@ Valenced objects increase or decrease the agent's reward when the agent touches 
 * **Name**: `GoodGoalMulti`
 * **Size Range**: `0.5-5`
 * **Color**: Not changeable / (green)
-* **Valence**: Negative, proportional to size
+* **Valence**: Positive, proportional to size
   
 Notes: The `rotations` parameter sets the direction of motion.
 
