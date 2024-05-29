@@ -30,6 +30,7 @@ _A small breaking change is introduced in this version for YAML configuration fi
 
 ### Fixed
 
+- _Fixed a bug where the agent would sometimes get stuck in the hollow object._ 
 ---
 
 ## Version 4.0.0 (Released on 08.03.2024)
