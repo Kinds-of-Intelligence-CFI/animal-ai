@@ -135,14 +135,11 @@ The agent has a HUD that displays the following information per episode by defau
 #####
 * **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards. It contains the previous episode's reward (not valid if the current arena is the first), as well as the current episode's reward.
 #####
-* **Yaml File Details**: The YAML file details of the current yaml file used, which is displayed at the top-right of the HUD. This is an integer that contains the arena number out of total arenas, and the total number of objects spawned as an integer.
-#####
-* **Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for play mode._
+* **Episode Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for play mode._
 
 | ![](../docs/figs/Agent-HUD/agent-health.png)     | ![](../docs/figs/Agent-HUD/agent-REWARD.png)      |
 | ------------------------------------------------ | ------------------------------------------------- |
 | ![](../docs/figs/Agent-HUD/notification-bad.png) | ![](../docs/figs/Agent-HUD/notification-good.png) |
-| ![](../docs/figs/Agent-HUD/yaml-file-data.png)   |
 
 
 ### Arena/Agent Limitations
