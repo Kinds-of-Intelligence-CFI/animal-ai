@@ -235,7 +235,6 @@ arenas:
       rotations: [90]
       skins:
       - "hedgehog"
-
     - !Item
       name: ShrinkGoal
       positions:
@@ -246,7 +245,6 @@ arenas:
       finalValues: [1.5]
       delays: [400]
       changeRates: [-0.2]
-
     - !Item
       name: DecayGoal
       positions:
@@ -255,7 +253,6 @@ arenas:
       finalValues: [3]
       delays: [250]
       changeRates: [-0.003]
-
     - !Item
       name: AntiDecayGoal
       positions:
@@ -266,7 +263,6 @@ arenas:
       finalValues: [1.5]
       delays: [300]
       changeRates: [-0.007]
-
     - !Item
       name: GrowGoal
       positions:
@@ -309,7 +305,6 @@ arenas:
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
-
     - !Item
       name: SignBoard
       positions: # Note that the positions, rotations, and sizes parameters must be of the same length 
@@ -359,7 +354,6 @@ arenas:
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
-
     - !Item
       name: SignBoard
       positions:
@@ -409,7 +403,6 @@ arenas:
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
-
     - !Item
       name: SpawnerButton
       positions:
@@ -465,7 +458,6 @@ arenas:
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
-
     - !Item
       name: SpawnerButton
       positions:
@@ -490,7 +482,6 @@ arenas:
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
-
     - !Item
       name: SpawnerButton
       positions:
@@ -564,7 +555,7 @@ We can observe that:
 !ArenaConfig
 arenas:
   0: !Arena
-    t: 50
+    timeLimit: 50
     mergeNextArena: true # Here, we set mergeNextArena to true, which means that the next arena will be merged with this arena, creating a single episode.
     items:
     - !Item
@@ -579,8 +570,9 @@ arenas:
       positions:
       - !Vector3 {x: 20, y: 0, z: 20}
       rotations: [0]
+
   1: !Arena
-    t: 50
+    timeLimit: 50
     items:
     - !Item
       name: GoodGoal
