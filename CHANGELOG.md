@@ -2,49 +2,40 @@
 
 This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
 
-## Version 4.1.0 (upcoming)
+## [4.1.0] - Upcoming
+
 ### Notes
-_A small breaking change is introduced in this version for YAML configuration files. The YAML syntax for defining arenas has been updated to be more user-friendly and intuitive. The new syntax is backward incompatible with the previous version `v4.0.0`. Please refer to the updated documentation for more information._
+This version introduces a breaking change for YAML configuration files. The syntax for defining arenas has been updated to be more user-friendly and intuitive but is not backward compatible with `v4.0.0`. Please refer to the documentation for more information.
 
 ### Added
-- _New Game Object (Movable): `Hollow Box`._
-  - This new object is a hollow box that can be moved around the arena by the agent. It can be used to create more complex environments and challenges for the agent.
-- _New UI Element: `AAI Build Version`._
-  - Now, users will directly see the Animal-AI Build Version in the UI they are using for quick reference. It is displayed in the bottom-right corner of the UI.
-- _New Functionality: `mergeArenas`._ 
-  - This new functionality allows users to merge multiple arenas into one. This is useful for creating more complex environments with multiple arenas. The merged arenas will be placed in the same position in the scene, and the agent will be able to move between them seamlessly. An example YAML configuration file is provided in the documentation (see [here](docs/configGuide/Example-Merged-Arenas-YAML-File.yml)).
+- **New Game Objects**:
+  - **Movable: `HollowBox`**: A hollow box that agents can move around the arena to create more complex environments and challenges.
+  - **Movable: `DecoyGoal` and `DecoyGoalBounce`**: These objects can be used similarly to the `HollowBox` for added complexity.
+- **New UI Element: `AAI Build Version`**: Displays the Animal-AI Build Version in the bottom-right corner of the UI for quick reference.
+- **New Feature: `mergeArenas`**: Allows users to merge multiple arenas into one, enabling more complex environments. Merged arenas will be in the same scene, allowing seamless agent movement between them. See the documentation for an example YAML configuration file.
 
 ### Changed
-- YAML syntax has major (breaking) changes: 
-  - `"t"` parameter has been renamed to `"timeLimit"` to better reflect its purpose and improve readability.
-  - `"pass_mark"` parameter has been renamed to `"passMark"` for coherency with other parameters.
-  - UI text elements have been set to use the same font style for coherency.
-- _New Object: [Spawner] `Hollow-Object`._
-  - This new object is a hollow box that can be configured to have a reward spawn right above it (by setting the y axis to anything above 1). The reward will be spawned at the same x and z position as the hollow object, so it is easy to configure the reward to spawn directly above the hollow object. The hollow object can be used to create more complex environments and challenges for the agent.
-  - The new object has a few parameters specific to it, such as `rewardToSpawn` (string), `rewardSpawnPosition` (Vector3), `delayRewardSpawn` (bool), delayTime (float), and `rewardSpawnHeight` (float).
-- _New UI Element: `AAI Build Version`._
-  - Now, users will directly see the Animal-AI Build Version in the UI they are using for quick reference. It is displayed in the bottom-right corner of the UI.
-- _New Functionality: `mergeArenas`._ 
-  - This new functionality allows users to merge multiple arenas into one. This is useful for creating more complex environments with multiple arenas. The merged arenas will be placed in the same position in the scene, and the agent will be able to move between them seamlessly. An example YAML configuration file is provided in the documentation (see [here](docs/configGuide/Example-Merged-Arenas-YAML-File.yml)).
-
+- **YAML Syntax Changes**:
+  - `"t"` parameter renamed to `"timeLimit"` for clarity.
+  - `"pass_mark"` parameter renamed to `"passMark"` for consistency.
+- **UI Text Elements**: Now use the same font style for coherency.
 
 ### Fixed
+- Fixed a bug where the agent would sometimes get stuck near the SpawnerButton.
+- Fixed incorrect game object tags in Unity.
 
-- _Fixed a bug where the agent would sometimes get stuck in the hollow object._ 
 ---
 
-## Version 4.0.0 (Released on 08.03.2024)
+## [4.0.0] - 2024-03-09
 ### Notes
 - _This release is a major update that moves away from the experimental phase and introduces a stable version of the Animal-AI environment._
-- _This release is backward incompatible with the previous version `v3.1.4.exp`, and agents trained on the previous version may work with this new version._
+- _This release is also backward incompatible with the previous versions (i.e. `v3.1.4.exp`), and agents trained on the previous version may not work with this new version._
 
 ### Added
 - New valanced objects: `DecayGoal` and `DecayGoalBounce`.
-- New UI for presenting data to the user: Arena and Object statistics.
-- New csharp Script: `UIManager.cs`, for managing the UI and displaying data about the current YAML configuration file arenas and total spawned objects.
 
 ### Changed
-- Updated to TMPro for text rendering in Unity, for better performance and flexibility in the UI.
+- Updated to TMPro package for text rendering in Unity, for better performance and flexibility.
 - Changed the layout of the UI to be more user-friendly and intuitive.
 - Changed UI text colours to be more accessible and readable.
 
@@ -53,70 +44,87 @@ _A small breaking change is introduced in this version for YAML configuration fi
 
 ---
 
-## Version 3.1.3 (Released on 30.09.2023)
+## [3.1.4.exp] - 2023-12-22
 ### Added
-- Arena randomization via the `randomizeArenas` parameter in YAML.
+- Enhanced Unit Tests for Unity codebase.
+
+### Fixed
+- Fixed a bug where randomizeArenas was not cycling through all available arenas if set to true.
+- Added measures to make sure if the randomizeArenas feature is set to true, the same arena is not selected twice in a row.
+
+### Changed
+- Improvements to the UI layout and design.
+
+---
+
+## [3.1.3] - 2023-09-30
+### Added
+- Arena randomization via `randomizeArenas` feature.
 - More robust error-checking for arena ID's and cycling.
-- Unit tests on `TrainingArena.cs` and `ArenaParameters.cs`.
 - Visual elements for reinforcing cues (colors, short GIFs).
 
 ### Changed
-- Shortened end-of-episode notification to 2.5 seconds.
-- Minor Unity script optimizations.
+- Shortened end-of-episode notification durations to 2.5 seconds.
+- Updated visual cues like colors and short GIFs for reinforcement for feature end-of-episode notifications (more user-friendly).
+- Minor Unity script optimizations (Animal-AI runs smoother now with more FPS on average).
 
 ### Fixed
-- Resolved Spawner Tree Clock desync issue.
-- Fixed Multiple Arenas cycling issue.
-- Addressed Unity native warning in Training Arena script.
-- Rectified the invisibility of the SignBoard prefab.
+- Resolved rare SpawnerTree Clock desync issue.
+- Fixed Multiple Arenas cycling issue (via enhanced error-checking).
+- Rectified the invisibility of the SignBoard prefab (now visible and functional).
 
 ---
 
-## Version 3.1.2.exp1 (Released on 11.09.2023)
+## [3.1.2.exp] - 2023-09-11
+
+### Added
+- "Camera and Reset Buttons" feature.
+
+### Changed
+- Updated End of Episode Notification to be more user-friendly and fun.
+- Increased next episode spawn (if end-of-episode notifcation is set to true) delay before next episode from 2 to 5 seconds.
+- Improved SpawnerButton for better handling of missing values.
+
 ### Fixed
-- Hotfix for a bug affecting the Spawner Tree.
+- Hotfix for a bug affecting the SpawnerTree (where the SpawnerTree game object would have inconsistent behavior).
+- Fixed bug with multiple GIFs playing when health is 0 (if end-of-episode notification is set to true).
 
 ---
 
-## Version 3.1.1 (Released on 10.08.2023)
+## [3.1.1] - 2023-08-10
 ### Added
 - "End of Episode Notification" feature.
-- Unofficial support for "Headless" mode in training (with Raycasting).
+- "SpawnerButton" feature
 - Added additional "Interactive Button" feature parameters for customization.
 
 ### Fixed
-- Bug affecting the Spawner Tree.
-- Bug affecting the Interactive Button.
+- Bug (minor) affecting the SpawnerTree.
+- Bug (minor) affecting the SpawnerButton parameters.
 
 ---
 
-## Version 3.1.0
+## [3.0.2] - 2023-04-03
 ### Added
-- "Interactive Button" feature.
+- Unit tests on Unity csharp scripts.
 
-
----
-
-## Version 3.0.2
 ### Changed
-- Upgraded Mlagents to 2.3.0-exp3 (mlagents python version 0.30.0).
+- Upgraded MLagents to 2.3.0-exp3 (MLagents python version 0.30.0).
+- Upgraded Unity Engine Editor to 2021.3.21f1.
+- Updated `README.md` with more added information.
 
 ### Fixed
-- Various bug fixes.
+- Fixed bug where objects had dark shadows during arena initialisation.
 
-### Added
-- Updated `README.md` with detailed instructions.
-- Unit tests on `TrainingArena.cs` and `ArenaParameters.cs`.
 
----
+# --- Legacy Versions: ---
 
-## Version 3.0.1
+## [3.0.1] - 2022
 ### Added
 - Agent Freezing Parameter.
 
 ---
 
-## Version 3.0
+## [3.0.0] - 2022
 ### Changed
 - Enhanced agent handling (stop and acceleration).
 - Added new objects, spawners, signs, goal types.
@@ -125,26 +133,26 @@ _A small breaking change is introduced in this version for YAML configuration fi
 - Upgraded to Mlagents 2.1.0-exp.1 (ml-agents python version 0.27.0).
 
 ### Fixed
-- Various bug fixes.
+- Minor bug fixes.
 
-### Note
+### Notes
 - Agents trained on earlier versions may perform differently due to control and graphic changes.
 
 ---
 
-## Version 2.2.3
+## [2.2.3] - 2021
 ### Added
 - Support for multiple arenas in a single YAML file.
 
 ---
 
-## Version 2.2.2
+## [2.2.2] - 2021
 ### Changed
 - Introduced low-quality version for improved fps.
 
 ---
 
-## Version 2.2.1
+## [2.2.1] - 2021
 ### Fixed
 - UI scaling issues.
 - Cardbox objects spawning at incorrect sizes.
@@ -155,7 +163,7 @@ _A small breaking change is introduced in this version for YAML configuration fi
 
 ---
 
-## Version 2.2.0
+## [2.2.0] - 2021
 ### Added
 - Health-based system.
 - Basic Gym Wrapper.
@@ -167,7 +175,7 @@ _A small breaking change is introduced in this version for YAML configuration fi
 
 ---
 
-## Version 2.1.1 (Released on 01.07.2021)
+## [2.1.1] - 2021
 ### Added
 - RayCast Observations.
 
@@ -176,7 +184,7 @@ _A small breaking change is introduced in this version for YAML configuration fi
 
 ---
 
-## Version 2.1 (Beta Release 2019)
+## [2.1] - 2019
 ### Added
 - Raycast observations.
 - Agent global position tracking.
@@ -186,7 +194,7 @@ _A small breaking change is introduced in this version for YAML configuration fi
 
 ---
 
-## Version 2.0 (Initial Port 2019)
+## [2.0] - 2019
 ### Added
 - Ported Unity Environment from ml-agents 0.15 to 2.0.
 - Ported basic python scripts from ml-agents 0.15 to 2.0.
@@ -194,4 +202,4 @@ _A small breaking change is introduced in this version for YAML configuration fi
 - Added basic training scripts.
 - Added basic training configurations.
 
---- _end of Changelog_ ---
+_end of changelog_
