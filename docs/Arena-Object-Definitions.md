@@ -15,20 +15,20 @@
 
 ## Introduction
 
-The Animal-AI environment comprises various objects categorized into _immovable_, _movable_, _rewards_, and _other/unique_ types. These objects can be configured in numerous ways to create diverse tasks. Each object's name, default characteristics, and configurable ranges are detailed below. All objects can rotate 360 degrees. Unity uses a left-handed coordinate system with `y` as the vertical axis, and `x` and `z` axes representing horizontal and depth dimensions, respectively.
+The Animal-AI environment includes various objects categorized into _immovable_, _movable_, _rewards_, and _other/unique_ types. These objects can be configured to create diverse tasks. Each object's name, default characteristics, and configurable ranges are detailed below. All objects can rotate 360 degrees. Unity uses a left-handed coordinate system with `y` as the vertical axis, and `x` and `z` axes representing horizontal and depth dimensions, respectively.
 
 ## Unity Objects - What are they?
 
-Briefly, Unity game objects, commonly referred to as *GameObjects*, are the fundamental components in the Unity Engine, serving as containers for all other components or functionalities within a Unity scene. These objects can represent characters, props, scenery, cameras, lights, and more. Each GameObject can be equipped with various components such as scripts, renderers, colliders, or custom components, defining their behavior and interaction within the game world. *Prefabs* in Unity are essentially templates created from GameObjects; they allow developers to create, configure, and store a GameObject complete with its components and properties. Once a Prefab is created, it can be reused multiple times across the scene or even across different projects, ensuring consistency and efficiency in game development by allowing changes to be made to multiple instances simultaneously.
+Unity game objects, commonly referred to as *GameObjects*, are the fundamental components in the Unity Engine, serving as containers for all other components or functionalities within a Unity scene. These objects can represent characters, props, scenery, cameras, lights, and more. Each GameObject can be equipped with various components such as scripts, renderers, colliders, or custom components, defining their behavior and interaction within the game world. *Prefabs* in Unity are essentially templates created from GameObjects; they allow developers to create, configure, and store a GameObject complete with its components and properties. Once a Prefab is created, it can be reused multiple times across the scene or even across different projects, ensuring consistency and efficiency in game development by allowing changes to be made to multiple instances simultaneously.
 
 Most objects in AAI share a handful of fundamental parameters governing their size, position, and other properties. Values for these parameters can be defined in YAML ([see here](/docs/Background-YAML.md)). Common parameters are:
 * `name`: the name of the object you want to spawn.
-* `positions`: a list of `Vector3` positions within the arena where you want to spawn items, if the list is empty the position will be sampled randomly in the arena. Any position dimension set to -1 will spawn randomly.
-* `sizes`: a list of `Vector3` sizes, if the list is empty the size will be sampled randomly (within preset bounds for that particular object). You can set any size to -1 to spawn randomly along that dimension only.
-* `rotations`: a list of `float` in the range `[0,360]`, if the list is empty the rotation is sampled randomly.
-* `colors`: a list of `RGB` values (integers in the range `[0,255]`), if the list is empty the color is sampled randomly. Note that not all objects can have their colour changed and for those (e.g. transparent objects) this value will be ignored.
+* `positions`: a list of `Vector3` positions within the arena where you want to spawn items. If the list is empty, the position will be sampled randomly in the arena. Any position dimension set to -1 will spawn randomly.
+* `sizes`: a list of `Vector3` sizes. If the list is empty, the size will be sampled randomly (within preset bounds for that particular object). You can set any size to -1 to spawn randomly along that dimension only.
+* `rotations`: a list of `float` in the range `[0, 360]`. If the list is empty, the rotation is sampled randomly.
+* `colors`: a list of `RGB` values (integers in the range `[0, 255]`). If the list is empty, the color is sampled randomly. Note that not all objects can have their color changed, and for those (e.g., transparent objects), this value will be ignored.
 
-All except `name` and `positions` parameters can be omitted in the configuration files, in which case the omitted fields are automatically randomized. Any Vector3 that contains a `-1` value for any of its dimensions (x,y,z) will spawn that dimension randomly. This can be used to spawn, for example, multiple walls of a set width and height but random lengths. 
+All except `name` and `positions` parameters can be omitted in the configuration files, in which case the omitted fields are automatically randomized. Any Vector3 that contains a `-1` value for any of its dimensions (x, y, z) will spawn that dimension randomly. This can be used to spawn, for example, multiple walls of a set width and height but random lengths.
 
 ## The Arena
 
@@ -36,21 +36,18 @@ All except `name` and `positions` parameters can be omitted in the configuration
   <img height="400" src="/docs/figs/prefabs/DefaultArena.png">
 </p>
 
-A single arena is as shown above, it comes with a single agent (spherical animal, [see below](#the-agent)), a floor and four walls. It is a square of size 40x40, the origin (the bottom-left corner) of the arena is `(0,0)` . You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
+A single arena, as shown above, comes with a single agent (spherical animal, [see below](#the-agent)), a floor, and four walls. It is a square of size 40x40, with the origin (the bottom-left corner) at `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
 
-Note that in Unity the **y** axis is the vertical axis. In the above picture with the agent on the ground in the center of the environment its coordinates are `(x = 20, y = 0, z = 20)`.
+Note that in Unity, the **y** axis is the vertical axis. In the above picture, with the agent on the ground in the center of the environment, its coordinates are `(x = 20, y = 0, z = 20)`.
 
 ### Blackouts
 
-Blackouts are parameters you can pass to each arena, which define between which frames of an episode the lights are 
-on or off. If omitted, this parameter automatically sets to have lights on for the entire episode. You can otherwise 
-pass two types of arguments for this parameter:
+Blackouts are parameters you can pass to each arena, defining between which frames of an episode the lights are on or off. If omitted, this parameter defaults to having lights on for the entire episode. You can pass two types of arguments for this parameter:
 
-* passing a list of frames `[5,10,15,20,25]` will start with the lights on, switch them off from frames 5 to 9 included, 
-then back on from 15 to 19 included etc...
-* passing a single negative argument `[-20]` will automatically switch lights on and off every 20 frames.
+* Passing a list of frames `[5,10,15,20,25]` will start with the lights on, switch them off from frames 5 to 9 included, then back on from frames 15 to 19 included, and so on.
+* Passing a single negative argument `[-20]` will automatically switch lights on and off every 20 frames.
 
-**Note**: for infinite episodes (where `timeLimit = 0` ), the first point above would leave the light off after frame `25` while the second point would keep switching the lights every `20` frames indefinitely.
+**Note**: For infinite episodes (where `timeLimit = 0`), the first point above would leave the light off after frame 25, while the second point would keep switching the lights every 20 frames indefinitely.
 
 ## The Agent
 
@@ -58,7 +55,7 @@ The agent can be placed anywhere in the arena with any rotation. It has a fixed 
 
 * **Name**: `Agent`
 * **Size**: `(1,1,1)` (not changeable)
-* **Skins** (`skins`): `"hedgehog"`,  `"panda"`,  `"pig"` (can be randomized)
+* **Skins** (`skins`): `"hedgehog"`, `"panda"`, `"pig"` (can be randomized)
 
 Notes: The agent can be frozen for a specified number of frames at the start of an episode. There is no reward decrement during the frozen period. This can be set with an integer value passed to the `frozenAgentDelays` parameter (defaults to `0`).
 
@@ -265,7 +262,7 @@ Notes: The `rotations` parameter sets the direction of motion.
 * **Ripen Rate (frames)** (`changeRates`): `0.001-Inf` (default `0.005`)
 * **Alias**: `AntiDecayGoal`
 
-Notes: Colour changes (from grey to yellow) and a radial-timer fills over time during ripening process. Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
+Note: Colour changes (from grey to yellow) and a radial-timer fills over time during the ripening process. Initial valence can be set with a float passed to the `initialValues` parameter, and final valence can be set with a float passed to the `finalValues` parameter.
 
 ### Non-Episode-Ending Decay Goal
 
@@ -278,7 +275,7 @@ Notes: Colour changes (from grey to yellow) and a radial-timer fills over time d
 * **Decay Onset Delay Range (frames)** (`delays`): `0-Inf` (default `150`)
 * **Decay Rate (frames)** (`changeRates`): `-0.001-Inf` (default `-0.005`, automatically converts to negative values if positive provided)
 
-Notes: Colour changes (from yellow to grey) and a radial-timer depletes over time during decay process. Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
+Note: Colour changes (from yellow to grey) and a radial-timer depletes over time during decay process. Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
 
 ### Episode-Ending Grow Goal
 
@@ -291,7 +288,7 @@ Notes: Colour changes (from yellow to grey) and a radial-timer depletes over tim
 * **Color**: Not changeable / (green)
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
 
-Notes: Growth halts if the the goal is trapped between/underneath other objects. Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
+Note: Growth halts if the the goal is trapped between/underneath other objects. Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
 
 ### Episode-Ending Shrink Goal
 
@@ -304,7 +301,7 @@ Notes: Growth halts if the the goal is trapped between/underneath other objects.
 * **Color**: Not changeable / (green)
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
 
-Notes: Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
+Note: Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
 
 ### Decoy Goal
 
@@ -315,7 +312,7 @@ Notes: Maximum size is `5` . Initial valence can be set with a float passed to t
 * **Valence**: `0` - no reward in/decrement
 * **Color**: Not changeable / (grey)
 
-Notes: The agent's reward is not affected when it touches the decoy goal. It is simply a tool for visual distraction or to create a more complex environment without having the agent's reward affected.
+Note: The agent's reward is not affected when it touches the decoy goal. It is simply a tool for visual distraction or to create a more complex environment without having the agent's reward affected.
 
 
 ### Episode-Ending DeathZone
@@ -424,6 +421,8 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
 <p align="center">
   <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-special-symbols-annotated.png">
 </p>
+
+## Sign Boards
 
 Sign boards are immovable objects that display a symbol or a word. They can be used to create tasks where the agent has to navigate to a specific location or to perform a specific action.
 
