@@ -2,7 +2,7 @@
 
 ## Animal-AI w/ Stable Baselines3
 
-[Stable Baselines3](https://stable-baselines3.readthedocs.io/en/master/) works against the [Gymnasium](https://gymnasium.farama.org/) interface, whilst Animal-AI implements an older (<0.26) [Gym](https://github.com/openai/gym/releases/tag/v0.21.0) interface ([compatibility notes](https://gymnasium.farama.org/content/migration-guide/)).
+[Stable Baselines3](https://stable-baselines3.readthedocs.io/en/master/) works with the [Gymnasium](https://gymnasium.farama.org/) interface, while Animal-AI uses an older (<0.26) [Gym](https://github.com/openai/gym/releases/tag/v0.21.0) interface ([compatibility notes](https://gymnasium.farama.org/content/migration-guide/)).
 
 Stable Baselines3 will automatically convert between the two interfaces using [Shimmy](https://shimmy.farama.org/), which needs to be installed separately.
 
