@@ -9,13 +9,13 @@
 
 ## Introduction
 
-This document contains useful scripts and code snippets that can be used to perform various tasks. These scripts were developed in Python version `3.9.9` and `3.10.0`, and may require additional libraries to be installed.
+This document provides useful scripts and code snippets for various tasks. Developed in Python versions `3.9.9` and `3.10.0`, these scripts may require additional libraries.
 
 ## Extract Configuration File Objects (Python)
 
-The following Python script can be used to extract the positions of objects from the configuration file of the AAI environment. It saves the laboursome effort of maunally writing down the objects and their various positions. The script uses the `PyYAML` library to parse the YAML file and extract the positions of the objects. 
+The following Python script extracts the positions of objects from an AAI environment configuration file. This automation saves the effort of manually recording objects and their positions. The script uses the `PyYAML` library to parse the YAML file and extract the positions of the objects.
 
-The script first defines a custom constructor to handle unknown YAML tags, and then uses this constructor to parse the YAML file and extract the positions of the objects. The positions are stored in a dictionary where the keys are the names of the objects and the values are lists of positions. 
+The script first defines a custom constructor to handle unknown YAML tags. Then, it uses this constructor to parse the YAML file and extract the positions of the objects. The positions are stored in a dictionary where the keys are the names of the objects and the values are lists of positions.
 
 The script can be used as follows:
 
@@ -62,7 +62,7 @@ print(objects_positions)
 
 ## Randomize Object Positions (Python)
 
-The following Python script can be used to randomize the positions of objects in the configuration file of the AAI environment. It reads the configuration file, shuffles the positions of the objects, and then writes the updated configuration file to a new file. This script can be useful for generating variations of the environment with different object positions.
+The following Python script randomizes the positions of objects in an AAI environment configuration file. It reads the configuration file, shuffles the object positions, and writes the updated configuration to a new file. This script is useful for generating variations of the environment with different object positions.
 
 The script uses the `PyYAML` library to parse the YAML file and update the positions of the objects. It shuffles the positions of each object in each arena and then writes the updated configuration to a new file.
 
@@ -108,7 +108,7 @@ Simply adjust the `file_path` and `output_path` variables to point to your confi
 
 ## Replace Old Parameters w/ New Ones (Python)
 
-The following Python script can be used to replace old parameters with new ones in the configuration file of the AAI environment. It reads the configuration file, replaces the old parameters with new ones, particularly `"t"` & `"pass_mark"` with `"timeLimit"` & `"passMark"` respectively (at the time of writing). It then writes the updated configuration file to a new file. This script can be useful for updating the configuration file with new parameters.
+The following Python script can be used to replace old parameters with new ones in the configuration file of the AAI environment. It reads the configuration file, replaces the old parameters with new ones, particularly `"t"` & `"pass_mark"` with `"timeLimit"` & `"passMark"` respectively. It then writes the updated configuration file to a new file. This script can be useful for updating the configuration file with new parameters.
 
 This script was developed to mitigate the need to manually replace these parameters in the configuration file, helpful if you have many configs to update.
 
