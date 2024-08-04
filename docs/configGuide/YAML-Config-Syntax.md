@@ -5,9 +5,9 @@
 1. [Introduction](#introduction)
 2. [Understanding YAML Syntax](#understanding-yaml-syntax)
    2.1 [YAML Hierarchical Syntax](#yaml-hierarchical-syntax)
-   2.2 [Syntax: Global Parameters](#yaml-hierarchical-syntax-global-parameters)
-   2.3 [Syntax: Local Parameters](#yaml-hierarchical-syntax-local-parameters)
-3. [EXAMPLES of YAML Configurations](#examples-of-yaml-configurations)
+   2.2 [Global Parameters](#global-parameters)
+   2.3 [Local Parameters](#local-parameters)
+3. [Example YAML Configurations](#examples-of-yaml-configurations)
    3.1 [Example 1 - Standard Parameters & Randomisation](#example-1---standard-parameters--randomisation)
    3.2 [Example 2 - Decay Goals / Size-Changing Goals](#example-2---decay-goals--size-changing-goals)
    3.3 [Example 3 - SignBoard (Preset Symbols)](#example-3---signboard-preset-symbols)
@@ -19,48 +19,57 @@
 4. [Conclusion](#conclusion)
 5. [Further Reading and Documentation](#further-reading-and-documentation)
 
-### Introduction
-
-Let's take a look at some examples to understand how to use the YAML syntax in Animal-AI to create custom arenas. We will start with some simple examples and then move on to more complex examples. 
-
-_Please note that becuase AAI is being developed actively, the screenshots and examples may not be accurately representative of the current version of the project. However, the YAML syntax and the examples provided are still valid and can be used to create custom arenas in the current version of the game._
 
 **Important Notes/News:**
 
-* **As of AAI v4.1.0**, the `t` parameter has been renamed to `timeLimit` and the `pass_mark` parameter has been renamed to `passMark`. Please adjust your YAML configurations accordingly, either manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). However, you may still use these parameters with their older, deprecated names in AAI v4.0.0 and below.
+* **As of AAI build version v4.1.0**, the `t` parameter has been renamed to `timeLimit`, and the `pass_mark` parameter has been renamed to `passMark`. Please update your YAML configurations accordingly. You can make these changes manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). Note that the older/deprecated parameter names are still supported in AAI build versions `v4.0.0` and earlier.
+
+### Introduction
+
+In this guide, we'll explore how to use the custom YAML syntax in Animal-AI to create your own unique arenas. We'll start with basic examples to familiarize ourselves with the syntax and gradually progress to more complex scenarios. Let's begin by covering the essentials of the syntax!
+
 
 ### Understanding YAML Syntax
 
 #### YAML Hierarchical Syntax
 
 ```YAML
-# Note that the physical arena has a fixed size of 40x40, meaning the size of the arena does not change nor is it configurable.
-# In later versions of Animal-AI, the arena size will be configurable. and be set dynamically.
+# Note: In later versions of Animal-AI, the arena size will be configurable and be set dynamically via a separate parameter.
 !ArenaConfig
 arenas:
   0: !Arena 
-  Items: 
+  items: 
+    ... # rest of configuration file...
+    .
+    .
+    .
+  n: !Arena
+  items: 
     ... # rest of configuration file...
 ```
 
-**Observations:** 
+**Observations:**
 
-We can observe the following structure: 
+We can observe the following syntax structure:
 
-* `!ArenaConfig` is the root tag. 
-* `arenas` is the tag for the arenas.
-* `0` is the tag for the first arena in the file.
-* `!Arena` is the tag for the arena itself.
-* `Items` is the tag for the objects to spawn in the arena.
+* `!ArenaConfig` is the root tag.
+* `arenas` is the tag for the arenas, representing an ordered list of arenas.
+* `0` denotes the first arena in the file, while `n` represents the nth arena.
+* `!Arena` is the tag for an individual arena, followed by a list of parameters that define the arena.
+* `items` is the tag for the objects to be spawned in the arena, represented as a list.
 
-The `!ArenaConfig` tag is used to indicate that the following YAML file is an ArenaConfig file. The `arenas` tag is used to indicate that the following YAML file contains one or more arenas. The `0` tag indicates that the following arena is the first arena in the file, upto `n arenas` . The `!Arena` tag indicates that the following YAML file contains an arena. The `!` tag is used to indicate that the following YAML file is a custom class. In this case, the `!Arena` tag indicates that the following YAML file is an Arena file. The `!Arena` tag is followed by a list of parameters that are used to define the arena, with the objects to spawn for that particular arena only. Some arena parameters are applied locally, such as `t` (renamed to `timeLimit` from v4.1.0) and `pass_mark` (renamed to `passMark` from v4.1.0), while others are applied globally (see below for an example). 
+The `!ArenaConfig` tag indicates that the YAML file is used for configuring arenas. The `arenas` tag signifies that the file contains one or more arena configurations. The `0` tag marks the beginning of the arena sequence, continuing up to `n arenas`.
 
-#### YAML Hierarchical Syntax (Config/YAML Global Parameters)
+The `!Arena` tag specifies that the following YAML content defines an arena. The `!` symbol denotes a custom class; in this case, `!Arena` indicates that the file describes an arena configuration specific to Animal-AI environments.
+
+Following the `!Arena` tag, a list of parameters is provided to define the arena, including the objects to spawn in that arena. Some parameters, such as `t` (renamed to `timeLimit` in build v4.1.0) and `pass_mark` (renamed to `passMark` in build v4.1.0), apply locally to the arena. Other parameters apply globally. Refer to the example below for further details.
+
+#### Global Parameters
 
 ```YAML
 !ArenaConfig
-# Global Parameters that are optional to put here.
-canChangePerspective: false # Can the agent change its perspective? (i.e. switch between first-person and third-person view)
+# Global Parameters that are optional are put here, at the top of the yaml file under the !ArenaConfig tag.
+canChangePerspective: false # Can the agent change its camera perspective? (i.e. switch between first-person and third-person view)
 canResetEpisode: false # Can the agent reset the episode? 
 showNotification: false # Show the notification to the user upon completion of the episode? 
 randomizeArenas: false # Randomize the arenas? This applies if there are > 1 arenas in the file. 
@@ -70,18 +79,25 @@ arenas:
 
 ```
 
-**Observations:** 
+**Observations:**
 
-We can observe:
+We can observe the following:
 
-* The default values for the global parameters are as follows: `canChangePerspective: true`,   `canResetEpisode: true`,   `showNotification: false`, and `randomizeArenas: false`.
-Bear in mind that the global parameters are optional to define. If we do not define them, the default values are used. 
-* If we do not provide global parameters, the default values are used. For example, if we do not provide a value for `canChangePerspective`, the default value of `true` is used.
-* If we provide a value for a global parameter, the value is applied to all arenas in the file. For example, if we set `canChangePerspective` to `false`, the agent will not be able to change its perspective in any of the arenas in the file. However, if we set `canChangePerspective` to `true`, the agent will be able to change its perspective in any of the arenas in the file.
+* The default values for global parameters are:
+  - `canChangePerspective: true`
+  - `canResetEpisode: true`
+  - `showNotification: false`
+  - `randomizeArenas: false`
+  
+Global parameters are optional. If not defined, these default values are used.
 
-In the example above, the global parameters are defined before the arenas. These parameters are applied to all arenas in the file. Please note that these parameters are only applicable during `Play` mode, not agent `Training` mode.
+* If global parameters are not provided, the default values are applied. For instance, if no value is specified for `canChangePerspective`, it defaults to `true`.
 
-#### YAML Hierarchical Syntax (Arena/Item Local Parameters)
+* When a value is provided for a global parameter, it applies to all arenas in the file. For example, setting `canChangePerspective` to `false` will prevent the agent from changing its perspective in all arenas. Conversely, setting it to `true` will allow perspective changes in all arenas.
+
+In the example above, global parameters are defined before the arenas, affecting all arenas in the file. Note that these parameters apply only during `Play` mode, not during agent `Training` mode as the agent's perspective is controlled by the training algorithm.
+
+#### Local Parameters
 
 ```YAML
 !ArenaConfig
@@ -113,9 +129,11 @@ arenas:
 
 **Observations:**
 
-Regarding Arena and Item local parameters, we can observe respectively that:
+Regarding Arena and Item local parameters, we can observe the following:
 
-* The _arena-specific_ parameters are only applicable to the arena in which they are defined. For example, if `t` is set to `250`, the time limit for the arena will be 250 seconds. However, if there are multiple arenas defined in the same YAML configuration file `t` is set to `500`, the time limit for the arena will be 500 seconds for that arena only. Please note that these parameters are applicable during `Play` and `Training` modes. Lastly, the properties of each "Item" is a local parameter specified for that particular object only. For example, if the `Agent` object is specified to have a `hedgehog` skin, only the `Agent` object will have a `hedgehog` skin for that particular arena.
+* **Arena-Specific Parameters:** These parameters apply only to the arena in which they are defined. For instance, if `t` (time limit) is set to `250`, the time limit for that particular arena will be 250 seconds. If another arena within the same YAML configuration file has `t` set to `500`, then that arena will have a time limit of 500 seconds. These parameters are relevant for both `Play` and `Training` modes.
+
+* **Item-Specific Parameters:** The properties defined for each "Item" are local to that specific object. For example, if an `Agent` object is assigned a `hedgehog` skin, only that `Agent` object will have a `hedgehog` skin within that arena.
 
 ```YAML
 !ArenaConfig
@@ -149,11 +167,11 @@ arenas:
       - !Vector3 {x: 1, y: 1, z: 1}
 ```
 
-* Moreover, we can observe that the `!Item` tag also contains local parameters of its own, which we define as _item-only_ local parameters. Such item-only local parameters are only applicable to the object in which they are defined. For example, if we define a `Wall` object twice in the same arena (as demonstrated in the above YAML snippet), the local parameters such as positions, sizes, colors, rotations etc. defined for the first  `Wall` object will not apply to the second `Wall` object in the same arena. 
+* Additionally, the `!Item` tag includes its own local parameters, which we refer to as _item-specific_ local parameters. These parameters apply exclusively to the object in which they are defined. For instance, if a `Wall` object is defined twice within the same arena (as shown in the example YAML snippet above), the local parameters such as position, size, color, and rotation specified for the first `Wall` will not affect the second `Wall` in the same arena.
 
-The syntax implemented allows for a high degree of flexibility in the creation of custom arenas where multiple objects of the same type can be defined with different properties for the same arena, without conflict.
+The syntax provides significant flexibility, allowing multiple objects of the same type to be defined with different properties within the same arena without any conflicts.
 
-Let's now take a look at more complex examples to understand how to use the YAML syntax in Animal-AI to create custom arenas.
+Next, we will explore more complex examples to better understand how to use YAML syntax in Animal-AI for creating custom arenas.
 
 ### Examples of YAML Configurations
 
@@ -204,18 +222,19 @@ arenas:
   <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example1.png">
 </p>
 
-**Observations:** 
-* The number of parameters for `positions`,   `rotations`, and `sizes` do not need to match.
+**Observations:**
+
+* The number of parameters for `positions`, `rotations`, and `sizes` do not need to be equal.
 * The environment will spawn `max(len(positions), len(rotations), len(sizes))` objects.
-* Missing parameters are assigned randomly. For example, if `positions` is specified, but `sizes` are not, the environment will randomly assign sizes values to the objects.
+* Missing parameters will be assigned randomly. For instance, if `positions` are specified but `sizes` are not, the environment will assign random sizes to the objects.
 
-In this scenario, the objects will spawn in the following order:
+In this case, the objects will spawn in the following order:
 
-* A pink Cube will appear at coordinates `[10, 10]` on the ground. It will have a rotation of `45` degrees and its size will be random along the `x` and `z` axes, with a fixed size of `y=5`.
-Another Cube will be placed on the ground at a random x coordinate and `z=30` . This cube's rotation, size, and color will all be randomly determined.
-* Three CylinderTunnel objects will spawn next, and each of these will be entirely random in terms of position, size, color, and rotation.
-* A GoodGoal object will then appear, with all its attributes randomized.
-* Finally, the agent will spawn first. This is an important point to note, as it currently priority over all other objects and would be spawned first, before any other object(s).
+* A pink Cube will appear at coordinates `[10, 10]` on the ground, with a rotation of `45` degrees. Its size will be random along the `x` and `z` axes, with a fixed size of `y=5`.
+* Another Cube will be placed on the ground at a random `x` coordinate and `z=30`. This cube's rotation, size, and color will be randomly determined.
+* Three `CylinderTunnel` objects will spawn next, each with random values for position, size, color, and rotation.
+* A `GoodGoal` object will then appear, with all its attributes randomized.
+* Finally, the agent will spawn first. This is noteworthy as it takes priority over all other objects and will be placed before any other objects.
 
 &nbsp; 
 
@@ -279,15 +298,15 @@ arenas:
 
 **Observations:**
 
-This example showcases various goals that undergo changes such as `decay` , `growth` , `shrinkage` , and `ripening` (anti-decay). Each Item in this setup includes certain parameters that are either irrelevant or used incorrectly. These 'red herring' parameters, while not utilized properly, do not impact the overall outcome or cause issues with the AAI environment.
+This example demonstrates various goal types that undergo transformations such as `decay`, `growth`, `shrinkage`, and `ripening` (anti-decay). Each `Item` in this setup includes certain parameters that may be irrelevant or used incorrectly. These extraneous parameters, although not utilized effectively, do not affect the overall outcome or cause issues within the AAI environment.
 
-In the above scenario:
+In this scenario:
 
-* The `ShrinkGoal` and `GrowGoal` ignore the declared `sizes` parameter. Instead, their sizes change based on the initialValues and finalValues.
-* For both `DecayGoal` and `AntiDecayGoal`, the size is determined by the larger of the `initialValue` or `finalValue`. 
+* The `ShrinkGoal` and `GrowGoal` ignore the `sizes` parameter and instead adjust their sizes based on `initialValues` and `finalValues`.
+* For both `DecayGoal` and `AntiDecayGoal`, the size is determined by the greater of the `initialValue` or `finalValue`.
 * Additionally, the reward for these goals transitions from the initial value to the final value over time.
-Interestingly, the ShrinkGoal includes a `symbolNames` parameter, which is typically reserved for `SignBoard` objects. This parameter is not applicable here and is therefore disregarded.
-* Furthermore, an 'animal skin' feature is utilized in this example. Specifically, the Agent is configured to always appear with a 'hedgehog' skin.
+* Notably, the `ShrinkGoal` includes a `symbolNames` parameter, which is generally intended for `SignBoard` objects. This parameter is not applicable in this context and is therefore ignored.
+* An 'animal skin' feature is also utilized in this example, where the `Agent` is configured to always display a 'hedgehog' skin.
 
 &nbsp; 
 
@@ -336,7 +355,7 @@ arenas:
 
 **Observations:**
 
-This example illustrates how to employ predefined symbols using the `symbolNames` parameter, which is exclusive to `SignBoard` objects. Each symbol in this list comes with a default color. However, these colors do not affect the texture of the symbol. Instead, the color of the SignBoard gameobject is determined by the `colors` parameter and only that.
+This example demonstrates the use of predefined symbols via the `symbolNames` parameter, which is specific to `SignBoard` objects. Each symbol in the `symbolNames` list is associated with a default color. However, these default colors do not influence the appearance of the symbols on the `SignBoard`. Instead, the color of the `SignBoard` gameobject is determined solely by the `colors` parameter.
 
 &nbsp; 
 
@@ -383,9 +402,14 @@ arenas:
 
 **Observations:**
 
-This example demonstrates the use of *special codes* to generate black-and-white pixel grids to use as symbols. `0` -> black, `1` -> white, and `*` is a 'joker' character that chooses to output black or white at random. The dimensions of the grid are given by the `/` character - each row between `/` s must be of the same size for the code to be valid. 
+This example illustrates the use of *special codes* to create black-and-white pixel grids as symbols. The encoding is as follows:
+- `0` represents black,
+- `1` represents white,
+- `*` is a 'joker' character that randomly outputs either black or white.
 
-Fully-random grids can be generated using the code `"MxN"` , where `M` and `N` are the grid width and height dimensions respectively. For example, `"5x3"` will generate a 5x3 grid.
+The grid's dimensions are specified using the `/` character. Each row of the grid must be enclosed between `/` characters, and all rows must be of the same length for the code to be valid.
+
+To generate fully-random grids, use the code format `"MxN"`, where `M` and `N` represent the grid's width and height, respectively. For example, `"5x3"` will produce a 5x3 grid.
 
 &nbsp; 
 
@@ -425,21 +449,25 @@ arenas:
   <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example5.png">
 </p>
 
-**Observations:** 
+**Observations:**
 
-* The `SpawnerButton` object is an interactive object, meaning that it can be interacted with by the player/agent.
-* The `SpawnerButton` object is a modular object, meaning that it is made up of multiple modules. In this case, the `SpawnerButton` object is made up of 2 modules.
+* The `SpawnerButton` is an interactive object that can be engaged by the player or agent.
+* It is a modular object consisting of multiple modules.
 
-In the above example, the `SpawnerButton` object is used to spawn rewards upon interaction with the button (by 'colliding' with the gameobject) by the player/agent. We can observe that the `SpawnerButton` object has a number of parameters that are used to define the object's behaviour. These parameters are as follows:
+In the example above, the `SpawnerButton` is used to spawn rewards upon interaction (such as 'colliding' with the gameobject). The `SpawnerButton` has several parameters that define its behavior:
 
-* `moveDurations`: The duration of the movement of the button when it is pressed.
-* `resetDurations`: The duration of the movement of the button when it is reset.
-* `rewardNames`: The list of rewards that can be spawned.
-* `rewardWeights`: The weights of each reward in the rewards list. 
-As an added feature, the weights can be used to control the probability of spawning each reward. For example, if the weights are `[100, 0, 0]` , the probability of spawning the first reward is 100%, while the probability of spawning the second and third rewards are 0%. If the weights are `[50, 50, 0]` , the probability of spawning the first and second rewards are 50%, while the probability of spawning the third reward is 0%. If the weights are `[33, 33, 33]` , the probability of spawning each reward is 33%.
-* `spawnProbability`: The probability of spawning the reward upon interaction with the SpawnerButton. This parameter is used in conjunction with the `rewardWeights` parameter. Essentially, it controls the overall probability of spawning _a_ reward upon interaction with the SpawnerButton. For example, if you have the `rewardWeights` set to `[100, 100, 100]` but the `spawnProbability` set to `0.5`, the probability of spawning a reward is 50% at each interaction. Conversely, if you have the `rewardWeights` set to `[100, 100, 100]` but the `spawnProbability` set to `0.0`, the probability of spawning a reward is 0% at each interaction, meaning no reward will ever be spawned. 
-* `maxRewardCounts`: The maximum number of times each reward can be spawned. A value of -1 means no limit to the number of times the reward can be spawned per episode.
-* `rewardSpawnPos`: The position where the reward will be spawned. If left unspecified, the reward will be spawned randomly within the arena.
+* `moveDurations`: Specifies how long the button moves when pressed.
+* `resetDurations`: Specifies how long the button takes to reset after being pressed.
+* `rewardNames`: A list of rewards that can be spawned.
+* `rewardWeights`: Determines the weight of each reward in the `rewardNames` list. Weights control the probability of each reward being spawned. For instance:
+  - With weights `[100, 0, 0]`, the probability of spawning the first reward is 100%, and the other rewards have 0% probability.
+  - With weights `[50, 50, 0]`, the probability of spawning the first and second rewards is 50% each, with 0% for the third reward.
+  - With weights `[33, 33, 33]`, each reward has an equal probability of 33%.
+* `spawnProbability`: Controls the overall chance of spawning any reward upon interaction. This works in conjunction with `rewardWeights`:
+  - With `rewardWeights` set to `[100, 100, 100]` and `spawnProbability` set to `0.5`, the chance of spawning a reward is 50% per interaction.
+  - With `rewardWeights` set to `[100, 100, 100]` and `spawnProbability` set to `0.0`, the chance of spawning a reward is 0%, meaning no reward will spawn.
+* `maxRewardCounts`: Defines the maximum number of times each reward can be spawned. A value of `-1` indicates no limit per episode.
+* `rewardSpawnPos`: Specifies the location where the reward will appear. If not specified, the reward will be spawned randomly within the arena.
 
 &nbsp; 
 
@@ -507,14 +535,14 @@ arenas:
   </tr>
 </table>
 
-**Observations:** 
+**Observations:**
 
-We can observe that:
+We can observe the following:
 
-* If we set `randomizeArenas` to `false`, the arenas will not be randomized upon play. Instead, the arenas will be played in the order in which they are defined in the file. For example, if we set `randomizeArenas` to `false`, the first arena will be played first, followed by the second arena.
-* If we set `randomizeArenas` to `true`, the arenas will be randomized upon play and played in a random order. Regardless of the order in which the arenas are defined in the file, the arenas will be recycled (start from the beginning again) when every arena has been cycled through once.
+* Setting `randomizeArenas` to `false` ensures that arenas are played in the order they are defined in the file. For instance, with `randomizeArenas` set to `false`, the first arena will be played first, followed by the second arena.
+* Setting `randomizeArenas` to `true` enables randomization of the arenas. In this case, the arenas will be played in a random order. After all arenas have been cycled through once, the sequence will start again from the beginning.
 
-In this example, we define two arenas. However, we set `randomizeArenas` to `true` , which means that the arenas will be randomized upon play. Note that this is not applicable to training mode. This means that the order in which the arenas are defined does not matter, as the arenas will be randomized upon play. Please note that the `randomizeArenas` parameter is only applicable to the arenas in the file, not the objects within the arenas. 
+In the provided example, two arenas are defined, and `randomizeArenas` is set to `true`. This means that the arenas will be played in a randomized order. It's important to note that this randomization does not apply during training mode. Consequently, the order of arena definition is irrelevant since the arenas will be randomized during play. Also, remember that `randomizeArenas` affects only the order of arenas in the file and does not impact the objects within each arena.
 
 &nbsp; 
 
@@ -541,13 +569,15 @@ arenas:
   <img height="250" src="/docs/figs/exampleGallery/Yaml-Config-Syntax-Arenas/example7.png">
 </p>
 
-**Observations:** 
+**Observations:**
 
-We can observe that:
+We can observe the following:
 
-* The `blackouts` parameter is used to define the blackout zones for the arena. The `blackouts` parameter is a list of frames at which the arena will be blacked out. For example, if we set `blackouts` to `[10, 43, 50, 20]`, the arena will be blacked out at frames 10, 43, 50 and 20. This means the player/agent will be virtually blind at these frames (no light will be emitted to the arena).
-* Additionally, if we set `blackouts` to `[-20]`, the arena will blackout every 20 frames (because we placed the '-' indicating repeat).
-* The blackout has no effect on any other aspect of the agent or the arena. For example, the agent will still be able to move around the arena, and the objects in the arena will still be visible to the agent. _RayCasting_ will still work. 
+* The `blackouts` parameter defines the blackout zones for the arena. This parameter is a list of frames at which the arena will experience a blackout. For example, setting `blackouts` to `[10, 43, 50, 20]` means the arena will be blacked out at frames 10, 20, 43, and 50. During these frames, the player/agent will not receive any visual information, as no light will be emitted to the arena.
+* If `blackouts` is set to `[-20]`, the arena will experience a blackout every 20 frames. The '-' sign indicates that the blackout should repeat at regular intervals.
+* The blackout only affects visual visibility and does not impact other aspects of the agent or the arena. For example, the agent can still move around, and the objects within the arena remain visible to the agent. _RayCasting_ will continue to function as usual.
+
+&nbsp;
 
 #### EXAMPLE 8 - Multi-Arena Episodes
 
@@ -592,7 +622,11 @@ arenas:
 
 **Observations:**
 
-Sometimes we would like to include multiple arenas in a single episode (for example to test in-context learning of the shape of a maze). This can be achieved by setting the `mergeNextArena` parameter to `true` . In the example above, this causes Animal-AI to treat arena 0 (where the reward is ahead of the agent) and arena 1 (where it is behind) as a single unit, only ending the episode when it is failed or both arenas are completed. More than two arenas can be merged in this way, using the `mergeNextArena` parameter in each arena to add the following arena to the episode.
+In some scenarios, you may want to include multiple arenas within a single episode—such as when testing in-context learning for maze navigation. This can be achieved by setting the `mergeNextArena` parameter to `true`. 
+
+For instance, in the example provided, setting `mergeNextArena` to `true` causes Animal-AI to treat arena 0 (where the reward is located ahead of the agent) and arena 1 (where the reward is behind) as a single continuous unit. The episode will only conclude when either the episode fails or both arenas are completed. 
+
+You can extend this approach to merge more than two arenas by setting the `mergeNextArena` parameter in each arena, which will sequentially add the next arena to the current episode.
 
 ### Conclusion
 
