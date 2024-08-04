@@ -1,6 +1,6 @@
 # Getting Started
 
-This document should be your introductory document to Animal-AI, which outlines the process of getting started with the project, in  recommended order of material exposure. It is essentially a spiderweb connecting the project with the various documentation and resources available.
+Welcome to Animal-AI! This document serves as your introductory guide, outlining the recommended steps to begin working with the project. It acts as a central hub, linking you to various documentation and resources essential for a comprehensive understanding of Animal-AI. Follow this guide to navigate through the project efficiently and make the most of the available resources.
 
 #### Table of Contents
 
@@ -14,71 +14,88 @@ This document should be your introductory document to Animal-AI, which outlines 
 
 # What is Animal-AI?
 
-Animal-AI is a platform for training and testing AI agents and human participants on a variety of tasks that require a rich understanding of the environment. The platform is built upon the Unity game engine, with Ml-Agents Toolkit used for backend functionality for training, and is designed to be extensible and easy to use. The platform is being used to study cognitive capabilities across humans, animals and AI agents comparatively across a variety of tasks and experiments. 
+Animal-AI is an advanced platform for training and evaluating AI agents and human participants on diverse tasks that require a nuanced understanding of their environment. Built on the Unity game engine and utilizing the ML-Agents Toolkit for backend functionality, Animal-AI is both extensible and user-friendly.
 
-The platform is designed to be used by both researchers and developers as an open-source project. If you are a researcher, you can use the platform to train and test your own AI agents on a variety of tasks, as well as use the same tasks as computer games to assess cognitive capablities in humans. If you are a developer, you can contribute to the platform by adding new tasks, environments, and features.
+The platform supports comparative studies of cognitive capabilities across humans, animals, and AI agents through a range of tasks and experiments. It is designed to cater to both researchers and developers:
+
+- **Researchers:** Use Animal-AI to train and test AI agents on various tasks. You can also leverage these tasks as computer games to assess cognitive abilities in humans.
+- **Developers:** Contribute to the platform by adding new tasks, environments, and features to enhance its capabilities.
+
+As an open-source project, Animal-AI encourages collaboration and innovation from the community.
 
 #### What is the aim of the project?
 
-The aim of the project is to create a platform that enables researchers to study cognitive capabilities across humans, animals and AI agents using the same tasks. These tasks are designed to be cognitively informative and meaningful such that pattern of performance across tasks can be triangulated and brought together into a "cognitive profile". This approach enables direct comparison of the cognitive profile of different kinds of mind. For AI this translates to robust evaluation of underlying capabilities, facilitating preditability and capabilites-oriented development. For cognitive scientists this allows the direct exploration of theories of cognition as well as identifying key tasks useful in distinguisihing them.
+The aim of the Animal-AI project is to create a unified platform that allows researchers to study cognitive capabilities across humans, animals, and AI agents using a common set of tasks. These tasks are designed to be cognitively informative and meaningful, enabling researchers to triangulate performance patterns and develop comprehensive "cognitive profiles."
+
+This approach facilitates direct comparison of cognitive profiles across different types of minds. For AI, it translates to a robust evaluation of underlying capabilities, aiding in the prediction and development of AI systems based on their capabilities. For cognitive scientists, it provides a direct method for exploring theories of cognition and identifying key tasks that are useful for distinguishing between different cognitive theories.
 
 **You can find the project Roadmap [here](/project/AAI-RoadMap.md).**
 
 #### What is the background of the project?
 
-The project originates from the Kinds of Intelligence (KOI) programme within the Leverhulme Centre for the Future of Intelligence (LCFI). It started as a collaboration between the Cambridge (Dr Lucy Cheke, Dr Marta Halina) and Imperial (Dr Matthew Crosby, Prof Murray Shanahan) branches of the centre, and continues as an open and collaborative venture across these institutions and more (e.g. Universitat Politècnica de València; Prof Jose Hernendez-Orallo).
+The Animal-AI project originated from the Kinds of Intelligence (KOI) programme within the Leverhulme Centre for the Future of Intelligence (LCFI). It began as a collaborative effort between the Cambridge branch (Dr. Lucy Cheke, Dr. Marta Halina) and the Imperial branch (Dr. Matthew Crosby, Prof. Murray Shanahan) of the centre. The project has since expanded into an open and collaborative initiative, involving additional institutions such as Universitat Politècnica de València (Prof. José Hernández-Orallo) and others.
 
 Please check our website for more information on the team [here](https://sites.google.com/csah.cam.ac.uk/animalai/).
 
 # If you are a researcher
 
-We assume you have basic understanding and/or experience of Python programming and Artificial Intelligence paradigms (pariticularly Reinforcement Learning). Animal-AI enables researchers with little to no experience in game development to train and test their own AI agents on a variety of tasks. The platform is designed to be easy to use, and is built upon the Unity game engine. We provide a number of example tasks known as configuration files, which are the main way of interacting with the platform. These configuration files can be used to train and test your own AI agents, and can be easily modified to create new tasks. These configuratuion files are written in YAML, which is a human-readable data serialization language, meaning little to no programming experience is required to use the platform.
+If you have a basic understanding of Python programming and are familiar with Artificial Intelligence (particularly Reinforcement Learning), Animal-AI offers a user-friendly platform for training and testing AI agents on various tasks, even if you have limited experience in game development. Built on the Unity game engine, Animal-AI provides a range of example tasks through configuration files. These files, written in YAML, are the primary means of interacting with the platform. YAML is a human-readable data serialization language, so minimal programming experience is needed to use the platform effectively.
 
-_You can start your journey in the recommended order of exposure below, which will facilitate a smooth introduction and understanding of the platform:_
+To get started, follow the recommended order of exposure below to ensure a smooth introduction and comprehensive understanding of the platform:
 
 ### Recommended Order of Exposure
 
-Assuming you haven't already, you can install the platform by following the detailed installation guide here:
+To get started with Animal-AI, follow the recommended steps below. These guides will help you install, launch, and make the most out of the platform:
 
-* [Installation Guide](/docs/gettingStarted/Installation-Guide.md)
-  
-You are now ready to launch the platform and run your first configuration file. The next guide will show you how to do this from downloading the platform for your operating system to running your first configuration file:
+1. **Install the Platform**  
+   If you haven't installed Animal-AI yet, start with the detailed installation guide:
+   * [Installation Guide](/docs/gettingStarted/Installation-Guide.md)
 
-* [Launching Animal-AI](/docs/gettingStarted/Launching-AAI.md)
+2. **Launch the Platform**  
+   Learn how to launch Animal-AI and run your first configuration file:
+   * [Launching Animal-AI](/docs/gettingStarted/Launching-AAI.md)
 
-An example of a configuration file can be found here where you can simply download/copy to your IDE of choice and run it:
+3. **Explore an Example Configuration File**  
+   Download or copy an example configuration file to get a practical sense of how things work:
+   * [Example Configuration File](/docs/configGuide/Example-YAML-File.yaml)
 
-* [Example Configuration File](/docs/configGuide/Example-YAML-File.yaml)
-  
-You may then proceed to an introduction on the Arena Environment and the Agent here:
+4. **Understand the Arena Environment**  
+   Get an introduction to the Arena Environment and the Agent:
+   * [Arena Environment Guide](/docs/Arena-Environment-Guide.md)
 
-* [Arena Environment Guide](/docs/Arena-Environment-Guide.md)
+5. **Learn About Arena Objects**  
+   Dive into the comprehensive guide on available objects and their properties to enhance your understanding of the Arena Environment:
+   * [Arena Objects Guide](/docs/Arena-Object-Definitions.md)
 
-Furthermore, a comprehensive guide on the available objects and their properties can be found here which will enhance ytou understanding of the Arena Environment and it's many objects:
+6. **Create Your Own Configuration Files**  
+   Once you are familiar with the Arena Environment and objects, proceed to learn how to create your own configuration files:
 
-* [Arena Objects Guide](/docs/Arena-Object-Definitions.md)
+   - If you're new to YAML, start here:
+     * [Background on YAML](/docs/Background-YAML.md)
+   - Next, review the guide on using YAML specifically in Animal-AI:
+     * [YAML Configuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
 
-Once you are familiar with the Arena Environment and the objects you can use to populate your custom environments, you can proceed to the following guides which will guide you on creating your own configuration files:
+7. **Explore Integration Options**  
+   If you're interested in integrating Animal-AI with other AI libraries, refer to the integration guide:
+   * [Using Animal-AI with Stable-Baselines3 and Dreamerv3](/docs/integration/Integrate-AAI.md)
 
-If you would like a brief introduction to YAML, you can find it here (If you have experience or are familiar with YAML, bypass this step):
+Feel free to follow this order or adjust according to your interests and needs. The guides are designed to facilitate a smooth learning process but are not mandatory to follow in sequence.
 
-* [Background on YAML](/docs/Background-YAML.md)
+# If you are a Contributor
 
-You may then proceed to the guide on using YAML in Animal-AI, which is tailored to the platform:
+We expect contributors to have a solid understanding of and/or experience with programming languages such as **C#** and **Python**. Experience with the Unity game engine is particularly valuable. Additionally, expertise in related areas such as 3D prefab model design, animation, and general game design is highly welcome. However, a computer science background is not a requirement, and we encourage contributions from individuals with diverse backgrounds.
 
-* [YAML Configuration Guide](/docs/configGuide/YAML-Config-Syntax.md)
+### Getting Started
 
-Keep in mind that this order is recommended and not mandatory to follow - you may skip or choose what you wish to learn or discover freely.
+1. **Understand the Project Structure**  
+   Familiarize yourself with the project's structure and components. A detailed guide is available [here](/docs/Technical-Overview.md). This documentation will explain the various components of the project, how they interact, and how to set up and run the project in the Unity editor.
 
-If you are interested in integrating Animal-AI with other AI libraries, you can find a guide on how to do so here:
+2. **Explore the Codebases**  
+   Contributions can be made to either or both codebases:
+   - **Unity/C#**: [Animal-AI Unity Repository](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity)
+   - **Python**: [Animal-AI Python Repository](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-python)
 
-* [Using Animal-AI w/ Stable-Baselines3 and Dreamerv3](/docs/integration/Integrate-AAI.md)
-# If you are a contributor
+3. **Review the Contributing Guide**  
+   For detailed guidelines on how to contribute, please refer to the [Contributing Guide](/CONTRIBUTING.md).
 
-We assume you have a good understanding of and/or experience with programming languages **chsarp** and **python**. A good level of knowledge/experience is required to contribute to the project in very technical terms, especially on the Unity game engine. Note that having good knowledge/experience in other aspects of development such as 3D prefab model design, animation, and other general game designing is also very welcome. However, having a computer science background is not a requirement, and we welcome contributions from all backgrounds. 
-
-Before you start contributing to the project, you should first familiarize yourself with the project structure and the various components that make up the project. You can find a detailed guide on the project structure [here](/docs/Technical-Overview.md). This documentation will explain the various components of the project, and how they interact with each other. It will also explain how to set up the project for development, and how to run the project in the Unity editor.
-
-Once you are familiar with the project structure, you can start contributing to the project in either or both codebases, located [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity) (Unity/csharp) and [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-python) (Python).
-
-For a detailed guide on acceptable contributions, see the [Contributing Guide](/CONTRIBUTING.md).
+We appreciate your interest in contributing to Animal-AI and look forward to your valuable input.
