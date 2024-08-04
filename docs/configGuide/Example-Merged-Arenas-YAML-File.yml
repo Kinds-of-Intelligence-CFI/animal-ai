@@ -1,10 +1,8 @@
 ### IMPORTANT NOTES ###
 # 1. The YAML file must be indented correctly. The indentation must be consistent throughout the file.
 # 2. The YAML file must be saved with a .yaml extension.
-
-### IMPORTANT NEWS ###
-# As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
-# ... You may still use the old parameter names in AAI v4.0.0 and below.
+# 3. As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
+# ...You may still use the old parameter names in AAI v4.0.0 and below.
 
 !ArenaConfig
 arenas:

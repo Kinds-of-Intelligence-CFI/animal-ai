@@ -1,5 +1,4 @@
 ### IMPORTANT! ###
-
 # This YAML file contains every object in the arena that is spawnable. 
 # Each object has it's own properties such as name, position, rotation, size, and color, as well as their default values.
 # You can use this file to see how to define each and every object in the arena. 

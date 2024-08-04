@@ -1,10 +1,8 @@
 ### IMPORTANT NOTES ###
 # 1. The YAML file must be indented correctly. The indentation must be consistent throughout the file.
 # 2. The YAML file must be saved with a .yaml extension.
-
-### IMPORTANT NEWS ###
-# As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
-# ... You may still use the old parameter names in AAI v4.0.0 and below.
+# 3. As of AAI v4.1.0, the parameters "t" and "pass_mark" have been deprecated. Replace them with "timeLimit" and "passMark" respectively.
+# ...You may still use the old parameter names in AAI v4.0.0 and below.
 
 !ArenaConfig
 arenas:
@@ -21,7 +19,6 @@ arenas:
       - !Vector3 {x: 5, y: 3, z: 1} 
       colors:  # The colors of the items. This is a RGB object with r, g, and b values.
       - !RGB {r: 255, g: 0, b: 255}
-
     - !Item
       name: GoodGoalBounce 
       positions: 
@@ -31,7 +28,6 @@ arenas:
       sizes: 
       - !Vector3 {x: 1, y: 1, z: 1}
       - !Vector3 {x: 3, y: 3, z: 3}
-
     - !Item
       name: Agent # Note that the agent will always be spawned first regardless of its position in the configuration.
       positions:
