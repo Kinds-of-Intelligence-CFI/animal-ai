@@ -19,42 +19,45 @@
   + [Spawning GameObjects](#spawning-gameobjects)
   + [Configuration File Values](#configuration-file-values)
 
-
 ## Introduction
 
-This guide will help you understand the structure of the physical Arena Environment as developed in Unity. We will explain the various functions of the arena environment, and their purposes and uses. We will also outline the various parameters that can be used to configure the arena environment, and how to use them. 
+This guide will help you understand the structure of the physical Arena Environment developed in Unity. We will explain the various functions of the arena environment, their purposes, and uses. Additionally, we will outline the parameters available for configuring the arena environment and how to use them.
 
-Please see the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide for a detailed explanation of the syntax used in the configuration files for additional information. Be aware that this guide is not a comprehensive guide to Unity, and assumes that you have a basic understanding of the Unity Engine. If you are unfamiliar with Unity, please refer to the [Background - Unity](/docs/Background-Unity.md) guide for a brief overview of the Unity Engine as well as relevant useful links.
+For a detailed explanation of the syntax used in the configuration files, refer to the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide. This guide assumes a basic understanding of the Unity Engine and is not a comprehensive Unity guide. If you are unfamiliar with Unity, please refer to the [Background - Unity](/docs/Background-Unity.md) guide for an overview and useful links.
 
 ## The Arena
 
 <table>
   <tr>
+
     <td><img src="../docs/figs/prefabs/arena/arena-2DView.png" width="500"/>
     <p>2D view of the Arena</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
+
   </tr>
   <tr>
+
     <td><img src="../docs/figs/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
+
   </tr>
 </table>
 
-Each **episode** (a single run) contains an _arena_ environment. Currently, an arena can only support a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). It is currently a square of fixed size `40x40` , meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)` . You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
+Each **episode** (a single run) contains an _arena_ environment. Currently, an arena supports only a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). The arena is a fixed size of `40x40` , with the origin set at `(0,0)` . Object coordinates can be provided in the range `[0,40]x[0,40]` as floats.
 
-The default arena is made up of a set of gameobjects, which itself is contained in a _Unity Scene_, which are as follows:
+The default arena consists of several gameobjects contained in a _Unity Scene_, including:
 
-* **Walls**: The walls of the arena, which are 10 units high and 40 units long. The walls are made up of 4 gameobjects, one for each wall, which are named `Wall1`,  `Wall2`,  `Wall3`, and `Wall4`, each with a set of childobjects called `fences`, which contain the textures for the walls. The walls are all children of the `Walls` gameobject, which is itself a child of the `Arena` gameobject.
+* **Walls**: Four walls, each 10 units high and 40 units long, named `Wall1`,  `Wall2`,  `Wall3`, and `Wall4`. Each wall has child objects called `fences`, which contain the textures. All walls are children of the `Walls` gameobject, which is itself a child of the `Arena` gameobject.
 #####
-* **Ground**: The ground of the arena, which is 40 units long and 40 units wide. The ground is a child of the `Arena` gameobject.
+* **Ground**: The ground, 40 units long and 40 units wide, is a child of the `Arena` gameobject.
 #####
-* **Lights**: The lights of the arena, which are 4 spotlights, one for each corner of the arena. The lights are all children of the `Lights` gameobject, which is a child of the `Arena` gameobject.
+* **Lights**: Four spotlights, one at each corner of the arena. These lights are children of the `Lights` gameobject, which is a child of the `Arena` gameobject.
 #####
-* **SpawnArea**: The spawn gameobject responsible for spawning objects defined in the configuration file, which is a child of the `Arena` gameobject. This gameobject essentially controls the size of the spawn area, currently set to within the bounds of the walls of the arena.
+* **SpawnArea**: This gameobject is responsible for spawning objects defined in the configuration file. It is a child of the `Arena` gameobject and controls the size of the spawn area, currently set within the arena walls.
 #####
-* **Agent**: The agent, which is a child of the `Arena` gameobject, is the main character in the arena, and is used for playing and training; must be spawned in every arena.
+* **Agent**: The agent, which must be spawned in every arena, is the main character for playing and training. It is a child of the `Arena` gameobject.
 
 <p align="center">
   <img height="300" src="../docs/figs/prefabs/DefaultArena.png">
@@ -82,21 +85,21 @@ arenas:
       rotations: [0]
 ```
 
-* `(n): !Arena` an `int`, denotes the unique arena index, which is used to identify the arena in the configuration file. The first arena must start with `0`, upto `n`, where `n` is the number of arenas defined in a single configuration file. 
+* `(n): !Arena` - an `int` denoting the unique arena index used to identify the arena in the configuration file. The first arena must start with `0` and go up to `n`, where `n` is the total number of arenas defined in a single configuration file. 
 #####
-* `timeLimit` an `int`, defines the length of an episode which can change from one episode to the other. A value of `0` means that the episode will not terminate until a reward has been collected (setting `t=0` and having no reward will lead to an infinite episode). This value is converted into a decay rate for the health of the agent. A `t` of 100 means that the agent's health will decay to 0, and the episode will end, after 100 time steps. **Note: This parameter name is supported in AAI builds v4.0.0 and below. It is replaced by `timeLimit` in AAI builds v4.1.0 and above.**
+* `timeLimit` - an `int` defining the length of an episode. A value of `0` means the episode will not end until a reward is collected (setting `timeLimit=0` and having no reward will result in an infinite episode). This value translates into a decay rate for the agent's health. For instance, a `timeLimit` of 100 means the agent's health will decay to 0, ending the episode after 100 time steps. **Note: Supported in AAI builds v4.0.0 and below as `t`. Replaced by `timeLimit` in AAI builds v4.1.0 and above.**
 #####
-* `passMark` an `int`, defines the reward threshold that should constitute a ‘pass’ in the enviroment. Leaving this parameter undefined leads to the default value of 0, whereby any reward value obtained by the Agent results in a pass. This parameter also determines the notifications that players receive at the end of an episode. If used, this parameter should be defined with consideration to the reward size that can feasibly be obtained by the agent in each configuration file. **Note: This parameter name is supported in AAI builds v4.0.0 and below. It is replaced by `passMark` in AAI builds v4.1.0 and above.**
+* `passMark` - an `int` defining the reward threshold for passing the environment. If undefined, the default value is 0, meaning any reward obtained by the agent results in a pass. This parameter also determines end-of-episode notifications. Set this parameter considering the feasible reward size in each configuration file. **Note: Supported in AAI builds v4.0.0 and below as `pass_mark`. Replaced by `passMark` in AAI builds v4.1.0 and above.**
 #####
-* `canChangePerspective` a `bool`, defines whether the agent can change its camera perspective during an episode (first-person, third-person or eagle-view). If set to `false`, the agent will be unable to change its camera perspective during an episode by pressing the C button on their keyboards, which will cycle through the cameras attached to the Agent in-gasme. If set to `true`, the agent will be able to change its perspective during an episode. This parameter is set to `true` by default.
+* `canChangePerspective` - a `bool` indicating whether the agent can change its camera perspective during an episode (first-person, third-person, or eagle-view). If `false`, the agent cannot change perspective using the C button. If `true`, perspective changes are allowed. Default is `true`.
 #####
-* `randomizeArenas` a `bool`, defines whether the arena will be randomized between episodes. If set to `true`, the arena will be randomized between the defined Arenas in the configuration file. If set to `false`, the order to which the arenas are spawned are sequential and top-to-bottom as specified in the configuration file. This parameter is set to `false` by default.
+* `randomizeArenas` - a `bool` indicating whether the arena will be randomized between episodes. If `true`, arenas are randomized as defined in the configuration file. If `false`, arenas are spawned sequentially as specified. Default is `false`.
 #####
-* `showNotification` a `bool`, defines whether the player will receive a notification at the end of an episode. If set to `true`, the player will be shown a notification at the end of an episode for approximately 2.5 seconds, then move on to the next episode (arena). If set to `false`, the agent will not receive a notification at the end of an episode and episode-to-episode termination is back-to-back. This parameter is set to `false` by default.
+* `showNotification` - a `bool` indicating whether the player receives a notification at the end of an episode. If `true`, a notification is shown for approximately 2.5 seconds before moving to the next episode. If `false`, episodes terminate back-to-back without notifications. Default is `false`.
 #####
-* `blackouts` a `list`, defines the frames at which the lights are on or off during an episode. If omitted, the lights will be on for the entire episode. For more information on blackouts, [see here](#blackouts).
+* `blackouts` - a `list` defining the frames at which the lights are on or off during an episode. If omitted, lights remain on for the entire episode. For more information on blackouts, [see here](#blackouts).
 
-**N. B:** These parameters are optional (except `t` and `pass_mark` ) and can be omitted from the configuration file. If omitted, the default values will be used, which are explained in detail in our [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide.
+**N. B:** These parameters are optional (except `timeLimit` and `passMark` ) and can be omitted from the configuration file. If omitted, default values are used, detailed in the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide.
 
 ## The Agent
 
@@ -120,10 +123,12 @@ The agent has a set of skins that can be used to change its appearance in the ar
 
 <table>
   <tr>
+
     <td><img src="../docs/figs/prefabs/agent-skins/agent-panda.png" width="500"/>
     <p>Panda Skin</p></td>
     <td><img src="../docs/figs/prefabs/agent-skins/agent-pig.png" width="500"/><p>Pig Skin</p></td>
     <td><img src="../docs/figs/prefabs/agent-skins/agent-hedgehog.png" width="500"/><p>Hedgehog Skin</p></td>
+
   </tr>
 </table>
 
@@ -131,66 +136,72 @@ The agent has a set of skins that can be used to change its appearance in the ar
 
 The agent has a HUD that displays the following information per episode by default:
 
-* **Health**: The health of the agent, which is a value between `0` and `1`. The agent's health decays over time, and is reset to `1` when the agent collects a reward. The agent's health is displayed as a green-yellow-red bar at the bottom of the HUD.
-#####
-* **Reward**: The reward collected by the agent, which is a value between `-1` and `1`. The agent's reward is displayed as a text at the top of the HUD, which is updated in real-time as the agent collects rewards. It contains the previous episode's reward (not valid if the current arena is the first), as well as the current episode's reward.
-#####
-* **Episode Notification**: The notification displayed to the agent at the end of an episode. The notification is currently a combination of color gradients and a short animated GIF. This is an optional HUD and only appears if `showNotification` parameter is set to `true` in the configuration file. _Note that this feature has no effect on training, and is only used for play mode._
+* **Health**: The health of the agent, a value between `0` and `1`. The agent's health decays over time and resets to `1` when a reward is collected. It is displayed as a green-yellow-red bar at the bottom of the HUD.
+  
+* **Reward**: The reward collected by the agent, ranging between `-1` and `1`. The reward is displayed as text at the top of the HUD, updated in real-time. It shows the previous episode's reward (not valid if the current arena is the first) and the current episode's reward.
+  
+* **Episode Notification**: A notification displayed at the end of an episode, consisting of color gradients and a short animated GIF. This HUD element is optional and only appears if the `showNotification` parameter is set to `true` in the configuration file. _Note: This feature is only for play mode and does not affect training._
 
-| ![](../docs/figs/Agent-HUD/agent-health.png)     | ![](../docs/figs/Agent-HUD/agent-REWARD.png)      |
+| 
+
+![](../docs/figs/Agent-HUD/agent-health.png)     | ![](../docs/figs/Agent-HUD/agent-REWARD.png)
+
+      |
 | ------------------------------------------------ | ------------------------------------------------- |
-| ![](../docs/figs/Agent-HUD/notification-bad.png) | ![](../docs/figs/Agent-HUD/notification-good.png) |
+| 
 
+![](../docs/figs/Agent-HUD/notification-bad.png) | ![](../docs/figs/Agent-HUD/notification-good.png)
+
+ |
 
 ### Arena/Agent Limitations
 
-The arena/agent has a few limitations to be considered, which are as follows:
+Consider the following limitations of the arena and agent:
 
-1. Only a single agent _per_ arena/episode is supported, both for play and training.
-2. The agent can only move on the ground, and cannot move on the walls or any other object (except when placed on top of objects that have a flat surface).
-3. The agent cannot move through objects (except for the hot/death zones).
-4. The agent cannot jump or fly.
-5. The agent cannot pick up objects (however, this is a feature to be added in the future).
-6. The arena is reset _only_ when the health of the agent reaches `0`, or when the `R` key is pressed (in play mode). This is a limitation as the arena is limited in episode-to-episode flexibility.
-7. The logic of spawning objects in the arena is fixed and currently prioritises the agent over other objects. Furthermore, the current spawn logic dictates that objects spawn in the order they are defined in the configuration file. This too is a limitation as it does not allow for more complex/flexible spawning logic.
+1. **Single Agent Per Arena/Episode**: Only one agent is supported per arena or episode, applicable to both play and training modes.
+2. **Movement Constraints**: The agent can only move on the ground and cannot navigate on walls or other objects, except when placed on top of flat-surfaced objects.
+3. **Object Interaction**: The agent cannot move through objects, except for hot/death zones.
+4. **No Jumping or Flying**: The agent is restricted to ground movement and cannot jump or fly.
+5. **Object Handling**: The agent cannot pick up objects. This feature is planned for future updates.
+6. **Arena Reset**: The arena resets only when the agent's health reaches `0` or when the `R` key is pressed (in play mode). This limits episode-to-episode flexibility.
+7. **Spawning Logic**: The spawning logic prioritizes the agent over other objects, with objects spawning in the order defined in the configuration file. This restricts more complex or flexible spawning logic.
 
 ### Agent Properties
 
-The agent has a Physics component attached to it, which allows it to interact with other objects in the arena. Please read our [Background - Unity](/docs/Background-Unity.md) guide for more information. 
+The agent has a Physics component attached, allowing it to interact with other objects in the arena. For more information on Unity's physics, please refer to our [Background - Unity](/docs/Background-Unity.md) guide.
 
-_Essentially, you can expect that the Physics of Unity game engine are modelled to mimic our three-dimensional reality as much as possible_. The agent has the following properties:
+_Essentially, Unity's Physics engine mimics three-dimensional reality as closely as possible_. The agent's properties are as follows:
 
-* **Scale**: The scale of the agent, which is set to `1x1x1` by default.
-* **Mass**: The mass of the agent, which is set to `100` by default.
-* **Drag**: The drag of the agent, which is set to `1.2` by default.
-* **Angular Drag**: The angular drag of the agent, which is set to `0.05` by default.
-* **Gravity**: Enabled for the agent (and for all other objects for that matter), which means that the Agent will fall to the ground when spawned if it's `y` coordinate `> 0`.
-* **Speed**: The speed of the agent, which is set to `30` by code. This is the speed at which the agent moves when the `W`,  `A`,  `S`, and `D` keys are pressed. Note that the speed of the agent is affected by the `drag` and `angular drag` properties, which means that the agent will slow down over time if the keys are not pressed.
-* **Rotation Speed**: The rotation speed of the agent, which is set to `100` by code. This is the speed at which the agent rotates when the `A` and `D` keys are pressed. Rotation speed is unaffected by the `drag` and `angular drag` properties.
-* **Rotation Angle**: The angle of rotation of the agent, which is `0.25` by code. This property is used to dictate the angle of rotating the agent when the `A` and `D` keys are pressed. Rotation angle is unaffected by the `drag` and `angular drag` properties.
-
+* **Scale**: The agent's default scale is `1x1x1`.
+* **Mass**: The agent's default mass is `100`.
+* **Drag**: The agent's default drag is `1.2`.
+* **Angular Drag**: The agent's default angular drag is `0.05`.
+* **Gravity**: Enabled by default, causing the agent to fall to the ground if its `y` coordinate is greater than `0`.
+* **Speed**: The agent moves at a speed of `30` when the `W`,  `A`,  `S`, and `D` keys are pressed. Speed is affected by the `drag` and `angular drag` properties, causing the agent to slow down over time if the keys are not pressed.
+* **Rotation Speed**: The agent rotates at a speed of `100` when the `A` and `D` keys are pressed. This speed is unaffected by the `drag` and `angular drag` properties.
+* **Rotation Angle**: The rotation angle is `0.25`, dictating the angle at which the agent rotates when the `A` and `D` keys are pressed. This angle is unaffected by the `drag` and `angular drag` properties.
 
 ## Game Objects
 
-All objects can be configured in the same manner, using a set of parameters for each `item` Unity Game Object:
+All objects can be configured using a set of parameters for each `item` Unity Game Object:
 
-* `name`: the name of the object you want to spawn, which must match the object name specified in [Arena Object Definitions](/docs/Arena-Object-Definitions.md). You can spawn the same object as many times as required, but they must be in different positions from one another.
+* **`name`**: The name of the object you want to spawn, which must match the object name specified in [Arena Object Definitions](/docs/Arena-Object-Definitions.md). You can spawn the same object multiple times, but they must be in different positions.
 #####
-* `positions`: a list of `Vector3` positions within the arena where you want to spawn items, if the list is empty the position will be sampled randomly in the arena. Any position vector set to -1 will spawn randomly. Also note that Animal-AI enforces a constraint where objects cannot spawn within 0.1 units of each other, so if you try to spawn objects too close together there will be object collision clashes and the objects will not spawn.
+* **`positions`**: A list of `Vector3` positions within the arena where you want to spawn items. If the list is empty, the position will be sampled randomly in the arena. Any position vector set to -1 will spawn randomly. Note that Animal-AI enforces a constraint where objects cannot spawn within 0.1 units of each other to avoid collisions.
 #####
-* `sizes`: a list of `Vector3` sizes, if the list is empty the size will be sampled randomly (within preset bounds for that particular object). You can set any size to -1 to spawn randomly along that vector only.
+* **`sizes`**: A list of `Vector3` sizes. If the list is empty, the size will be sampled randomly within preset bounds for that object. Any size set to -1 will spawn randomly along that vector only.
 #####
-* `rotations`: a list of `float` in the range `[0,360]`, if the list is empty the rotation is sampled randomly. Default is 0 degrees.
+* **`rotations`**: A list of `float` values in the range `[0,360]`. If the list is empty, the rotation is sampled randomly. The default is 0 degrees.
 #####
-* `colors`: a list of `RGB` values (integers in the range `[0,255]`), if the list is empty the color is sampled randomly. Note that not all objects can have their colour changed and for those (e.g. transparent objects) this value will be ignored.
+* **`colors`**: A list of `RGB` values (integers in the range `[0,255]`). If the list is empty, the color is sampled randomly. Note that not all objects can have their color changed; for those (e.g., transparent objects), this value will be ignored.
 
-**N. B:** Any of these parameters can be omitted in the configuration files per object, in which case the omitted fields are automatically randomized. However, we advise that you specify these parameters as this will allow you to have a more controlled environment in your arena(s). Any Vector3 that contains a -1 for any of its dimensions will spawn that dimension randomly `(e.g. x: -1, y: 10, z: 2 --> will spawn the object randomly along the x axis)` . Finally, some objects have specific parameters applicable only to them, which are described in the [Unique/Special Objects](#uniquespecial-object-parameters).
+**Note**: Any of these parameters can be omitted in the configuration files per object. Omitted fields are automatically randomized. However, specifying these parameters allows for a more controlled environment in your arena(s). Any `Vector3` that contains a -1 for any of its dimensions will spawn that dimension randomly (e.g., `x: -1, y: 10, z: 2` will spawn the object randomly along the x-axis). Some objects have specific parameters applicable only to them, which are described in the [Unique/Special Objects](#uniquespecial-object-parameters).
 
-**All value ranges for the above fields can be found in [Arena Object Definitions](/docs/Arena-Object-Definitions.md) guide**. If you go above or below the range for size it will automatically be set to the max or min respectively. If you try to spawn objects outside the arena (i.e. with a configuration like this: `x = 41, z = 41` ) or overlapping with another object with very close spawn positions, then that object will not be spawned. Objects are placed in the order defined such that the second overlapping object is the one that does not spawn.
+**All value ranges for the above fields can be found in the [Arena Object Definitions](/docs/Arena-Object-Definitions.md) guide**. If you go above or below the range for size, it will automatically be set to the max or min, respectively. If you try to spawn objects outside the arena (e.g., `x = 41, z = 41` ) or overlapping with another object with very close spawn positions, the overlapping object will not be spawned. Objects are placed in the order defined, so the second overlapping object will not spawn.
 
 ## Unique/Special Object Parameters
 
-Some objects have unique/special parameters that only apply to them or a select few objects - they can be written in the configuration in exactly the same way as the 'standard' parameters, but will only be applied if assigned to a valid object:
+Some objects have unique or special parameters that only apply to them or a select few objects. These parameters can be written in the configuration file in the same way as the standard parameters but will only be applied if assigned to a valid object.
 
 ### Agent-Specific Parameters
 
@@ -203,7 +214,8 @@ Some objects have unique/special parameters that only apply to them or a select 
 * **Frozen Agent Delays**:
   Time (in frames) the agent is frozen at the start of an episode.
   + **Applies to:** Agent
-  + **Default:** 0 (no delay), n (delay of n frames)
+  + **Default:** 0 (no delay)
+  + **Options:** n (delay of n frames)
 
 ### Goal-Related Parameters
 
@@ -286,32 +298,21 @@ When configuring an arena, follow these rules and be aware of certain behaviors:
 
 ### Spawning GameObjects
 
-* **Non-Overlapping**: Objects can only spawn if they don't overlap with others. Overlapping attempts discard the latter object (i.e. the object that is spawned later in the configuration file). This is to avoid object collision issues during runtime.
-#####
-* **Spawn Order**: Objects are spawned in the order listed. Randomized objects (i.e. the object is set to spawn randomly) try to spawn up to 20 times concurrently in any given arena/episode; if unsuccessful, the object is discarded and the arena continues to spawn the next object in the list (if any).
-#####
-* **Spawn Likelihood**: Early list objects are more likely to spawn than later ones. This is because the configuration file is scanned from top to bottom, and objects are spawned in the order they are found.
-#####
+* **Non-Overlapping**: Objects spawn only if they don't overlap with others. Overlapping attempts discard the latter object to avoid runtime collision issues.
+* **Spawn Order**: Objects are spawned in the order listed. Randomized objects attempt to spawn up to 20 times; if unsuccessful, they are discarded.
+* **Spawn Likelihood**: Objects listed earlier are more likely to spawn as the file is scanned from top to bottom.
 * **Agent Spawning**:
-  + The Agent spawns randomly within the arena bounds if it's spawn position is not specified.
-  + Specified Agent positions are processed _first_, which might conflict with randomly spawned objects that are spawned _after_ the Agent, as the Agent's position is not known until runtime.
-  + If you have defined the Agent's position and another object tries to spawn at the same position as the Agent then the environment will always spawn the Agent in that position always, as _the Agent has priority above every other object_. This is to avoid a potential conflict during runtime.
-  + Some objects can spawn on top of each other (a `0.1` height buffer added to accomodate this). 
+  - The Agent spawns randomly within arena bounds if no position is specified.
+  - Specified Agent positions are processed first, potentially conflicting with later objects.
+  - If an object tries to spawn at the Agent's position, the Agent takes priority to avoid runtime conflicts.
+  - Some objects can spawn on top of each other with a `0.1` height buffer.
 
 ### Configuration File Values
 
-* **n: ! Arena**: The `n` in `n: !Arena` is a placeholder integer between `0` and `n`, where `n` is the number of arenas defined in a single configuration file. The first arena must start with `0`, upto `n` arenas. Any negative arena numbers are automatically converted to positive integers accordingly, resulting in flexible and robust arena numbering and management.
-#####
-* **Object Names**: Must match names from [Arena Object Definitions](/docs/Arena-Object-Definitions.md). Unmatched names are ignored and may result in unexpected behavior or fatal errors.
-#####
-* **Randomization**: Use `-1` or leave blank in `positions`,  `sizes`, and `rotations` for random values for any object that supports randomization (see [Arena Object Definitions](/docs/Arena-Object-Definitions.md)).
-#####
-* **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level (with a `0.1` height buffer to prevent gameobject clipping).
-#####
-* **Goal Scaling**: Goals (except red zone) scale equally on all axes. For sphere goals, only the `x` component of `Vector3` scales all axes.
-#####
-* **Arena Height Bounds**: Currently, objects can spawn at any height within the arena, which translates to the `y` component of `Vector3` in the configuration file. However, a recommended height range is between `0` and `50` units, as anything above `50` units will be out of the camera's view until the object falls from the sky and lands on the ground at the specified `x` and `z` coordinates, which may take a while depending on the object's mass and drag properties. This is not an issue for objects that spawn on the ground, as they will spawn at the specified `x` and `z` coordinates, and at ground level (i.e. `y = 0`).
-#####
-* **Arena Size Bounds**: The arena is currently a square of fixed size `40x40`, meaning the size of the arena is immutable, with the origin of the arena is set to `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats. Any coordinates outside this range will be discarded and the object will not spawn. We plan to make the arena size configurable in the future.
-
----
+* **n: !Arena**: `n` is an integer from `0` to the total number of arenas defined. The first arena starts at `0`, up to `n`. Negative numbers are converted to positive integers for flexible arena management.
+* **Object Names**: Must match names from [Arena Object Definitions](/docs/Arena-Object-Definitions.md). Unmatched names are ignored.
+* **Randomization**: Use `-1` or leave blank in `positions`, `sizes`, and `rotations` for random values where supported.
+* **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level with a `0.1` height buffer.
+* **Goal Scaling**: Goals (except red zones) scale equally on all axes. For sphere goals, only the `x` component of `Vector3` scales all axes.
+* **Arena Height Bounds**: Objects can spawn at any height within the arena. Recommended height range is `0` to `50` units. Heights above `50` units may cause objects to fall from the sky, which can take time depending on their mass and drag.
+* **Arena Size Bounds**: The arena is a fixed `40x40` square with coordinates ranging from `[0,40]x[0,40]`. Coordinates outside this range will be discarded. Arena size configurability is planned for the future.
