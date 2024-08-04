@@ -23,6 +23,7 @@ Animal-Artificial Intelligence (Animal-AI) supports interdisciplinary research t
 ## Overview
 
 - **Website:** [here](https://sites.google.com/csah.cam.ac.uk/animalai/)
+- **Youtube Channel:** [here](https://www.youtube.com/@CFIKinds-Of-Intelligence/featured)
 - **Unity/C# Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package)
 
@@ -42,8 +43,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 **Comprehensive AI Environment:**
 - Includes a versatile environment for AI experiments, from basic to advanced configurations
-- Wrap Unity learning environments as a gym(nasium) environment
-- Wrap Unity learning environments as a PettingZoo environment
+- Wrap Unity learning environments as a gym(nasium) and PettingZoo environment
 
 **Extensive Task Library:**
 - Multiple example tasks for getting started
@@ -51,12 +51,12 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 - Procedural YAML Configuration File Generation
 
 **Unity Game Engine:**
+- Leverages Unity3D Game Engine for advanced simulation capabilities
 - Utilizes Unity ML-Agents toolkit for AI training
-- Leverages Unity game engine for advanced simulation capabilities
-- Fast and robust wrapper
+- Supports Unity's physics engine for realistic interactions
 
 **Cross-Platform Compatibility:**
-- Compatible with Windows 11, Linux, and MacOS
+- Compatible with Windows 10+, Linux, and MacOS
 - Supports Python 3.6.x and above
 
 **Control Modes:**
@@ -67,6 +67,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 **Interactive and Dynamic Environment:**
 - Offers interactive elements for complex AI training
 - Supports dynamic environment generation
+- Includes a variety of objects for diverse AI training scenarios
 
 
 ## Getting Started
@@ -85,7 +86,7 @@ For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versi
 
 ## Citation
 
-We published our Version 3 paper on Animal-AI, which you can find [here](https://arxiv.org/abs/2312.11414). If you use Animal-AI in your research, please cite our paper:
+We've published our latest paper on Animal-AI, which you can find [here](https://arxiv.org/abs/2312.11414). If you use Animal-AI in your research, please cite our paper:
 
  _Voudouris, K., Alhas, I., Schellaert, W., Crosby, M., Holmes, J., Burden, J., Chaubey, N., Donnelly, N., Patel, M., Halina, M,. Hernández-Orallo, J. & Cheke, L. G. (2023). Animal-AI 3: What's New & Why You Should Care. arXiv preprint arXiv:2312.11414._
 ```
