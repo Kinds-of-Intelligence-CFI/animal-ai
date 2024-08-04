@@ -37,37 +37,36 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 ## Features
 
 **Interdisciplinary Research Platform:**
-- Facilitates research in human, animal, and artificial cognition
-- Supports cross-disciplinary studies
-- Enables comparative assessments among humans, animals, and artificial intelligences
+- Facilitates research across human, animal, and artificial cognition
+- Supports cross-disciplinary studies and comparative assessments among humans, animals, and AIs
 
 **Comprehensive AI Environment:**
-- Includes a versatile environment for AI experiments, from basic to advanced configurations
-- Wrap Unity learning environments as a gym(nasium) and PettingZoo environment
+- Provides a versatile platform for AI experiments, from basic setups to advanced configurations
+- Wraps Unity learning environments into both gym(nasium) and PettingZoo formats
 
 **Extensive Task Library:**
-- Multiple example tasks for getting started
-- 900 tasks from the Animal-AI Olympics competition
-- Procedural YAML Configuration File Generation
+- Includes multiple example tasks to help you get started
+- Features 900 tasks from the Animal-AI Olympics competition
+- Supports procedural generation of YAML configuration files
 
 **Unity Game Engine:**
-- Leverages Unity3D Game Engine for advanced simulation capabilities
-- Utilizes Unity ML-Agents toolkit for AI training
-- Supports Unity's physics engine for realistic interactions
+- Utilizes the Unity3D Game Engine for advanced simulation capabilities
+- Employs the Unity ML-Agents toolkit for AI training
+- Leverages Unity's physics engine for realistic interactions
 
 **Cross-Platform Compatibility:**
-- Compatible with Windows 10+, Linux, and MacOS
+- Compatible with Windows 10+, Linux, and macOS
 - Supports Python 3.6.x and above
 
 **Control Modes:**
-- Player mode for interactive environment control, for human testing
-- Training mode for Reinforcement Learning, with support for tensorflow analysis
-- Supports AI model training across different systems
+- **Player Mode:** Allows for interactive control of the environment, ideal for human testing
+- **Training Mode:** Designed for Reinforcement Learning, with support for TensorFlow analysis
+- Facilitates AI model training across various systems
 
 **Interactive and Dynamic Environment:**
-- Offers interactive elements for complex AI training
+- Provides interactive elements for complex AI training scenarios
 - Supports dynamic environment generation
-- Includes a variety of objects for diverse AI training scenarios
+- Includes a variety of objects to create diverse training scenarios for AI
 
 
 ## Getting Started
