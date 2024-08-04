@@ -11,31 +11,38 @@
 
 ## Introduction
 
-This document provides instructions on how to launch the Animal-AI environment and run the Animal-AI simulation (application). This is a step-by-step guide to help you get running Animal-AI in either of the two modes: _training or manual play modes_.
-
-Note that the steps are the same for all platforms (Windows, Linux, and macOS). However, the commands may differ slightly between platforms.
+This guide explains how to launch the Animal-AI environment and run the simulation in either _training_ or _manual play_ mode. The steps are consistent across all platforms (Windows, Linux, and macOS), though specific commands may vary slightly.
 
 ## Getting Ready to Launch Animal-AI
 
-As a reminder (or if you have not done so already) you need to download the application from our [Releases page](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases). You may choose to download the application for Windows, Linux, or macOS, depending on your operating system. After downloading, simply extract the contents of the downloaded file to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS).
+1. **Download the Application**: 
+   - Visit our [Releases page](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases) to download the appropriate version for your operating system (Windows, Linux, or macOS).
+   - Extract the contents to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS).
 
-The next thing to do is to install the `animalai` package into your Python environment. You can do this by running the following command in your terminal (Command Prompt, Terminal, etc.). It's recommended to create a virtual environment for your project before installing the `animalai` package. If you already have a conda environment, you can activate it before install animalai package.
+2. **Install the `animalai` Package**:
+   - Create a virtual environment for your project if you haven't already. If you use Conda, activate your environment before proceeding.
+   - Run the following command in your terminal:
 
-```bash
-pip install animalai stable-baselines3 # we will need stable-baselines3 for training and it's good practice to install it now to avoid dependency issues which may arise later.
-```
+     ```bash
+     pip install animalai stable-baselines3
+     ```
 
-After installing the `animalai` package, you can use a configuration file for the Animal-AI environment. The configuration file is a YAML file that specifies the settings for the environment, such as the arena and the objects within it. You can create a configuration file by following the instructions in our [Creating a Configuration File](/docs/configGuide/YAML-Config-Syntax.md) guide or use our example configuration file as a starting point [here](/docs/configGuide/Example-YAML-File.yaml). Download this file and save it to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS.)
+   - Note: `stable-baselines3` is required for training and helps avoid dependency issues.
+
+3. **Prepare a Configuration File**:
+   - The configuration file (YAML format) defines the settings for your Animal-AI environment, including arena and objects.
+   - Create your own configuration file following our [guide on YAML syntax](/docs/configGuide/YAML-Config-Syntax.md), or download an [example file](/docs/configGuide/Example-YAML-File.yaml).
+   - Save the configuration file in your chosen directory (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS).
 
 ## Launching Animal-AI
 
-You can use Python scripts to launch the Animal-AI environment by specifying the configuration file and the path to the AnimalAI.exe file. For simplicity and coherence sake, we will showcase how to launch via _Jupyter Notebook and Kernel Gateway_ for both manual play and training modes below using the same code. 
+To launch the Animal-AI environment, use Python scripts that specify both the configuration file and the path to the `AnimalAI.exe/app` file. Below, we'll demonstrate how to launch Animal-AI in both manual play and training modes using _Jupyter Notebook and Kernel Gateway_.
+
+For simplicity and consistency, the same code examples apply to both modes.
 
 ### Manual Play
 
-Note that you need to have the `animalai` package installed in your Python environment to run the code below (regardless of the mode you choose).
-
-Copy and paste this code into a Jupyter Notebook and run it to launch the Animal-AI environment. Save the file as `launch_animal_ai.ipynb` and run it in your Jupyter Notebook. Also, remember to create a kernel gateway in your Jupyter Notebook to run the code below. We have a guide on how to do that in our [Jupyter Notebook guide](/docs/Using-Jupyter-Notebooks.md).
+Copy and paste this code into a Jupyter Notebook. Save the file as `launch_animal_ai.ipynb` and run it. Ensure you have a kernel gateway set up; see our [Jupyter Notebook guide](/docs/Using-Jupyter-Notebooks.md) for instructions. You can also use the "Run All Cells" option to execute the code and install the kernel gateway quickly.
 
 ```python
 
@@ -79,13 +86,13 @@ if environment:
     environment.close() # takes a few seconds to close...
 ```
 
-The most common mistake is not specifying the correct path to the application and/or the configuration file. Make sure to replace `your-config-file.yml` with the path to your configuration file and `your-path-to-application.exe` with the path to the AnimalAI.exe file.
+The most common mistake is not specifying the correct path to the application and/or the configuration file. Ensure you replace `your-config-file.yml` with the path to your configuration file and `your-path-to-application.exe` with the path to the AnimalAI.exe file.
 
 After running the code, the Animal-AI environment will launch in manual play mode. You can now interact with the environment using the keyboard and mouse.
 
 #### Controls in Play Mode
 
-In play mode, you can switch the camera view and control the agent using the following keyboard commands: 
+In play mode, you can switch the camera view and control the agent using the following keyboard commands:
 
 | Keyboard Key  | Action               |
 | ------------- | -------------------- |
@@ -97,14 +104,13 @@ In play mode, you can switch the camera view and control the agent using the fol
 | R             | Reset environment    |
 | Q             | Quit application     |
 
-Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. The agent can be controlled using `W` , `A` , `S` , `D` (or the arrow keys). Hitting `R` or collecting certain rewards (green or red) will reset the arena (if there is only one defined arena in the configuration file, it will play the same arena infinitely). Note that the camera and agent controls are not available in `Train` mode, with only third-person camera implemented (we plan to add multiple camera observations during training at some point).
+Toggle the camera between first-person, third-person, and bird's eye view using the `C` key. Control the agent using `W`, `A`, `S`, `D`, or the arrow keys. Press `R` or collect certain rewards (green or red) to reset the arena or move to the next. If only one arena is defined in the configuration file, it will repeat indefinitely. Note that camera and agent controls are not available in `Train` mode, which currently supports only third-person camera (additional camera observations during training may be added in future updates).
 
 ### Training Mode
 
-For training mode, you can use the following code to launch the Animal-AI environment. Save the code below as `launch_animal_ai_training.ipynb` and run it in your Jupyter Notebook. In addition, you can create code junks to sequentially run bits of code by clicking on the `+` button in the Jupyter Notebook (assuming you're using an IDE such as Visual Studio Code) and selecting `Code`. Copy and paste the code below into the code junk and run it. 
+To launch the Animal-AI environment in training mode, save the following code as `launch_animal_ai_training.ipynb` and run it in your Jupyter Notebook. You can create code cells in the notebook by clicking the `+` button (assuming you're using an IDE such as Visual Studio Code) and selecting `Code`. Copy and paste the code below into the code cells and run them sequentially.
 
-Lastly, we will be using Stable-Baselines3 to train the PPO agent in this example. Refer to the [Stable-Baselines3 documentation](https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html) for more information on how to use the PPO agent for training (_class_: `classstable_baselines3.common.policies.ActorCriticCnnPolicy`).
-
+We will use Stable-Baselines3 to train the PPO agent in this example. Refer to the [Stable-Baselines3 documentation](https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html) for more information on using the PPO agent for training (`classstable_baselines3.common.policies.ActorCriticCnnPolicy`).
 
 ```python
 
@@ -164,36 +170,34 @@ configuration_file = r"your-config-file.yml"
 
 rewards = train_agent_single_config(configuration_file=configuration_file, env_path = env_path, watch = True, num_steps = 500, num_eval = 3000)
 ```
-So, what are we doing in the above code? 
 
-- We first import the necessary libraries, including the PPO algorithm from Stable-Baselines3.
+Here's a breakdown of what the above code does:
 
-- We then define a function called `train_agent_single_config` that takes the configuration file, the path to the AnimalAI.exe file, and other parameters as input. The function creates the Animal-AI environment and wraps it using the `UnityToGymWrapper` class from the `mlagents_envs` package. We then create a PPO agent using the `PPO` class from Stable-Baselines3 and train the agent for a specified number of steps. 
+- **Import Libraries:** Imports necessary libraries, including the PPO algorithm from Stable-Baselines3.
+- **Define Function:** Defines `train_agent_single_config` which takes the configuration file, path to AnimalAI.exe, and other parameters as inputs. This function:
+  - Creates the Animal-AI environment and wraps it using `UnityToGymWrapper`.
+  - Creates a PPO agent using Stable-Baselines3 and trains it for a specified number of steps.
+- **Parameters:**
+  - `log_bool`: Boolean to log the training process using TensorBoard.
+  - `aai_seed`: Integer specifying the seed for the Animal-AI environment.
+  - `watch`: Boolean to watch the agent play.
+  - `num_steps`: Number of steps to train the agent.
+  - `num_eval`: Number of evaluations to perform.
+- **Call Function:** Calls `train_agent_single_config` with the configuration file and path to AnimalAI.exe.
+- **Store Rewards:** Stores rewards obtained during training in the `rewards` variable.
 
-- The other parameters are as follows:
-    - `log_bool` - a boolean value that specifies whether to log the training process using TensorBoard.
-    - `aai_seed` - an integer value that specifies the seed for the Animal-AI environment.
-    - `watch` - a boolean value that specifies whether to watch the agent play.
-    - `num_steps` - an integer value that specifies the number of steps to train the agent.
-    - `num_eval` - an integer value that specifies the number of evaluations to perform.
+**Note:** Replace `configuration_file` and `env_path` with the path to your configuration file and Animal-AI.exe/app file.
 
-- We then call the `train_agent_single_config` function with the configuration file and the path to the AnimalAI.exe file as input.
+Running this code launches the Animal-AI environment in training mode. The agent is trained using the PPO algorithm and learns to navigate the environment and collect rewards based on the configuration file.
 
-- Lastly, the rewards obtained during training are stored in the `rewards` variable.
+A `tensorboardLogs` folder will be created in the current working directory, where you can view training logs.
 
-**N.B:** The `configuration_file` and `env_path` variables should be replaced with the path to your configuration file and the Animal-AI.exe file, respectively, as in our previous example.
-
-After running the code, the Animal-AI environment will launch in training mode. The agent will be trained using the PPO algorithm. Note that the controls in training mode are not available. The agent will learn to navigate the environment and collect rewards based on the configuration file you provided.
-
-A folder named `tensorboardLogs` will be created in the current working directory (where you ran the code). You can view the training logs there directly.
-
-If you are new to training agents in Animal-AI, we've provide a guide on how to integrate Animal-AI with other AI libraries such as Stable-Baselines3 and DreamerV3 [here](/docs/integration/Integrate-AAI.md).
-
+For new users, a guide on integrating Animal-AI with other AI libraries like Stable-Baselines3 and DreamerV3 is available [here](/docs/integration/Integrate-AAI.md).
 
 ## Conclusion
 
-Congradulations! You've successfully launched the Animal-AI environment.
+Congratulations! You've successfully launched the Animal-AI environment.
 
-This guide hopefully has provided you with the necessary steps to launch the Animal-AI environment in both manual play and training modes. You can now interact with the environment using the keyboard and mouse in manual play mode or train an agent using the code provided in training mode. Of course, you can also use the code provided in your own Python scripts to launch the Animal-AI environment. Please check our documentation for more information on the platform and how to use it.
+This guide has provided the necessary steps to launch the Animal-AI environment in both manual play and training modes. You can now interact with the environment using the keyboard and mouse in manual play mode or train an agent using the provided code in training mode. You can also use the provided code in your Python scripts to launch the Animal-AI environment. Please check our documentation for more information on the platform and how to use it.
 
-If you encounter any issues or have any questions, please feel free to reach out to us on our [GitHub Discussions](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/discussions). You may also wish to check our [FAQs](/docs/FAQ.md) for answers to common questions.
+If you encounter any issues or have any questions, please reach out to us on our [GitHub Discussions](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/discussions). You may also wish to check our [FAQs](/docs/FAQ.md) for answers to common questions.
