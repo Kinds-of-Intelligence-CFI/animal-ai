@@ -13,7 +13,7 @@ We aim to enable interdisciplinary research to better understand human, animal, 
 
 ## Roadmap
 
-### 2.1 Initial Port + RayCasts [Major Release]
+### 2.1.0 Initial Port + RayCasts [Major Release]
 
 * [x] Port Unity Environment from ml-agents 0.15 to 2.0
 * [x] Port basic Python scripts from ml-agents 0.15 to 2.0
@@ -21,7 +21,7 @@ We aim to enable interdisciplinary research to better understand human, animal, 
 
 The environment was ported to ml-agents 2.0. Raycast observations were added and ensured to be roughly backwards compatible with 2.0.
 
-### 2.2 Health and Basic Scripts [Major Release]
+### 2.2.0 Health and Basic Scripts [Major Release]
 
 * [x] Switch from reward system to health system (functionally similar from a DRL perspective but unlocks more tasks and better integration with a continual learning setting)
 * [x] Add decaying rewards
@@ -32,7 +32,7 @@ The environment was ported to ml-agents 2.0. Raycast observations were added and
 
 The previous setting had an abstract system where food = +ve reward and time = -ve reward. This was converted to decaying health that must be maintained by seeking out rewards. Many tasks are functionally identical, but this setup is better for future tasks and persistent survival. Other additions include improvements to the environment that go with this change and the initial setup of scripts as tutorials for using different training settings.
 
-### 2.3 Experiment, Object, and Graphical Improvements [Major Release]
+### 2.3.0 Experiment, Object, and Graphical Improvements [Major Release]
 
 * [x] Major graphics update to all items
 * [x] Goals that decay/ripen/change size
@@ -41,21 +41,51 @@ The previous setting had an abstract system where food = +ve reward and time = -
 
 This update focuses on improving the environment for experimentation. It includes a major graphics update to all items, the addition of goals that decay/ripen/change size, and more items for setting up experiments. This update also includes improved documentation which enhances user experience.
 
-### 3.3 Animal-AI 'Version 3' [Major Release]
+### 3.3.0 Animal-AI 'Version 3' [Major Release]
 
 * [x] Migrate to Unity Editor 2022
 * [x] Migrate to ml-agents 0.30.0
 * [x] Fix major graphical bugs affecting shadows and object placement
 * [x] Add interactive objects to the environment
-    - [x] Add new objects to the environment that are interactable (SpawnerButton) by users and agents
+    - [x] Add new objects to the environment that are interactable (SpawnerButton) by users and Agents
 * [x] Add more objects to the RayCast Parser (Unity and Python sides)
 * [x] Overhaul documentation and tutorials for the environment (play and training)
 
 This update focuses on migrating to the latest version of Unity Editor and ml-agents. It also includes fixing major graphical bugs affecting shadows and object placement, adding interactive objects to the environment, and adding more objects to the RayCast Parser. This update also includes an overhaul of documentation and tutorials for the environment.
 
-### 4.0 Animal-AI 'Version 4' [Major Release] [Stable 1.0]
+#### Attention: Animal-AI v4.0.0 and Beyond: Iterative Stabilization and Enhancement
+
+_Starting from version 4.0.0, the focus of development will shift towards an iterative process aimed at creating a robust and stable version of Animal-AI. This phase will prioritize fixing all outstanding bugs and addressing existing limitations, with the goal of refining and enhancing the system’s overall stability. The culmination of these efforts will be the release of a stable and reliable version 5.0.0, which will serve as a solid foundation for future developments._
+
+### 4.0.0 Animal-AI 'Version 4' [Major Release] [Stable 1.0]
 
 * [x] Add 'decoy' valenced objects to the environment (no reward values, but can be interacted with like other regular valenced rewards)
 * [x] UI overhaul with modern UI elements and components
 * [x] Add new UI elements to present YAML configuration-specific information, such as the number of defined arenas and current arena index; total number of spawned objects
 * [x] Implement project-specific testing framework
+* [x] Add new feature to merge multiple arenas into one
+
+### 4.1.0 Animal-AI [Major Release] [Stable 2.0]
+
+* [x] Make yaml parameters more readable, coherent; informative ('t' and 'pass-Mark' renamed to 'timeLimit' and 'passMark', respectively)
+* [x] Launch new feature to collect and log data on arena and Agent (LogToCSV)
+* [x] Improve and expand testing framework with more coverage and tests
+* [x] Add new game objects (DecoyGoal and HollowBox)
+* [x] Improve performance and optimisation across c# codebase
+* [x] Rework collision settings on some game objects (i.e. movable/UBlock) for better and more realistic physics
+
+### 4.2.0 Animal-AI [Major Release]
+
+* [ ] Overhaul Agent settings and dynamics
+* [ ] Allow game objects to have customisable colors (moveable) via YAML configurations
+* [ ] Fix training mode bug where first episodes are skipped during first batch of arenas
+
+### 4.3.0 Animal-AI [Major Release] [Stable 3.0]
+
+* [ ] Enable customization of arena dimensions (x and z axes) through YAML configurations (global or local parameter)
+* [ ] Complete the implementation of end-to-end (e2e) testing
+
+### 4.4.0 Animal-AI [Major Release]
+
+* [ ] Add Web-GL version of Animal-AI and deploy to AAI website
+* [ ] Fix any outstanding bugs and errors
