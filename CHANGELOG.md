@@ -17,7 +17,7 @@ This version introduces a breaking change for YAML configuration files. The synt
 - **YAML Syntax Changes**:
   - `"t"` parameter renamed to `"timeLimit"` for clarity.
   - `"pass_mark"` parameter renamed to `"passMark"` for consistency.
-- **UI Text Elements**: Now use the same font style for coherency.
+- **UI Text Elements**: UI elemetns now use the same font and style for coherency.
 
 ### Fixed
 - Fixed a bug where the agent would sometimes get stuck near the SpawnerButton.
@@ -32,7 +32,7 @@ This version introduces a breaking change for YAML configuration files. The synt
 
 ### Added
 - New valanced objects: `DecayGoal` and `DecayGoalBounce`.
-- **New Feature: `mergeArenas`**. Allows users to merge multiple arenas into one, enabling more complex environments. Merged arenas will be in the same scene, allowing seamless agent movement between them. See the documentation for an example YAML configuration file.
+- **New Feature: `mergeArenasEpisodes`**. Allows users to merge multiple arenas into one, enabling more complex environments. Merged arenas will be in the same scene, allowing seamless agent movement between them. See the documentation for an example YAML configuration file.
 
 ### Changed
 - Updated to TMPro package for text rendering in Unity, for better performance and flexibility.
