@@ -5,19 +5,21 @@ This document records all notable changes to the Animal-AI project. It follows t
 ## [4.1.0] - Upcoming
 
 ### Notes
-This version introduces a breaking change for YAML configuration files. The syntax for defining arenas has been updated to be more user-friendly and intuitive but is not backward compatible with `v4.0.0`. Please refer to the documentation for more information.
+_This version introduces a breaking change for YAML configuration files. The syntax for defining arenas has been updated to be more user-friendly and intuitive but is not backward compatible with `v4.0.0`. Please refer to the documentation for more information._
 
 ### Added
 - **New Game Objects**:
-  - **Movable: `HollowBox`**: A hollow box that agents can move around the arena to create more complex environments and challenges.
-  - **Movable: `DecoyGoal` and `DecoyGoalBounce`**: These objects can be used similarly to the `HollowBox` for added complexity.
+  - **Movable: `HollowBox`** A hollow box that agents can move within the arena, enabling the creation of more complex environments and challenges. It also supports spawning rewards inside or just above the box, offering diverse use cases.
+  - **Movable: `DecoyGoal` and `DecoyGoalBounce`** These objects can be used similarly to the `HollowBox`.
+  - **Movable:** `DataZone` The primary use case for this new game object is for data collection upon being entered by the agent or player. 
 - **New UI Element: `AAI Build Version`**: Displays the Animal-AI Build Version in the bottom-right corner of the UI for quick reference.
+- **New Feature**: `LogDataToCSV` an automatic data logging system that activates during both play and train modes. This system meticulously logs data about the environment, as well as the agent’s observations and actions, into a well-organized CSV file located in the root folder of AAI, specifically under `ObservationLogs`.
 
 ### Changed
 - **YAML Syntax Changes**:
   - `"t"` parameter renamed to `"timeLimit"` for clarity.
   - `"pass_mark"` parameter renamed to `"passMark"` for consistency.
-- **UI Text Elements**: UI elemetns now use the same font and style for coherency.
+- **UI Text Elements**: UI elements now use the same font and style for coherency.
 
 ### Fixed
 - Fixed a bug where the agent would sometimes get stuck near the SpawnerButton.
@@ -31,7 +33,7 @@ This version introduces a breaking change for YAML configuration files. The synt
 - _This release is also backward incompatible with the previous versions (i.e. `v3.1.4.exp`), and agents trained on the previous version may not work with this new version._
 
 ### Added
-- New valanced objects: `DecayGoal` and `DecayGoalBounce`.
+- **New Valanced Game Objects:** `DecayGoal` and `DecayGoalBounce`.
 - **New Feature: `mergeArenasEpisodes`**. Allows users to merge multiple arenas into one, enabling more complex environments. Merged arenas will be in the same scene, allowing seamless agent movement between them. See the documentation for an example YAML configuration file.
 
 ### Changed
@@ -40,20 +42,20 @@ This version introduces a breaking change for YAML configuration files. The synt
 - Changed UI text colours to be more accessible and readable.
 
 ### Fixed
-- Fixed object tag being incorrectly set for game object `RAMP` (from _IMMOVABLE_ to _RAMP_).
+- Fixed object tag being incorrectly set for game object `RAMP` (from `IMMOVABLE` to `RAMP`).
 
 ---
 
 ## [3.1.4.exp] - 2023-12-22
 ### Added
-- Enhanced Unit Tests for Unity codebase.
+- More Unit Tests for Unity codebase.
 
 ### Fixed
 - Fixed a bug where randomizeArenas was not cycling through all available arenas if set to true.
 - Added measures to make sure if the randomizeArenas feature is set to true, the same arena is not selected twice in a row.
 
 ### Changed
-- Improvements to the UI layout and design.
+- Minor improvements to the UI layout and design.
 
 ---
 
@@ -81,9 +83,9 @@ This version introduces a breaking change for YAML configuration files. The synt
 - "Camera and Reset Buttons" feature.
 
 ### Changed
-- Updated End of Episode Notification to be more user-friendly and fun.
+- Updated End-of-Episode Notification to be more user-friendly and fun.
 - Increased next episode spawn (if end-of-episode notifcation is set to true) delay before next episode from 2 to 5 seconds.
-- Improved SpawnerButton for better handling of missing values.
+- Improved SpawnerButton game object logic for better handling of missing values.
 
 ### Fixed
 - Hotfix for a bug affecting the SpawnerTree (where the SpawnerTree game object would have inconsistent behavior).
