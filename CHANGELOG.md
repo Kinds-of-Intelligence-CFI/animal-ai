@@ -12,7 +12,6 @@ This version introduces a breaking change for YAML configuration files. The synt
   - **Movable: `HollowBox`**: A hollow box that agents can move around the arena to create more complex environments and challenges.
   - **Movable: `DecoyGoal` and `DecoyGoalBounce`**: These objects can be used similarly to the `HollowBox` for added complexity.
 - **New UI Element: `AAI Build Version`**: Displays the Animal-AI Build Version in the bottom-right corner of the UI for quick reference.
-- **New Feature: `mergeArenas`**: Allows users to merge multiple arenas into one, enabling more complex environments. Merged arenas will be in the same scene, allowing seamless agent movement between them. See the documentation for an example YAML configuration file.
 
 ### Changed
 - **YAML Syntax Changes**:
@@ -33,6 +32,7 @@ This version introduces a breaking change for YAML configuration files. The synt
 
 ### Added
 - New valanced objects: `DecayGoal` and `DecayGoalBounce`.
+- **New Feature: `mergeArenas`**. Allows users to merge multiple arenas into one, enabling more complex environments. Merged arenas will be in the same scene, allowing seamless agent movement between them. See the documentation for an example YAML configuration file.
 
 ### Changed
 - Updated to TMPro package for text rendering in Unity, for better performance and flexibility.
