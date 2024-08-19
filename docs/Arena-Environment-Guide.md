@@ -15,6 +15,7 @@
   + [Spawner Parameters](#spawner-parameters)
   + [SignBoard Parameters](#signboard-parameters)
 * [Blackouts](#blackouts)
+* [CSV Logger](#csv-logger)
 * [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
   + [Spawning GameObjects](#spawning-gameobjects)
   + [Configuration File Values](#configuration-file-values)
@@ -291,6 +292,12 @@ _Blackouts_ define when the lights are on or off during an episode in each arena
 **Note**: With a list of frames, the lights will stay off after the last frame in the list for infinite episodes. 
 
 See the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide for a detailed tutorial on how to use blackouts.
+
+## CSV Logger
+
+The CSV Logger feature automatically records experiment results into a CSV file, eliminating manual effort. This feature runs in the background during Animal-AI sessions and stops when the application closes. It is particularly useful for tracking and comparing experiment outcomes, and it is enabled by default in both Play and Train modes.
+
+For more information on the CSV Logger, refer to the [CSV Logger Guide](/docs/CSVLoggerGuide.md).
 
 ## Rules and Notes for Arena Configurations
 
