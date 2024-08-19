@@ -22,8 +22,9 @@ _This version introduces a breaking change for YAML configuration files. The syn
 - **UI Text Elements**: UI elements now use the same font and style for coherency.
 
 ### Fixed
-- Fixed a bug where the agent would sometimes get stuck near the SpawnerButton.
-- Fixed incorrect game object tags in Unity.
+- Fixed agent getting stuck near the SpawnerButton.
+- Corrected incorrect game object tags in Unity.
+- Prevented crashes caused by game objects positioned at (0, y, 0) or (40, y, 40) in the YAML configuration. A temporary fix is in place, with a permanent solution in development (overhaul of the Game Object Spawning System).
 
 ---
 
