@@ -85,7 +85,11 @@ _Starting from version 4.0.0, the focus of development will shift towards an ite
 * [ ] Enable customization of arena dimensions (x and z axes) through YAML configurations (global or local parameter)
 * [ ] Complete the implementation of end-to-end (e2e) testing
 
-### 4.4.0 Animal-AI [Major Release]
+### 4.4.0 Animal-AI [Major Release] [Stable 4.0]
 
 * [ ] Add Web-GL version of Animal-AI and deploy to AAI website
 * [ ] Fix any outstanding bugs and errors
+
+### 4.5.0 Animal-AI [Major Release] [Stable 5.0]
+
+### 5.0.0 Animal-AI [Major Release]
