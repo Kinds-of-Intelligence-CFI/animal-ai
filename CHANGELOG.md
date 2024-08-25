@@ -2,7 +2,7 @@
 
 This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
 
-## [4.1.0] - Upcoming
+## [4.1.0] - 2024-08-19
 
 ### Notes
 _This version introduces a breaking change for YAML configuration files. The syntax for defining arenas has been updated to be more user-friendly and intuitive but is not backward compatible with `v4.0.0`. Please refer to the documentation for more information._
@@ -22,9 +22,11 @@ _This version introduces a breaking change for YAML configuration files. The syn
 - **UI Text Elements**: UI elements now use the same font and style for coherency.
 
 ### Fixed
-- Fixed agent getting stuck near the SpawnerButton.
-- Corrected incorrect game object tags in Unity.
-- Prevented crashes caused by game objects positioned at (0, y, 0) or (40, y, 40) in the YAML configuration. A temporary fix is in place, with a permanent solution in development (overhaul of the Game Object Spawning System).
+- Resolved agent getting stuck near the SpawnerButton.
+- Corrected incorrect Unity game object tags.
+- Prevented crashes from game objects positioned at (0,y,0) or (40,y,40) in YAML. Temporary fix applied; permanent solution in progress.
+- Fixed incorrect collision settings for movable objects.
+- Adjusted low mass settings for movable objects.
 
 ---
 
