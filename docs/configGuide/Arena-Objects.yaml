@@ -206,6 +206,7 @@ arenas:
       - !Vector3 {x: 35, y: 15, z: 9}
       sizes:
       - !Vector3 {x: 1, y: 1, z: 1}
+
     - !Item
       name: GoodGoalBounce
       positions:
@@ -263,18 +264,29 @@ arenas:
       - !Vector3 {x: 1, y: 1, z: 1}
 
     - !Item
-      name: DecayGoal
-      positions:
-      - !Vector3 {x: 5, y: 16, z: 29}
-      sizes:
-      - !Vector3 {x: 1, y: 1, z: 1}
-
-    - !Item
       name: DecoyGoal
       positions:
       - !Vector3 {x: 4, y: 14, z: 23}
       sizes:
       - !Vector3 {x: 1, y: 1, z: 1}
+  
+    - !Item
+      name: DecoyGoalBounce
+      positions:
+      - !Vector3 {x: 4, y: 14, z: 23}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+    - !Item
+      name: DecayGoal
+      positions:
+      - !Vector3 {x: 5, y: 16, z: 29}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      initialValues: [1]
+      finalValues: [1.5]
+      delays: [300]
+      changeRates: [-0.007]
 
     - !Item
       name: DecayGoalBounce
@@ -282,6 +294,10 @@ arenas:
       - !Vector3 {x: 6, y: 22, z: 40}
       sizes:
       - !Vector3 {x: 1, y: 1, z: 1}
+      initialValues: [1]
+      finalValues: [1.5]
+      delays: [300]
+      changeRates: [-0.007]
 
     - !Item
       name: GrowGoal
@@ -289,6 +305,10 @@ arenas:
       - !Vector3 {x: 3, y: 20, z: 38}
       sizes:
       - !Vector3 {x: 1, y: 1, z: 1}
+      initialValues: [1] # the initial size of the object.
+      finalValues: [3.5] # the final size of the object.
+      delays: [100] # any delay in seconds before the object starts to grow.
+      changeRates: [0.01] # the rate at which the object grows.
 
     - !Item
       name: ShrinkGoal
@@ -296,8 +316,13 @@ arenas:
       - !Vector3 {x: 9, y: 26, z: 16}
       sizes:
       - !Vector3 {x: 1, y: 1, z: 1}
+      initialValues: [2.5] # the initial size of the object.
+      finalValues: [1.5] # the final size of the object (after shrinking).
+      delays: [400] # any delay in seconds before the object starts to shrink.
+      changeRates: [-0.2] # the rate at which the object shrinks.
 
 # ZONES
+
     - !Item
       name: HotZone
       positions:
