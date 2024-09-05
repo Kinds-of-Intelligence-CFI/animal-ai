@@ -2,10 +2,12 @@
 
 #### Table of Contents
 
-1. [Introduction](#introduction)
-2. [Extract Configuration File Objects (Python)](#extract-configuration-file-objects-python)
-3. [Randomize Object Positions (Python)](#randomize-object-positions-python)
-4. [Replace Old Parameters w/ New Ones (Python)](#replace-old-parameters-w-new-ones-python)
+- [Useful Scripts/Code](#useful-scriptscode)
+      - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Extract Configuration File Objects (Python)](#extract-configuration-file-objects-python)
+  - [Randomize Object Positions (Python)](#randomize-object-positions-python)
+  - [Replace Old Parameters w/ New Ones (Python)](#replace-old-parameters-w-new-ones-python)
 
 ## Introduction
 
@@ -116,30 +118,52 @@ The script can be used as follows:
 
 ```python
 # Replace old parameters with new ones in the configuration file.
-def replace_yaml_keys(file_path, replacements):
-    # Reads the original YAML file
-    with open(file_path, 'r') as file:
-        content = file.read()
-    
-    # Replaces keys based on the replacements dictionary
-    for old_key, new_key in replacements.items():
-        content = content.replace(f'{old_key}:', f'{new_key}:')
-    
-    # Write the modified content back to the file
-    with open(file_path, 'w') as file:
-        file.write(content)
+import os
 
-# Define the file path. This should point to your configuration file.
-file_path = 'path-to-your-yaml-config.yaml' 
+# Replace old parameters with new ones in the configuration file.
+def replace_yaml_keys(file_path, replacements):
+    try:
+        # Reads the original YAML file
+        with open(file_path, 'r') as file:
+            content = file.read()
+        
+        # Replaces keys based on the replacements dictionary
+        for old_key, new_key in replacements.items():
+            content = content.replace(f'{old_key}:', f'{new_key}:')
+        
+        # Write the modified content back to the file
+        with open(file_path, 'w') as file:
+            file.write(content)
+        
+        print(f'YAML parameters replaced successfully in {file_path}!')
+    except FileNotFoundError:
+        print(f'File not found: {file_path}')
+    except Exception as e:
+        print(f'An error occurred while processing {file_path}: {str(e)}')
+
+# Define the folder path containing the YAML files
+folder_path = '/Users/vanguard/Desktop/configs/competition'
+
 replacements = {
     't': 'timeLimit',
     'pass_mark': 'passMark'
 }
 
-# Calls the function to implement the changes
-replace_yaml_keys(file_path, replacements)
-
-print('YAML parameters replaced successfully!')
+# Check if the folder exists
+if not os.path.exists(folder_path):
+    print(f'Folder not found: {folder_path}')
+else:
+    # Iterate over each file in the folder
+    yaml_files = [filename for filename in os.listdir(folder_path) if filename.endswith('.yaml')]
+    
+    if len(yaml_files) == 0:
+        print(f'No YAML files found in {folder_path}')
+    else:
+        for filename in yaml_files:
+            file_path = os.path.join(folder_path, filename)
+            
+            # Call the function to implement the changes for each file
+            replace_yaml_keys(file_path, replacements)
 ```
 
 Simply adjust the `file_path` variable to point to your configuration file. The script will replace the old parameters with the new ones in the configuration file and save the updated configuration to the same file. 
