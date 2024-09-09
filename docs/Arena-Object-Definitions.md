@@ -221,11 +221,11 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 ### Non-Episode-Ending Negative Multi Goal
 
-<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoal.png" />
+<img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoalMulti.png" />
 
 * **Name**: `BadGoalMulti`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable / (red)
+* **Color**: Not changeable / (orange)
 * **Valence**: Negative, proportional to size
 
 Notes: The `rotations` parameter sets the direction of motion.
