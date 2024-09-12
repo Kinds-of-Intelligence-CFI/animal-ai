@@ -1,24 +1,23 @@
 # Arena Environment Guide
 
 #### Table of Contents
-
-* [Introduction](#introduction)
-* [The Arena](#the-arena)
-* [The Agent](#the-agent)
-  + [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
-  + [Arena/Agent Limitations](#arenaagent-limitations)
-  + [Agent Properties](#agent-properties)
-* [GameObjects](#gameobjects)
-  + [Unique/Special Object Parameters](#uniquespecial-object-parameters)
-  + [Agent-Specific Parameters](#agent-specific-parameters)
-  + [Goal-Related Parameters](#goal-related-parameters)
-  + [Spawner Parameters](#spawner-parameters)
-  + [SignBoard Parameters](#signboard-parameters)
-* [Blackouts](#blackouts)
-* [CSV Logger](#csv-logger)
-* [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
-  + [Spawning GameObjects](#spawning-gameobjects)
-  + [Configuration File Values](#configuration-file-values)
+  - [Introduction](#introduction)
+  - [The Arena](#the-arena)
+  - [The Agent](#the-agent)
+    - [Agent HUD (Heads-Up Display)](#agent-hud-heads-up-display)
+    - [Arena/Agent Limitations](#arenaagent-limitations)
+    - [Agent Properties](#agent-properties)
+  - [Game Objects](#game-objects)
+  - [Unique/Special Object Parameters](#uniquespecial-object-parameters)
+    - [Agent-Specific Parameters](#agent-specific-parameters)
+    - [Goal-Related Parameters](#goal-related-parameters)
+    - [Spawner Parameters](#spawner-parameters)
+    - [SignBoard Parameters](#signboard-parameters)
+  - [Blackouts](#blackouts)
+  - [CSV Logger](#csv-logger)
+  - [Rules and Notes for Arena Configurations](#rules-and-notes-for-arena-configurations)
+    - [Spawning GameObjects](#spawning-gameobjects)
+    - [Configuration File Values](#configuration-file-values)
 
 ## Introduction
 
@@ -30,19 +29,15 @@ For a detailed explanation of the syntax used in the configuration files, refer 
 
 <table>
   <tr>
-
     <td><img src="../docs/figs/prefabs/arena/arena-2DView.png" width="500"/>
     <p>2D view of the Arena</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-FP.png" width="500"/><p>First-person view of agent</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-New.png" width="500"/><p>Full view of arena</p></td>
-
   </tr>
   <tr>
-
     <td><img src="../docs/figs/prefabs/arena/arena-Ground.png" width="500"/><p>Close-up of arena ground</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-TP.png" width="500"/><p>Third Persion view of one of the agent skins</p></td>
     <td><img src="../docs/figs/prefabs/arena/arena-Walls.png" width="500"/><p>Side view of walls</p></td>
-
   </tr>
 </table>
 
@@ -124,12 +119,10 @@ The agent has a set of skins that can be used to change its appearance in the ar
 
 <table>
   <tr>
-
     <td><img src="../docs/figs/prefabs/agent-skins/agent-panda.png" width="500"/>
     <p>Panda Skin</p></td>
     <td><img src="../docs/figs/prefabs/agent-skins/agent-pig.png" width="500"/><p>Pig Skin</p></td>
     <td><img src="../docs/figs/prefabs/agent-skins/agent-hedgehog.png" width="500"/><p>Hedgehog Skin</p></td>
-
   </tr>
 </table>
 
@@ -143,17 +136,9 @@ The agent has a HUD that displays the following information per episode by defau
   
 * **Episode Notification**: A notification displayed at the end of an episode, consisting of color gradients and a short animated GIF. This HUD element is optional and only appears if the `showNotification` parameter is set to `true` in the configuration file. _Note: This feature is only for play mode and does not affect training._
 
-| 
-
-![](../docs/figs/Agent-HUD/agent-health.png)     | ![](../docs/figs/Agent-HUD/agent-REWARD.png)
-
-      |
+| ![](../docs/figs/Agent-HUD/agent-health.png)|![](../docs/figs/Agent-HUD/agent-REWARD.png)|
 | ------------------------------------------------ | ------------------------------------------------- |
-| 
-
-![](../docs/figs/Agent-HUD/notification-bad.png) | ![](../docs/figs/Agent-HUD/notification-good.png)
-
- |
+| ![](../docs/figs/Agent-HUD/notification-bad.png)|![](../docs/figs/Agent-HUD/notification-good.png)|
 
 ### Arena/Agent Limitations
 
@@ -285,11 +270,11 @@ Some objects have unique or special parameters that only apply to them or a sele
 _Blackouts_ define when the lights are on or off during an episode in each arena, resulting in a black screen/view in any camera angle. This is an optional parameter in the configuration file, and can be omitted if you don't want to use it. If omitted, the lights will be on for the entire episode.
 
 * **Default Behavior**: Lights are on for the entire episode if no blackout parameter is provided.
-* **List of Frames**: Provide a list like `[5,10,15,20,25]` to toggle lights. Lights will be off between frames 5-9, 15-19, etc., and on at other times.
+* **List of Frames**: Provide a list like `[10,20],[25,50]` to toggle lights. Lights will be off between frames 10,20, and 25-50, etc.
 * **Regular Intervals**: Use a negative number like `[-20]` to toggle lights every 20 frames.
-* **Infinite Episodes**: For episodes with `t=0`, lights will follow the pattern indefinitely.
+* **Infinite Episodes**: For episodes with `timeLimit=0`, the episode will be considered infinite. 
 
-**Note**: With a list of frames, the lights will stay off after the last frame in the list for infinite episodes. 
+**Note**: With a list of frames, the lights will stay off after the last frame in the list for infinite episodes.
 
 See the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide for a detailed tutorial on how to use blackouts.
 

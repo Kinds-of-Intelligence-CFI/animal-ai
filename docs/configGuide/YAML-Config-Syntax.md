@@ -554,15 +554,13 @@ arenas:
   0: !Arena
     timeLimit: 100
     passMark: 0
+    blackouts: [10, 43, 50, 20] # We are defining the blackout times (in frames) for the arena at interval frames [10, 43], and [50 and 60]. The blackout zones are defined in frames, not in seconds. Note that the intervals are increasing in value from left to right, meaning. for example, a blackout can't start at frame 43 and end at frame 10.
     items:
     - !Item
       name: Agent
       positions:
       - !Vector3 {x: 10, y: 0, z: 20}
       rotations: [90]
-      skins:
-      - "pig"
-    blackouts: [10, 43, 50, 20] # here, we are defining the blackout times (in frames) for the arena at frames 10, 43, 50 and 20.
 ```
 
 <p align="center">
@@ -573,8 +571,8 @@ arenas:
 
 We can observe the following:
 
-* The `blackouts` parameter defines the blackout zones for the arena. This parameter is a list of frames at which the arena will experience a blackout. For example, setting `blackouts` to `[10, 43, 50, 20]` means the arena will be blacked out at frames 10, 20, 43, and 50. During these frames, the player/agent will not receive any visual information, as no light will be emitted to the arena.
-* If `blackouts` is set to `[-20]`, the arena will experience a blackout every 20 frames. The '-' sign indicates that the blackout should repeat at regular intervals.
+* The `blackouts` parameter defines the blackout zones for the arena. This parameter is a list of frames at which the arena will experience a blackout. During these frames, the player will not receive any visual information, as no light will be emitted to the arena.
+* If `blackouts` is set to a negative value, such as `[-20]`, the arena will experience a blackout every 20 frames. The '-' sign indicates that the blackout should repeat at regular intervals.
 * The blackout only affects visual visibility and does not impact other aspects of the agent or the arena. For example, the agent can still move around, and the objects within the arena remain visible to the agent. _RayCasting_ will continue to function as usual.
 
 &nbsp;
