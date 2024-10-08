@@ -6,6 +6,7 @@
   - [Extract Configuration File Objects (Python)](#extract-configuration-file-objects-python)
   - [Randomize Object Positions (Python)](#randomize-object-positions-python)
   - [Replace Old Parameters w/ New Ones (Python)](#replace-old-parameters-w-new-ones-python)
+  - [Animal-AI Config Assistant Tool](#animal-ai-config-assistant-tool)
 
 ## Introduction
 
