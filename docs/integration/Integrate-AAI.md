@@ -1,4 +1,8 @@
-# Animal-AI w/ RL Libraries
+# Animal-AI RL Libraries
+
+#### Table of Contents
+- [Animal-AI w/ Stable Baselines3](#animal-ai-w-stable-baselines3)
+- [Animal-AI w/ DreamerV3](#animal-ai-w-dreamerv3)
 
 ## Animal-AI w/ Stable Baselines3
 

@@ -2,8 +2,6 @@
 
 #### Table of Contents
 
-- [Useful Scripts/Code](#useful-scriptscode)
-      - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Extract Configuration File Objects (Python)](#extract-configuration-file-objects-python)
   - [Randomize Object Positions (Python)](#randomize-object-positions-python)
@@ -169,3 +167,9 @@ else:
 Simply adjust the `file_path` variable to point to your configuration file. The script will replace the old parameters with the new ones in the configuration file and save the updated configuration to the same file. 
 
 **_Note that the script overrites the original file, so it is recommended to make a backup of the original file before running the script._**
+
+## Animal-AI Config Assistant Tool
+
+The Animal-AI Config Assistant Tool is a Python helper-tool that helps you create, manage, debug, and visualise configuration files for Animal-AI environments. It provides a user-friendly interface to generate configuration files for different environments, without the need to manually edit the configuration files in YAML.
+
+Visit our [GitHub repository](https://github.com/Kinds-of-Intelligence-CFI/aai-config-assist) for more information and to download the tool.
