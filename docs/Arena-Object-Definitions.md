@@ -431,7 +431,7 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
   <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-special-symbols-annotated.png">
 </p>
 
-Sign boards are immovable objects that display a symbol or a . They can be used to create tasks where the agent has to navigate to a specific location or to perform a specific action.
+Sign boards are immovable objects that display a symbol. They can be used to create tasks where the agent has to navigate to a specific location or to perform a specific action.
 
 ## Ready-Made Configuration File
 
