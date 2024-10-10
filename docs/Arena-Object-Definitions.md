@@ -32,22 +32,15 @@ All except `name` and `positions` parameters can be omitted in the configuration
 
 ## The Arena
 
-<p align="center">
-  <img height="400" src="/docs/figs/prefabs/DefaultArena.png">
-</p>
+<figure style="text-align: center;">
+  <img height="350" src="/docs/figs/prefabs/NewDefaultArenaCapture.png" alt="New Default Arena">
+  <figcaption>Animal-AI Default Arena (Animal-AI v4.1.0)</figcaption>
+</figure>
 
-A single arena, as shown above, comes with a single agent (spherical animal, [see below](#the-agent)), a floor, and four walls. It is a square of size 40x40, with the origin (the bottom-left corner) at `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
 
-Note that in Unity, the **y** axis is the vertical axis. In the above picture, with the agent on the ground in the center of the environment, its coordinates are `(x = 20, y = 0, z = 20)`.
+A single Arena, as shown above, comes with a single Agent (spherical animal, [see below](#the-agent)), a floor, and four walls. It is a square of size 40x40, with the origin (the bottom-left corner) at `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
 
-### Blackouts
-
-Blackouts are parameters you can pass to each arena, defining between which frames of an episode the lights are on or off. If omitted, this parameter defaults to having lights on for the entire episode. You can pass two types of arguments for this parameter:
-
-* Passing a list of frames `[5,10,15,20,25]` will start with the lights on, switch them off from frames 5 to 9 included, then back on from frames 15 to 19 included, and so on.
-* Passing a single negative argument `[-20]` will automatically switch lights on and off every 20 frames.
-
-**Note**: For infinite episodes (where `timeLimit = 0`), the first point above would leave the light off after frame 25, while the second point would keep switching the lights every 20 frames indefinitely.
+Note that in Unity, the **y** axis is the vertical axis. In the above picture, with the agent on the ground in the center of the environment, the Agent's coordinates are `(x = 20, y = 0, z = 20)`.
 
 ## The Agent
 
@@ -66,6 +59,7 @@ Notes: The agent can be frozen for a specified number of frames at the start of 
     <td><img src="/docs/figs/prefabs/agent-skins/agent-pig.png" width="500"/><p>The Agent as a pig</p></td>
   </tr>
 </table>
+
 
 ## Immovable Objects
 
@@ -115,23 +109,31 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 
 _Movable_ objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects directly. Note that these objects have aliases (alternative names) for backwards compatibility with previous versions of AAI.
 
-### Light Cardboard Block
+### Light Block
 
-<img align="right" height="100" src="/docs/figs/prefabs/Movable/LightBlock.png" />
+<img align="right" height="100" src="/docs/figs/prefabs/Movable/NewLightBlockObj.png" style="margin-left: 5px;" />
+
+<img align="right" margin=1 height="100" src="/docs/figs/prefabs/Movable/LightBlock.png" />
 
 * **Name**: `LightBlock`
 * **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
-* **Color**: Not changeable / (grey)
+* **Color**: Not changeable / (stone textured)
 * **Alias**: `CardBox1`
 
-### Heavy Cardboard Block
+_Updated textures (right) available from Animal-AI v4.2.0 onwards._
 
-<img align="right" height="100" src="/docs/figs/prefabs/Movable/HeavyBlock.png" />
+### Heavy Block
+
+<img align="right" height="100" src="/docs/figs/prefabs/Movable/NewHeavyBlockObj.png" style="margin-left: 5px;"/>
+
+<img align="right" height="100" src="/docs/figs/prefabs/Movable/LightBlock.png" />
 
 * **Name**: `HeavyBlock`
 * **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
-* **Color**: Not changeable / (grey)
+* **Color**: Not changeable / (stone textured)
 * **Alias**: `CardBox2`
+
+_Updated textures (right) available from Animal-AI v4.2.0 onwards._
 
 ### U-shaped Block
 
@@ -158,7 +160,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 * **Name**: `JBlock`
 * **Size Range**: `(1,0.3,3)-(5,2,20)`
 * **Color**: Not changeable / (grey)
-* **Alias**: `LObject2`
+* **Alias**: `JObject`
 
 ### Hollow Box
 
@@ -167,6 +169,8 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 * **Name**: `HollowBox`
 * **Size Range**: (`1.10 x 1.10 x 1.10`)
 * **Color**: Not changeable / (grey)
+
+_Available from Animal-AI v4.2.0 onwards._
 
 ## Valenced Objects
 
@@ -228,7 +232,10 @@ Notes: The `rotations` parameter sets the direction of motion.
 * **Color**: Not changeable / (orange)
 * **Valence**: Negative, proportional to size
 
+_Available from Animal-AI v4.2.0 onwards._
+
 Notes: The `rotations` parameter sets the direction of motion.
+
 
 ### Stationary Non-Episode-Ending Positive Goal
 
@@ -313,6 +320,8 @@ Note: Maximum size is `5` . Initial valence can be set with a float passed to th
 * **Color**: Not changeable / (grey)
 
 Note: The agent's reward is not affected when it touches the decoy goal. It is simply a tool for visual distraction or to create a more complex environment without having the agent's reward affected.
+
+_Available from Animal-AI v4.1.0 onwards._
 
 
 ### Episode-Ending DeathZone
@@ -422,9 +431,7 @@ Notes: Spawns a goal when the player/agent *interacts* with it by colliding with
   <img height="250" src="/docs/figs/exampleGallery/SignPosterboard-special-symbols-annotated.png">
 </p>
 
-## Sign Boards
-
-Sign boards are immovable objects that display a symbol or a word. They can be used to create tasks where the agent has to navigate to a specific location or to perform a specific action.
+Sign boards are immovable objects that display a symbol or a . They can be used to create tasks where the agent has to navigate to a specific location or to perform a specific action.
 
 ## Ready-Made Configuration File
 
