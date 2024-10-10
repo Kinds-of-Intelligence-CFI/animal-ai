@@ -173,4 +173,8 @@ Simply adjust the `file_path` variable to point to your configuration file. The 
 
 The Animal-AI Config Assistant Tool is a Python helper-tool that helps you create, manage, debug, and visualise configuration files for Animal-AI environments. It provides a user-friendly interface to generate configuration files for different environments, without the need to manually edit the configuration files in YAML.
 
+<p align="center">
+  <img height="250" src="/docs/figs/ConfigCompanionFigure.png">
+</p>
+
 Visit our [GitHub repository](https://github.com/Kinds-of-Intelligence-CFI/aai-config-assist) for more information and to download the tool.
