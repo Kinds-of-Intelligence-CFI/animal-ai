@@ -51,8 +51,8 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 **Unity Game Engine:**
 - Utilizes the Unity3D Game Engine for advanced simulation capabilities
-- Employs the Unity ML-Agents toolkit for AI training
-- Leverages Unity's physics engine for realistic interactions
+- Employs the latest Unity ML-Agents toolkit for AI training
+- Leverages Unity's physics engine for realistic Agent and environment interactions
 
 **Cross-Platform Compatibility:**
 - Compatible with Windows 10+, Linux, and macOS
@@ -87,13 +87,13 @@ For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versi
 
 We've published our latest paper on Animal-AI, which you can find [here](https://arxiv.org/abs/2312.11414). If you use Animal-AI in your research, please cite our paper:
 
- _Voudouris, K., Alhas, I., Schellaert, W., Crosby, M., Holmes, J., Burden, J., Chaubey, N., Donnelly, N., Patel, M., Halina, M,. Hernández-Orallo, J. & Cheke, L. G. (2023). Animal-AI 3: What's New & Why You Should Care. arXiv preprint arXiv:2312.11414._
+ _Voudouris, K., Alhas, I., Schellaert, W., Crosby, M., Holmes, J., Burden, J., Chaubey, N., Donnelly, N., Patel, Slater, B., Mecattaf, M., M., Halina, M,. Hernández-Orallo, J. & Cheke, L. G. (2024). The Animal-AI Environment: A Virtual Laboratory For Comparative Cognition and Artificial Intelligence Research. arXiv preprint arXiv:2312.11414._
 ```
 @article{voudouris2023animal,
-  title={Animal-AI 3: What's New \& Why You Should Care},
-  author={Voudouris, Konstantinos and Alhas, Ibrahim and Schellaert, Wout and Crosby, Matthew and Holmes, Joel and Burden, John and Chaubey, Niharika and Donnelly, Niall and Patel, Matishalin and Halina, Marta and Hernández-Orallo, José and Cheke, Lucy G.},
+  title={The Animal-AI Environment: A Virtual Laboratory For Comparative Cognition and Artificial Intelligence Research},
+  author={Voudouris, Konstantinos and Alhas, Ibrahim and Schellaert, Wout and Crosby, Matthew and Holmes, Joel and Burden, John and Chaubey, Niharika and Donnelly, Niall and Slater, Ben and Mecattaf G, Matteo and Patel, Matishalin and Halina, Marta and Hernández-Orallo, José and Cheke, Lucy G.},
   journal={arXiv preprint arXiv:2312.11414},
-  year={2023}
+  year={2024}
 }
 ```
 For further publications related to Animal-AI, see our website [here](https://sites.google.com/csah.cam.ac.uk/animalai/resources).
