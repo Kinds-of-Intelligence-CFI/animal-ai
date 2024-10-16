@@ -1,0 +1,16 @@
+core:
+  - 'animal-ai/**'
+
+# Label for changes in documentation files
+documentation:
+  - '**/*.md'
+  - 'docs/**'
+
+# Label for changes related to CI/CD workflows
+ci:
+  - '.github/workflows/**'
+
+# Label for YAML configuration changes
+configuration:
+  - '**/*.yaml'
+  - '**/*.yml'

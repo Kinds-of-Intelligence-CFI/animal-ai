@@ -1,17 +1,30 @@
-# Label for changes in the core application code
-core:
-  - 'animal-ai/*'
+name: "Label PRs based on changes"
 
-# Label for changes in documentation files
-documentation:
-  - '**/*.md'
-  - 'docs/**'
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'animal-ai/**'
+      - '**/*.md'
+      - 'docs/**'
+      - '.github/workflows/**'
+      - '**/*.yaml'
+      - '**/*.yml'
+  pull_request:
+    paths:
+      - 'animal-ai/**'
+      - '**/*.md'
+      - 'docs/**'
+      - '.github/workflows/**'
+      - '**/*.yaml'
+      - '**/*.yml'
 
-# Label for changes related to CI/CD workflows
-ci:
-  - '.github/workflows/**'
-
-# Label for YAML configuration changes
-configuration:
-  - '**/*.yaml'
-  - '**/*.yml'
+jobs:
+  labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/labeler@v2
+        with:
+          configuration-path: .github/labeler.yml
