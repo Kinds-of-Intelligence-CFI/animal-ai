@@ -33,12 +33,12 @@ All except `name` and `positions` parameters can be omitted in the configuration
 ## The Arena
 
 <figure style="text-align: center;">
-  <img height="350" src="/docs/figs/prefabs/NewDefaultArenaCapture.png" alt="New Default Arena">
+  <img height="300" src="/docs/figs/prefabs/NewDefaultArenaCapture.png" alt="New Default Arena">
   <figcaption>Animal-AI Default Arena (Animal-AI v4.1.0)</figcaption>
 </figure>
 
 
-A single Arena, as shown above, comes with a single Agent (spherical animal, [see below](#the-agent)), a floor, and four walls. It is a square of size 40x40, with the origin (the bottom-left corner) at `(0,0)`. You can provide coordinates for objects in the range `[0,40]x[0,40]` as floats.
+A single _Arena_, as shown above, comes with a single _Agent_ (spherical animal), a ground, and four walls/boundaries. It is a square of size 40x40, with the origin (the bottom-left corner) at `(0,0)`. You can provide coordinates for objects in xy,z axis in the range `[0,39.9],[0,~],[0,39.9]` as floats (note y axis is the vertical axis and can be unbounded).
 
 Note that in Unity, the **y** axis is the vertical axis. In the above picture, with the agent on the ground in the center of the environment, the Agent's coordinates are `(x = 20, y = 0, z = 20)`.
 
@@ -48,7 +48,7 @@ The agent can be placed anywhere in the arena with any rotation. It has a fixed 
 
 * **Name**: `Agent`
 * **Size**: `(1,1,1)` (not changeable)
-* **Skins** (`skins`): `"hedgehog"`, `"panda"`, `"pig"` (can be randomized)
+* **Skins**: `"hedgehog"`, `"panda"`, `"pig"` (can be randomized)
 
 Notes: The agent can be frozen for a specified number of frames at the start of an episode. There is no reward decrement during the frozen period. This can be set with an integer value passed to the `frozenAgentDelays` parameter (defaults to `0`).
 
@@ -63,7 +63,7 @@ Notes: The agent can be frozen for a specified number of frames at the start of 
 
 ## Immovable Objects
 
-_Immovable_ objects are fixed in place and cannot be moved. The outer walls of the arena are also immovable and are permanently fixed in place to prevent the player/agent from escaping the arena.
+_Immovable_ objects are fixed in place and cannot be moved. The outer walls of the arena are also immovable and are permanently fixed in place to prevent the player/agent from escaping the arena. Immovable objecs are available from Animal-AI v2.0.0.
 
 ### Wall
 
@@ -107,7 +107,7 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 
 ## Movable Objects
 
-_Movable_ objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects directly. Note that these objects have aliases (alternative names) for backwards compatibility with previous versions of AAI.
+_Movable_ objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects. Note that some movable objects have aliases (alternative names, now deprecated) for backwards compatibility with previous versions of AAI.
 
 ### Light Block
 
@@ -117,7 +117,7 @@ _Movable_ objects can be easily moved by the agent or other objects. These objec
 
 * **Name**: `LightBlock`
 * **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
-* **Color**: Not changeable / (stone textured)
+* **Color**: Changeable / (stone textured) from AAI v4.2.0 onwards
 * **Alias**: `CardBox1`
 
 _Updated textures (right) available from Animal-AI v4.2.0 onwards._
@@ -130,7 +130,7 @@ _Updated textures (right) available from Animal-AI v4.2.0 onwards._
 
 * **Name**: `HeavyBlock`
 * **Size Range**: `(0.5,0.5,0.5)-(10,10,10)`
-* **Color**: Not changeable / (stone textured)
+* **Color**: Changeable / (stone textured) from AAI v4.2.0 onwards
 * **Alias**: `CardBox2`
 
 _Updated textures (right) available from Animal-AI v4.2.0 onwards._
@@ -141,7 +141,7 @@ _Updated textures (right) available from Animal-AI v4.2.0 onwards._
 
 * **Name**: `UBlock`
 * **Size Range**: `(1,0.3,3)-(5,2,20)`
-* **Color**: Not changeable / (grey)
+* **Color**: Changeable / (cardboard textured) from AAI v4.2.0 onwards
 * **Alias**: `UObject`
 
 ### L-shaped Block
@@ -150,7 +150,7 @@ _Updated textures (right) available from Animal-AI v4.2.0 onwards._
 
 * **Name**: `LBlock`
 * **Size Range**: `(1,0.3,3)-(5,2,20)`
-* **Color**: Not changeable / (grey)
+* **Color**: Changeable / (cardboard textured) from AAI v4.2.0 onwards
 * **Alias**: `LObject`
 
 ### J-shaped Block
@@ -159,7 +159,7 @@ _Updated textures (right) available from Animal-AI v4.2.0 onwards._
 
 * **Name**: `JBlock`
 * **Size Range**: `(1,0.3,3)-(5,2,20)`
-* **Color**: Not changeable / (grey)
+* **Color**: Changeable / (cardboard textured) from AAI v4.2.0 onwards
 * **Alias**: `JObject`
 
 ### Hollow Box
@@ -168,7 +168,7 @@ _Updated textures (right) available from Animal-AI v4.2.0 onwards._
 
 * **Name**: `HollowBox`
 * **Size Range**: (`1.10 x 1.10 x 1.10`)
-* **Color**: Not changeable / (grey)
+* **Color**: Changeable / (cardboard textured) from AAI v4.2.0 onwards
 
 _Available from Animal-AI v4.2.0 onwards._
 
@@ -181,70 +181,65 @@ Valenced objects increase or decrease the agent's reward when the agent touches 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoal.png" />
 
 * **Name**: `GoodGoal`
-* **Size Range**: `0.5-5`
-* **Color**: Not changeable / (green)
-* **Valence**: Positive, proportional to size
+* **Size Range**: `1`
+* **Color**: Changeable / (green) from AAI v4.2.0 onwards
+* **Valence**: Positive
 
 ### Moving Episode-Ending Positive Goal
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoal.png" />
 
 * **Name**: `GoodGoalBounce`
-* **Size Range**: `0.5-5`
-* **Color**: Not changeable / (green)
-* **Valence**: Positive, proportional to size
+* **Size Range**: `1`
+* **Color**: Changeable / (green) from AAI v4.2.0 onwards
+* **Valence**: Positive
 
 ### Non-Episode-Ending Positive Multi Goal
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoal.png" />
 
 * **Name**: `GoodGoalMulti`
-* **Size Range**: `0.5-5`
-* **Color**: Not changeable / (green)
-* **Valence**: Positive, proportional to size
-  
-Notes: The `rotations` parameter sets the direction of motion.
+* **Size Range**: `1`
+* **Color**: Not changeable / (green) from AAI v4.2.0 onwards
+* **Valence**: Positive
 
 ### Stationary Episode-Ending Negative Goal
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoal.png" />
 
 * **Name**: `BadGoal`
-* **Size Range**: `0.5-5`
-* **Color**: Not changeable / (red)
-* **Valence**: Negative, proportional to size
+* **Size Range**: `-1`
+* **Color**: Changeable / (red) from AAI v4.2.0 onwards
+* **Valence**: Negative
 
 ### Moving Episode-Ending Negative Goal
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoal.png" />
 
 * **Name**: `BadGoalBounce`
-* **Size Range**: `0.5-5`
-* **Color**: Not changeable / (red)
-* **Valence**: Negative, proportional to size
+* **Size Range**: `-1`
+* **Color**: Changeable / (red) from AAI v4.2.0 onwards
+* **Valence**: Negative
 
 ### Non-Episode-Ending Negative Multi Goal
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/BadGoalMulti.png" />
 
-* **Name**: `BadGoalMulti`
-* **Size Range**: `0.5-5`
-* **Color**: Not changeable / (orange)
-* **Valence**: Negative, proportional to size
+* **Name**: `BadGoalMulti.experimental`
+* **Size Range**: `-0.003`
+* **Color**: Changeable / (orange) from AAI v4.2.0 onwards
+* **Valence**: Negative
 
 _Available from Animal-AI v4.2.0 onwards._
-
-Notes: The `rotations` parameter sets the direction of motion.
-
 
 ### Stationary Non-Episode-Ending Positive Goal
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoalMulti.png" />
 
 * **Name**: `GoodGoalMulti`
-* **Size Range**: `0.5-5`
-* **Color**: Not changeable / (yellow)
-* **Valence**: Positive, proportional to size
+* **Size Range**: `0.5-1`
+* **Color**: Changeable / (yellow) from AAI v4.2.0 onwards
+* **Valence**: Positive
 
 ### Moving Non-Episode-Ending Positive Goal
 
@@ -252,10 +247,8 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 * **Name**: `GoodGoalMultiBounce`
 * **Size Range**: `0.5-5`
-* **Color**: Not changeable / (yellow)
-* **Valence**: Positive, proportional to size
-
-Notes: The `rotations` parameter sets the direction of motion.
+* **Color**: Changeable / (yellow) from AAI v4.2.0 onwards
+* **Valence**: Positive
 
 ### Non-Episode-Ending Ripen Goal
 
@@ -263,7 +256,7 @@ Notes: The `rotations` parameter sets the direction of motion.
 
 * **Name**: `RipenGoal`
 * **Valence Range**: `0-5`
-* **Size**: automatically sets to final reward value (dynamic)
+* **Size**: Automatically sets to final reward value (dynamic), proportionally to the `ripenRate`
 * **Color**: Not changeable / (yellow and blue)
 * **Ripen Onset Delay Range (frames)** (`delays`): `0-Inf` (default `150`)
 * **Ripen Rate (frames)** (`changeRates`): `0.001-Inf` (default `0.005`)
@@ -277,7 +270,7 @@ Note: Colour changes (from grey to yellow) and a radial-timer fills over time du
 
 * **Name**: `DecayGoal`
 * **Valence Range**: `0-5`
-* **Size**: automatically sets to final reward value (dynamic)
+* **Size**: automatically sets to final reward value (dynamic), proportionally to the `decayRate`
 * **Color**: Not changeable / (yellow and orange)
 * **Decay Onset Delay Range (frames)** (`delays`): `0-Inf` (default `150`)
 * **Decay Rate (frames)** (`changeRates`): `-0.001-Inf` (default `-0.005`, automatically converts to negative values if positive provided)
@@ -289,26 +282,24 @@ Note: Colour changes (from yellow to grey) and a radial-timer depletes over time
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoal.png" />
 
 * **Name**: `GrowGoal`
-* **Size Range**: `0-5`
+* **Size Range**: `0.5-5`
 * **Valence Change Rate** (`changeRates`): `0.001-Inf` (default `0.005`)
 * **Valence**: Positive, proportional to size
-* **Color**: Not changeable / (green)
+* **Color**: Changeable / (green) from AAI v4.2.0 onwards
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
-
-Note: Growth halts if the the goal is trapped between/underneath other objects. Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter. 
 
 ### Episode-Ending Shrink Goal
 
 <img align="right" height="100" src="/docs/figs/prefabs/ValencedObjects/GoodGoal.png" />
 
 * **Name**: `ShrinkGoal`
-* **Size Range**: `0-5`
+* **Size Range**: `5-0.5`
 * **Valence Change Rate** (`changeRates`): `0.001-Inf` (default `0.005`)
-* **Valence**: Positive, proportional to size
-* **Color**: Not changeable / (green)
+* **Valence**: Negative, proportional to size
+* **Color**: Changeable / (green) from AAI v4.2.0 onwards
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
 
-Note: Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
+Notes: Maximum size is `5` . Initial valence can be set with a float passed to the `initialValues` parameter, and valence can be set with a float passed to the `finalValues` parameter.
 
 ### Decoy Goal
 
@@ -322,7 +313,6 @@ Note: Maximum size is `5` . Initial valence can be set with a float passed to th
 Note: The agent's reward is not affected when it touches the decoy goal. It is simply a tool for visual distraction or to create a more complex environment without having the agent's reward affected.
 
 _Available from Animal-AI v4.1.0 onwards._
-
 
 ### Episode-Ending DeathZone
 
@@ -376,7 +366,7 @@ Notes: The tree spawns `GoodGoalMulti` . They grow on the trees before dropping 
 * **Growth Onset Delay Range (frames)** (`delays`): `0-Inf` (default `0`)
 * **Alias**: `SpawnerDispenser`
 
-Notes: The dispenser spawns `GoodGoalMulti` . The valence of the goals is proportional to their size. The number of seconds between spawnings (relative to the timescale of the environment) can be set with the `timesBetweenSpawns` parameter (default: 1.5). The object has a door that can be animated to open and close.  The number of seconds before the door opens can be set with the `doorDelays` parameter (default: `10.0` ), and the number of seconds the door remains open for can be ste with the `timesBetweenDoorOpens` parameter (default: `-1` , if `< 0` then, once opened, the door stays open permanently).
+Notes: The dispenser spawns `GoodGoalMulti`. The valence of the goals is proportional to their size. The number of seconds between spawnings (relative to the timescale of the environment) can be set with the `timesBetweenSpawns` parameter (default: 1.5). The object has a door that can be animated to open and close.  The number of seconds before the door opens can be set with the `doorDelays` parameter (default: `10.0` ), and the number of seconds the door remains open for can be ste with the `timesBetweenDoorOpens` parameter (default: `-1` , if `< 0` then, once opened, the door stays open permanently).
 
 ### SpawnerContainerShort
 
@@ -402,7 +392,7 @@ Notes: The dispenser spawns `GoodGoalMulti` . The valence of the goals is propor
 * **Color**: Not changeable / (yellow and light blue)
 * **Alias**: `Pillar-Button`
 
-Notes: Spawns a goal when the player/agent *interacts* with it by colliding with the physical object. The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPos` parameter. The probability that a goal will spawn upon a press can be set with a float between 0 and 1 passed to the `spawnProbability` parameter. Different valenced objects can be spawned on different presses. A list, such as `["GoodGoal", "BadGoal", "GoodGoalMulti"]` , can be passed to `rewardNames` to define the valenced objects (only these three are supported at the moment). A corresponding list of floats between 0 and 1 can be passed to the `rewardWeights` to determine the probability of spawning each of the types of valenced object. The probabilities are normalized to sum to one. The number of frames taken for the button to depress upon touching it can be defined with `moveDurations` , and the number of frames for the button to be reset before it can be pressed again can be set with `resetDurations`.
+Notes: Spawns a goal when the player/agent *interacts* with it by colliding with the physical button object (blue). The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPos` parameter. The probability that a goal will spawn upon a press can be set with a float between 0 and 1 passed to the `spawnProbability` parameter. Different valenced objects can be spawned on different presses. A list, such as `["GoodGoal", "BadGoal", "GoodGoalMulti"]` , can be passed to `rewardNames` to define the valenced objects (only these three are supported at the moment). A corresponding list of floats between 0 and 1 can be passed to the `rewardWeights` to determine the probability of spawning each of the types of valenced object. The probabilities are normalized to sum to one. The number of frames taken for the button to depress upon touching it can be defined with `moveDurations` , and the number of frames for the button to be reset before it can be pressed again can be set with `resetDurations`.
 
 
 ## Sign Boards

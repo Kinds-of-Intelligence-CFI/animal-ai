@@ -95,7 +95,7 @@ arenas:
 #####
 * `blackouts` - a `list` defining the frames at which the lights are on or off during an episode. If omitted, lights remain on for the entire episode. For more information on blackouts, [see here](#blackouts).
 
-**N. B:** These parameters are optional (except `timeLimit` and `passMark` ) and can be omitted from the configuration file. If omitted, default values are used, detailed in the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide.
+**N. B:** The above parameters are optional (except `timeLimit` and `passMark` where if not specified, the arena will go on forever, with the agent's health and time will be frozen) and can be omitted from the configuration file. If omitted, default values are used, detailed in the [YAML Config Syntax](/docs/configGuide/YAML-Config-Syntax.md) guide.
 
 ## The Agent
 
@@ -109,7 +109,6 @@ The controls are as follows:
 * `D` - move right
 * `C` - change camera perspective (first-person, third-person, eagle-view, only if `canChangePerspective` is `true`)
 * `R` - reset the arena (cycles to the next episode if `canResetEpisode` is `true`)
-* `Q` - quit (exits the application upon press)
 
 The agent has a set of skins that can be used to change its appearance in the arena. The skins are as follows:
 
@@ -140,7 +139,7 @@ The agent has a HUD that displays the following information per episode by defau
 | ------------------------------------------------ | ------------------------------------------------- |
 | ![](../docs/figs/Agent-HUD/notification-bad.png)|![](../docs/figs/Agent-HUD/notification-good.png)|
 
-### Arena/Agent Limitations
+### Animal-AI/Arena/Agent Limitations
 
 Consider the following limitations of the arena and agent:
 
@@ -181,7 +180,7 @@ All objects can be configured using a set of parameters for each `item` Unity Ga
 #####
 * **`colors`**: A list of `RGB` values (integers in the range `[0,255]`). If the list is empty, the color is sampled randomly. Note that not all objects can have their color changed; for those (e.g., transparent objects), this value will be ignored.
 
-**Note**: Any of these parameters can be omitted in the configuration files per object. Omitted fields are automatically randomized. However, specifying these parameters allows for a more controlled environment in your arena(s). Any `Vector3` that contains a -1 for any of its dimensions will spawn that dimension randomly (e.g., `x: -1, y: 10, z: 2` will spawn the object randomly along the x-axis). Some objects have specific parameters applicable only to them, which are described in the [Unique/Special Objects](#uniquespecial-object-parameters).
+**Note**: Any of these parameters can be omitted in the configuration files per object. Omitted fields are automatically randomized. However, specifying these parameters allows for a more controlled environment. Any `Vector3` that contains a -1 for any of its dimensions will spawn that dimension randomly (e.g., `x: -1, y: 10, z: 2` will spawn the object randomly along the x-axis). Some objects have specific parameters applicable only to them, which are described in the [Unique/Special Objects](#uniquespecial-object-parameters).
 
 **All value ranges for the above fields can be found in the [Arena Object Definitions](/docs/Arena-Object-Definitions.md) guide**. If you go above or below the range for size, it will automatically be set to the max or min, respectively. If you try to spawn objects outside the arena (e.g., `x = 41, z = 41` ) or overlapping with another object with very close spawn positions, the overlapping object will not be spawned. Objects are placed in the order defined, so the second overlapping object will not spawn.
 
@@ -306,5 +305,5 @@ When configuring an arena, follow these rules and be aware of certain behaviors:
 * **Randomization**: Use `-1` or leave blank in `positions`, `sizes`, and `rotations` for random values where supported.
 * **Ground Level Spawning**: Setting `positions.y = 0` spawns objects at ground level with a `0.1` height buffer.
 * **Goal Scaling**: Goals (except red zones) scale equally on all axes. For sphere goals, only the `x` component of `Vector3` scales all axes.
-* **Arena Height Bounds**: Objects can spawn at any height within the arena. Recommended height range is `0` to `50` units. Heights above `50` units may cause objects to fall from the sky, which can take time depending on their mass and drag.
-* **Arena Size Bounds**: The arena is a fixed `40x40` square with coordinates ranging from `[0,40]x[0,40]`. Coordinates outside this range will be discarded. Arena size configurability is planned for the future.
+* **Arena Height Bounds**: Objects can spawn at any height within the arena. Recommended height range is `0` to `50` units. Heights above `50` units may cause objects to fall from the sky, which can take time depending on their mass and drag applied.
+* **Arena Size Bounds**: The arena is a fixed `40x40` square with coordinates `[x=40,z=40]`. Coordinates outside this range will be discarded. Arena size configurability is a planned feature for the future.
