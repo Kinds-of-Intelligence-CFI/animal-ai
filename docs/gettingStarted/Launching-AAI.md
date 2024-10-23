@@ -92,7 +92,7 @@ After running the code, the Animal-AI environment will launch in manual play mod
 
 #### Controls in Play Mode
 
-In play mode, you can switch the camera view and control the agent using the following keyboard commands:
+In play mode, you can switch the camera view and control the agent using the following keyboard commands (Q key only works on Play Mode):
 
 | Keyboard Key  | Action               |
 | ------------- | -------------------- |
