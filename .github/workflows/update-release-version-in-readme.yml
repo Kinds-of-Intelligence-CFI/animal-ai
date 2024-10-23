@@ -15,7 +15,7 @@ jobs:
 
       - name: Switch to the main branch
         run: |
-          git fetch origin main  # Ensure main branch is up to date
+          git fetch origin main  # Ensure the main branch is up to date
           git checkout main      # Switch to the main branch
 
       - name: Get latest release version
