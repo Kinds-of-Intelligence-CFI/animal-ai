@@ -79,11 +79,12 @@ _Starting from version 4.0.0, the focus of development will shift towards an ite
 * [x] Allow some game objects to have customisable colors via YAML configurations (colors parameter)
 * [x] Add new game objects (BadGoalMulti)
 * [x] Add new textures for Light/Heavy Block game objects
+* [x] Expand Unity test coverage and improve testing framework
 
 ### 4.3.0 Animal-AI [Major Release] [Stable 3.0]
 
 * [ ] Upgrade ML-Agents to 3.0.0
-* [ ] Bump Unity Editor to at least 2023.x.
+* [ ] Upgrade Unity Editor to at least 2023.x.
 * [ ] WebGL version of Animal-AI, hosted on AWS servers
 
 ### 4.4.0 Animal-AI [Major Release] [Stable 4.0]
