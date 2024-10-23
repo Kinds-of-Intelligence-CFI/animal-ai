@@ -86,6 +86,7 @@ _Starting from version 4.0.0, the focus of development will shift towards an ite
 * [ ] Upgrade ML-Agents to 3.0.0
 * [ ] Upgrade Unity Editor to at least 2023.x.
 * [ ] WebGL version of Animal-AI, hosted on AWS servers
+* [ ] Implement Docker container for Animal-AI e2e testing
 
 ### 4.4.0 Animal-AI [Major Release] [Stable 4.0]
 
