@@ -1,6 +1,47 @@
 # Changelog
 
-This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
+This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). 
+For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
+
+## [4.2.0] - 2024-10-25
+
+### Added
+- **New Game Objects**:
+  - **Movable: `HollowBox`** A hollow box that agents can move within the arena, enabling the creation of more complex environments and challenges. It also supports spawning rewards inside or just above the box, offering diverse use cases.
+  - **Movable: `BadGoalMulti`** An experimental valenced goal that can be used to penalize the agent for collecting it (similar to BadGoal). The current reward value is set to `-0.003` and is non-configurable.
+- **Ability to Customise Colors**: Users can now customize the colors of the following game objects:
+  - Movable
+    - LightBlock
+    - HeavyBlock
+    - JBlock
+    - LBlock
+    - Unlock
+    - HollowBox
+  - Rewards
+    - BadGoal
+    - BadGoalMulti
+    - BadGoalBounce
+    - GoodGoal
+    - GoodGoalMulti
+    - GoodGoalBounce
+    - DecoyGoal
+    - DecoyGoalMulti
+    - DecoyGoalBounce
+    - ShrinkGoal
+    - GrowGoal
+  - Spawners/Dispensers
+    - SpawnerContainerShort
+    - SpawnerDispenserTall
+
+### Changed
+- **Visual:** 
+  - **`LightBlock` & `HeavyBlock`** New textures are applied to these objects. The new unique stone wall textures allow for these two objects to be distinguished more easily, and adds a visual flair to the environment.
+
+### Fixed
+- Resolved a bug where the materials of all objects were dimmed. This was due to a shader issue that has been fixed. The materials now appear as intended (brighter and more visible).
+- Resolved `HollowBox` issue not spawning in the arena. The issue was due to the HollowBox prefab not being added to the list of acceptable objects that can be spawned in the Unity scene. This has been rectified, and the HollowBox now spawns correctly in the arena.
+- Fixed a bug where `SignBoard` game object would not rotate when specified in the YAML configuration file. The issue was due to the SignBoard prefab not having a rotation range specified (between 0 and 360). This has been fixed, and the SignBoard now rotates as intended.
+- Minor performance improvements and bug fixes.
 
 ## [4.1.0] - 2024-08-19
 
@@ -9,9 +50,8 @@ _This version introduces a breaking change for YAML configuration files. The syn
 
 ### Added
 - **New Game Objects**:
-  - **Movable: `HollowBox`** A hollow box that agents can move within the arena, enabling the creation of more complex environments and challenges. It also supports spawning rewards inside or just above the box, offering diverse use cases.
-  - **Movable: `DecoyGoal` and `DecoyGoalBounce`** These objects can be used similarly to the `HollowBox`.
-  - **Movable:** `DataZone` The primary use case for this new game object is for data collection upon being entered by the agent or player. 
+  - **Movable: `DecoyGoal` and `DecoyGoalBounce`** These objects can be used similarly to `GoodGoal or BadGoal` except that they have no effect on the agent's reward (no reward values).
+  - **Movable: `DataZone`** The primary use case for this new game object is for data collection upon being entered by the agent or player. 
 - **New UI Element: `AAI Build Version`**: Displays the Animal-AI Build Version in the bottom-right corner of the UI for quick reference.
 - **New Feature**: `LogDataToCSV` an automatic data logging system that activates during both play and train modes. This system meticulously logs data about the environment, as well as the agent’s observations and actions, into a well-organized CSV file located in the root folder of AAI, specifically under `ObservationLogs`.
 
