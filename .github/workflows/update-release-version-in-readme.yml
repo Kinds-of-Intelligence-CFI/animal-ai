@@ -12,7 +12,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Fetch all history so we can push back to the branch
-          
+
+      - name: Switch to the main branch
+        run: |
+          git fetch origin main  # Ensure main branch is up to date
+          git checkout main      # Switch to the main branch
+
       - name: Get latest release version
         run: echo "LATEST_VERSION=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
 
@@ -26,4 +31,4 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git add README.md
           git commit -m "Update latest release version to $LATEST_VERSION"
-          git push origin HEAD:main  # Ensure we're pushing to the main branch
+          git push origin main  # Push to the main branch
