@@ -76,19 +76,20 @@ _Starting from version 4.0.0, the focus of development will shift towards an ite
 
 ### 4.2.0 Animal-AI [Major Release]
 
-* [ ] Overhaul Agent settings and dynamics
-* [ ] Allow game objects to have customisable colors (moveable) via YAML configurations
-* [ ] Fix training mode bug where first episodes are skipped during first batch of arenas
+* [x] Allow some game objects to have customisable colors via YAML configurations (colors parameter)
+* [x] Add new game objects (BadGoalMulti)
 
 ### 4.3.0 Animal-AI [Major Release] [Stable 3.0]
 
-* [ ] Enable customization of arena dimensions (x and z axes) through YAML configurations (global or local parameter)
-* [ ] Complete the implementation of end-to-end (e2e) testing
+* [ ] Upgrade ML-Agents to 3.0.0
+* [ ] Bump Unity Editor to at least 2023.x.
+* [ ] WebGL version of Animal-AI, hosted on AWS servers
 
 ### 4.4.0 Animal-AI [Major Release] [Stable 4.0]
 
-* [ ] Add Web-GL version of Animal-AI and deploy to AAI website
-* [ ] Fix any outstanding bugs and errors
+* [ ] Overhaul Agent settings and dynamics for better performance and adaptability
+* [ ] Enable customization of arena dimensions (x and z axes) through YAML configurations (global or local parameter)
+* [ ] Fix training mode bug where first episodes are skipped during first batch of arenas
 
 ### 4.5.0 Animal-AI [Major Release] [Stable 5.0]
 
