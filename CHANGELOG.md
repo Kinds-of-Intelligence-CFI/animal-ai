@@ -9,7 +9,7 @@ For an overview of the project's development, see the [Roadmap](/project/AAI-Roa
 - **New Game Objects**:
   - **Movable: `HollowBox`** A hollow box that agents can move within the arena, enabling the creation of more complex environments and challenges. It also supports spawning rewards inside or just above the box, offering diverse use cases.
   - **Movable: `BadGoalMulti`** An experimental valenced goal that can be used to penalize the agent for collecting it (similar to BadGoal). The current reward value is set to `-0.003` and is non-configurable.
-- **Ability to Customise Colors**: Users can now customize the colors of the following game objects:
+- **Ability to Customise Colors**: Users can now customize the colors of the following game objects in the YAML configuration file (via the `colors` parameter):
   - Movable
     - LightBlock
     - HeavyBlock
