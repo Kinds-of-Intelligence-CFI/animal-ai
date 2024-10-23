@@ -16,7 +16,7 @@ jobs:
 
       - name: Update version in README
         run: |
-          sed -i 's#\(\[latest release\](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v\)[0-9.]*#\1${LATEST_VERSION}#g' README.md
+          sed -i "s#\(\[latest release\](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v\)[0-9.]*#\1${LATEST_VERSION}#g" README.md
 
       - name: Commit and push changes
         run: |
