@@ -78,6 +78,7 @@ _Starting from version 4.0.0, the focus of development will shift towards an ite
 
 * [x] Allow some game objects to have customisable colors via YAML configurations (colors parameter)
 * [x] Add new game objects (BadGoalMulti)
+* [x] Add new textures for Light/Heavy Block game objects
 
 ### 4.3.0 Animal-AI [Major Release] [Stable 3.0]
 
