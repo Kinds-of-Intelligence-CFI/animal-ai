@@ -28,6 +28,7 @@ Most instructions for Windows should apply to you as well. For MacOS, you might 
 ### 1. Installing Python
 
 * **Download Python**: Obtain Python 3.9.x from [Python's official website](https://www.python.org/downloads/).
+**N.B. Python 3.10.x is the mininum version for AAI version 4.2.0 and above.**
 * **Run the Installer**: Follow the installation prompts and ensure to **add Python to your PATH** (via the checkbox). For custom installations, keep the `install pip` box ticked.
 * **Check Installation**: Open Command Prompt and run `python --version` to verify the version. It should be Python 3.9.x.
 * **Check Pip**: Run `pip --version`. If pip is not installed, run `python -m ensurepip`. Pip is included by default in Python 3.4 and later.
@@ -59,7 +60,7 @@ For more on virtual environments, see the [Python Documentation](https://docs.py
   + **Using pip**: Run `pip install animalai` to install necessary dependencies from PyPI.
   + **Using Conda**: Install pip with `conda install pip`, then run `pip install animalai`.
   + **Using a Virtual Environment**: Activate your environment, then run `pip install animalai`.
-* **Check**: Run `pip list` to confirm `animalai` is installed. For a specific version, use `pip install animalai==x.x.x`.
+* **Check**: Run `pip list` to confirm `animalai` is installed. For a specific version, use `pip install animalai==x.x.x (e.g. 4.0.0)`.
 
 ### 5. Downloading the Animal-AI Environment
 
