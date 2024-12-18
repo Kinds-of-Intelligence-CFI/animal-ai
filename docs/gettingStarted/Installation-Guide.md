@@ -27,10 +27,10 @@ Most instructions for Windows should apply to you as well. For MacOS, you might 
 
 ### 1. Installing Python
 
-* **Download Python**: Obtain Python 3.9.x from [Python's official website](https://www.python.org/downloads/).
+* **Download Python**: Obtain Python 3.10.x from [Python's official website](https://www.python.org/downloads/).
 **N.B. Python 3.10.x is the mininum version for AAI version 4.2.0 and above.**
 * **Run the Installer**: Follow the installation prompts and ensure to **add Python to your PATH** (via the checkbox). For custom installations, keep the `install pip` box ticked.
-* **Check Installation**: Open Command Prompt and run `python --version` to verify the version. It should be Python 3.9.x.
+* **Check Installation**: Open Command Prompt and run `python --version` to verify the version. It should be Python 3.10.x.
 * **Check Pip**: Run `pip --version`. If pip is not installed, run `python -m ensurepip`. Pip is included by default in Python 3.4 and later.
 * **Check PATH**: Run `echo %PATH%` to verify Python is added to your PATH. Instructions for manual addition can be found [here](https://datatofish.com/add-python-to-windows-path/).
 
@@ -82,6 +82,6 @@ Refer to our [Launching AAI](/docs/gettingStarted/Launching-AAI.md) guide for de
 
 ### Troubleshooting
 
-If you encounter issues, please contact ia424@cam.ac.uk or reach out on [GitHub](https://github.com/alhasacademy96/). For common issues and solutions, visit our [FAQ page](/docs/FAQ.md).
+If you encounter issues, please contact kindsofintelligence.cfi@gmail.com. For common issues and solutions, visit our [FAQ page](/docs/FAQ.md).
 
 Happy experimenting with Animal-AI!
