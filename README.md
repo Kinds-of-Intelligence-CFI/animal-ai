@@ -57,7 +57,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 **Cross-Platform Compatibility:**
 - Compatible with Windows 10+, Linux, and macOS
-- Supports Python 3.6.x and above
+- Supports Python 3.9.x and above
 
 **Control Modes:**
 - **Player Mode:** Allows for interactive control of the environment, ideal for human testing
