@@ -1,5 +1,7 @@
 # Animal-AI Technical Guide
 
+# TODO: Complete the technical guide for the Animal-AI environment.
+
 # IMPORTANT! This is a work in progress. Please check back soon for updates.
 
 This guide will walk you through the engineering aspects of the Animal-AI Environment. It provides an overview of the environment and its components. If you are intending on contributing, then this guide will be a good place to start.
