@@ -26,7 +26,7 @@ Animal-Artificial Intelligence (Animal-AI) supports interdisciplinary research t
 - **Youtube Channel:** [here](https://www.youtube.com/@CFIKinds-Of-Intelligence/featured)
 - **Unity/C# Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity-project)
 - **Python Source Code:** [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-package)
-- **Animal-AI WebGL Django Application**: [here](https://github.com/Kinds-of-Intelligence-CFI/aai-webgl-django)
+- **Animal-AI WebGL/Django**: [here](https://github.com/Kinds-of-Intelligence-CFI/aaiwebgl-django)
 
 This repository serves as the primary hub for essential information and activities related to the Animal-AI environment. It contains a collection of in-depth guides to the environment, as well as an extensive library of 900 tasks featured in the inaugural Animal-AI Olympics competition.
 
