@@ -81,9 +81,6 @@ except UnityCommunicationException:
     # always try to close it from script (environment.close())
     environment.close()
     print("Environment was closed")
-
-if environment:
-    environment.close() # takes a few seconds to close...
 ```
 
 The most common mistake is not specifying the correct path to the application and/or the configuration file. Ensure you replace `your-config-file.yml` with the path to your configuration file and `your-path-to-application.exe` with the path to the AnimalAI.exe file.
