@@ -6,7 +6,6 @@
 * [How does the CSV Logger feature work?](#how-does-the-csv-logger-work)
 * [What data is logged?](#what-data-is-logged)
 * [Notes/Limitations](#notes-limitations)
-* [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -29,7 +28,7 @@ To access the .`csv file`, navigate to the `AnimalAI/ObservationLogs` directory 
 Currently, the CSV Logger records the following data:
 
 * **Episode**
-* **Ste** (the below data is logged at each step)
+* **Step** (the below data is logged at each step)
 * **Health**
 * **Reward**
 * **Velocity** (x, y, z)
@@ -45,17 +44,16 @@ Currently, the CSV Logger records the following data:
 * **Was Agent In DataZone?** (i.e. was the Agent in the DataZone at step n)
 * **Active Camera** (i.e. which camera was active at step n)
 * **Combined Raycast Data** (i.e. what was the raycast data at step n)
-* **Goals Collected (Count)** (i.e. how many goals were collected at every 101 steps). This data is presented in a row, not a column.
 
 The above data is logged at each step, providing a detailed record of the experiment. This data can be used to analyze agent behavior, track progress, and compare results across different experiments.
 
+Additionally, the following summaries are added to the CSV file after each episode
+* **Positive Goals Collected** This is the count of positive goals collected during the episode
+
 ### Notes/Limitations
 
+* There is no way to disable writing the CSV file currently. A feature for this will be added, but please get in touch if it is causing you issues and we can prioritise adding this feature.
 * Due to a bug during training, the first and second episodes are not logged. This issue is to be being addressed in a future release. However, this is only a problem during training, and the CSV Logger works as expected in Play mode.
 * The .csv file can't be saved anywhere else. It is saved in the `AnimalAI/ObservationLogs` directory by default.
 * Multiple `.csv files` can't be generated at the same time. The CSV Logger generates a single .csv file for each Animal-AI session. This is to prevent data from being overwritten or lost.
 * The name of the .csv file is based on the date and time when Animal-AI was launched. This naming convention helps to identify the file easily. It is recommended to rename the file if you want to keep multiple files for comparison.
-
-### Conclusion
-
-The CSV Logger feature is a powerful tool for tracking and analyzing experiment outcomes. It automatically records detailed data to a CSV file, eliminating the need for manual logging. This feature is enabled by default in both Play and Train modes, making it easy to track and compare results.
