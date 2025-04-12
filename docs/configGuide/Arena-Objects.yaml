@@ -337,3 +337,11 @@ arenas:
       sizes:
       - !Vector3 {x: 1, y: 1, z: 1}
 
+    - !Item
+      name: DataZone
+      positions:
+      - !Vector3 {x: 25, y: 0, z: 25}
+      sizes:
+      - !Vector3 {x: 5, y: 0, z: 5}
+      zoneVisibility: true
+      triggerZoneID: ["DataZone 1"]

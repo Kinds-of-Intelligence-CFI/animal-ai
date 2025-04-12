@@ -105,6 +105,16 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 * **Size Range**: `(2.5,2.5,2.5)-(10,10,10)`
 * **Color**: Not changeable / (transparent)
 
+### Datazone
+
+Datazones can be used to record when an agent enters and exits a certain region. This is recorded in the generated CSV file; see the [How are datazones logged?](CSVLoggerGuide.md#how-are-datazones-logged) for more details.
+
+* **Name**: `CylinderTunnelTransparent`
+* **Size Range**: `(0.1,0.1,0.1)-(40,10,40)`
+* **Color**: Not changeable / (transparent)
+* **triggerZoneID**: User configurable string used to identify the datazone. This string will be logged in the csv when it enters and leaves the datazone
+* **zoneVisibility**: Toggles the visibility of the datazone
+
 ## Movable Objects
 
 _Movable_ objects can be easily moved by the agent or other objects. These objects can be pushed by the player/agent as the physics engine is enabled for these objects. Note that some movable objects have aliases (alternative names, now deprecated) for backwards compatibility with previous versions of AAI.

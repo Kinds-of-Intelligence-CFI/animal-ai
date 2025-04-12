@@ -5,6 +5,7 @@
 * [Introduction](#introduction)
 * [How does the CSV Logger feature work?](#how-does-the-csv-logger-work)
 * [What data is logged?](#what-data-is-logged)
+* [How are datazones logged?](#how-are-datazones-logged)
 * [Notes/Limitations](#notes-limitations)
 
 ## Introduction
@@ -41,7 +42,7 @@ Currently, the CSV Logger records the following data:
 * **Collected Reward Type** (i.e. GoodGoal, BadGoal, at step n)
 * **Was SpawnerButton Triggered?** (i.e. was a button pressed to spawn a reward?)
 * **Combined Spawner Information** (i.e. what was dispersed and how many rewards were dispersed by which dispensers)
-* **Was Agent In DataZone?** (i.e. was the Agent in the DataZone at step n)
+* **Datazone messages** (i.e. what, if any, messages are there from datazones)
 * **Active Camera** (i.e. which camera was active at step n)
 * **Combined Raycast Data** (i.e. what was the raycast data at step n)
 
@@ -49,6 +50,10 @@ The above data is logged at each step, providing a detailed record of the experi
 
 Additionally, the following summaries are added to the CSV file after each episode
 * **Positive Goals Collected** This is the count of positive goals collected during the episode
+
+### How are datazones logged?
+
+Datazones log a message to the CSV file at the moment the agent enters, and the moment the agent exits the zone. The message logged will include the ID specified in the `triggerZoneID` field of the datazone.
 
 ### Notes/Limitations
 
