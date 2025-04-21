@@ -69,9 +69,9 @@ canResetEpisode: true
 canChangePerspective: true 
 arenas:
   n: !Arena # note that the n is a placeholder integer between 0 and n, but the first arena must start with 0
-    #pass_mark: 0 # This syntax is only supported for AAI builds less than v4.0.0. If you are using newer versions, please use the 'passMark' syntax.
+    #pass_mark: 0 # Included for backwards compatibility; if you are using newer versions, please use the 'passMark' syntax. (This is unsupported for AAI versions v4.1.0, v4.2.0, v4.2.1 and v4.2.2)
     passMark: 0 # The pass mark for the arena. The agent must achieve this score to pass the arena.
-    #t: 250 # This syntax is only supported for AAI builds less than v4.0.0. If you are using newer versions, please use the 'timeLimit' syntax.
+    #t: 250 # Included for backwards compatibility; if you are using newer versions, please use the 'timeLimit' syntax. (This is unsupported for AAI versions v4.1.0, v4.2.0, v4.2.1 and v4.2.2)
     timeLimit: 250 # The time limit for the arena in seconds. In other words, the time limit for the agent to complete the task (the arena resets after this time).
     items:
     - !Item
@@ -83,9 +83,9 @@ arenas:
 
 * `(n): !Arena` - an `int` denoting the unique arena index used to identify the arena in the configuration file. The first arena must start with `0` and go up to `n`, where `n` is the total number of arenas defined in a single configuration file. 
 #####
-* `timeLimit` - an `int` defining the length of an episode. A value of `0` means the episode will not end until a reward is collected (setting `timeLimit=0` and having no reward will result in an infinite episode). This value translates into a decay rate for the agent's health. For instance, a `timeLimit` of 100 means the agent's health will decay to 0, ending the episode after 100 time steps. **Note: Supported in AAI builds v4.0.0 and below as `t`. Replaced by `timeLimit` in AAI builds v4.1.0 and above.**
+* `timeLimit` - an `int` defining the length of an episode. A value of `0` means the episode will not end until a reward is collected (setting `timeLimit=0` and having no reward will result in an infinite episode). This value translates into a decay rate for the agent's health. For instance, a `timeLimit` of 100 means the agent's health will decay to 0, ending the episode after 100 time steps.
 #####
-* `passMark` - an `int` defining the reward threshold for passing the environment. If undefined, the default value is 0, meaning any reward obtained by the agent results in a pass. This parameter also determines end-of-episode notifications. Set this parameter considering the feasible reward size in each configuration file. **Note: Supported in AAI builds v4.0.0 and below as `pass_mark`. Replaced by `passMark` in AAI builds v4.1.0 and above.**
+* `passMark` - an `int` defining the reward threshold for passing the environment. If undefined, the default value is 0, meaning any reward obtained by the agent results in a pass. This parameter also determines end-of-episode notifications. Set this parameter considering the feasible reward size in each configuration file.
 #####
 * `canChangePerspective` - a `bool` indicating whether the agent can change its camera perspective during an episode (first-person, third-person, or eagle-view). If `false`, the agent cannot change perspective using the C button. If `true`, perspective changes are allowed. Default is `true`.
 #####

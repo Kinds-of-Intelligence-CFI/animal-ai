@@ -7,9 +7,9 @@
 !ArenaConfig
 arenas:
   0: !Arena
-    #pass_mark: 0 # This syntax is only supported for AAI builds less than or equal to v4.0.0. If you are using newer versions, please use the 'passMark' syntax.
+    #pass_mark: 0 # Included for backwards compatibility; if you are using newer versions, please use the 'passMark' syntax. (This is unsupported for AAI versions v4.1.0, v4.2.0, v4.2.1 and v4.2.2)
     passMark: 0 # The pass mark for the arena. The agent must achieve this score to pass the arena.
-    #t: 250 # This syntax is only supported for AAI builds less than or equal to v4.0.0. If you are using newer versions, please use the 'timeLimit' syntax.
+    #t: 250 # . Included for backwards compatibility; if you are using newer versions, please use the 'timeLimit' syntax. (This is unsupported for AAI versions v4.1.0, v4.2.0, v4.2.1 and v4.2.2)
     timeLimit: 250 # The time limit for the arena in seconds. In other words, the time limit for the agent to complete the task (the arena resets after this time).
     items:  # This line indicates the start of the items list
     - !Item 

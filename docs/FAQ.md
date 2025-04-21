@@ -130,11 +130,9 @@ We are aware of this issue with the first arena (typically index 0) being skippe
 
 We are working on a fix for this issue. We apologize for any inconvenience this may cause.
 
-## 't' and/or 'pass_mark' is Not Defined/Recognized
+## 't' and/or 'pass_mark' is Not Defined/Recognized (AAI versions v4.1.0, v4.2.0, v4.2.1 and v4.2.2))
 
-Seeing `NameError: name 't' is not defined` or `NameError: name 'pass_mark' is not defined`? Ensure that the `t` and `pass_mark` are changed to `timeLimit` and `passMark` for any AAI builds from v4.1.0 and above. This change was made to ensure consistency in the naming conventions across the Animal-AI environment.
-
-If you are using an older version of the Animal-AI environment, you can find the `t` and `pass_mark` variables in the `config.yaml` file, which should be defined below the Arena index definition, such as:
+Seeing `NameError: name 't' is not defined` or `NameError: name 'pass_mark' is not defined`? Ensure that the `t` and `pass_mark` are changed to `timeLimit` and `passMark`. This change was made to ensure consistency in the naming conventions across the Animal-AI environment.
 
 ```yaml
 !ArenaConfig

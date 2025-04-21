@@ -20,10 +20,6 @@
 5. [Further Reading and Documentation](#further-reading-and-documentation)
 
 
-**Important Notes/News:**
-
-* **As of AAI build version v4.1.0**, the `t` parameter has been renamed to `timeLimit`, and the `pass_mark` parameter has been renamed to `passMark`. Please update your YAML configurations accordingly. You can make these changes manually or use the Helper Script provided [here](/docs/integration/Helper-Scripts.md). Note that the older/deprecated parameter names are still supported in AAI build versions `v4.0.0` and earlier.
-
 ### Introduction
 
 In this guide, we'll explore how to use the custom YAML syntax in Animal-AI to create your own unique arenas. We'll start with basic examples to familiarize ourselves with the syntax and gradually progress to more complex scenarios. Let's begin by covering the essentials of the syntax!
