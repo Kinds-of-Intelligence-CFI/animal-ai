@@ -177,7 +177,7 @@ _Updated textures (right) available from Animal-AI v4.2.0 onwards._
 <img align="right" height="100" src="/docs/figs/prefabs/Movable/HollowBox.png" />
 
 * **Name**: `HollowBox`
-* **Size Range**: (`1.10 x 1.10 x 1.10`)
+* **Size Range**: `(0.5,0.5,0.5)-(5,5,5)`
 * **Color**: Changeable / (cardboard textured) from AAI v4.2.0 onwards
 
 _Available from Animal-AI v4.2.0 onwards._
