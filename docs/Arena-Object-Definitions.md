@@ -107,7 +107,7 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 
 ### Datazone
 
-Datazones can be used to record when an agent enters and exits a certain region. This is recorded in the generated CSV file; see the [How are datazones logged?](CSVLoggerGuide.md#how-are-datazones-logged) for more details.
+Datazones can be used to record when an agent enters and exits a certain region. This is recorded in the generated CSV file; see the [How are datazones logged?](CSVLoggerGuide.md#how-are-datazones-logged) for more details, and the [Datazone End-to-End test](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-e2e/blob/main/testConfigs/testDatazone.yml) for an example usage.
 
 * **Name**: `CylinderTunnelTransparent`
 * **Size Range**: `(0.1,0.1,0.1)-(40,10,40)`
