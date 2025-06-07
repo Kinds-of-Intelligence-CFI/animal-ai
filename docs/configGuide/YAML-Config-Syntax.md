@@ -439,6 +439,7 @@ arenas:
       spawnProbability: 1.0
       maxRewardCounts: [-1, -1, -1]
       rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23} # The position where the reward will be spawned.
+      spawnedRewardSize: !Vector3 {x: 1, y: 1, z: 1} # the size of the reward
 ```
 
 <p align="center">

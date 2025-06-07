@@ -154,6 +154,7 @@ arenas:
       spawnProbability: 1.0 # the probability of spawning the reward. 1.0 means 100% chance of spawning. 0.0 means 0% chance of spawning ANY reward.
       maxRewardCounts: [-1, -1, -1] # the maximum number of times each reward can be spawned. -1 means no limit respectively for each reward.
       rewardSpawnPos: !Vector3 {x: 25, y: 0, z: 23} # the position where the reward will be spawned upon pressing the button.
+      spawnedRewardSize: !Vector3 {x: 1, y: 1, z: 1} # the size of the reward
 
     - !Item
       name: SpawnerDispenserTall

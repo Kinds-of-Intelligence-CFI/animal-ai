@@ -41,6 +41,7 @@ arenas:
       rewardWeights: [1, 0, 0]
       spawnProbability: 1.0
       rewardSpawnPos: !Vector3 {x: 20, y: 0, z: 35}
+      spawnedRewardSize: !Vector3 {x: 1, y: 1, z: 1}
 ```
 
 The above example shows a YAML configuration file for an arena in Animal-AI. The `!ArenaConfig` tag indicates that the file is a configuration file for an arena. The `arenas` section defines the arenas in the environment. The `0` tag indicates that the arena is the first arena in the environment. The `pass_mark` parameter defines the minimum score required to pass the arena. The `t` parameter defines the maximum number of steps the agent can take in the arena. The `items` section defines the objects in the arena. The `name` parameter defines the name of the object. The `positions` parameter defines the positions of the object. The `rotations` parameter defines the rotations of the object. The `moveDurations` parameter defines the durations of the object's movements. The `resetDurations` parameter defines the durations of the object's resets. The `rewardNames` parameter defines the names of the object's rewards. The `rewardWeights` parameter defines the weights of the object's rewards. The `spawnProbability` parameter defines the probability of the object spawning. The `rewardSpawnPos` parameter defines the position of the object's reward.
