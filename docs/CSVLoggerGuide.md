@@ -62,3 +62,4 @@ Datazones log a message to the CSV file at the moment the agent enters, and the 
 * The .csv file can't be saved anywhere else. It is saved in the `AnimalAI/ObservationLogs` directory by default.
 * Multiple `.csv files` can't be generated at the same time. The CSV Logger generates a single .csv file for each Animal-AI session. This is to prevent data from being overwritten or lost.
 * The name of the .csv file is based on the date and time when Animal-AI was launched. This naming convention helps to identify the file easily. It is recommended to rename the file if you want to keep multiple files for comparison.
+* On MacOS, CSV files are written within the application (.app) folder. To access these, right click on the application and select "Show Package Contents".
