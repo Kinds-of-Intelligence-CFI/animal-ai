@@ -28,7 +28,7 @@ Spawn and despawn a specified object.
 
 **objectInitiallyPresent:** [true, false] (specifies if the object is there when the arena starts)
 
-**spawnAndForget:** [true, false] (makes each time the operation is invoked spawn a new object, e.g. to have a button spawn many non episode ending goals. Defaults to false)
+**spawnAndForget:** [true, false] (each time the operation is invoked, a new object is spawned. This is useful for scenarios like a button spawning multiple non-episode-ending goals. See an example of `spawnAndForget` in action in our [Limited Invocations section](#limited-invocations). Defaults to false.)
 
 **spawnable:** Item (item to spawn, can be any object that would be specified with !Item)
 
