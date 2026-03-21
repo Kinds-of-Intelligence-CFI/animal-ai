@@ -32,7 +32,7 @@ This repository serves as the primary hub for essential information and activiti
 
 _If you wish to contribute to the project, please familiarize yourself with the [Contributing Guide](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) first._ A comprehensive documentation of how Animal-AI works is also available [here](docs/Technical-Overview.md), where you can understand the inner workings of how the environment is built and how it functions (_csharp_ and _Python_ codebases).
 
-The Animal-AI environment and packages are currently tested on **Windows 11**, **Linux**, and **MacOS**, with **Python 3.10.x** support, but **Python 3.9.x+** has been reported to be working also. **Linux distros** are also working and stable. 
+The Animal-AI environment and packages are currently tested on **Windows 11**, **Linux**, and **MacOS**, with **Python 3.14.x** support. **Linux distros** are also working and stable. 
 
 
 ## Features
@@ -57,7 +57,7 @@ The Animal-AI environment and packages are currently tested on **Windows 11**, *
 
 **Cross-Platform Compatibility:**
 - Compatible with Windows 10+, Linux, and macOS
-- Supports Python 3.9.x and above
+- Supports Python 3.14.x
 
 **Control Modes:**
 - **Player Mode:** Allows for interactive control of the environment, ideal for human testing
@@ -79,7 +79,7 @@ We've prepared a comprehensive set of tutorials to help you get started with the
 
 *See [here](/docs/gettingStarted/Installation-Guide.md) for a detailed installation guide.*
 
-([latest release](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases/tag/v4.2.0)) / ([all releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
+([releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases))
 
 For legacy builds of Animal-AI, please see ([legacy releases](/project/AAI-Versions-Archive.md))
 
@@ -107,6 +107,8 @@ We implement some of Unity's ML-Agent's toolkit in Animal-AI.
 Juliani, A., Berges, V., Vckay, E., Gao, Y., Henry, H., Mattar, M., Lange, D. (2018). [Unity: A General Platform for Intelligent Agents.](https://arxiv.org/abs/1809.02627) *arXiv preprint arXiv:1809.02627*
 
 Documentation for [ML-Agents](https://github.com/Unity-Technologies/ml-agents) should be consulted if you want additional resources.
+
+We maintain a fork of Unity ML-Agents to support Animal-AI at https://github.com/Kinds-of-Intelligence-CFI/ml-agents .
 
 
 ## The Animal-AI Community 
