@@ -8,8 +8,7 @@
     - [2. Cloning the Animal-AI Repository (Optional)](#2-cloning-the-animal-ai-repository-optional)
     - [3. Setting Up a Virtual Environment (Optional)](#3-setting-up-a-virtual-environment-optional)
     - [4. Installing Dependencies](#4-installing-dependencies)
-    - [5. Downloading the Animal-AI Environment](#5-downloading-the-animal-ai-environment)
-    - [6. Starting Animal-AI](#6-starting-animal-ai)
+    - [5. Starting Animal-AI](#6-starting-animal-ai)
   + [General Notes](#general-notes)
   + [Troubleshooting](#troubleshooting)
 
@@ -61,15 +60,17 @@ For more on virtual environments, see the [Python Documentation](https://docs.py
   + **Using a Virtual Environment**: Activate your environment, then run `pip install animalai`.
 * **Check**: Run `pip list` to confirm `animalai` is installed. For a specific version, use `pip install animalai==x.x.x (e.g. 4.0.0)`.
 
-### 5. Downloading the Animal-AI Environment
-
-* **Download**: Get the appropriate version for your OS from the [Releases](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases) section.
-* **Extract**: Unzip the downloaded file to your preferred location (Desktop recommended). Use tools like WinRAR or 7-Zip.
-* **Verify**: Ensure the folder contains the `.exe` file for Windows, `.app` file for MacOS, and `.x86_64` file for Linux.
-
-### 6. Starting Animal-AI
+### 5. Starting Animal-AI
 
 Launch the Animal-AI application from the directory where you extracted the files. Note that Animal-AI does not need to be installed on your system.
+Try the command:
+```bash
+python -m animalai.play
+```
+This should automatically download the binaries for animal ai unity, if it doesn't work try manually running download using the following command or manualy download from [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases)
+```bash
+python -m animalai download --force
+```
 
 Refer to our [Launching AAI](/docs/gettingStarted/Launching-AAI.md) guide for detailed instructions on starting and using Animal-AI.
 

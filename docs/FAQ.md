@@ -8,6 +8,7 @@ Encountering issues with the Animal-AI environment? Here are some solutions to c
   * [Resolving Environment Permission Errors](#11-resolving-environment-permission-errors)
     * [For macOS and Linux Users](#111-for-macos-and-linux-users)
     * [For Windows Users](#112-for-windows-users)
+    * [Failed to download binaries](#113-failed-to-download-binaries)
   * [Addressing Environment Connection Timeouts](#12-addressing-environment-connection-timeouts)
   * [Communication Port Conflict](#13-communication-port-conflict)
 * [Mean Reward Displaying NaN](#2-mean-reward-displaying-nan)
@@ -44,6 +45,10 @@ chmod -R 755 *.x86_64
 #### 1.1.2 For Windows Users
 
 Windows users generally don't need additional permissions. If needed, refer to [Microsoft Documentation](https://docs.microsoft.com/).
+
+#### 1.1.3 Failed to download binaries
+
+By default when you run create an animal ai environment, if no `file_path` is specified and no existing binary can be found, animalai will automatically download the newest correct binary from https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases. This can fail for several reasons such as not having an internet connection or the path to the binary file is incorrect. You can manually try running the download script using `python -m animalai download --force`and clear them using `python -m animalai cleanup`. Alternatively, if that is not working you can download the binary manually and save it wherever you like and then set `file_path` variable when creating the environment. By default binaries are saved to `~/.animalai/envs/<VERSION>/<PLATFORM>`. 
 
 ### 1.2 Addressing Environment Connection Timeouts
 

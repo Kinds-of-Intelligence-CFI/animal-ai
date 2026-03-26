@@ -58,10 +58,7 @@ from mlagents_envs.exception import UnityCommunicationException
 configuration_file = r"your-config-file.yml"
 
 with open(configuration_file) as f:
-    print(f.read()) 
-
-# IMPORTANT! Replace the path to the application .exe here:
-env_path = r'your-path-to-application.exe' 
+    print(f.read())  
 
 port = 5005 + random.randint(
     0, 1000
@@ -70,7 +67,6 @@ port = 5005 + random.randint(
 print("Initializing AAI environment")
 try:
     environment = AnimalAIEnvironment(
-        file_name=env_path,
         base_port=port,
         arenas_configurations=configuration_file,
         play=True,
@@ -83,7 +79,7 @@ except UnityCommunicationException:
     print("Environment was closed")
 ```
 
-The most common mistake is not specifying the correct path to the application and/or the configuration file. Ensure you replace `your-config-file.yml` with the path to your configuration file and `your-path-to-application.exe` with the path to the AnimalAI.exe file.
+The most common mistake is not specifying the correct path to the application and/or the configuration file. Ensure you replace `your-config-file.yml` with the path to your configuration file.
 
 After running the code, the Animal-AI environment will launch in manual play mode. You can now interact with the environment using the keyboard and mouse.
 
@@ -127,7 +123,7 @@ from mlagents_envs.envs.unity_gym_env import UnityToGymWrapper
 from animalai.environment import AnimalAIEnvironment
 import subprocess
 
-def train_agent_single_config(configuration_file, env_path , log_bool = False, aai_seed = 2023, watch = False, num_steps = 10000, num_eval = 100):
+def train_agent_single_config(configuration_file, log_bool = False, aai_seed = 2023, watch = False, num_steps = 10000, num_eval = 100):
     
     port = 5005 + random.randint(
     0, 1000
@@ -136,7 +132,6 @@ def train_agent_single_config(configuration_file, env_path , log_bool = False, a
     # Create the environment and wrap it...
     aai_env = AnimalAIEnvironment( # the environment object
         seed = aai_seed, # seed for the pseudo random generators
-        file_name=env_path,
         arenas_configurations=configuration_file,
         play=False, # note that this is set to False for training
         base_port=port, # the port to use for communication between python and the Unity environment
@@ -161,11 +156,10 @@ def train_agent_single_config(configuration_file, env_path , log_bool = False, a
         model.learn(num_steps, reset_num_timesteps=False)
     env.close()
 
-# IMPORTANT! Replace the path to the application and the configuration file with the correct paths here:
-env_path = r"your-path-to-application.exe"
+# IMPORTANT! Replace the path to the configuration file with the correct paths here:
 configuration_file = r"your-config-file.yml"
 
-rewards = train_agent_single_config(configuration_file=configuration_file, env_path = env_path, watch = True, num_steps = 500, num_eval = 3000)
+rewards = train_agent_single_config(configuration_file=configuration_file, watch = True, num_steps = 500, num_eval = 3000)
 ```
 
 Here's a breakdown of what the above code does:
@@ -183,7 +177,7 @@ Here's a breakdown of what the above code does:
 - **Call Function:** Calls `train_agent_single_config` with the configuration file and path to AnimalAI.exe.
 - **Store Rewards:** Stores rewards obtained during training in the `rewards` variable.
 
-**Note:** Replace `configuration_file` and `env_path` with the path to your configuration file and Animal-AI.exe/app file.
+**Note:** Replace `configuration_file` with the path to your configuration file.
 
 Running this code launches the Animal-AI environment in training mode. The agent is trained using the PPO algorithm and learns to navigate the environment and collect rewards based on the configuration file.
 
