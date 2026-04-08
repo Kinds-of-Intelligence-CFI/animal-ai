@@ -67,11 +67,7 @@ Try the command:
 ```bash
 python -m animalai.play
 ```
-This should automatically download the binaries for animal ai unity, if it doesn't work try manually running download using the following command or manualy download from [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases)
-```bash
-python -m animalai download --force
-```
-
+The binaries for your operating system will automatically be downloaded whenever you first try to open the environment, see FAQ if you have issues with downloading.
 Refer to our [Launching AAI](/docs/gettingStarted/Launching-AAI.md) guide for detailed instructions on starting and using Animal-AI.
 
 ### General Notes

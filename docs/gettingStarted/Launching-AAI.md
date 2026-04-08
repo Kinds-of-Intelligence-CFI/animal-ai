@@ -14,12 +14,7 @@
 This guide explains how to launch the Animal-AI environment and run the simulation in either _training_ or _manual play_ mode. The steps are consistent across all platforms (Windows, Linux, and macOS), though specific commands may vary slightly.
 
 ## Getting Ready to Launch Animal-AI
-
-1. **Download the Application**: 
-   - Visit our [Releases page](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases) to download the appropriate version for your operating system (Windows, Linux, or macOS).
-   - Extract the contents to a directory of your choice (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS).
-
-2. **Install the `animalai` Package**:
+1. **Install the `animalai` Package**:
    - Create a virtual environment for your project if you haven't already. If you use Conda, activate your environment before proceeding.
    - Run the following command in your terminal:
 
@@ -29,14 +24,14 @@ This guide explains how to launch the Animal-AI environment and run the simulati
 
    - Note: `stable-baselines3` is required for training and helps avoid dependency issues.
 
-3. **Prepare a Configuration File**:
+2. **Prepare a Configuration File**:
    - The configuration file (YAML format) defines the settings for your Animal-AI environment, including arena and objects.
    - Create your own configuration file following our [guide on YAML syntax](/docs/configGuide/YAML-Config-Syntax.md), or download an [example file](/docs/configGuide/Example-YAML-File.yaml).
    - Save the configuration file in your chosen directory (e.g., `C:\Animal-AI` on Windows, `/home/username/Animal-AI` on Linux, or `/Users/username/Animal-AI` on macOS).
 
 ## Launching Animal-AI
 
-To launch the Animal-AI environment, use Python scripts that specify both the configuration file and the path to the `AnimalAI.exe/app` file. Below, we'll demonstrate how to launch Animal-AI in both manual play and training modes using _Jupyter Notebook and Kernel Gateway_.
+To launch the Animal-AI environment, use Python scripts that specify both the configuration file. Below, we'll demonstrate how to launch Animal-AI in both manual play and training modes using _Jupyter Notebook and Kernel Gateway_.
 
 For simplicity and consistency, the same code examples apply to both modes.
 
@@ -79,7 +74,7 @@ except UnityCommunicationException:
     print("Environment was closed")
 ```
 
-The most common mistake is not specifying the correct path to the application and/or the configuration file. Ensure you replace `your-config-file.yml` with the path to your configuration file.
+The most common mistake is not specifying the correct path to the application and/or the configuration file. Ensure you replace `your-config-file.yml` with the path to your configuration file. You no longer need to specify the path to the animal ai binary or manually download them, instead they are automatically downloaded the first time you try to open an animal ai envirionment, see FAQ if you encounter issues.
 
 After running the code, the Animal-AI environment will launch in manual play mode. You can now interact with the environment using the keyboard and mouse.
 

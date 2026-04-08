@@ -46,11 +46,11 @@ chmod -R 755 *.x86_64
 
 Windows users generally don't need additional permissions. If needed, refer to [Microsoft Documentation](https://docs.microsoft.com/).
 
-#### 1.1.3 Failed to download binaries
+### 1.2 Failed to download binaries
 
 By default when you run create an animal ai environment, if no `file_path` is specified and no existing binary can be found, animalai will automatically download the newest correct binary from https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases. This can fail for several reasons such as not having an internet connection or the path to the binary file is incorrect. You can manually try running the download script using `python -m animalai download --force`and clear them using `python -m animalai cleanup`. Alternatively, if that is not working you can download the binary manually and save it wherever you like and then set `file_path` variable when creating the environment. By default binaries are saved to `~/.animalai/envs/<VERSION>/<PLATFORM>`. 
 
-### 1.2 Addressing Environment Connection Timeouts
+### 1.3 Addressing Environment Connection Timeouts
 
 Timeout errors when launching through `UnityEnvironment` ? Consider these fixes:
 
@@ -59,7 +59,7 @@ Timeout errors when launching through `UnityEnvironment` ? Consider these fixes:
 * **Errors in Unity Environment:** Refer to [Unity log files](https://docs.unity3d.com/Manual/LogFiles.html).
 * **Running in a Headless Environment:** Use `--no-graphics` or `no_graphics=True` if you intend on using this feature (not fully supported).
 
-### 1.3 Communication Port Conflict
+### 1.4 Communication Port Conflict
 
 Encountering port conflicts? Try changing the worker number or port:
 
@@ -72,6 +72,10 @@ Or find an available port:
 ```python
 port = 5005 + random.randint(0, 1000)
 ```
+
+### 1.5 Preventing automatic binary download
+
+By default animal ai will automatically download the correct binary for the current version if none are currently installed in the default location. This can be prevented by setting the `file_path` argument when creating the animal ai environment. Alternatively, you can set the flag `ANIMALAI_AUTO_DOWNLOAD` in your environment variables to `false` and this will stop the automatic download of the binaries under any circumstance.
 
 ## 2. Mean Reward Displaying NaN
 
