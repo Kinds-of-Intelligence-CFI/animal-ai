@@ -18,7 +18,7 @@ Encountering issues with the Animal-AI environment? Here are some solutions to c
 * [Unity Environment Not Found](#5-unity-environment-not-found)
 * [Unity Environment Not Responding](#6-unity-environment-not-responding)
 * [During Training, First Arena is Not Loaded](#7-during-training-first-arena-is-not-loaded)
-* [Changing arena configurations](#8-chanding-arena-configurations)
+* [Changing arena configurations](#8-changing-arena-configurations)
 
 
 ## 1. Troubleshooting Installation Issues
