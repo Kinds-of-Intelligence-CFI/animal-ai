@@ -19,6 +19,7 @@ Encountering issues with the Animal-AI environment? Here are some solutions to c
 * [Unity Environment Not Found](#5-unity-environment-not-found)
 * [Unity Environment Not Responding](#6-unity-environment-not-responding)
 * [During Training, First Arena is Not Loaded](#7-during-training-first-arena-is-not-loaded)
+* [Changing arena configurations](#8-changing-arena-configurations)
 
 
 ## 1. Troubleshooting Installation Issues
@@ -151,3 +152,7 @@ arenas:
     timeLimit/t: 100
     # rest of the arena configuration...
 ```
+
+## 8. Changing arena configurations
+
+While the environment is running you can change the arena file used by animal ai by adding your new arena file as an argument to the `reset()` function, for example: `aai_env.reset("./arenas/maze_1.yaml")`. Additionally, you are not required to pass a file path for your arena, instead you can simply pass a string of a valid yaml with the correct content and the unity environment will parse it into an arena. This is useful if you need to dynamically generate your arenas and don't want to interact with the file system. We strongly suggest using files however as large arena strings can take a while to transfer to unity and make it harder to replicate your results as you don't have a copy of the environment.
