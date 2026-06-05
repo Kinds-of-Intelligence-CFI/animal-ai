@@ -78,6 +78,9 @@ To get started with Animal-AI, follow the recommended steps below. These guides 
 7. **Explore Integration Options**  
    If you're interested in integrating Animal-AI with other AI libraries, refer to the integration guide:
    * [Using Animal-AI with Stable-Baselines3 and Dreamerv3](/docs/integration/Integrate-AAI.md)
+   
+   If you're interested in running experiments with Large Language Models (LLMs) in Animal-AI:
+   * See the guide [here](/docs/integration/LLMs-In-AAI.md)
 
 Feel free to follow this order or adjust according to your interests and needs. The guides are designed to facilitate a smooth learning process but are not mandatory to follow in sequence.
 
