@@ -6,41 +6,37 @@
 
 ## Animal-AI w/ Stable Baselines3
 
-[Stable Baselines3](https://stable-baselines3.readthedocs.io/en/master/) works with the [Gymnasium](https://gymnasium.farama.org/) interface, while Animal-AI uses an older (<0.26) [Gym](https://github.com/openai/gym/releases/tag/v0.21.0) interface ([compatibility notes](https://gymnasium.farama.org/content/migration-guide/)).
+Many existing tools for reinforcement learning (such as StableBaselines3) use specific frameworks to wrap the environment and handle the interactions between the environment and the agent. To help with this we provide a Unity to Gymnasium wrapper which converts the regular animal ai environment into a Gymnasium environment that these tools accept.
 
-Stable Baselines3 will automatically convert between the two interfaces using [Shimmy](https://shimmy.farama.org/), which needs to be installed separately.
-
-Install your dependencies `pip install animalai stable-baselines3 shimmy` , and use following code:
+We actually provide two different wrappers one generic one which can wrap any unity environment `UnityToGymnasiumWrapper` as a backup and an Animal-AI specific wrapper `AnimalAIGymnasiumWrapper` which we recommend you use as it labels the observations for you. 
 
 ```python
 # Import the necessary environment wrappers.
 import animalai
 import animalai.envs.environment
-import mlagents_envs # Provided by animalai
-import mlagents_envs.envs.unity_gym_env
+from animalai.wrappers.animalai_gymnasium import AnimalAIGymnasiumWrapper
 import stable_baselines3
 
 env = animalai.envs.environment.AnimalAIEnvironment(...)
 
-# Make it compatible with legacy Gym v0.21 API
-env = mlagents_envs.envs.unity_gym_env.UnityToGymWrapper(
+# wrap with the gymnasium wrapper
+env_wrapped = AnimalAIGymnasiumWrapper(
     env,
     uint8_visual=True,
     flatten_branched=True,  # Necessary if the agent doesn't support MultiDiscrete action space.
 )
 
 # Stable Baselines3 A2C model
-# Will automatically use Shimmy to convert the legacy Gym v0.21 API to the Gymnasium API
 model = stable_baselines3.A2C(
     "MlpPolicy",
-    env,  # type: ignore
+    env_wrapped,  # type: ignore
     device="cpu",
     verbose=1,
 )
 model.learn(total_timesteps=10_000)
 ```
 
-See [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-stablebaselines3) for a complete example of using Animal-AI with Stable Baselines3.
+See [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-stablebaselines3) for a complete example of using Animal-AI with old gym environments using Stable Baselines3.
 
 ## Animal-AI w/ DreamerV3
 
