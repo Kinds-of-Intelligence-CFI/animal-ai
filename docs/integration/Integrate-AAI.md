@@ -6,9 +6,8 @@
 
 ## Animal-AI w/ Stable Baselines3
 
-Many existing tools for reinforcement learning (such as StableBaselines3) use specific frameworks to wrap the environment and handle the interactions between the environment and the agent. To help with this we provide a Unity to Gymnasium wrapper which converts the regular animal ai environment into a Gymnasium environment that these tools accept.
+Many existing tools for reinforcement learning (such as StableBaselines3) use specific frameworks to wrap the environment and handle the interactions between the environment and the agent. To help with this we provide a Unity to Gymnasium wrapper `AnimalAIGymnasiumWrapper` which converts the regular animal ai environment into a Gymnasium environment that these tools accept.
 
-We actually provide two different wrappers one generic one which can wrap any unity environment `UnityToGymnasiumWrapper` as a backup and an Animal-AI specific wrapper `AnimalAIGymnasiumWrapper` which we recommend you use as it labels the observations for you. 
 
 ```python
 # Import the necessary environment wrappers.
@@ -19,7 +18,7 @@ import stable_baselines3
 
 env = animalai.envs.environment.AnimalAIEnvironment(...)
 
-# wrap with the gymnasium wrapper
+# Wrap with the gymnasium wrapper
 env_wrapped = AnimalAIGymnasiumWrapper(
     env,
     uint8_visual=True,
