@@ -41,6 +41,8 @@ See [here](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-stablebaseline
 
 To scale up the training even further it is possible to create multiple environments in parallel and have agents interact with each of them, yielding significant speedups. For this purpose Gymnasium provides a specific environment class `gymnasium.vector.VectorEnv`, it is possible to create one yourself and fill it with environments however we provide a helper method `make_animalai_vec_env` which we recommend using as there are some edge cases, such as spawning multiple environments in windows needs to be done sequentially, which the helper method handles for you.
 
+For more information see the gymnasium documentation on vectorised environments https://gymnasium.farama.org/api/vector/ .
+
 ```python
 from animalai.wrappers import make_animalai_vec_env
 
@@ -56,6 +58,8 @@ for _ in range(10000):
     venv.step(venv.action_space.sample())
 venv.close()
 ```
+
+As a rough guide, on an NVIDIA 3070 Ti laptop GPU, you can run about 8 environments with timescale 20 while training an RL model for a roughly 8x speed up. Different GPUs with different rendering enabled will get faster speedups.
 
 ## Animal-AI w/ DreamerV3
 
