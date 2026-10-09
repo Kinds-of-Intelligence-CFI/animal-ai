@@ -3,6 +3,41 @@
 This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). 
 For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
 
+## [4.4.0] - 09/10/2026
+
+### Notes
+_This version changes the size of ray-cast observations, for single-agent as well as multi-agent arenas (see below). Policies trained on ray-cast observations from an earlier version will need to be retrained, or have their observations adapted._
+
+### Added
+- **Multiple agents**: An arena can now contain several agents, added as extra `Agent` items. Agents can be put on separate teams (`teams`), and arenas can end the episode when any agent finishes or when all agents have (`episodeEnd`). Each agent writes its own CSV log. See the [Multi-Agent Guide](/docs/Multi-Agent-Guide.md).
+
+### Changed
+- **Ray casts**: Rays now report 18 object types, up from 12: `HollowBox`, `BadGoalMulti`, `DataZone`, `DecoyGoal`, `DecoyGoalBounce` and other agents are now detected. This increases the length of the ray-cast observation vector.
+
+## [4.3.2] - 2026-08-02
+
+### Bug Fixes
+
+Fixed a bug where the agent freeze could sometimes leak into the subsequent arena (https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity/commit/4a8aa5aa3273bff2cc72eeb70cf42532b80be2a8)
+
+## [4.3.1] - 2026-05-15
+
+### New features
+
+- Animal AI can now load large .yaml files more quickly ([change](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity/commit/adc9a9f149152c7f60f73c5079972f5aa6af520f))
+- Users can specify multiple agent initial locations and have Unity randomly choose between them ([change](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity/commit/1e569de262cda6fc819dc2fe0422549fa46b2123))
+
+## [4.3.0] - 2025-10-04
+
+**Note:** Following the discovery of a vulnerability in the unity platform (see details [here](https://unity.com/security/sept-2025-01)) all historical versions of Animal-AI have been removed from the [releases page](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/releases). If you need a former version of AAI, it can be rebuilt directly from the source (please raise an issue against this repo if you need tips on how to do that).
+
+### New features
+
+- We have introduced **Operations**, a new feature to allow the customisation of the behaviour of spawner buttons and data zones. See [the docs page](https://github.com/Kinds-of-Intelligence-CFI/animal-ai/blob/main/docs/Operations-guide.md) for more details!
+
+### Bug fixes
+- Recent versions of animalAI have sometimes been impacted by an issue where log files are full of lines saying "Skipping duplicated log step" - to keep the log files clean we no longer log when this occurs ([commit](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-unity/commit/35b60a023650bf73a3b027ed8e4adb1314aefc45))
+
 ## [4.2.0] - 2024-10-25
 
 ### Added

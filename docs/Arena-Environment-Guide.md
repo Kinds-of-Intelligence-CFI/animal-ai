@@ -41,7 +41,7 @@ For a detailed explanation of the syntax used in the configuration files, refer 
   </tr>
 </table>
 
-Each **episode** (a single run) contains an _arena_ environment. Currently, an arena supports only a single agent (with spherical animal skins - _hedgehog_, _pig_, or _panda_). The arena is a fixed size of `40x40` , with the origin set at `(0,0)` . Object coordinates can be provided in the range `[0,40]x[0,40]` as floats.
+Each **episode** (a single run) contains an _arena_ environment. An arena contains one or more agents (with spherical animal skins - _hedgehog_, _pig_, or _panda_); arenas with several agents are available from AAI 4.4.0 (see the [Multi-Agent Guide](/docs/Multi-Agent-Guide.md)). The arena is a fixed size of `40x40` , with the origin set at `(0,0)` . Object coordinates can be provided in the range `[0,40]x[0,40]` as floats.
 
 The default arena consists of several gameobjects contained in a _Unity Scene_, including:
 
@@ -142,8 +142,7 @@ The agent has a HUD that displays the following information per episode by defau
 ### Animal-AI/Arena/Agent Limitations
 
 Consider the following limitations of the arena and agent:
-
-1. **Single Agent Per Arena/Episode**: Only one agent is supported per arena or episode, applicable to both play and training modes.
+1. **Multiple Agents**: From AAI 4.4.0, an arena can contain several agents (see the [Multi-Agent Guide](/docs/Multi-Agent-Guide.md)), but Play Mode, the gymnasium wrappers and the LLM scaffolds currently support a single agent only.
 2. **Movement Constraints**: The agent can only move on the ground and cannot navigate on walls or other objects, except when placed on top of flat-surfaced objects.
 3. **Object Interaction**: The agent cannot move through objects, except for hot/death zones.
 4. **No Jumping or Flying**: The agent is restricted to ground movement and cannot jump or fly.

@@ -20,6 +20,8 @@
 
 Interactive objects (currently, the SpawnerButton and Datazone) can be configured with 'operations' to customise their behaviour. Operations represent a simple action, and can be composed to form more complex behaviours. This page documents each operation, and gives examples of how to use it.
 
+**With several agents** ([Multi-Agent Guide](/docs/Multi-Agent-Guide.md)), an operation either acts on the agent that triggered it (the one that pressed the button or entered the zone) or on the arena, which all agents share. Each operation below says which. A DataZone runs its operations once for each agent that enters (an agent already inside doesn't trigger them again). When that agent leaves, a `grantContinuousReward` started by its entry stops; other operations do nothing on leaving.
+
 ## Basic Operations
 ### Toggle Object
 Spawn and despawn a specified object.
@@ -33,6 +35,8 @@ Spawn and despawn a specified object.
 **spawnable:** Item (item to spawn, can be any object that would be specified with !Item)
 
 **Note:** To have an operation that spawns an object only once, this operation can be composed with the [limited invocations](#limited-invocations) operation.
+
+**With several agents:** acts on the arena. There is one object, shared by every agent, and any agent can toggle it. On a DataZone, each agent that enters toggles it again, so two agents walking in spawn and then despawn it. Leaving the zone doesn't toggle it back.
 
 **Example**
 ```
@@ -75,6 +79,8 @@ Grant a specified reward amount.
 
 **reward:** Number (Value of the reward to grant)
 
+**With several agents:** only the agent that triggered it is rewarded.
+
 **Example**
 ```
 !ArenaConfig
@@ -108,6 +114,8 @@ Grant a specified reward amount each timestep.
 **Name:** grantContinuousReward
 
 **rewardPerStep:** Number (Value of the reward to grant per timestep)
+
+**With several agents:** every agent inside the DataZone is rewarded, each from when it enters until it leaves.
 
 **Example**
 ```
@@ -144,6 +152,8 @@ End the current episode, with a specified reward
 
 **Note:** To have the reward default to 0, use curly braces after the operation name: `- !endEpisode {}`
 
+**With several agents:** the agent that triggered it finishes, with the reward. The arena's `episodeEnd` setting then decides whether the episode ends for every agent (`any`, the default) or that agent waits, frozen, until the others finish (`all`).
+
 **Example**
 ```
 !ArenaConfig
@@ -178,6 +188,8 @@ Stops the agent moving (all directional inputs are ignored) for a fixed number o
 **freezeSteps:** Integer (The number of steps to freeze for)
 
 **Note:** The steps used are Unity [FixedUpdate](https://docs.unity3d.com/6000.2/Documentation/Manual/fixed-updates.html) steps, which is the frequency at which Unity updates its physics simulation.
+
+**With several agents:** only the agent that triggered it is frozen.
 
 **Example**
 ```
@@ -290,6 +302,8 @@ Only allow an operation to occur a certain number of times, after which invocati
 
 **operation:** Operation (The operation to limit the invocations of)
 
+**With several agents:** the count is shared by every agent. `maxInvocations: 3` allows 3 invocations in total, by any agents, not 3 per agent.
+
 ```
 !ArenaConfig
 arenas:
@@ -333,6 +347,8 @@ Randomly choose an action from the list, optionally according to a specified wei
 **operations:** List of operations (To be selected from randomly)
 
 **operationWeights:** List of numbers (The weighting to be used, should be the same length as the list of operations. Defaults to uniform weighting)
+
+**With several agents:** a new random choice is made each time an agent triggers it, and the chosen operation then behaves as described in its own section.
 
 **Examples**
 ```
