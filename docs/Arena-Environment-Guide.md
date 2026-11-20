@@ -89,6 +89,8 @@ arenas:
 #####
 * `canChangePerspective` - a `bool` indicating whether the agent can change its camera perspective during an episode (first-person, third-person, or eagle-view). If `false`, the agent cannot change perspective using the C button. If `true`, perspective changes are allowed. Default is `true`.
 #####
+* `initialPerspective` - the camera play mode starts in: `first`, `third` or `birds_eye`. Default is `birds_eye`, or `third` if `canChangePerspective` is `false`. Combine with `canChangePerspective: false` to fix the camera. (From AAI TODO.)
+#####
 * `randomizeArenas` - a `bool` indicating whether the arena will be randomized between episodes. If `true`, arenas are randomized as defined in the configuration file. If `false`, arenas are spawned sequentially as specified. Default is `false`.
 #####
 * `showNotification` - a `bool` indicating whether the player receives a notification at the end of an episode. If `true`, a notification is shown for approximately 2.5 seconds before moving to the next episode. If `false`, episodes terminate back-to-back without notifications. Default is `false`.
@@ -107,7 +109,7 @@ The controls are as follows:
 * `A` - move left
 * `S` - move backward
 * `D` - move right
-* `C` - change camera perspective (first-person, third-person, eagle-view, only if `canChangePerspective` is `true`)
+* `C` - change camera perspective (eagle-view, first-person, third-person, only if `canChangePerspective` is `true`)
 * `R` - reset the arena (cycles to the next episode if `canResetEpisode` is `true`)
 
 The agent has a set of skins that can be used to change its appearance in the arena. The skins are as follows:

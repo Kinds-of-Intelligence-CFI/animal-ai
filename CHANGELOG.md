@@ -3,6 +3,14 @@
 This document records all notable changes to the Animal-AI project. It follows the [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) format and adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). 
 For an overview of the project's development, see the [Roadmap](/project/AAI-RoadMap.md).
 
+## [Unreleased]
+
+### Added
+- `initialPerspective` global parameter (`first`, `third` or `birds_eye`) sets the starting camera in play mode. See the [Arena Environment Guide](/docs/Arena-Environment-Guide.md).
+
+### Fixed
+- The Active Camera column in CSV logs now names the cameras correctly: `0 (Bird's Eye)`, `1 (First-Person)`, `2 (Third-Person)`.
+
 ## [4.4.0] - 09/10/2026
 
 ### Notes

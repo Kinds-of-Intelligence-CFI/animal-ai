@@ -66,6 +66,7 @@ Following the `!Arena` tag, a list of parameters is provided to define the arena
 !ArenaConfig
 # Global Parameters that are optional are put here, at the top of the yaml file under the !ArenaConfig tag.
 canChangePerspective: false # Can the agent change its camera perspective? (i.e. switch between first-person and third-person view)
+initialPerspective: first # Camera to start in: first, third or birds_eye.
 canResetEpisode: false # Can the agent reset the episode? 
 showNotification: false # Show the notification to the user upon completion of the episode? 
 randomizeArenas: false # Randomize the arenas? This applies if there are > 1 arenas in the file. 
@@ -81,6 +82,7 @@ We can observe the following:
 
 * The default values for global parameters are:
   - `canChangePerspective: true`
+  - `initialPerspective`: `birds_eye`, or `third` if `canChangePerspective` is `false`
   - `canResetEpisode: true`
   - `showNotification: false`
   - `randomizeArenas: false`
