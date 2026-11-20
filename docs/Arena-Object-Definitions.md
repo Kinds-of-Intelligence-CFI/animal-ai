@@ -49,10 +49,12 @@ The agent can be placed anywhere in the arena with any rotation. It has a fixed 
 * **Name**: `Agent`
 * **Size**: `(1,1,1)` (not changeable)
 * **Skins**: `"hedgehog"`, `"panda"`, `"pig"` (can be randomized)
+* **frozenAgentDelays**: (Optional) Number of frames the agent is frozen for at the start of an episode (defaults to `0`)
+* **teams**: (Optional) The agent's team, as a one-entry list, e.g. `[1]`; see the [Multi-Agent Guide](/docs/Multi-Agent-Guide.md) (defaults to `0`)
 
 Unlike other items, each `Agent` item spawns exactly one agent: if `positions` lists several positions, one is chosen at random, and only the first entry of `rotations`, `skins` and `frozenAgentDelays` is used. To add more agents, add more `Agent` items (see the [Multi-Agent Guide](/docs/Multi-Agent-Guide.md)).
 
-Notes: The agent can be frozen for a specified number of frames at the start of an episode. There is no reward decrement during the frozen period. This can be set with an integer value passed to the `frozenAgentDelays` parameter (defaults to `0`).
+Notes: While the agent is frozen at the start of an episode (`frozenAgentDelays`) there is no reward decrement.
 
 <table>
   <tr>
@@ -111,11 +113,12 @@ _Immovable_ objects are fixed in place and cannot be moved. The outer walls of t
 
 Datazones can be used to record when an agent enters and exits a certain region. This is recorded in the generated CSV file; see the [How are datazones logged?](CSVLoggerGuide.md#how-are-datazones-logged) for more details, and the [Datazone End-to-End test](https://github.com/Kinds-of-Intelligence-CFI/animal-ai-e2e/blob/main/testConfigs/testDatazone.yml) for an example usage.
 
-* **Name**: `CylinderTunnelTransparent`
+* **Name**: `DataZone`
 * **Size Range**: `(0.1,0.1,0.1)-(40,10,40)`
 * **Color**: Not changeable / (transparent)
 * **triggerZoneID**: User configurable string used to identify the datazone. This string will be logged in the csv when it enters and leaves the datazone
 * **zoneVisibility**: Toggles the visibility of the datazone
+* **operations**: (Optional) A list of [operations](Operations-guide.md) to run on an agent when it enters the datazone (defaults to none)
 
 ## Movable Objects
 
@@ -404,6 +407,7 @@ Notes: The dispenser spawns `GoodGoalMulti` . The valence of the goals is propor
 * **Color**: Not changeable / (yellow and light blue)
 * **Alias**: `Pillar-Button`
 * **Spawned Reward Size**: `spawnedRewardSize` (Optional, defaults to 1)
+* **operations**: (Optional) A list of [operations](Operations-guide.md) to run on the agent that presses the button, as an alternative to `rewardNames` (defaults to none)
 
 Notes: Spawns a goal when the player/agent *interacts* with it by colliding with the physical button object (blue). The position of the spawned goal can be set with the a `!Vector3` passed to the `rewardSpawnPos` parameter. The probability that a goal will spawn upon a press can be set with a float between 0 and 1 passed to the `spawnProbability` parameter. Different valenced objects can be spawned on different presses. A list, such as `["GoodGoal", "BadGoal", "GoodGoalMulti"]` , can be passed to `rewardNames` to define the valenced objects (only these three are supported at the moment). A corresponding list of floats between 0 and 1 can be passed to the `rewardWeights` to determine the probability of spawning each of the types of valenced object. The probabilities are normalized to sum to one. The number of frames taken for the button to depress upon touching it can be defined with `moveDurations` , and the number of frames for the button to be reset before it can be pressed again can be set with `resetDurations`.
 

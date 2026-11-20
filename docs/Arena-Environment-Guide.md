@@ -201,6 +201,11 @@ Some objects have unique or special parameters that only apply to them or a sele
   + **Default:** 0 (no delay)
   + **Options:** n (delay of n frames)
 
+* **Teams**:
+  The agent's ML-Agents team (see the [Multi-Agent Guide](/docs/Multi-Agent-Guide.md)).
+  + **Applies to:** Agent
+  + **Default:** 0
+
 ### Goal-Related Parameters
 
 * **Delays**:
